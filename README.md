@@ -16,6 +16,7 @@ This project is a basic example of website using **React** with **Typescript** a
 ## Miembros del equipo
 <ul>
   <li>Lucía García Sopeña (uo271080)</li>
+  <li>Sergio Salgueiro Monforte (uo276843)</li>
 </ul>
 
 ## Quick start guide
