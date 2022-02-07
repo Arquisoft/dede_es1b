@@ -18,7 +18,8 @@ This project is a basic example of website using **React** with **Typescript** a
   <li>Lucía García Sopeña (uo271080)</li>
   <li>Sergio Salgueiro Monforte (uo276843)</li>
   <li>Héctor Lavandeira Fernández (uo277303)</li>
-  <li>Juan Domínguez Álvarez(uo277646)</li>
+  <li>Juan Domínguez Álvarez (uo277646)</li>
+  <li>Maria Gonzalez Otero (uo270235)</li>
 </ul>
 
 ## Quick start guide
