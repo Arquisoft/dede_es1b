@@ -13,7 +13,7 @@
 
 This project is a basic example of website using **React** with **Typescript** and an endpoint using **NodeJS** with **express**.
 
-## Miembros del equipo
+## Team Members
 <ul>
   <li>Lucía García Sopeña (uo271080)</li>
   <li>Sergio Salgueiro Monforte (uo276843)</li>
@@ -25,7 +25,7 @@ This project is a basic example of website using **React** with **Typescript** a
 ## Quick start guide
 <mark>In case you already have node.js and npm, make sure you update them before attempting to build the images</mark>
 
-If you want to execute the project you will need [git](https://git-scm.com/downloads), [Node.js and npm](https://www.npmjs.com/get-npm) and [Docker](https://docs.docker.com/get-docker/). Make sure the three of them are installed in your system. Download the project with `git clone https://github.com/arquisoft/dede_0`. The fastest way to launch everything is with docker:
+If you want to execute the project you will need [git](https://git-scm.com/downloads), [Node.js and npm](https://www.npmjs.com/get-npm) and [Docker](https://docs.docker.com/get-docker/). Make sure the three of them are installed in your system. Download the project with `git clone https://github.com/Arquisoft/dede_es1b`. The fastest way to launch everything is with docker:
 ```bash
 docker-compose up --build
 ```
