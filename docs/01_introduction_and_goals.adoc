@@ -3,9 +3,11 @@
 
 [role="arc42help"]
 ****
-We are going to develop desde, wich is an online sales system. 
+We are going to develop dede, wich is an online sales system. 
 
-Desde will respect the customers privacy following Solid principles, so the system will not store customers personal information but it will get the information with the pods as long as customers give necessary permissions.  
+Dede will respect the customers privacy following Solid principles, so the system will not store customers personal information but it will get the information with the pods as long as customers give necessary permissions.
+
+The theme of the online shop will be related to Asturias, so that the products sold will be typical of the region.
 
 
 ****
