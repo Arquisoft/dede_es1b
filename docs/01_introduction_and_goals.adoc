@@ -3,11 +3,11 @@
 
 [role="arc42help"]
 ****
-Describes the relevant requirements and the driving forces that software architects and development team must consider. These include
+We are going to develop desde, wich is an online sales system. 
 
-* underlying business goals, essential features and functional requirements for the system
-* quality goals for the architecture
-* relevant stakeholders and their expectations
+Desde will respect the customers privacy following Solid principles, so the system will not store customers personal information but it will get the information with the pods as long as customers give necessary permissions.  
+
+
 ****
 
 === Requirements Overview
@@ -15,7 +15,7 @@ Describes the relevant requirements and the driving forces that software archite
 [role="arc42help"]
 ****
 .Contents
-Short description of the functional requirements, driving forces, extract (or abstract)
+Short descwription of the functional requirements, driving forces, extract (or abstract)
 of requirements. Link to (hopefully existing) requirements documents
 (with version number and information where to find it).
 
