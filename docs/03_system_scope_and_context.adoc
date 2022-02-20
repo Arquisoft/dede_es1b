@@ -13,14 +13,6 @@ image:DiagramaNegocio.PNG["Fallo imagen"]
 **Tabla de contexto empresarial**
 [options="header",cols="1,2,2"]
 |===
-|Entities|Outputs|Inputs
-| _User of the app_ |_Services from the shop_ |_Tries to access to the shop._
-| _Shop_ | _La informacion solicitada al pod del usuario en concreto/Datos de la base para trabajar con ellos/Peticiones de acceso a la tienda de los usuarios._|_Peticiones de datos a la base/Peticiones informacion personal al POD/Servicios solicitados al usuario_
-| _POD_ |_La informacion personal desde el usuario/Las peticiones de esa informacion desde la tienda online_|La informacion que ha solicitado la tienda
-| _Base de datos_|_Peticiones de datos de la tienda_|_Los datos solicitados_
-|===
-
-|===
 |Entities|Inputs|Outputs
 | _User of the app_ |_Services from the shop_ |_Tries to access to the shop._
 | _Shop_ | _Return information requested/Information from database/Access request from user._|_Data request/Personal Information request from the POD/Servuces requested by user_
