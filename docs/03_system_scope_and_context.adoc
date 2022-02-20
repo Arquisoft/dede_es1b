@@ -3,7 +3,7 @@
 
 
 === Business Context
-The application we are going to develop will consist on an online shop of products from our province,SOLID will be integrated on the shop , providing a more secure way of storing personal information to the client.Also we will use a data base which will contain every information that the shop needs.
+The application we are going to develop will consist on an online shop of products from our province , SOLID will be integrated on the shop , providing a more secure way of storing personal information to the client.Also we will use a data base which will contain every information that the shop needs.
 
 
 **Diagrama de contexto empresarial**
@@ -22,19 +22,6 @@ image:DiagramaNegocio.PNG["Fallo imagen"]
 
 === Technical Context
 
-[role="arc42help"]
-****
-.Contents
-Technical interfaces (channels and transmission media) linking your system to its environment. In addition a mapping of domain specific input/output to the channels, i.e. an explanation with I/O uses which channel.
-
-.Motivation
-Many stakeholders make architectural decision based on the technical interfaces between the system and its context. Especially infrastructure or hardware designers decide these technical interfaces.
-
-.Form
-E.g. UML deployment diagram describing channels to neighboring systems,
-together with a mapping table showing the relationships between channels and input/output.
-
-****
 **Diagrama de contexto técnico**
 :imagesdir: images/
 image:DiagramaTecnico.PNG["Fallo imagen"]
