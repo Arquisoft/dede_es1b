@@ -1,19 +1,28 @@
 [[section-architecture-constraints]]
 == Architecture Constraints
 
+=== Technical Constraints
+[cols="1,1"]
+|===
+| |Constraint|Motivation
+|TC1|Implementation in TypeScript|The application must be implemented using TypeScript
+|TC2|Framework React|The application must be implemented using the framework React
+|===
 
-[role="arc42help"]
-****
-.Contents
-Any requirement that constrains software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
+=== Organizational Constraints
+[cols="1,1"]
+|===
+| |Constraint|Motivation
+|OC1|Team|Lucía García Sopeña, Sergio Salgueiro Monforte, Héctor Lavandeira Fernández, Juan Domínguez Álvarez and María González Otero
+|OC2|Time schedule|The application will be developed during the second semester of course 2021/22
+|OC3|Version management|Private git repository with a commit and pull request history
+|===
 
-.Motivation
-Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
-Constraints must always be dealt with; they may be negotiable, though.
-
-.Form
-Simple tables of constraints with explanations.
-If needed you can subdivide them into
-technical constraints, organizational and political constraints and
-conventions (e.g. programming or versioning guidelines, documentation or naming conventions)
-****
+=== Conventions
+[cols="1,1"]
+|===
+| |Convention|Motivation
+|C1|SOLID|The application must follow the SOLID principles in order to respect customer privacy
+|C2|Architecture documentation|Documentation structure must follow arc42 template
+|C3|Language|Documentation must be in english
+|===
