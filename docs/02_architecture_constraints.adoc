@@ -2,7 +2,7 @@
 == Architecture Constraints
 
 === Technical Constraints
-[cols="1,1"]
+[cols="1,2,2"]
 |===
 | |Constraint|Motivation
 |TC1|Implementation in TypeScript|The application must be implemented using TypeScript
@@ -10,7 +10,7 @@
 |===
 
 === Organizational Constraints
-[cols="1,1"]
+[cols="1,2,2"]
 |===
 | |Constraint|Motivation
 |OC1|Team|Lucía García Sopeña, Sergio Salgueiro Monforte, Héctor Lavandeira Fernández, Juan Domínguez Álvarez and María González Otero
@@ -19,7 +19,7 @@
 |===
 
 === Conventions
-[cols="1,1"]
+[cols="1,2,2"]
 |===
 | |Convention|Motivation
 |C1|SOLID|The application must follow the SOLID principles in order to respect customer privacy
