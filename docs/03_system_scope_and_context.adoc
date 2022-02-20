@@ -24,7 +24,7 @@ image:DiagramaNegocio.PNG["Fallo imagen"]
 
 **Diagrama de contexto técnico**
 :imagesdir: images/
-image:DiagramaTecnico.PNG["Fallo imagen"]
+image::DiagramaTecnico.PNG["Fallo imagen"]
 **Tabla de contexto técnico**
 [options="header",cols="1,2"]
 |===
@@ -35,7 +35,4 @@ image:DiagramaTecnico.PNG["Fallo imagen"]
 | _SOLID_|_Provides pod used by the app_
 |===
 
-**<optionally: Explanation of technical interfaces>**
-
-**<Mapping Input/Output to Channels>**
 
