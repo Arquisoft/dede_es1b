@@ -24,7 +24,7 @@ image:DiagramaNegocio.PNG["Fallo imagen"]
 
 **Diagrama de contexto técnico**
 :imagesdir: images/
-image::DiagramaTecnico.PNG["Fallo imagen"]
+image::DiagramaTecnico.png["Fallo imagen"]
 **Tabla de contexto técnico**
 [options="header",cols="1,2"]
 |===
