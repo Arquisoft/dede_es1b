@@ -2,42 +2,30 @@
 
 
 
-[role="arc42help"]
-****
-.Contents
-System scope and context - as the name suggests - delimits your system (i.e. your scope) from all its communication partners
-(neighboring systems and users, i.e. the context of your system). It thereby specifies the external interfaces.
-
-If necessary, differentiate the business context (domain specific inputs and outputs) from the technical context (channels, protocols, hardware).
-
-.Motivation
-The domain interfaces and technical interfaces to communication partners are among your system's most critical aspects. Make sure that you completely understand them.
-
-.Form
-Various options:
-
-* Context diagrams
-* Lists of communication partners and their interfaces.
-****
-
-
 === Business Context
+The application we are going to develop will consist on an online shop of products from our province,SOLID will be integrated on the shop , providing a more secure way of storing personal information to the client.Also we will use a data base which will contain every information that the shop needs.
 
-La aplicacion a desarrollar consistirá en una tienda de productos asturianos , en esta tienda se integrara SOLID, con lo que se permitira que los usuarios almacenen su informacion privada en los POD,
-securizando asi sus datos personales.Tambien se dispondra de una base de datos que almacenara todos los productos y informacion necesaria
-para la página web.
 
 **Diagrama de contexto empresarial**
+:imagesdir: images/
 image:DiagramaNegocio.PNG["Fallo imagen"]
 
 **Tabla de contexto empresarial**
 [options="header",cols="1,2,2"]
 |===
-|Entidades|Entradas|Salidas
-| _Usuario de la aplicacion_ |_Servicios aportados por la tienda_ |_Accede a la tienda y solicita servicios._
-| _Tienda productos asturianos_ | _La informacion solicitada al pod del usuario en concreto/Datos de la base para trabajar con ellos/Peticiones de acceso a la tienda de los usuarios._|_Peticiones de datos a la base/Peticiones informacion personal al POD/Servicios solicitados al usuario_
+|Entities|Outputs|Inputs
+| _User of the app_ |_Services from the shop_ |_Tries to access to the shop._
+| _Shop_ | _La informacion solicitada al pod del usuario en concreto/Datos de la base para trabajar con ellos/Peticiones de acceso a la tienda de los usuarios._|_Peticiones de datos a la base/Peticiones informacion personal al POD/Servicios solicitados al usuario_
 | _POD_ |_La informacion personal desde el usuario/Las peticiones de esa informacion desde la tienda online_|La informacion que ha solicitado la tienda
 | _Base de datos_|_Peticiones de datos de la tienda_|_Los datos solicitados_
+|===
+
+|===
+|Entities|Inputs|Outputs
+| _User of the app_ |_Services from the shop_ |_Tries to access to the shop._
+| _Shop_ | _Return information requested/Information from database/Access request from user._|_Data request/Personal Information request from the POD/Servuces requested by user_
+| _POD_ |_User personal info/Personal info requests from the app_|_Personal info requested by the app_
+| _Database_|_Data request by the shop_|_Data requested_
 |===
 
 === Technical Context
@@ -56,15 +44,16 @@ together with a mapping table showing the relationships between channels and inp
 
 ****
 **Diagrama de contexto técnico**
+:imagesdir: images/
 image:DiagramaTecnico.PNG["Fallo imagen"]
 **Tabla de contexto técnico**
 [options="header",cols="1,2"]
 |===
-|Elementos|Funcionalidad
-| _Usuario de la aplicacion_ |_Persona que realizara compras o busquedas sobre nuestra tienda online._
-| _Tienda online_ | _Aplicación web a la que accederán los usuarios_
-| _POD_ |_Se encarga de guardar la informacion de cada cliente_
-| _SOLID_|_Provee los pods que utilizara la aplicacion_
+|Elements|Functionality
+| _User_ |_The person who will search for things to buy on the shop._
+| _Online shop_ | _Web app that will provide the services_
+| _POD_ |_Will store every user personal information_
+| _SOLID_|_Provides pod used by the app_
 |===
 
 **<optionally: Explanation of technical interfaces>**
