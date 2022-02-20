@@ -9,4 +9,3 @@
 image:08_domainModel.PNG["Fallo imagen"]
 
 
-_<explanation>_
