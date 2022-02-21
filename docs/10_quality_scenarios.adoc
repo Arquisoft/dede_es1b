@@ -12,10 +12,14 @@ image:10_qualityTree.PNG["Fallo imagen"]
 
 .10.2 Quality Scenarios
 
-:imagesdir: images/
-image:10_qualityScenarios.PNG["Fallo imagen"]
+[options="header",cols="1,2,2,2"]
+|===
+|Ref|AQ|Scenario|Priority
+| _1_|_Testability_|_Application should be easily tested. This contributes to a fast discovering of errors._|_Low, High_
+| _2_ |_Confidentiality_|_Clients privacy is respected by using a Descentralized Delivery following the SOLID principles._|_High, Medium_
+| _3_ |_Usability_|_Application should be easily used and intuitive for all users._|_High, Medium_
+|===
 
-[role="arc42help"]
 ****
 
 ****
