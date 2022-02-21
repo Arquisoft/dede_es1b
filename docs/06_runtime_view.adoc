@@ -1,46 +1,23 @@
 [[section-runtime-view]]
 == Runtime View
 
-****
-
-****
 === Loggin
 Bob: Clicks on login button -> Dede: Displays the loggin form -> Bob: Complete username and password fields and confirm clicking on login button -> Dede: Gives welcome to Bob
 
-****
-
-
-****
 === Delete account
 Bob: Clicks on setting button -> Dede: Displays the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on delete account
 -> Dede: Shows message of advertation waiting for confirmation -> Bob: Confirms message
 
-****
-
-
-****
 === Change password
 Bob: Clicks on setting button -> Dede: Shows the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on change password
 -> Dede: Displays a form  -> Bob: Completes password and new password fields -> Dede: updates user's password if form was correct
 
-****
-
-
-****
 === Buying product
 Bob: Check the sections of products (no se como s esscribe) -> Dede: shows all sections in the menu->Bob:choose the food section ->Dede: shows the food section->Bob: add the product to the carrito  decides to only buy that one so click in buy  -> Dede: shows la pagina d compra >Bob: rellena datos de compra y ready
 
-****
-
-
-****
 === Check orders
 Bob: clicks on MyAccount button -> App: Displays MyAccount view -> Bob: Clicks on MyOrders section -> App: Displays view and charge on it all the orders made by that user
 
-****
-
-****
 === Save customer data:
 Bob: Complete the information requested for buying a product→ Dede: Ask if he wants to save the data for future buying-> Bob: answer yes ->Dede: save data in bob's pod
 
-****

@@ -3,19 +3,11 @@
 
 == Building Block View
 
-[role="arc42help"]
-****
-
-****
 === Scope and context
 :imagesdir: images/
 image:05_scopeAndContext.PNG["Fallo imagen"]
 
-****
-
-****
 === Level 1
 :imagesdir: images/
 image:05_level1.PNG["Fallo imagen"]
 
-****

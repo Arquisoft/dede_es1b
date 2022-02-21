@@ -6,12 +6,7 @@ We are going to develop dede, wich is an online sales system.
 Dede will respect the customers privacy following Solid principles, so the system will not store customers personal information but it will get the information with the pods as long as customers give necessary permissions.
 
 The theme of the online shop will be related to Asturias, so that the products sold will be typical of the region.
-[role="arc42help"]
-****
 
-
-
-****
 
 === Functional requirements
 
@@ -24,15 +19,11 @@ The theme of the online shop will be related to Asturias, so that the products s
 * The customer will be able to save orders as a draft without paying for them.
 * The system will save the address of the customer's last order to be used as the default address for subsequent orders.
 * The customer can delete orders from his order history.
-[role="arc42help"]
-****
 
-
-****
 
 === Quality Goals
 
-[options="header",cols="2"]
+[options="header",cols="1,2"]
 |===
 |Goal |Detail
 | Privacity | The customer will have all his data protected. 
@@ -40,11 +31,7 @@ The theme of the online shop will be related to Asturias, so that the products s
 | Usability | The application should be easy for customers to learn how to use.
 | Maintainability | The application will be able to accept changes easily.
 |===
-[role="arc42help"]
-****
 
-
-****
 
 === Stakeholders
 
@@ -56,6 +43,5 @@ The theme of the online shop will be related to Asturias, so that the products s
 | Teachers | They help in the realization of the project and are interested in its outcome
 | Other students | They recommend for the improvement of the application and get inspiration for their own applications.
 |===
-[role="arc42help"]
-****
+
 

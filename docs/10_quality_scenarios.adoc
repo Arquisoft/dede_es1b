@@ -1,22 +1,12 @@
 [[section-quality-scenarios]]
 == Quality Requirements
 
-****
-
-
-****
 === Quality Tree
 
 :imagesdir: images/
 image:10_qualityTree.PNG["Fallo imagen"]
 
-****
-
-****
 === Quality Scenarios
 
 :imagesdir: images/
 image:10_qualityScenarios.PNG["Fallo imagen"]
-
-
-****

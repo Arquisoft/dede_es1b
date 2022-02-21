@@ -1,50 +1,37 @@
 [[section-solution-strategy]]
 == Solution Strategy
-[role="arc42help"]
-****
 
-
-****
 === Technologies
-* React
+**React**
 
 React is an open source Javascript library designed to create user interfaces with the goal of facilitating the development of single page applications.
 
-* Solid
+**Solid**
 
 Solid is a specification that lets people store their data securely in decentralized data stores called Pods. Pods are like secure personal web servers for data. When data is stored in someone's Pod, they control which people and applications can Access it.
 
-* MongoDB
+**MongoDB**
 
 MongoDB is an open source, document-oriented, NoSQL database system. MongoDB stores BSON (a specification similar to JSON) data structures with a dynamic schema, making data integration in certain applications easier and faster.
-[role="arc42help"]
-****
 
-
-****
 === Key Quality Goals
-* Privacy
+**Privacy**
 
 The program must protect the privacy of clients following the SOLID principles. For this, the system will not store personal information of the clients, but will obtain said information from the users' pods as long as the users give the necessary permissions to the sales system.
 
-* Software quality
+**Software quality**
 
 We must develop quality software. An organized structure of packages is important in order to speed up access to the code we are looking for. We also use design and architectural patterns. To correctly understand the project, good documentation must be prepared that explains the functionalities of the system, as well as the use of comments.
-[role="arc42help"]
-****
 
-
-****
 === Organizational Decisions
 
-* Lenguage
+**Lenguage**
 
 The documentation will be in English for internationalization purposes. The work will be broken down into smaller tasks, which will be assigned to a member or a group. Most of the time, these tasks will be represented as issues on Github, and we assign them in group meetings.
 
-* Discord
+**Discord**
 
 Regular meetings will be organized. In these meetings all team members will discuss important development topics, such as important design/architectural decisions or the way of organizing a set of functionalities to be implemented, a change in documentation.
 
 These meetings will be in the weekly laboratory classes or telematically on the discord platform, because it allows to make calls from several users at the same time.
-[role="arc42help"]
-****
+
