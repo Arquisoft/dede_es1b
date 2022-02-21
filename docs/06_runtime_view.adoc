@@ -4,40 +4,22 @@
 
 [role="arc42help"]
 ****
-.Contents
-The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:
+.6.1. Loggin
+Bob: Clicks on login button -> Dede: Displays the loggin form -> Bob: Complete username and password fields and confirm clicking on login button -> Dede: Gives welcome to Bob
 
-* important use cases or features: how do building blocks execute them?
-* interactions at critical external interfaces: how do building blocks cooperate with users and neighboring systems?
-* operation and administration: launch, start-up, stop
-* error and exception scenarios
+.6.2. Delete account
+Bob: Clicks on setting button -> Dede: Displays the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on delete account
+-> Dede: Shows message of advertation waiting for confirmation -> Bob: Confirms message
 
-Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their *architectural relevance*. It is *not* important to describe a large number of scenarios. You should rather document a representative selection.
+.6.3. Change password
+Bob: Clicks on setting button -> Dede: Shows the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on change password
+-> Dede: Displays a form  -> Bob: Completes password and new password fields -> Dede: updates user's password if form was correct
 
-.Motivation
-You should understand how (instances of) building blocks of your system perform their job and communicate at runtime.
-You will mainly capture scenarios in your documentation to communicate your architecture to stakeholders that are less willing or able to read and understand the static models (building block view, deployment view).
+.6.4. Buying product
+Bob: Check the sections of products (no se como s esscribe) -> Dede: shows all sections in the menu->Bob:choose the food section ->Dede: shows the food section->Bob: add the product to the carrito  decides to only buy that one so click in buy  -> Dede: shows la pagina d compra >Bob: rellena datos de compra y ready
 
-.Form
-There are many notations for describing scenarios, e.g.
+.6.5. Check orders
+Bob: clicks on MyAccount button -> App: Displays MyAccount view -> Bob: Clicks on MyOrders section -> App: Displays view and charge on it all the orders made by that user
 
-* numbered list of steps (in natural language)
-* activity diagrams or flow charts
-* sequence diagrams
-* BPMN or EPCs (event process chains)
-* state machines
-* ...
-
-****
-
-=== <Runtime Scenario 1>
-
-
-* _<insert runtime diagram or textual description of the scenario>_
-* _<insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.>_
-
-
-=== ...
-
-=== <Runtime Scenario n>
+6.6. Save customer data:
+Bob: Complete the information requested for buying a product→ Dede: Ask if he wants to save the data for future buying-> Bob: answer yes ->Dede: save data in bob's pod
