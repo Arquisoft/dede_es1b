@@ -458,7 +458,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-system-scope-and-context">3. System Scope and Context</a>
 <ul class="sectlevel2">
 <li><a href="#_business_context">3.1. Business Context</a></li>
-<li><a href="#_technical_context">3.2. Technical Context</a></li>
+<li><a href="#_diagrama_de_contexto_empresarial">3.2. Diagrama de contexto empresarial</a></li>
+<li><a href="#_tabla_de_contexto_empresarial">3.3. Tabla de contexto empresarial</a></li>
+<li><a href="#_technical_context">3.4. Technical Context</a></li>
 </ul>
 </li>
 <li><a href="#section-solution-strategy">4. Solution Strategy</a>
@@ -765,9 +767,15 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="paragraph">
 <p>The application we are going to develop will consist on an online shop of products from our province , SOLID will be integrated on the shop , providing a more secure way of storing personal information to the client.Also we will use a data base which will contain every information that the shop needs.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_diagrama_de_contexto_empresarial">3.2. Diagrama de contexto empresarial</h3>
 <div class="paragraph">
 <p><span class="image"><img src="./images/DiagramaNegocio.PNG" alt="Fallo imagen"></span></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_tabla_de_contexto_empresarial">3.3. Tabla de contexto empresarial</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -806,10 +814,15 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </table>
 </div>
 <div class="sect2">
-<h3 id="_technical_context">3.2. Technical Context</h3>
+<h3 id="_technical_context">3.4. Technical Context</h3>
+<div class="sect3">
+<h4 id="_diagrama_de_contexto_técnico">3.4.1. Diagrama de contexto técnico</h4>
 <div class="paragraph">
 <p><span class="image"><img src="./images/DiagramaTecnico.PNG" alt="Fallo imagen"></span></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_tabla_de_contexto_técnico">3.4.2. Tabla de contexto técnico</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -844,16 +857,26 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="section-solution-strategy">4. Solution Strategy</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_technologies">4.1. Technologies</h3>
 <div class="paragraph">
+<p><strong>React</strong></p>
+</div>
+<div class="paragraph">
 <p>React is an open source Javascript library designed to create user interfaces with the goal of facilitating the development of single page applications.</p>
 </div>
 <div class="paragraph">
+<p><strong>Solid</strong></p>
+</div>
+<div class="paragraph">
 <p>Solid is a specification that lets people store their data securely in decentralized data stores called Pods. Pods are like secure personal web servers for data. When data is stored in someone&#8217;s Pod, they control which people and applications can Access it.</p>
+</div>
+<div class="paragraph">
+<p><strong>MongoDB</strong></p>
 </div>
 <div class="paragraph">
 <p>MongoDB is an open source, document-oriented, NoSQL database system. MongoDB stores BSON (a specification similar to JSON) data structures with a dynamic schema, making data integration in certain applications easier and faster.</p>
@@ -862,7 +885,13 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sect2">
 <h3 id="_key_quality_goals">4.2. Key Quality Goals</h3>
 <div class="paragraph">
+<p><strong>Privacy</strong></p>
+</div>
+<div class="paragraph">
 <p>The program must protect the privacy of clients following the SOLID principles. For this, the system will not store personal information of the clients, but will obtain said information from the users' pods as long as the users give the necessary permissions to the sales system.</p>
+</div>
+<div class="paragraph">
+<p><strong>Software quality</strong></p>
 </div>
 <div class="paragraph">
 <p>We must develop quality software. An organized structure of packages is important in order to speed up access to the code we are looking for. We also use design and architectural patterns. To correctly understand the project, good documentation must be prepared that explains the functionalities of the system, as well as the use of comments.</p>
@@ -871,7 +900,13 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sect2">
 <h3 id="_organizational_decisions">4.3. Organizational Decisions</h3>
 <div class="paragraph">
+<p><strong>Lenguage</strong></p>
+</div>
+<div class="paragraph">
 <p>The documentation will be in English for internationalization purposes. The work will be broken down into smaller tasks, which will be assigned to a member or a group. Most of the time, these tasks will be represented as issues on Github, and we assign them in group meetings.</p>
+</div>
+<div class="paragraph">
+<p><strong>Discord</strong></p>
 </div>
 <div class="paragraph">
 <p>Regular meetings will be organized. In these meetings all team members will discuss important development topics, such as important design/architectural decisions or the way of organizing a set of functionalities to be implemented, a change in documentation.</p>
