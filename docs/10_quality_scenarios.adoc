@@ -2,20 +2,14 @@
 == Quality Requirements
 
 
-[role="arc42help"]
-****
 
-.10.1. Quality Tree
+=== 10.1. Quality Tree
 
 :imagesdir: images/
 image:10_qualityTree.PNG["Fallo imagen"]
 
-.10.2 Quality Scenarios
+=== 10.2 Quality Scenarios
 
 :imagesdir: images/
 image:10_qualityScenarios.PNG["Fallo imagen"]
 
-[role="arc42help"]
-****
-
-****
