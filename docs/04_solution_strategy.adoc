@@ -4,7 +4,10 @@
 
 [role="arc42help"]
 ****
-.4.1. Technologies
+
+
+****
+=== 4.1. Technologies
 * React
 
 React is an open source Javascript library designed to create user interfaces with the goal of facilitating the development of single page applications.
@@ -17,9 +20,11 @@ Solid is a specification that lets people store their data securely in decentral
 
 MongoDB is an open source, document-oriented, NoSQL database system. MongoDB stores BSON (a specification similar to JSON) data structures with a dynamic schema, making data integration in certain applications easier and faster.
 
+****
 
 
-.4.2. Key Quality Goals
+****
+=== 4.2. Key Quality Goals
 * Privacy
 
 The program must protect the privacy of clients following the SOLID principles. For this, the system will not store personal information of the clients, but will obtain said information from the users' pods as long as the users give the necessary permissions to the sales system.
@@ -28,9 +33,11 @@ The program must protect the privacy of clients following the SOLID principles. 
 
 We must develop quality software. An organized structure of packages is important in order to speed up access to the code we are looking for. We also use design and architectural patterns. To correctly understand the project, good documentation must be prepared that explains the functionalities of the system, as well as the use of comments.
 
+****
 
 
-.4.3. Organizational Decisions
+****
+=== 4.3. Organizational Decisions
 
 * Lenguage
 
