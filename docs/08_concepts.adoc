@@ -1,9 +1,11 @@
 [[section-concepts]]
-== Cross-cutting Concepts
+== 8. Cross-cutting Concepts
+****
 
+****
 === 8.1. Domain Concepts
 :imagesdir: images/
 image:08_domainModel.PNG["Fallo imagen"]
-
+****
 
 
