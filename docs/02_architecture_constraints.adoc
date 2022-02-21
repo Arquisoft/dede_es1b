@@ -1,7 +1,9 @@
 [[section-architecture-constraints]]
+[role="arc42help"]
+
 == Architecture Constraints
 
-=== Technical Constraints
+.Technical Constraints
 [cols="1,2,2"]
 |===
 | |Constraint|Motivation
@@ -9,7 +11,7 @@
 |TC2|Framework React|The application must be implemented using the framework React
 |===
 
-=== Organizational Constraints
+.Organizational Constraints
 [cols="1,2,2"]
 |===
 | |Constraint|Motivation
@@ -18,7 +20,7 @@
 |OC3|Version management|Private git repository with a commit and pull request history
 |===
 
-=== Conventions
+.Conventions
 [cols="1,2,2"]
 |===
 | |Convention|Motivation
