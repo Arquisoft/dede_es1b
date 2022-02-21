@@ -2,6 +2,7 @@
 == Cross-cutting Concepts
 
 
+****
 [role="arc42help"]
 ****
 .8.1. Domain Concepts
@@ -9,3 +10,4 @@
 image:08_domainModel.PNG["Fallo imagen"]
 
 
+****
