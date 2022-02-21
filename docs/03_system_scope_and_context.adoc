@@ -1,6 +1,6 @@
 [[section-system-scope-and-context]]
 
-
+****
 
 === Business Context
 The application we are going to develop will consist on an online shop of products from our province , SOLID will be integrated on the shop , providing a more secure way of storing personal information to the client.Also we will use a data base which will contain every information that the shop needs.
@@ -38,4 +38,4 @@ image:DiagramaTecnico.PNG["Fallo imagen"]
 | _SOLID_|_Provides pod used by the app_
 |===
 
-
+****
