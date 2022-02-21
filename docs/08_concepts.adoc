@@ -18,7 +18,4 @@
 
 |===
 
-:imagesdir: images/
-image:08_domainModel.PNG["Fallo imagen"]
-
 
