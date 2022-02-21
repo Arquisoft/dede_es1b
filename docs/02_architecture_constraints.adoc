@@ -2,9 +2,6 @@
 [role="arc42help"]
 
 == Architecture Constraints
-****
-
-****
 
 === Technical Constraints
 [cols="1,2,2"]
@@ -25,10 +22,10 @@
 |OC2|Time schedule|The application will be developed during the second semester of course 2021/22
 |OC3|Version management|Private git repository with a commit and pull request history
 |===
-****
 
 ****
 
+****
 === Conventions
 [cols="1,2,2"]
 |===
@@ -37,4 +34,6 @@
 |C2|Architecture documentation|Documentation structure must follow arc42 template
 |C3|Language|Documentation must be in english
 |===
+
+
 ****
