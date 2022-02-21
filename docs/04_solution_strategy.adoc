@@ -1,7 +1,5 @@
 [[section-solution-strategy]]
 == Solution Strategy
-
-
 [role="arc42help"]
 ****
 
@@ -19,7 +17,7 @@ Solid is a specification that lets people store their data securely in decentral
 * MongoDB
 
 MongoDB is an open source, document-oriented, NoSQL database system. MongoDB stores BSON (a specification similar to JSON) data structures with a dynamic schema, making data integration in certain applications easier and faster.
-
+[role="arc42help"]
 ****
 
 
@@ -32,7 +30,7 @@ The program must protect the privacy of clients following the SOLID principles. 
 * Software quality
 
 We must develop quality software. An organized structure of packages is important in order to speed up access to the code we are looking for. We also use design and architectural patterns. To correctly understand the project, good documentation must be prepared that explains the functionalities of the system, as well as the use of comments.
-
+[role="arc42help"]
 ****
 
 
@@ -48,7 +46,5 @@ The documentation will be in English for internationalization purposes. The work
 Regular meetings will be organized. In these meetings all team members will discuss important development topics, such as important design/architectural decisions or the way of organizing a set of functionalities to be implemented, a change in documentation.
 
 These meetings will be in the weekly laboratory classes or telematically on the discord platform, because it allows to make calls from several users at the same time.
- 
-
-
+[role="arc42help"]
 ****
