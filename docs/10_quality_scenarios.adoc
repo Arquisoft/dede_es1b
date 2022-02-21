@@ -5,7 +5,7 @@
 
 
 ****
-=== 10.1. Quality Tree
+=== Quality Tree
 
 :imagesdir: images/
 image:10_qualityTree.PNG["Fallo imagen"]
@@ -13,7 +13,7 @@ image:10_qualityTree.PNG["Fallo imagen"]
 ****
 
 ****
-=== 10.2 Quality Scenarios
+=== Quality Scenarios
 
 :imagesdir: images/
 image:10_qualityScenarios.PNG["Fallo imagen"]
