@@ -1,66 +1,40 @@
 [[section-system-scope-and-context]]
 == System Scope and Context
 
-
-[role="arc42help"]
-****
-.Contents
-System scope and context - as the name suggests - delimits your system (i.e. your scope) from all its communication partners
-(neighboring systems and users, i.e. the context of your system). It thereby specifies the external interfaces.
-
-If necessary, differentiate the business context (domain specific inputs and outputs) from the technical context (channels, protocols, hardware).
-
-.Motivation
-The domain interfaces and technical interfaces to communication partners are among your system's most critical aspects. Make sure that you completely understand them.
-
-.Form
-Various options:
-
-* Context diagrams
-* Lists of communication partners and their interfaces.
-****
-
-
 === Business Context
+The application we are going to develop will consist on an online shop of products from our province , SOLID will be integrated on the shop , providing a more secure way of storing personal information to the client.Also we will use a data base which will contain every information that the shop needs.
 
-[role="arc42help"]
-****
-.Contents
-Specification of *all* communication partners (users, IT-systems, ...) with explanations of domain specific inputs and outputs or interfaces.
-Optionally you can add domain specific formats or communication protocols.
 
-.Motivation
-All stakeholders should understand which data are exchanged with the environment of the system.
+=== Diagrama de contexto empresarial
 
-.Form
-All kinds of diagrams that show the system as a black box and specify the domain interfaces to communication partners.
+:imagesdir: images/
+image:DiagramaNegocio.PNG["Fallo imagen"]
 
-Alternatively (or additionally) you can use a table.
-The title of the table is the name of your system, the three columns contain the name of the communication partner, the inputs, and the outputs.
-****
-
-**<Diagram or Table>**
-
-**<optionally: Explanation of external domain interfaces>**
+=== Tabla de contexto empresarial
+[options="header",cols="1,2,2"]
+|===
+|Entities|Inputs|Outputs
+| _User of the app_ |_Services from the shop_ |_Tries to access to the shop._
+| _Shop_ | _Return information requested/Information from database/Access request from user._|_Data request/Personal Information request from the POD/Servuces requested by user_
+| _POD_ |_User personal info/Personal info requests from the app_|_Personal info requested by the app_
+| _Database_|_Data request by the shop_|_Data requested_
+|===
 
 === Technical Context
 
-[role="arc42help"]
-****
-.Contents
-Technical interfaces (channels and transmission media) linking your system to its environment. In addition a mapping of domain specific input/output to the channels, i.e. an explanation with I/O uses which channel.
+==== Diagrama de contexto técnico
 
-.Motivation
-Many stakeholders make architectural decision based on the technical interfaces between the system and its context. Especially infrastructure or hardware designers decide these technical interfaces.
+:imagesdir: images/
+image:DiagramaTecnico.PNG["Fallo imagen"]
 
-.Form
-E.g. UML deployment diagram describing channels to neighboring systems,
-together with a mapping table showing the relationships between channels and input/output.
+==== Tabla de contexto técnico
+[options="header",cols="1,2"]
+|===
+|Elements|Functionality
+| _User_ |_The person who will search for things to buy on the shop._
+| _Online shop_ | _Web app that will provide the services_
+| _POD_ |_Will store every user personal information_
+| _SOLID_|_Provides pod used by the app_
+|===
 
-****
 
-**<Diagram or Table>**
-
-**<optionally: Explanation of technical interfaces>**
-
-**<Mapping Input/Output to Channels>**
