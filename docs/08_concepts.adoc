@@ -5,6 +5,19 @@
 [role="arc42help"]
 ****
 .8.1. Domain Concepts
+[options="header",cols="1,2"]
+|===
+|Domain Concept|Description
+| _Client_|_Stores the client data._ 
+| _User_ | _Stores the user data. The username and the password. It is associated to a client._
+| _Product_ |_Stores the products with the id, name, category, price and an optional description._
+| _Credit_card_|_Stores the bank data. It is associated to a specific client who will use it to pay the order._
+| _Product_pictures_|_Stores the pictures used to represent the products._
+| _shopping_card_|_Contains the products that are currently on the basket pending for the user’s confirmation._
+| _order_|_Stores the data of the order of a specific client._
+
+|===
+
 :imagesdir: images/
 image:08_domainModel.PNG["Fallo imagen"]
 
