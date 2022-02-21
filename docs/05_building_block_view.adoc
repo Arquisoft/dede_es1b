@@ -6,11 +6,15 @@
 [role="arc42help"]
 ****
 
-.5.1 Scope and context
+****
+=== 5.1 Scope and context
 :imagesdir: images/
 image:05_scopeAndContext.PNG["Fallo imagen"]
 
-.5.2 Level 1
+****
+
+****
+=== 5.2 Level 1
 :imagesdir: images/
 image:05_level1.PNG["Fallo imagen"]
 
