@@ -1,3 +1,4 @@
+
 [[section-runtime-view]]
 == Runtime View
 
@@ -13,11 +14,11 @@ Bob: Clicks on setting button -> Dede: Shows the settings menu -> Bob: Access to
 -> Dede: Displays a form  -> Bob: Completes password and new password fields -> Dede: updates user's password if form was correct
 
 === Buying product
-Bob: Check the sections of products (no se como s esscribe) -> Dede: shows all sections in the menu->Bob:choose the food section ->Dede: shows the food section->Bob: add the product to the carrito  decides to only buy that one so click in buy  -> Dede: shows la pagina d compra >Bob: rellena datos de compra y ready
+Bob: Checks the sections of products -> Dede: shows all sections in the menu->Bob:choose the food section ->Dede: shows the food section->Bob: add the product to the shopping cart and decides to only buy that one, so clicks in buy  -> Dede: displays form >Bob: fills the form and confirm 
 
 === Check orders
-Bob: clicks on MyAccount button -> App: Displays MyAccount view -> Bob: Clicks on MyOrders section -> App: Displays view and charge on it all the orders made by that user
+Bob: clicks on MyAccount button -> Dede: Displays MyAccount view -> Bob: Clicks on MyOrders section -> Dede: Displays view and charge on it all the orders made by that user
 
 === Save customer data:
-Bob: Complete the information requested for buying a product→ Dede: Ask if he wants to save the data for future buying-> Bob: answer yes ->Dede: save data in bob's pod
+Bob: Complete the information requested for buying a product → Dede: Ask if he wants to save the data for future buying-> Bob: answer yes ->Dede: save data in bob's pod
 
