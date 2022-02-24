@@ -505,7 +505,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
 </ul>
 </li>
-<li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
+<li><a href="#section-technical-risks">11. Risks and Technical Debts</a>
+<ul class="sectlevel2">
+<li><a href="#_possible_risks">11.1. Possible risks</a></li>
+<li><a href="#_technical_debts">11.2. Technical Debts</a></li>
+</ul>
+</li>
 <li><a href="#section-glossary">12. Glossary</a></li>
 </ul>
 </div>
@@ -724,6 +729,21 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <td class="tableblock halign-left valign-top"><p class="tableblock">Version management</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Private git repository with a commit and pull request history</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deliveries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">There will be 4 deliveries, one every three weeks, starting February 22, 2022</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OC5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Team meetings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The development team will hold at least one weekly meeting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OC6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Meeting minutes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The team must take minutes in every meeting</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -752,11 +772,6 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <td class="tableblock halign-left valign-top"><p class="tableblock">C2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Architecture documentation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Documentation structure must follow arc42 template</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">C3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Language</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Documentation must be in english</p></td>
 </tr>
 </tbody>
 </table>
@@ -1184,22 +1199,84 @@ here in this central section or whether you better document it locally
 <div class="sect1">
 <h2 id="section-technical-risks">11. Risks and Technical Debts</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_possible_risks">11.1. Possible risks</h3>
 <div class="paragraph">
-<div class="title">Contents</div>
-<p>A list of identified technical risks or technical debts, ordered by priority</p>
+<p>When implementing the application, risks may arise such as:</p>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Risk</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+<th class="tableblock halign-left valign-top">Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working in a group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We are not used to working in groups with so many people and on such large projects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Increase communication and keep track of each other&#8217;s tasks so as not to lose each other</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Github</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We have a very small github base</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Learning how all github operations work</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We cannot devote all available time to the project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Try to be organised and communicate in case of time constraints</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New technologies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">There are new technologies like Solid or React that we have never used before</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Learn the basics of them and help each other to improve learning.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_technical_debts">11.2. Technical Debts</h3>
 <div class="paragraph">
-<div class="title">Motivation</div>
-<p>“Risk management is project management for grown-ups” (Tim Lister, Atlantic Systems Guild.)</p>
+<p>As technical debts we consider that may arise:</p>
 </div>
-<div class="paragraph">
-<p>This should be your motto for systematic detection and evaluation of risks and technical debts in the architecture, which will be needed by management stakeholders (e.g. project managers, product owners) as part of the overall risk analysis and measurement planning.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explanation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solution</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low cohesion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When doing individual work there may be a lack of communication and not being able to connect the work.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Try to make the implementation as joint as possible to avoid these problems</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Robustness</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As we have little experience in some technologies, we could get an application with errors in some options</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More extensive testing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conflicts in github</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sometimes when merging everything together, a series of conflicts can arise that are difficult to resolve</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make good use of the functions provided by github and organise yourself well to prevent them.</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
