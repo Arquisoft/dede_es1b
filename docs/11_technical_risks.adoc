@@ -14,9 +14,9 @@ When implementing the application, risks may arise such as:
 
 
 As technical debts we consider that may arise:
- 
+[options="header",cols="1,2,1"]
 |===
-|Risk|Explanation|Solution
+|Technical debt|Explanation|Solution
 |Low cohesion |When doing individual work there may be a lack of communication and not being able to connect the work. |Try to make the implementation as joint as possible to avoid these problems
 | Robustness |As we have little experience in some technologies, we could get an application with errors in some options|More extensive testing
 |Conflicts in github|Sometimes when merging everything together, a series of conflicts can arise that are difficult to resolve|Make good use of the functions provided by github and organise yourself well to prevent them.
