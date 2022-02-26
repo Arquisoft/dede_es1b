@@ -1,10 +1,10 @@
 [[section-design-decisions]]
 == Design Decisions
 
-=== Documentation language
-
-
-=== Database system
-
-
-=== 
+[options="header",cols="1,2,2"]
+|===
+|Decission|Description|Pros|Cons|Status
+|Language|The documentation will be in English|Internationalization|More complex wording|Accepted
+|HSQLDB|An HSQLDB Database will be used|Portability of the database|It is a local database|Rejected
+|MongoDB|A MongoDB Database will be used|High speed, availability, simplicity, flexibility|High memory usage and limited data size|Accepted
+|===
