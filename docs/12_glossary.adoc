@@ -26,6 +26,19 @@ Potentially more columns in case you need translations.
 [options="header"]
 |===
 | Term         | Definition
-| <Term-1>     | <definition-1>
-| <Term-2>     | <definition-2>
+| Git    | is a version control software designed by Linus Torvalds, thinking about the efficiency, reliability and compatibility of application version maintenance when they have a large number of source code files.
+| JavaScript     | JavaScript
+is an interpreted programming language, dialect of the ECMAScript standard. It is defined as object-oriented, prototype-based, imperative, weakly typed, and dynamic.
+| TypeScript     | 
+TypeScript is a free and open source programming language developed and maintained by Microsoft.
+| MongoDB     | 
+  MongoDB (huge, "huge") is an open source, document-oriented, NoSQL database system.
+| POD     | POD means personal online data , it is an online container capable of storing personal information.
+TypeScript is a free and open source programming language developed and maintained by Microsoft.
+| SOLID     | 
+Solid is an exciting new project led by Prof. Tim Berners-Lee, inventor of the World Wide Web, taking place at MIT. The project aims to radically change the way Web applications work today, resulting in true data ownership as well as improved privacy.
+| Node | 
+Node.js is an open source, cross-platform runtime environment for the server layer (but not limited to) based on the JavaScript programming language, asynchronous, with data I/O in an event-driven architecture and based on Google's V8 engine.
+| React | 
+React (also called React.js or ReactJS) is an open source Javascript library designed to create user interfaces with the goal of facilitating the development of single-page applications. It is maintained by Facebook and the free software community. In the project there are more than a thousand free developers.
 |===
