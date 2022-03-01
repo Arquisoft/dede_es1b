@@ -3,14 +3,13 @@
 
 
 [role="arc42help"]
-****
 
-.10.1. Quality Tree
+=== Quality Tree
 
 :imagesdir: images/
 image:10_qualityTree.PNG["Fallo imagen"]
 
-.10.2 Quality Scenarios
+=== Quality Scenarios
 
 [options="header",cols="1,2,2,2"]
 |===
@@ -19,7 +18,3 @@ image:10_qualityTree.PNG["Fallo imagen"]
 | _2_ |_Confidentiality_|_Clients privacy is respected by using a Descentralized Delivery following the SOLID principles._|_High, Medium_
 | _3_ |_Usability_|_Application should be easily used and intuitive for all users._|_High, Medium_
 |===
-
-****
-
-****
