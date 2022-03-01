@@ -4,7 +4,8 @@
 
 [role="arc42help"]
 ****
-.8.1. Domain Concepts
+=== Domain Concepts
+
 [options="header",cols="1,2"]
 |===
 |Domain Concept|Description
