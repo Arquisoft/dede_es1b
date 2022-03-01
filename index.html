@@ -594,6 +594,21 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <li>
 <p>The customer can delete orders from his order history.</p>
 </li>
+<li>
+<p>The provider will be able to see the products he has in the shop and the statistics of each one of them.</p>
+</li>
+<li>
+<p>The provider will be able to unsubscribe from the shop and the system will delete all his products.</p>
+</li>
+<li>
+<p>The administrator may decide to place bids on products</p>
+</li>
+<li>
+<p>The administrator may ban customers and provider.</p>
+</li>
+<li>
+<p>The administrator will have the final decision on whether to place a product or not.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1141,40 +1156,47 @@ when your infrastructure is more complex.</p>
 <div class="sect1">
 <h2 id="section-design-decisions">9. Design Decisions</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<div class="title">Contents</div>
-<p>Important, expensive, large scale or risky architecture decisions including rationals.
-With "decisions" we mean selecting one alternative based on given criteria.</p>
-</div>
-<div class="paragraph">
-<p>Please use your judgement to decide whether an architectural decision should be documented
-here in this central section or whether you better document it locally
-(e.g. within the white box template of one building block).</p>
-</div>
-<div class="paragraph">
-<p>Avoid redundancy. Refer to section 4, where you already captured the most important decisions of your architecture.</p>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Stakeholders of your system should be able to comprehend and retrace your decisions.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Various options:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>List or table, ordered by importance and consequences or:</p>
-</li>
-<li>
-<p>more detailed in form of separate sections per decision</p>
-</li>
-<li>
-<p>ADR (architecture decision record) for every important decision</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Decission</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Language</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The documentation will be in English</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internationalization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More complex wording</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HSQLDB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An HSQLDB Database will be used</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Portability of the database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is a local database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rejected</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A MongoDB Database will be used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High speed, availability, simplicity, flexibility</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1248,16 +1270,18 @@ here in this central section or whether you better document it locally
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Risk</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Explanation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Solution</p></td>
+<th class="tableblock halign-left valign-top">Technical debt</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+<th class="tableblock halign-left valign-top">Solution</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Low cohesion</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">When doing individual work there may be a lack of communication and not being able to connect the work.</p></td>
@@ -1311,7 +1335,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-22 00:49:51 +0100
+Last updated 2022-03-02 00:44:36 +0100
 </div>
 </div>
 </body>
