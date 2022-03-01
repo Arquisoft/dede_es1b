@@ -3,7 +3,7 @@
 
 
 [role="arc42help"]
-****
+
 === Domain Concepts
 
 [options="header",cols="1,2"]
