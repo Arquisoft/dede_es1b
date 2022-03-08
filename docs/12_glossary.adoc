@@ -1,12 +1,9 @@
 [[section-glossary]]
 == Glossary
 
-
-
-[role="arc42help"]
-****
 .Contents
 The most important domain and technical terms that your stakeholders use when discussing the system.
+
 
 You can also see the glossary as source for translations if you work in multi-language teams.
 
@@ -42,3 +39,4 @@ Node.js is an open source, cross-platform runtime environment for the server lay
 | React | 
 React (also called React.js or ReactJS) is an open source Javascript library designed to create user interfaces with the goal of facilitating the development of single-page applications. It is maintained by Facebook and the free software community. In the project there are more than a thousand free developers.
 |===
+
