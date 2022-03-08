@@ -27,8 +27,7 @@ image:DiagramaNegocio.png["Fallo imagen"]
 === Technical Context
 
 ==== Technical Context diagram
-=======
-==== Diagrama de contexto técnico
+
 
 
 :imagesdir: images/
