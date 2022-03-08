@@ -5,12 +5,16 @@
 The application we are going to develop will consist on an online shop of products from our province , SOLID will be integrated on the shop , providing a more secure way of storing personal information to the client.Also we will use a data base which will contain every information that the shop needs.
 
 
-=== Diagrama de contexto empresarial
+
+=== Business Context diagram
+
 
 :imagesdir: images/
-image:DiagramaNegocio.PNG["Fallo imagen"]
+image:DiagramaNegocio.png["Fallo imagen"]
 
-=== Tabla de contexto empresarial
+
+=== Business Context table
+
 [options="header",cols="1,2,2"]
 |===
 |Entities|Inputs|Outputs
@@ -22,12 +26,17 @@ image:DiagramaNegocio.PNG["Fallo imagen"]
 
 === Technical Context
 
+==== Technical Context diagram
+=======
 ==== Diagrama de contexto técnico
 
-:imagesdir: images/
-image:DiagramaTecnico.PNG["Fallo imagen"]
 
-==== Tabla de contexto técnico
+:imagesdir: images/
+image:DiagramaTecnico.png["Fallo imagen"]
+
+
+==== Technical Context table
+
 [options="header",cols="1,2"]
 |===
 |Elements|Functionality
