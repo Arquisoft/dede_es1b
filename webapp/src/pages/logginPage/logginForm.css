@@ -1,3 +1,7 @@
+body{
+  background-image: url("../../fondoAsturias2.jpg");
+}
+
 .loggin-container {
     background-color: seagreen;
     display: flex;
@@ -7,3 +11,5 @@
     border-radius: 2rem;
 
   }
+
+  
