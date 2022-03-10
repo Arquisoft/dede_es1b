@@ -1,0 +1,9 @@
+.loggin-container {
+    background-color: seagreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: rgb(0, 0, 0);
+    border-radius: 2rem;
+
+  }
