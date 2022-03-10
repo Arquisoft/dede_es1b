@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+ 
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import type { AlertColor } from '@mui/material/Alert';
 import {addUser} from '../api/api';
+import Box from '@mui/material/Box';
 
 type EmailFormProps = {
   OnUserListChange: () => void;
@@ -19,6 +21,8 @@ function EmailForm(props: EmailFormProps): JSX.Element {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const [notificationStatus, setNotificationStatus] = useState(false);
   const [notification, setNotification] = useState<NotificationType>({severity:'success',message:''});
@@ -49,25 +53,32 @@ function EmailForm(props: EmailFormProps): JSX.Element {
   return (
     <>
       <form name="register" onSubmit={handleSubmit}>
+      <Box component="h2">Username: </Box>
+      
         <TextField
             required
             name="username"
-            label="Name" 
+            label="username" 
             variant="outlined"
             value={name}
             onChange={e => setName(e.target.value)}
             sx={{ my: 2 }}
           />
+      
+      <Box component="h2">Password: </Box>
         <TextField
           required
-          name="email"
-          label="Email" 
+          name="password"
+          label="password" 
           variant="outlined"
+          type="password"
           value={email}
           onChange={e => setEmail(e.target.value)}
           sx={{ my: 2 }}
         />
-        <Button variant="contained" type="submit" sx={{ my: 2 }}>Accept</Button>
+
+        <br></br>
+        <Button variant="contained" type="submit" sx={{ my: 2 }}>Iniciar sesión</Button>
       </form>
       <Snackbar open={notificationStatus} autoHideDuration={3000} onClose={()=>{setNotificationStatus(false)}}>
         <Alert severity={notification.severity} sx={{ width: '100%' }}>
