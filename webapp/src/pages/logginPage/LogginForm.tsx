@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import type { AlertColor } from '@mui/material/Alert';
-import {addUser} from '../api/api';
+import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 
 type EmailFormProps = {
@@ -51,23 +51,25 @@ function EmailForm(props: EmailFormProps): JSX.Element {
 
   return (
     <>
-      <form name="register" onSubmit={handleSubmit}>
-      <Box component="h2">Username: </Box>
-      
+      <div className='loggin-container'>
+      <form name="loggin" onSubmit={handleSubmit}>
+
+      <h2>Usuario:</h2>
+
         <TextField
             required
-            name="username"
+            name="Usuario"
             label="username" 
             variant="outlined"
-            value={name}
+            value={username}
             onChange={e => setUsername(e.target.value)}
             sx={{ my: 2 }}
           />
       
-      <Box component="h2">Password: </Box>
+        <h2>Contraseña:</h2>
         <TextField
           required
-          name="password"
+          name="Contraseña"
           label="password" 
           variant="outlined"
           type="password"
@@ -78,7 +80,11 @@ function EmailForm(props: EmailFormProps): JSX.Element {
 
         <br></br>
         <Button variant="contained" type="submit" sx={{ my: 2 }}>Iniciar sesión</Button>
-      </form>
+        <br></br>
+        <Button variant="contained" type="submit" sx={{ my: 2 }}>¿No tienes cuenta? Regístrate</Button>
+        </form>
+
+      </div>
       <Snackbar open={notificationStatus} autoHideDuration={3000} onClose={()=>{setNotificationStatus(false)}}>
         <Alert severity={notification.severity} sx={{ width: '100%' }}>
           {notification.message}
