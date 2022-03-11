@@ -4,6 +4,10 @@ import bp from 'body-parser';
 import promBundle from 'express-prom-bundle';
 import api from "./api"; 
 
+const mongoose= require('mongoose');
+const conectionString = 'mongodb+srv://uo276843:ADMSIS123$@databasepasturianosy.pzy6r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'; 
+
+
 const app: Application = express();
 const port: number = 5000;
 
@@ -24,4 +28,18 @@ app.listen(port, ():void => {
 }).on("error",(error:Error)=>{
     console.error('Error occured: ' + error.message);
 });
+
+mongoose.connect(conectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFinAndModify:false,
+  useCreateIndex:true
+})
+.then(() => {
+  console.log("Database connected");
+})
+.catch((err: Error) => {
+  console.error(err);
+});
+
 
