@@ -7,6 +7,7 @@ import Alert from '@mui/material/Alert';
 import type { AlertColor } from '@mui/material/Alert';
 import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
+import logo from '../../logoAsturShop.png'
 
 type EmailFormProps = {
   OnUserListChange: () => void;
@@ -51,10 +52,13 @@ function EmailForm(props: EmailFormProps): JSX.Element {
 
   return (
     <>
+
       <div className='loggin-container'>
       <form name="loggin" onSubmit={handleSubmit}>
 
-      <h2>Usuario:</h2>
+      <div className='loggin-content'>
+      <h3>Usuario:</h3>
+      <div className='field-container'>
 
         <TextField
             required
@@ -65,8 +69,10 @@ function EmailForm(props: EmailFormProps): JSX.Element {
             onChange={e => setUsername(e.target.value)}
             sx={{ my: 2 }}
           />
-      
-        <h2>Contraseña:</h2>
+      </div>
+      <div className='field-container'>
+   
+        <h3>Contraseña:</h3>
         <TextField
           required
           name="Contraseña"
@@ -77,13 +83,18 @@ function EmailForm(props: EmailFormProps): JSX.Element {
           onChange={e => setPassword(e.target.value)}
           sx={{ my: 2 }}
         />
+        </div>    
 
-        <br></br>
-        <Button variant="contained" type="submit" sx={{ my: 2 }}>Iniciar sesión</Button>
-        <br></br>
-        <Button variant="contained" type="submit" sx={{ my: 2 }}>¿No tienes cuenta? Regístrate</Button>
+        <div className='buttons'>
+           <br></br>
+           <Button variant="contained" type="submit" sx={{ my: 2 }}>Iniciar sesión</Button>
+           <br></br>
+           <Button variant="contained" type="submit" sx={{ my: 2 }}>¿No tienes cuenta? Regístrate</Button>
+           </div>
+        </div>
+        
         </form>
-
+        
       </div>
       <Snackbar open={notificationStatus} autoHideDuration={3000} onClose={()=>{setNotificationStatus(false)}}>
         <Alert severity={notification.severity} sx={{ width: '100%' }}>
