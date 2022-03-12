@@ -24,7 +24,7 @@ function App(): JSX.Element {
 
   return (
     <>
-            <MenuBar></MenuBar>
+      <MenuBar></MenuBar>
 
       <Container maxWidth="sm">
       <br></br><br></br> <br></br>
