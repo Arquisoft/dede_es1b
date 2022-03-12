@@ -26,8 +26,7 @@ function App(): JSX.Element {
             <MenuBar></MenuBar>
 
       <Container maxWidth="sm">
-      <br></br>        <br></br>
-      <br></br>
+      <br></br><br></br> <br></br>
 
         <LogginForm OnUserListChange={refreshUserList}/>        
         <UserList users={users}/>
