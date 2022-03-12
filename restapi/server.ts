@@ -5,7 +5,7 @@ import promBundle from 'express-prom-bundle';
 import api from "./api"; 
 
 const mongoose= require('mongoose');
-const conectionString = 'mongodb+srv://uo276843:ADMSIS123$@databasepasturianosy.pzy6r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'; 
+const conectionString = process.env.MONGO_DB_URI;
 
 
 const app: Application = express();
