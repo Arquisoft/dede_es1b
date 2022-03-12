@@ -59,7 +59,7 @@ function EmailForm(props: EmailFormProps): JSX.Element {
       <div className='loggin-content'>
       <h3>Usuario:</h3>
       <div className='field-container'>
-
+      
         <TextField
             required
             name="Usuario"

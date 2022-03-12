@@ -9,6 +9,7 @@ import MenuBar from './pages/menuBar';
 import {User} from './shared/shareddtypes';
 import './App.css';
 
+
 function App(): JSX.Element {
 
   const [users,setUsers] = useState<User[]>([]);
