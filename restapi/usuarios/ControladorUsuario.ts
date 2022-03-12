@@ -1,5 +1,5 @@
 import {RequestHandler} from "express";
-import{modeloUsuario} from "./ModelUsuario";
+import{modeloUsuario} from "./modeloUsuario";
 
 export const getUsuarios:RequestHandler=async (required,resultado)=>{
     try{

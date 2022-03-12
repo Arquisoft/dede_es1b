@@ -11,7 +11,7 @@ const schemaUsuario=new Schema({
 })
 schemaUsuario.set('toJSON',{
     transform:(objeto1:any,objeto2:any)=>{
-        objeto2.id=objeto1._id
+        objeto2.id=objeto2._id
         delete objeto2._id
         delete objeto2.__v
     }
