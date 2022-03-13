@@ -6,6 +6,7 @@ const router:Router = express.Router()
 
 router.get('/Usuarios/list',
  ControladorUsuario.getUsuarios);
+router.post('/login',ControladorUsuario.checkUsuario);
 
  
 

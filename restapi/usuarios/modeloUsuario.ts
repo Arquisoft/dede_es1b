@@ -6,7 +6,8 @@ const schemaUsuario=new Schema({
     name:String,
     surname:String,
     usuario:String,
-    contraseña:String,
+    contrasenia:String,
+    correo:String,
 
 })
 schemaUsuario.set('toJSON',{
