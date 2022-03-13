@@ -1,7 +1,7 @@
 .lista {
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 20px;
-    column-gap: 40px;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 35px;
+    column-gap: 30px;
 }
 

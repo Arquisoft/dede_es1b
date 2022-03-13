@@ -21,15 +21,18 @@ function CardProducto(props: ProdProps) {
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
             component="img"
-            height="140"
+            height="240"
             image={imagen}
             alt={props.producto.nombre}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography variant="h6" component="div">
               {props.producto.nombre}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography gutterBottom variant="subtitle1" color="text.secondary">
+              {props.producto.categoria}
+            </Typography>
+            <Typography variant="body1">
               {props.producto.descripcion}
             </Typography>
             <Typography variant="h6" color="blue">
