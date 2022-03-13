@@ -8,7 +8,7 @@ import  {getUsers} from './api/api';
 import MenuBar from './pages/menuBar';
 import {User} from './shared/shareddtypes';
 import './App.css';
-
+import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
 
 function App(): JSX.Element {
 
@@ -28,8 +28,7 @@ function App(): JSX.Element {
 
       <Container maxWidth="sm">
       <br></br><br></br> <br></br>
-
-        <LogginForm OnUserListChange={refreshUserList}/>        
+      <Bienvenida></Bienvenida>
         <UserList users={users}/>
       </Container>
     </>
