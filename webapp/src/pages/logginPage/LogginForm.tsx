@@ -9,7 +9,8 @@ import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logoAsturShop.png'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
+import MenuBar from "../menuBar";
+import {useNavigate} from 'react-router-dom';
 
 type EmailFormProps = {
   OnUserListChange: () => void;
@@ -28,6 +29,7 @@ function EmailForm(): JSX.Element {
   const [notificationStatus, setNotificationStatus] = useState(false);
   const [notification, setNotification] = useState<NotificationType>({severity:'success',message:''});
   
+  const navigate = useNavigate();
 
   
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -53,7 +55,8 @@ function EmailForm(): JSX.Element {
 
   return (
     <>
-
+      <MenuBar></MenuBar>
+      <br></br><br></br>
       <div className='loggin-container'>
       <form name="loggin" onSubmit={handleSubmit}>
 
@@ -88,9 +91,9 @@ function EmailForm(): JSX.Element {
 
         <div className='buttons'>
            <br></br>
-           <Button variant="contained" type="submit" sx={{ my: 2 }}>Iniciar sesión</Button>
+           <Button variant="contained"  type="submit" sx={{ my: 2 }}>Iniciar sesión</Button>
            <br></br>
-           <Button variant="contained" type="submit" sx={{ my: 2 }}>¿No tienes cuenta? Regístrate</Button>
+           <Button variant="contained" onClick={() => navigate("/registro")} type="submit" sx={{ my: 2 }}>¿No tienes cuenta? Regístrate</Button>
            </div>
         </div>
         

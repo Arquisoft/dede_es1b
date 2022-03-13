@@ -18,11 +18,6 @@ type NotificationType = {
   message: string;
 }
 
-export const RegistroComponent = () => (
-  <div className="registro">
-    Inside Registro route
-  </div>
- );
 
 function RegisterForm(): JSX.Element {
 

@@ -9,7 +9,7 @@ import MenuBar from './pages/menuBar';
 import {User} from './shared/shareddtypes';
 import './App.css';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
-import Registro from './pages/registroPage/RegistroForm';
+import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
@@ -29,13 +29,11 @@ function App(): JSX.Element {
     <>        
 
     <BrowserRouter>
-      <div className="app-container">
         <Routes>
           <Route path="/" element={<Bienvenida/>}/>
           <Route path="/loggin" element={<LogginForm />} />
           <Route path="/registro" element={<Registro />} />
           </Routes>
-      </div>
       </BrowserRouter>
   </>
   );

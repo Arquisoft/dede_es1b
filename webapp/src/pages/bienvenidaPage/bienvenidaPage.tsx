@@ -8,6 +8,7 @@ import type { AlertColor } from '@mui/material/Alert';
 import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logo.svg'
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -18,6 +19,7 @@ import logo from '../../logo.svg'
 function Bienvenida(): JSX.Element {
 
 
+  const navigate = useNavigate();
 
 
   return (
@@ -27,7 +29,7 @@ function Bienvenida(): JSX.Element {
 
           <br></br> <br></br> <br></br> <br></br> <br></br>
 
-    <a className="boton" href="https://www.youtube.com/watch?v=oprUJwZpQ1E" target="_blank">Empezar</a>
+         <a className="boton"  onClick={() => navigate("/loggin")}  target="_blank">Empezar</a>
      
     </>
   );
