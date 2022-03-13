@@ -43,6 +43,8 @@ function ListaProductos(props: ListaProductosProps) {
             <CardProducto producto={product1}></CardProducto>
             <CardProducto producto={product2}></CardProducto>
             <CardProducto producto={product3}></CardProducto>
+            <CardProducto producto={product2}></CardProducto>
+            <CardProducto producto={product1}></CardProducto>
         </div>
     );
 }

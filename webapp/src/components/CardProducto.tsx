@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Producto } from "../api/modelo/producto";
+import IconButton from '@mui/material/IconButton';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Button from '@mui/material/Button';
 
 type ProdProps = {
@@ -20,7 +22,7 @@ function CardProducto(props: ProdProps) {
           <CardMedia
             component="img"
             height="140"
-            image={props.producto.imagen}
+            image={imagen}
             alt={props.producto.nombre}
           />
           <CardContent>
@@ -35,7 +37,9 @@ function CardProducto(props: ProdProps) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Añadir al carrito</Button>
+            <IconButton color="primary" aria-label="add to shopping cart">
+              <AddShoppingCartIcon />
+            </IconButton>
           </CardActions>
         </Card>
       );
