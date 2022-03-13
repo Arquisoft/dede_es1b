@@ -1,5 +1,5 @@
 import "./homepage.css";
-import ItemView from '../components/ItemView';
+import ListaProductos from '../components/ListaProductos';
 
 function Init(): JSX.Element {
 
@@ -7,9 +7,7 @@ function Init(): JSX.Element {
     return (
         <div className="encabezado">
             <h1>AsturShop</h1>
-            <div className="productos">
-                <ItemView></ItemView>
-            </div>
+            <ListaProductos/>
         </div>
     );
 }

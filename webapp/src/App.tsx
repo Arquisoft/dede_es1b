@@ -6,9 +6,11 @@ import EmailForm from './components/EmailForm';
 import Welcome from './components/Welcome';
 import UserList from './components/UserList';
 import Homepage from './pages/Homepage';
+import CardProducto from './components/CardProducto';
 import  {getUsers} from './api/api';
 import {User} from './shared/shareddtypes';
 import './App.css';
+import {Producto} from './api/modelo/producto';
 
 function App(): JSX.Element {
 
@@ -24,7 +26,7 @@ function App(): JSX.Element {
 
   return (
     <>
-      <Container maxWidth="sm">
+      <Container>
         <Homepage/>
       </Container>
     </>

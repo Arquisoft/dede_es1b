@@ -1,4 +1,4 @@
-.encabezado {
+h1 {
     font-family: '', cursive, sans-serif;
     color: lightskyblue;
     text-align: left;
@@ -6,8 +6,3 @@
     font-size: 45px;
 }
 
-.productos {
-    display: grid;
-    grid-gap: 20px;
-    column-gap: 40px;
-}
