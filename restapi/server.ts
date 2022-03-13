@@ -1,3 +1,4 @@
+require("dotenv").config();
 import express, { Application, RequestHandler } from "express";
 import cors from 'cors';
 import bp from 'body-parser';
@@ -10,7 +11,7 @@ import routerProducto from "./productos/routerProductos";
 
 
 const mongoose = require("mongoose");
-const conectionString ='mongodb+srv://uo277646:ADMSIS123$@databasepasturianosy.pzy6r.mongodb.net/dataBase1?retryWrites=true&w=majority';
+const conectionString =process.env.URI_MONGO;
 
 
 const app: Application = express();
