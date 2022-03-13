@@ -1,5 +1,6 @@
 import express, { Request, Response, Router } from 'express';
 import {check} from 'express-validator';
+import * as ControladorProducto from './productos/controladorProducto';
 
 const api:Router = express.Router()
 
@@ -32,5 +33,8 @@ api.post(
     return res.sendStatus(200);
   }
 );
+
+api.get('/products/list',
+ ControladorProducto.getProductos);
 
 export default api;
