@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
-import LogginForm from './pages/logginPage/LogginForm';
 import UserList from './components/UserList';
 import  {getUsers} from './api/api';
 import MenuBar from './pages/menuBar';
 import {User} from './shared/shareddtypes';
 import './App.css';
+import Registro, { RegistroComponent } from './pages/registroPage/registro'
+import { BrowserRouter,Routes, Route, Navigate } from "react-router-dom";
+import LogginForm, {LogginComponent} from './pages/logginPage/LogginForm';
 
 
 function App(): JSX.Element {
@@ -24,15 +26,14 @@ function App(): JSX.Element {
 
   return (
     <>
-      <MenuBar></MenuBar>
+    <MenuBar></MenuBar>
 
       <Container maxWidth="sm">
-      <br></br><br></br> <br></br>
+    <br></br><br></br> <br></br>
 
-        <LogginForm OnUserListChange={refreshUserList}/>        
-        <UserList users={users}/>
-      </Container>
-    </>
+      <LogginForm></LogginForm>        
+    </Container>
+</>  
   );
 }
 

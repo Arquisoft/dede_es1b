@@ -9,16 +9,19 @@ import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logoAsturShop.png'
 
-type EmailFormProps = {
-  OnUserListChange: () => void;
-}
 
 type NotificationType = {
   severity: AlertColor,
   message: string;
 }
 
-function EmailForm(props: EmailFormProps): JSX.Element {
+export const LogginComponent = () => (
+  <div className="loggin">
+    Inside Loggin route
+  </div>
+ );
+ 
+function LogginForm(): JSX.Element {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +29,7 @@ function EmailForm(props: EmailFormProps): JSX.Element {
   const [notificationStatus, setNotificationStatus] = useState(false);
   const [notification, setNotification] = useState<NotificationType>({severity:'success',message:''});
   
-
+  
   
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,7 +42,6 @@ function EmailForm(props: EmailFormProps): JSX.Element {
         message:'You have been registered in the system!'
       });
       //Notify the change to the parent component
-      props.OnUserListChange();
     }
     else{
       setNotificationStatus(true);
@@ -105,4 +107,4 @@ function EmailForm(props: EmailFormProps): JSX.Element {
   );
 }
 
-export default EmailForm;
+export default LogginForm;
