@@ -8,6 +8,8 @@ import type { AlertColor } from '@mui/material/Alert';
 import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logoAsturShop.png'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 
 type EmailFormProps = {
   OnUserListChange: () => void;
@@ -18,7 +20,7 @@ type NotificationType = {
   message: string;
 }
 
-function EmailForm(props: EmailFormProps): JSX.Element {
+function EmailForm(): JSX.Element {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -39,7 +41,6 @@ function EmailForm(props: EmailFormProps): JSX.Element {
         message:'You have been registered in the system!'
       });
       //Notify the change to the parent component
-      props.OnUserListChange();
     }
     else{
       setNotificationStatus(true);

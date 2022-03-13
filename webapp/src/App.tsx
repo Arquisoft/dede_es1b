@@ -10,6 +10,8 @@ import {User} from './shared/shareddtypes';
 import './App.css';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
 import Registro from './pages/registroPage/RegistroForm';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 function App(): JSX.Element {
 
@@ -24,15 +26,18 @@ function App(): JSX.Element {
   },[]);
 
   return (
-    <>
-      <MenuBar></MenuBar>
+    <>        
 
-      <Container maxWidth="sm">
-      <br></br><br></br> <br></br>
-      <Registro></Registro>
-        <UserList users={users}/>
-      </Container>
-    </>
+    <BrowserRouter>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<Bienvenida/>}/>
+          <Route path="/loggin" element={<LogginForm />} />
+          <Route path="/registro" element={<Registro />} />
+          </Routes>
+      </div>
+      </BrowserRouter>
+  </>
   );
 }
 
