@@ -3,9 +3,14 @@ import cors from 'cors';
 import bp from 'body-parser';
 import promBundle from 'express-prom-bundle';
 import api from "./api"; 
+import routerUsuario from "./usuarios/routerUsuario";
+import routerProducto from "./productos/routerProductos";
 
-const mongoose= require('mongoose');
-const conectionString = process.env.MONGO_DB_URI;
+
+
+
+const mongoose = require("mongoose");
+const conectionString ='mongodb+srv://uo277646:ADMSIS123$@databasepasturianosy.pzy6r.mongodb.net/dataBase1?retryWrites=true&w=majority';
 
 
 const app: Application = express();
@@ -21,7 +26,9 @@ app.use(metricsMiddleware);
 app.use(cors(options));
 app.use(bp.json());
 
-app.use("/api", api)
+//app.use("/api", api)
+app.use(routerUsuario);
+app.use(routerProducto);
 
 app.listen(port, ():void => {
     console.log('Restapi listening on '+ port);
@@ -32,8 +39,7 @@ app.listen(port, ():void => {
 mongoose.connect(conectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFinAndModify:false,
-  useCreateIndex:true
+
 })
 .then(() => {
   console.log("Database connected");

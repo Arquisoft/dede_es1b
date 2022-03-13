@@ -18,4 +18,4 @@ schemaUsuario.set('toJSON',{
 })
 
 
-export const modeloUsuario=mongoose.model('Usuario',schemaUsuario)
+export const modeloUsuario=mongoose.model('Usuarios',schemaUsuario)

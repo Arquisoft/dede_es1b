@@ -4,7 +4,7 @@ import * as ControladorUsuario from './ControladorUsuario';
 
 const router:Router = express.Router()
 
-router.get('/usuarios/list',
+router.get('/Usuarios/list',
  ControladorUsuario.getUsuarios);
 
  

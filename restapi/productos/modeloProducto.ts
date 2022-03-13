@@ -21,4 +21,4 @@ producto.set('toJSON',{
 })
 
 
-export const modeloProducto = mongoose.model('Producto', producto)
+export const modeloProducto = mongoose.model('Productos', producto)
