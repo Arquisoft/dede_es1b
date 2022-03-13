@@ -1,5 +1,5 @@
 import CardProducto from './CardProducto';
-import { Producto } from '../api/modelo/producto';
+import { Producto } from '../../api/modelo/producto';
 import "./ListaProductos.css";
 
 type ListaProductosProps = {

@@ -1,5 +1,5 @@
 import "./homepage.css";
-import ListaProductos from '../components/ListaProductos';
+import ListaProductos from './ListaProductos';
 
 function Init(): JSX.Element {
 

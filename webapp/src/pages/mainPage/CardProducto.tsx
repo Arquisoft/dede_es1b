@@ -4,7 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Producto } from "../api/modelo/producto";
+import { Producto } from "../../api/modelo/producto";
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Button from '@mui/material/Button';
@@ -15,7 +15,7 @@ type ProdProps = {
 
 function CardProducto(props: ProdProps) {
 
-    let imagen: string = require("../images/" + props.producto.imagen + ".jpg");
+    let imagen: string = require("../../images/" + props.producto.imagen + ".jpg");
 
     return (
         <Card sx={{ maxWidth: 345 }}>
