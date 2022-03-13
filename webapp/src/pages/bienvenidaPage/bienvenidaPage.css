@@ -1,0 +1,23 @@
+body{
+  background-image: url("../../asturiasFondoBulnes.jpg");
+}
+
+
+.boton {
+  border: 10px solid #daad1c; /*anchura, estilo y color borde*/
+  padding: 100px; /*espacio alrededor texto*/
+  background-color: #2e518b; /*color botón*/
+  color: #ffffff; /*color texto*/
+  text-decoration: dashed; /*decoración texto*/
+  text-transform: uppercase; /*capitalización texto*/
+  font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+  border-radius: 50px; /*bordes redondos*/
+  }
+
+  h1{
+    font-size: 60px;
+    font-family: fantasy;
+    align-content: center;
+    text-transform: uppercase; /*capitalización texto*/
+
+  }

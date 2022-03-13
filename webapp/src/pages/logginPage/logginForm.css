@@ -1,0 +1,31 @@
+body{
+  background-image: url("../../fondoAsturias2.jpg");
+}
+
+.loggin-container {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: rgb(0, 0, 0);
+  border-radius: 2rem;
+  box-shadow: 0px 0px 3rem rgba(46, 45, 45, 0.192);
+  max-width: "sm";
+}
+
+
+.field-container{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width:100%;
+}
+
+.buttons{
+  align-items: center;
+
+}
+
+ 
+
+  

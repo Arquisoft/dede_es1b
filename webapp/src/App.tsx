@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
-import EmailForm from './components/EmailForm';
-import Welcome from './components/Welcome';
+import LogginForm from './pages/logginPage/LogginForm';
 import UserList from './components/UserList';
 import Homepage from './pages/Homepage';
 import CardProducto from './components/CardProducto';
 import  {getUsers} from './api/api';
+import MenuBar from './pages/menuBar';
 import {User} from './shared/shareddtypes';
 import './App.css';
+import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
+import Registro from './pages/registroPage/registro';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {Producto} from './api/modelo/producto';
 
 function App(): JSX.Element {
@@ -25,11 +28,17 @@ function App(): JSX.Element {
   },[]);
 
   return (
-    <>
-      <Container>
-        <Homepage/>
-      </Container>
-    </>
+    <>        
+
+    <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Bienvenida/>}/>
+          <Route path="/loggin" element={<LogginForm />} />
+          <Route path="/registro" element={<Registro />} />
+          </Routes>
+      </BrowserRouter>
+  </>
+
   );
 }
 
