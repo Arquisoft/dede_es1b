@@ -19,6 +19,11 @@ The theme of the online shop will be related to Asturias, so that the products s
 * The customer will be able to save orders as a draft without paying for them.
 * The system will save the address of the customer's last order to be used as the default address for subsequent orders.
 * The customer can delete orders from his order history.
+* The provider will be able to see the products he has in the shop and the statistics of each one of them.
+* The provider will be able to unsubscribe from the shop and the system will delete all his products.
+* The administrator may decide to place bids on products
+* The administrator may ban customers and provider.
+* The administrator will have the final decision on whether to place a product or not.
 
 
 === Quality Goals

@@ -1,14 +1,23 @@
 [[section-technical-risks]]
 == Risks and Technical Debts
+=== Possible risks
+When implementing the application, risks may arise such as:
+[options="header",cols="1,2,1"]
+|===
+|Risk|Explanation|Solution
+| Working in a group | We are not used to working in groups with so many people and on such large projects|Increase communication and keep track of each other's tasks so as not to lose each other
+| Github | We have a very small github base | Learning how all github operations work
+| Time management | We cannot devote all available time to the project| Try to be organised and communicate in case of time constraints
+|New technologies |There are new technologies like Solid or React that we have never used before|Learn the basics of them and help each other to improve learning.
+|===
+=== Technical Debts
 
-.Contents
-A list of identified technical risks or technical debts, ordered by priority
 
-.Motivation
-“Risk management is project management for grown-ups” (Tim Lister, Atlantic Systems Guild.) 
-
-This should be your motto for systematic detection and evaluation of risks and technical debts in the architecture, which will be needed by management stakeholders (e.g. project managers, product owners) as part of the overall risk analysis and measurement planning.
-
-.Form
-List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.
-
+As technical debts we consider that may arise:
+[options="header",cols="1,2,1"]
+|===
+|Technical debt|Explanation|Solution
+|Low cohesion |When doing individual work there may be a lack of communication and not being able to connect the work. |Try to make the implementation as joint as possible to avoid these problems
+| Robustness |As we have little experience in some technologies, we could get an application with errors in some options|More extensive testing
+|Conflicts in github|Sometimes when merging everything together, a series of conflicts can arise that are difficult to resolve|Make good use of the functions provided by github and organise yourself well to prevent them.
+|===

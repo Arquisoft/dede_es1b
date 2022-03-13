@@ -18,6 +18,9 @@
 |OC1|Team|Lucía García Sopeña, Sergio Salgueiro Monforte, Héctor Lavandeira Fernández, Juan Domínguez Álvarez and María González Otero
 |OC2|Time schedule|The application will be developed during the second semester of course 2021/22
 |OC3|Version management|Private git repository with a commit and pull request history
+|OC4|Deliveries|There will be 4 deliveries, one every three weeks, starting February 22, 2022
+|OC5|Team meetings|The development team will hold at least one weekly meeting
+|OC6|Meeting minutes|The team must take minutes in every meeting
 |===
 
 
@@ -27,6 +30,5 @@
 | |Convention|Motivation
 |C1|SOLID|The application must follow the SOLID principles in order to respect customer privacy
 |C2|Architecture documentation|Documentation structure must follow arc42 template
-|C3|Language|Documentation must be in english
 |===
  
