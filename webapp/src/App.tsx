@@ -9,6 +9,7 @@ import MenuBar from './pages/menuBar';
 import {User} from './shared/shareddtypes';
 import './App.css';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
+import Registro from './pages/registroPage/RegistroForm';
 
 function App(): JSX.Element {
 
@@ -28,7 +29,7 @@ function App(): JSX.Element {
 
       <Container maxWidth="sm">
       <br></br><br></br> <br></br>
-      <Bienvenida></Bienvenida>
+      <Registro></Registro>
         <UserList users={users}/>
       </Container>
     </>
