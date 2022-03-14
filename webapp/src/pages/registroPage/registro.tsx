@@ -61,15 +61,18 @@ function RegisterForm(): JSX.Element {
      <h1>Registro Cuenta</h1>
 
         <div className="registro-container">
-        <form onSubmit={handleSubmit} name="registro" >
-        <div className="registro-contenido">
+      <form onSubmit={handleSubmit} name="registro" >
+      <div className="registro-contenido">
 
       <div className='field-container'>
 
           <TextField
+          required
           label="Nombre:"
+          name="name"
           id="filled-size-small"
           variant="filled"
+          value={name}
           onChange={e => setName(e.target.value)}
           sx={{ my: 2 }}
 
@@ -79,9 +82,12 @@ function RegisterForm(): JSX.Element {
         <div className='field-container'>
 
         <TextField
-          label="Apellidos:"
+          required
+          label="Apellidos:"    
+          name="surname"
           id="filled-size-small"
           variant="filled"
+          value={surname}
           onChange={e => setSurname(e.target.value)}
           sx={{ my: 2 }}
 
@@ -91,9 +97,12 @@ function RegisterForm(): JSX.Element {
 
 
         <TextField
+          required
           label="Correo Electronico:"
+          name="email"
           id="filled-size-small"
           variant="filled"
+          value={email}
           onChange={e => setEmail(e.target.value)}
           sx={{ my: 2 }}
 
@@ -103,25 +112,32 @@ function RegisterForm(): JSX.Element {
         <div className='field-container'>
 
         <TextField
+          required
           label="Usuario:"
+          name="username"
           id="filled-size-small"
           variant="filled"
+          value={username}
           onChange={e => setUsername(e.target.value)}
           sx={{ my: 2 }}
 
         />
         </div>
         <TextField
+          required
           label="Contraseña:"
+          name="password"
           id="filled-size-small"
           variant="filled"
+          type="password"
+          value={password}
           onChange={e => setPassword(e.target.value)}
           sx={{ my: 2 }}
 
         />
 
         </div>
-        <Button variant="contained" type="submit" sx={{ my: 2 } }>Iniciar sesión</Button>
+        <Button variant="contained" type="submit"  sx={{ my: 2 } }>Registrarse</Button>
         </form>
         </div>
 
