@@ -1,8 +1,8 @@
 import {User} from '../shared/shareddtypes';
 
 export async function addUser(user:User):Promise<boolean>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
-    let response = await fetch(apiEndPoint+'/users/add', {
+    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+    let response = await fetch(apiEndPoint+'/usuarios/add', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({'nombre':user.name,'apellidos':user.surname,'usuario':user.username, 'contraseña':user.password, 'correo':user.email})
@@ -14,19 +14,19 @@ export async function addUser(user:User):Promise<boolean>{
 }
 
 export async function getUsers():Promise<User[]>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
-    let response = await fetch(apiEndPoint+'/users/list');
+    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+    let response = await fetch(apiEndPoint+'/usuarios/list');
     //The objects returned by the api are directly convertible to User objects
     return response.json()
 }
 
 
-export async function checkUser(user:User):Promise<boolean>{
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
-  let response = await fetch(apiEndPoint+'/users/add', {
+export async function checkUser(username:String,password:String):Promise<boolean>{
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/usuarios/login', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      // params: {'user':user};
+      body: JSON.stringify({'usuario':username, 'contraseña':password})
     });
   if (response.status===200)
     return true;

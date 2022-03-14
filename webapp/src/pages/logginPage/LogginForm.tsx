@@ -5,7 +5,7 @@ import "./logginForm.css"
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import type { AlertColor } from '@mui/material/Alert';
-import {addUser} from '../../api/api';
+import {checkUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logoAsturShop.png'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -34,14 +34,14 @@ function EmailForm(): JSX.Element {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //let result:boolean = await addUser({name,email});
-    let result:boolean = true;
+    let result:boolean = await checkUser(username,password);
     if (result){
       setNotificationStatus(true);
       setNotification({ 
         severity:'success',
         message:'You have been registered in the system!'
       });
+      navigate("/inicio");
       //Notify the change to the parent component
     }
     else{
@@ -91,7 +91,7 @@ function EmailForm(): JSX.Element {
 
         <div className='buttons'>
            <br></br>
-           <Button variant="contained"  type="submit" sx={{ my: 2 }}>Iniciar sesión</Button>
+           <Button variant="contained" onClick={() => handleSubmit} type="submit" sx={{ my: 2 }}>Iniciar sesión</Button>
            <br></br>
            <Button variant="contained" onClick={() => navigate("/registro")} type="submit" sx={{ my: 2 }}>¿No tienes cuenta? Regístrate</Button>
            </div>

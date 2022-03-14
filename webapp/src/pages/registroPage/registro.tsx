@@ -38,7 +38,14 @@ function RegisterForm(): JSX.Element {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let result:boolean = await addUser({name,surname,username,password,email});
+    console.log({name});
+    console.log({surname});
+    console.log({username});
+    console.log({password});
+    console.log({email});
+
     if (result){
+      console.log("hola");
       setNotificationStatus(true);
       setNotification({ 
         severity:'success',
