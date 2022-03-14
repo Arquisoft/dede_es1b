@@ -52,7 +52,7 @@ function RegisterForm(): JSX.Element {
         message:'You have been registered in the system!'
       });
       //Notify the change to the parent component
-      navigate("/inicio");
+      navigate("/loggin");
     }
     else{
       setNotificationStatus(true);
