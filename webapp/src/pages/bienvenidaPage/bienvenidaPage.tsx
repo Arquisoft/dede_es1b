@@ -9,6 +9,7 @@ import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logo.svg'
 import {useNavigate} from "react-router-dom";
+import { Margin } from '@mui/icons-material';
 
 
 function Bienvenida(): JSX.Element {

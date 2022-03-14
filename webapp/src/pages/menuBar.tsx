@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../logoAsturShop.png'
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Inicio', 'Productos', 'Contacto'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -21,6 +22,8 @@ const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
  
+  const navigate = useNavigate();
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -119,7 +122,7 @@ const ResponsiveAppBar = () => {
                 vertical: 'top',
                 horizontal: 'right',
               }}
-              open={Boolean(anchorElUser)}
+              open={Boolean(navigate("/loggin"))}
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
