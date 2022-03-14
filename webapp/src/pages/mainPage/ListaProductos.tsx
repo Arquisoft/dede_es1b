@@ -1,52 +1,26 @@
-import CardProducto from './CardProducto';
-import { Producto } from '../../api/modelo/producto';
+import { FC, useEffect, useState } from 'react';
+import Productos from '../../components/Productos';
+import { getProductos } from '../../api/api';
+import { Producto } from '../../shared/shareddtypes';
 import "./ListaProductos.css";
 
-type ListaProductosProps = {
-    products?: Producto[];
-}
+const ListaProductos: FC = () => {
 
-function ListaProductos(props: ListaProductosProps) {
+  const[productos, setProductos] = useState<Producto[]>([])
 
-    let product1: Producto = {
-        id : "IDPRODUCT",
-        nombre : "Producto1",
-        precio : 35,
-        imagen : "prod1",
-        categoria : "producto",
-        descripcion : "ProductoDescripcion"
-      };
-      let product2: Producto = {
-        id : "IDPRODUCT",
-        nombre : "Producto2",
-        precio : 50,
-        imagen : "prod2",
-        categoria : "producto",
-        descripcion : "ProductoDescripcionB"
-      };
-      let product3: Producto = {
-        id : "IDPRODUCT",
-        nombre : "Producto3",
-        precio : 5,
-        imagen : "prod3",
-        categoria : "producto",
-        descripcion : "ProductoDescripcionC"
-      };
+  async function cargar() {
+    setProductos(await getProductos());
+  }
 
-      let products = [
-          {product1},
-          {product2},
-          {product3}
-      ];
-    return (
-        <div className="lista">
-            <CardProducto producto={product1}></CardProducto>
-            <CardProducto producto={product2}></CardProducto>
-            <CardProducto producto={product3}></CardProducto>
-            <CardProducto producto={product2}></CardProducto>
-            <CardProducto producto={product1}></CardProducto>
-        </div>
-    );
+  useEffect( () => {
+    cargar();
+  }, [])
+
+  return (
+    <div className="productos">
+      <Productos productos={productos} />
+    </div>
+  )
 }
 
 export default ListaProductos;

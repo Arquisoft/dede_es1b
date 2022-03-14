@@ -13,7 +13,6 @@ import './App.css';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
 import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {Producto} from './api/modelo/producto';
 import Home from "./pages/mainPage/Homepage";
 
 function App(): JSX.Element {

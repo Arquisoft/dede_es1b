@@ -1,4 +1,4 @@
-.lista {
+.productos {
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 35px;
