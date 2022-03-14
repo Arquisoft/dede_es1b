@@ -1,7 +1,8 @@
 .productos {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 35px;
-    column-gap: 30px;
+    grid-template-columns: repeat(3, 500px);
+    grid-template-rows: auto;
+    grid-gap: 30px;
+    column-gap: 50px;
 }
 

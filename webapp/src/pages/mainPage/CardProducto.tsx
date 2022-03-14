@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import { Producto } from '../../shared/shareddtypes';
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import Button from '@mui/material/Button';
 
 type ProdProps = {
     producto: Producto;
@@ -15,7 +14,7 @@ type ProdProps = {
 
 function CardProducto(props: ProdProps) {
 
-    let imagen: string = require("../../images/" + props.producto.imagen + ".jpg");
+    let imagen: string = require("../../images/" + props.producto.imagen + ".png");
 
     return (
         <Card sx={{ maxWidth: 345 }}>
