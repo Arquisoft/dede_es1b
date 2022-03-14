@@ -8,6 +8,7 @@ import type { AlertColor } from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import {useNavigate} from 'react-router-dom';
 import MenuBar from '../menuBar';
+import {addUser} from '../../api/api'
 
 type RegisterFormProps = {
   OnUserListChange: () => void;
@@ -23,8 +24,8 @@ function RegisterForm(): JSX.Element {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [nombre, setNombre] = useState('');
-  const [apellidos, setApellidos] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
 
 
@@ -33,24 +34,53 @@ function RegisterForm(): JSX.Element {
   
   const navigate = useNavigate();
 
-  const handleSubmit=()=>{navigate("/loggin");}
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    let result:boolean = await addUser({name,surname,username,password,email});
+    console.log({name});
+    console.log({surname});
+    console.log({username});
+    console.log({password});
+    console.log({email});
+
+    if (result){
+      console.log("hola");
+      setNotificationStatus(true);
+      setNotification({ 
+        severity:'success',
+        message:'You have been registered in the system!'
+      });
+      //Notify the change to the parent component
+      navigate("/inicio");
+    }
+    else{
+      setNotificationStatus(true);
+      setNotification({ 
+        severity:'error',
+        message:'There\'s been an error in the register proccess.'
+      });
+    }
+  }
   return (
     <>         
     <MenuBar></MenuBar>
      <h1>Registro Cuenta</h1>
 
         <div className="registro-container">
-        <form onSubmit={handleSubmit} name="registro" >
-        <div className="registro-contenido">
+      <form onSubmit={handleSubmit} name="registro" >
+      <div className="registro-contenido">
 
       <div className='field-container'>
 
           <TextField
+          required
           label="Nombre:"
+          name="name"
           id="filled-size-small"
           variant="filled"
-          onChange={e => setNombre(e.target.value)}
+          value={name}
+          onChange={e => setName(e.target.value)}
           sx={{ my: 2 }}
 
         />
@@ -59,10 +89,13 @@ function RegisterForm(): JSX.Element {
         <div className='field-container'>
 
         <TextField
-          label="Apellidos:"
+          required
+          label="Apellidos:"    
+          name="surname"
           id="filled-size-small"
           variant="filled"
-          onChange={e => setApellidos(e.target.value)}
+          value={surname}
+          onChange={e => setSurname(e.target.value)}
           sx={{ my: 2 }}
 
         />
@@ -71,9 +104,12 @@ function RegisterForm(): JSX.Element {
 
 
         <TextField
+          required
           label="Correo Electronico:"
+          name="email"
           id="filled-size-small"
           variant="filled"
+          value={email}
           onChange={e => setEmail(e.target.value)}
           sx={{ my: 2 }}
 
@@ -83,25 +119,32 @@ function RegisterForm(): JSX.Element {
         <div className='field-container'>
 
         <TextField
+          required
           label="Usuario:"
+          name="username"
           id="filled-size-small"
           variant="filled"
+          value={username}
           onChange={e => setUsername(e.target.value)}
           sx={{ my: 2 }}
 
         />
         </div>
         <TextField
+          required
           label="Contraseña:"
+          name="password"
           id="filled-size-small"
           variant="filled"
+          type="password"
+          value={password}
           onChange={e => setPassword(e.target.value)}
           sx={{ my: 2 }}
 
         />
 
         </div>
-        <Button variant="contained" type="submit" sx={{ my: 2 } }>Iniciar sesión</Button>
+        <Button variant="contained" type="submit"  sx={{ my: 2 } }>Registrarse</Button>
         </form>
         </div>
 
