@@ -31,7 +31,7 @@ function EmailForm(): JSX.Element {
   
   const navigate = useNavigate();
 
-  
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     //let result:boolean = await addUser({name,email});

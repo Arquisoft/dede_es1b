@@ -8,6 +8,7 @@ import type { AlertColor } from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import {useNavigate} from 'react-router-dom';
 import MenuBar from '../menuBar';
+import {addUser} from '../../api/api'
 
 type RegisterFormProps = {
   OnUserListChange: () => void;
@@ -23,8 +24,8 @@ function RegisterForm(): JSX.Element {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [nombre, setNombre] = useState('');
-  const [apellidos, setApellidos] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
 
 
@@ -33,8 +34,27 @@ function RegisterForm(): JSX.Element {
   
   const navigate = useNavigate();
 
-  const handleSubmit=()=>{navigate("/loggin");}
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    let result:boolean = await addUser({name,surname,username,password,email});
+    if (result){
+      setNotificationStatus(true);
+      setNotification({ 
+        severity:'success',
+        message:'You have been registered in the system!'
+      });
+      //Notify the change to the parent component
+      navigate("/inicio");
+    }
+    else{
+      setNotificationStatus(true);
+      setNotification({ 
+        severity:'error',
+        message:'There\'s been an error in the register proccess.'
+      });
+    }
+  }
   return (
     <>         
     <MenuBar></MenuBar>
@@ -50,7 +70,7 @@ function RegisterForm(): JSX.Element {
           label="Nombre:"
           id="filled-size-small"
           variant="filled"
-          onChange={e => setNombre(e.target.value)}
+          onChange={e => setName(e.target.value)}
           sx={{ my: 2 }}
 
         />
@@ -62,7 +82,7 @@ function RegisterForm(): JSX.Element {
           label="Apellidos:"
           id="filled-size-small"
           variant="filled"
-          onChange={e => setApellidos(e.target.value)}
+          onChange={e => setSurname(e.target.value)}
           sx={{ my: 2 }}
 
         />
