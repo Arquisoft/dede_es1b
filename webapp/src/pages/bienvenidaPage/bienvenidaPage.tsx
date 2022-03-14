@@ -11,11 +11,6 @@ import logo from '../../logo.svg'
 import {useNavigate} from "react-router-dom";
 
 
-
-
-
-
-
 function Bienvenida(): JSX.Element {
 
 
@@ -29,7 +24,8 @@ function Bienvenida(): JSX.Element {
 
           <br></br> <br></br> <br></br> <br></br> <br></br>
 
-         <a className="boton"  onClick={() => navigate("/inicio")}  target="_blank">Empezar</a>
+         <a className="boton"  onClick={() => navigate("/loggin")}  >Empezar</a
+         >
      
     </>
   );

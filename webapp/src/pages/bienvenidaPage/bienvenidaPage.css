@@ -12,6 +12,8 @@ body{
   text-transform: uppercase; /*capitalización texto*/
   font-family: 'Helvetica', sans-serif; /*tipografía texto*/
   border-radius: 50px; /*bordes redondos*/
+  margin:center;
+  margin: 40%;
   }
 
   h1{
