@@ -34,7 +34,7 @@ function App(): JSX.Element {
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Bienvenida/>}/>
-          <Route path="/home" element={<Home/>}/>
+          <Route path="/inicio" element={<Home/>}/>
           <Route path="/loggin" element={<LogginForm />} />
           <Route path="/registro" element={<Registro />} />
           </Routes>

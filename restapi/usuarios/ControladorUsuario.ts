@@ -13,11 +13,13 @@ export const getUsuarios:RequestHandler=async (required,resultado)=>{
 
 export const checkUsuario:RequestHandler=async (required,resultado)=>{
     try{
-        const usuario=await modeloUsuario.findOne({usuario:required.params.usuario});
+        let usuario1:String=required.body.usuario;
+        let contrasenia1:String=required.body.contraseña;
+        const usuario=await modeloUsuario.findOne({usuario:usuario1,contrasenia:contrasenia1});
         if(usuario){
-            return resultado.json(usuario);
-        }else{
             return resultado.status(200).json();
+        }else{
+            return resultado.status(404).json();
         }
     }catch (err){
         resultado.json(err);
