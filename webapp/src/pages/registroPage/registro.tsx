@@ -68,10 +68,10 @@ function RegisterForm(): JSX.Element {
      <h1>Registro Cuenta</h1>
 
         <div className="registro-container">
-      <form onSubmit={handleSubmit} name="registro" >
-      <div className="registro-contenido">
+        <form onSubmit={handleSubmit} name="registro" >
+        <div className="registro-contenido">
 
-      <div className='field-container'>
+       <div className='field-container'>
 
           <TextField
           required
@@ -101,7 +101,6 @@ function RegisterForm(): JSX.Element {
         />
         </div>
         <div className='field-container'>
-
 
         <TextField
           required
