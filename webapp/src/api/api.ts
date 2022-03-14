@@ -24,6 +24,7 @@ export async function getProductos(): Promise<Producto[]> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint+'/products/list');
   return response.json()
+}
 
 export async function checkUser(username:String,password:String):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
