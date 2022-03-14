@@ -9,7 +9,9 @@ function Init(): JSX.Element {
         <div className="encabezado">
             <MenuBar/>
             <h1>AsturShop</h1>
-            <ListaProductos/>
+            <div className="productos">
+                <ListaProductos />
+            </div>
         </div>
     );
 }
