@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Container from '@mui/material/Container';
-import EmailForm from './components/EmailForm';
-import Welcome from './components/Welcome';
-import UserList from './components/UserList';
+import LogginForm from './pages/logginPage/LogginForm';
 import  {getUsers} from './api/api';
 import {User} from './shared/shareddtypes';
 import './App.css';
+import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
+import Registro from './pages/registroPage/registro';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from "./pages/mainPage/Homepage";
 
 function App(): JSX.Element {
 
@@ -22,15 +21,18 @@ function App(): JSX.Element {
   },[]);
 
   return (
-    <>
-      <Container maxWidth="sm">
-        <Welcome message="ASW students"/>
-        <Box component="div" sx={{ py: 2}}>This is a basic example of a React application using Typescript. You can add your email to the list filling the form below.</Box>
-        <EmailForm OnUserListChange={refreshUserList}/>        
-        <UserList users={users}/>
-        <Link href="https://github.com/pglez82/asw2122_0">Source code</Link>
-      </Container>
-    </>
+    <>        
+
+    <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Bienvenida/>}/>
+          <Route path="/inicio" element={<Home/>}/>
+          <Route path="/loggin" element={<LogginForm />} />
+          <Route path="/registro" element={<Registro />} />
+          </Routes>
+      </BrowserRouter>
+  </>
+
   );
 }
 

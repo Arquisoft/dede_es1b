@@ -1,0 +1,36 @@
+body{
+    background-image: url("../../fondoAsturias2.jpg");
+}
+  .boton {
+    border: 10px solid #daad1c; 
+    padding: 100px;
+    background-color: #2e518b;
+    color: #ffffff;
+    text-decoration: dashed; 
+    text-transform: uppercase; 
+    font-family: 'Helvetica', sans-serif;
+    border-radius: 50px; 
+    }
+.registro-container {
+       background-color: rgba(255, 255, 255, 0.5);
+        display: flex;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        border-color: rgb(0, 0, 0);
+        border-radius: 2rem;
+        box-shadow: 0px 0px 3rem rgba(46, 45, 45, 0.192);
+        max-width: "sm";
+        width: 40%;
+      }
+      
+
+      
+  
+    h1{
+      font-size: 60px;
+      font-family: fantasy;
+      align-content: center;
+      text-transform: uppercase; 
+  
+    }
