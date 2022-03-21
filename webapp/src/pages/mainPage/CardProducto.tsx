@@ -17,11 +17,13 @@ function CardProducto(props: ProdProps) {
     let imagen: string = require("../../images/" + props.producto.imagen + ".png");
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 ,}}>
           <CardMedia
             component="img"
+            style={{height: "300px",paddingTop: '5%', paddingLeft:'10%', paddingRight:'10%', paddingBottom:'5%', textAlign:'center'}}
             height="240"
             image={imagen}
+            
             alt={props.producto.nombre}
           />
           <CardContent>

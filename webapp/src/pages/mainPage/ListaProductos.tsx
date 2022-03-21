@@ -71,7 +71,7 @@ function ListaProductos(): JSX.Element {
   return (
     <>
       <div className="productos">
-        <CardProducto producto={p1}></CardProducto>
+        <CardProducto  producto={p1}></CardProducto>
         <CardProducto producto={p2}></CardProducto>
         <CardProducto producto={p3}></CardProducto>
         <CardProducto producto={p4}></CardProducto>

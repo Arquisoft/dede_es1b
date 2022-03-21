@@ -4,5 +4,6 @@
     grid-template-rows: auto;
     grid-gap: 30px;
     column-gap: 50px;
+    text-align: center;
 }
 
