@@ -24,7 +24,7 @@ const Search = styled('div')(({ theme }) => ({
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  margin: 'auto',
+  marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
@@ -75,7 +75,11 @@ const ResponsiveAppBar = () => {
           </MenuItem>
           </Box>
 
-        
+        <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/loggin">
+          <Typography>LOGGIN</Typography>
+          </MenuItem>
+          </Box>
 
           <Box sx={{ paddingLeft: '3%' }}>
           <MenuItem component={Link} to="/registro" >
@@ -101,8 +105,7 @@ const ResponsiveAppBar = () => {
           </Search>
           
           </Box>
-          <div className="login-icon">
-          <IconButton sx={{ paddingLeft: '30%' }}>
+          <IconButton sx={{ paddingLeft: '50%' }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                 </IconButton>
           </div>
