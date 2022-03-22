@@ -13,61 +13,106 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import { MenuList } from '@mui/material';
-import Search from '@mui/icons-material/Search';
+import { styled, alpha } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import SearchIconWrapper from '@mui/icons-material/Search';
-import StyledInputBase from '@mui/icons-material/Search';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  margin: 'auto',
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(1),
+    width: 'auto',
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
+  },
+}));
 
 const ResponsiveAppBar = () => {
   
 
   return (
-    
+    <div className="appBar">
     <AppBar position="static">
-      <Container maxWidth="xl">
-          <Toolbar>
+      
+      <div className="menu-container">
+          <Toolbar >
           
           <Box>
           <MenuItem component={Link} to="/inicio">
           <Typography>INICIO</Typography>
           </MenuItem>
           </Box>
-        <Box >
-          <MenuItem component={Link} to="/loggin">
-          <Typography>LOGGIN</Typography>
-          </MenuItem>
-          </Box>
-          <Box>
 
-          <MenuItem component={Link} to="/registro" >
-          <Typography>REGISTRO</Typography>
-          </MenuItem>
-          </Box>
-          <Box>
+        
+
+          <Box sx={{ paddingLeft: '3%' }}>
           <MenuItem component={Link} to="/registro" >
           <Typography>CATÁLOGO</Typography>
           </MenuItem>
           </Box>
-          <Box>
 
+          <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/registro" >
+          <Typography>¿ERES PROVEEDOR?</Typography>
+          </MenuItem>
+          </Box>
+
+          <Box  sx={{ paddingLeft: '3%' }}>
           <Search >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
           </Search>
+          
           </Box>
-          <IconButton sx={{ paddingLeft: '70%' }}>
+          <div className="login-icon">
+          <IconButton sx={{ paddingLeft: '30%' }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              </IconButton>
+                </IconButton>
+          </div>
         </Toolbar>
 
-        </Container>
+        </div>
 
     </AppBar>
+    
+    </div>
   );
 };
 export default ResponsiveAppBar;

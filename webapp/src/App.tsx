@@ -10,6 +10,9 @@ import Home from "./pages/mainPage/Homepage";
 
 function App(): JSX.Element {
 
+  const [token, setToken] = useState();
+
+
   const [users,setUsers] = useState<User[]>([]);
 
   const refreshUserList = async () => {
