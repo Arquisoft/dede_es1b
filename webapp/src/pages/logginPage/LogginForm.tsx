@@ -56,7 +56,8 @@ function EmailForm(): JSX.Element {
   return (
     <>
       <MenuBar></MenuBar>
-      <br></br><br></br>
+      <h1>Inicio sesión</h1>
+
       <div className='loggin-container'>
       <form name="loggin" onSubmit={handleSubmit}>
 
