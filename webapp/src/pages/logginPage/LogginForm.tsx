@@ -5,7 +5,7 @@ import "./logginForm.css"
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import type { AlertColor } from '@mui/material/Alert';
-import {checkUser} from '../../api/api';
+import {checkUser} from '../../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logoAsturShop.png'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
