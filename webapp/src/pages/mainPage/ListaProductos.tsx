@@ -7,7 +7,7 @@ import "./ListaProductos.css";
 
 function ListaProductos(): JSX.Element {
 
-  /*const[productos, setProductos] = useState<Producto[]>([])
+  const[productos, setProductos] = useState<Producto[]>([])
 
   async function cargar() {
     setProductos(await getProductos());
@@ -15,8 +15,8 @@ function ListaProductos(): JSX.Element {
 
   useEffect( () => {
     cargar();
-  }, [])*/
-
+  }, [])
+/*
   let p1: Producto = {
     id : "123456",
     nombre : "Callos",
@@ -60,14 +60,14 @@ function ListaProductos(): JSX.Element {
     imagen : "sidra",
     categoria : "Alimentación",
     descripcion : "Caja sidra 6 unidades"
-  }
+  }*/
 
-  /*return (
+  return (
     <div className="productos">
       <Productos productos={productos} />
     </div>
-  )*/
-
+  )
+/*
   return (
     <>
       <div className="productos">
@@ -78,7 +78,7 @@ function ListaProductos(): JSX.Element {
         <CardProducto producto={p5}></CardProducto>
       </div>
     </>
-  );
+  );*/
 }
 
 export default ListaProductos;
