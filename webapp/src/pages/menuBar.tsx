@@ -18,6 +18,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -73,8 +74,9 @@ const ResponsiveAppBar = () => {
           <Typography
             variant="h6"
             noWrap
-            component="div"
+            component={Link} to="/inicio"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            
           >
                     <img src={logo} width="100" height="80" alt="logo" /> 
 
@@ -116,9 +118,8 @@ const ResponsiveAppBar = () => {
           
           </Box>
           
-          <Box sx={{marginLeft:'auto'}}>
+          <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
           <div className="shoppingIcon">
-
           <IconButton   >
                 <ShoppingCart />
             </IconButton>
@@ -129,7 +130,9 @@ const ResponsiveAppBar = () => {
           <Box  sx={{marginLeft:'auto'}}>
           <div className="iconoLoggin">
                 <IconButton>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <AccountCircle 
+                  style={{ fontSize: "40px", color: '#FFFFFF ' }}
+                />
                 </IconButton>
 
           </div>
