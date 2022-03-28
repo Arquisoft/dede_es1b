@@ -20,6 +20,9 @@ import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
+const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Cerrar sesión'];
+
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -63,8 +66,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const ResponsiveAppBar = () => {
-  
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+
+  const handleOpenUserMenu = (event: { currentTarget: any; }) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+  
   return (
     <div className="appBar">
     <AppBar position="static">
@@ -120,22 +132,45 @@ const ResponsiveAppBar = () => {
           
           <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
           <div className="shoppingIcon">
-          <IconButton   >
+          <IconButton  >
                 <ShoppingCart />
             </IconButton>
           </div>
+          
           </Box>
 
 
           <Box  sx={{marginLeft:'auto'}}>
           <div className="iconoLoggin">
-                <IconButton>
+                <IconButton onClick={handleOpenUserMenu}  >
                 <AccountCircle 
-                  style={{ fontSize: "40px", color: '#FFFFFF ' }}
+                  style={{ fontSize: "35px", color: '#FFFFFF ' }}
                 />
                 </IconButton>
 
           </div>
+          <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
         </Toolbar>
 
@@ -147,3 +182,7 @@ const ResponsiveAppBar = () => {
   );
 };
 export default ResponsiveAppBar;
+function setAnchorElUser(currentTarget: any) {
+  throw new Error('Function not implemented.');
+}
+
