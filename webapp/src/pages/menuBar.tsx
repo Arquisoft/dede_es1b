@@ -105,7 +105,8 @@ const ResponsiveAppBar = () => {
           </Search>
           
           </Box>
-          <IconButton sx={{ paddingLeft: '50%' }}>
+          <div>
+          <IconButton sx={{ paddingLeft: '1500%' }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                 </IconButton>
           </div>
