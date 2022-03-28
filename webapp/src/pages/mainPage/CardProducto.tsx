@@ -14,7 +14,7 @@ type ProdProps = {
 
 function CardProducto(props: ProdProps) {
 
-    let imagen: string = require("../../images/" + props.producto.imagen + ".png");
+    let imagen: string = require("../../images/" + props.producto.imagen);
 
     return (
         <Card sx={{ maxWidth: 345, maxHeight: 500 } }>
