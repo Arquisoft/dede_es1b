@@ -16,6 +16,8 @@ import { MenuList } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import logo from '../logoAsturShop.png'
+import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -68,7 +70,15 @@ const ResponsiveAppBar = () => {
       
       <div className="menu-container">
           <Toolbar >
-          
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+          >
+                    <img src={logo} width="100" height="80" alt="logo" /> 
+
+          </Typography>
           <Box>
           <MenuItem component={Link} to="/inicio">
           <Typography>INICIO</Typography>
@@ -105,11 +115,25 @@ const ResponsiveAppBar = () => {
           </Search>
           
           </Box>
-          <div>
-          <IconButton sx={{ paddingLeft: '1500%' }}>
+          
+          <Box sx={{marginLeft:'auto'}}>
+          <div className="shoppingIcon">
+
+          <IconButton   >
+                <ShoppingCart />
+            </IconButton>
+          </div>
+          </Box>
+
+
+          <Box  sx={{marginLeft:'auto'}}>
+          <div className="iconoLoggin">
+                <IconButton>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                 </IconButton>
+
           </div>
+          </Box>
         </Toolbar>
 
         </div>

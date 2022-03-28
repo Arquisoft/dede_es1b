@@ -1,7 +1,5 @@
 .menu-container{
-    margin: auto; 
+    justify-content: space-around;
+    
 }
 
-.login-icon{
-    align-content: right;
-}
