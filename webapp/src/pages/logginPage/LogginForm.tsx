@@ -26,6 +26,9 @@ function EmailForm(): JSX.Element {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  //generar token para el usuario
+  const [token, setToken] = useState();
+
   const [notificationStatus, setNotificationStatus] = useState(false);
   const [notification, setNotification] = useState<NotificationType>({severity:'success',message:''});
   
@@ -56,7 +59,8 @@ function EmailForm(): JSX.Element {
   return (
     <>
       <MenuBar></MenuBar>
-      <br></br><br></br>
+      <h1>Inicio sesión</h1>
+
       <div className='loggin-container'>
       <form name="loggin" onSubmit={handleSubmit}>
 

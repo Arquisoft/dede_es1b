@@ -11,102 +11,145 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from "react-router-dom";
+import { MenuList } from '@mui/material';
+import { styled, alpha } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
 import logo from '../logoAsturShop.png'
+import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
-const pages = ['Inicio', 'Productos', 'Contacto'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Cerrar sesión'];
+
+
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(1),
+    width: 'auto',
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
+  },
+}));
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
- 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+
+  const handleOpenUserMenu = (event: { currentTarget: any; }) => {
+    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  
   return (
-    
+    <div className="appBar">
     <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      
+      <div className="menu-container">
+          <Toolbar >
           <Typography
             variant="h6"
             noWrap
-            component="div"
+            component={Link} to="/inicio"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            
           >
                     <img src={logo} width="100" height="80" alt="logo" /> 
 
           </Typography>
+          <Box>
+          <MenuItem component={Link} to="/inicio">
+          <Typography>INICIO</Typography>
+          </MenuItem>
+          </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <MenuIcon />
+        <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/loggin">
+          <Typography>LOGGIN</Typography>
+          </MenuItem>
+          </Box>
+
+          <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/registro" >
+          <Typography>CATÁLOGO</Typography>
+          </MenuItem>
+          </Box>
+
+          <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/registro" >
+          <Typography>¿ERES PROVEEDOR?</Typography>
+          </MenuItem>
+          </Box>
+
+          <Box  sx={{ paddingLeft: '3%' }}>
+          <Search >
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+          
+          </Box>
+          
+          <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
+          <div className="shoppingIcon">
+          <IconButton  >
+                <ShoppingCart />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-        <img src={logo} width="300" height="200" alt="logo" /> 
-
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+          </div>
+          
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-           <Tooltip title="Open settings">
-              <IconButton  sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
+
+          <Box  sx={{marginLeft:'auto'}}>
+          <div className="iconoLoggin">
+                <IconButton onClick={handleOpenUserMenu}  >
+                <AccountCircle 
+                  style={{ fontSize: "35px", color: '#FFFFFF ' }}
+                />
+                </IconButton>
+
+          </div>
+          <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -129,10 +172,17 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          
         </Toolbar>
-      </Container>
+
+        </div>
+
     </AppBar>
+    
+    </div>
   );
 };
 export default ResponsiveAppBar;
+function setAnchorElUser(currentTarget: any) {
+  throw new Error('Function not implemented.');
+}
+
