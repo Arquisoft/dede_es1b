@@ -5,14 +5,7 @@
   position: relative;
 }
 
-.content{
-  width: 50px;
-  height: 50px;
-  /* centrar vertical y horizontalmente */
-  top: 50%;
-  left: 50%;
 
-}
 
 
 .box {
@@ -27,7 +20,7 @@
 
 .categoryButton{
   border-radius: 2rem;
-  background-color: white;
+  background-color: (0,0,0,0.2);
     transition: transform .2s; /* Animation */
   height: 300px;
   width: 300px;

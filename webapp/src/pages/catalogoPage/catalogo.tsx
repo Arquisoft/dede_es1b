@@ -58,7 +58,7 @@ function Catalogo(): JSX.Element {
     <button className='categoryButton'>
     <img src={CategoriaAdornos} width="250" height="250" alt="logo" /> 
     <Divider style={{ background: 'black' }}/>
-        <span className='categorySpan'>ADORNOS</span>
+        <span className='categorySpan'>SOUVENIRS</span>
         </button>
     </div>
     </td>
