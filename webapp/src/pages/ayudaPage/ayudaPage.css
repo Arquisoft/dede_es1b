@@ -1,0 +1,9 @@
+.contenedor{
+  margin:auto;
+  position: relative;
+}
+
+.acordeones{
+  margin-left: 400px;
+  justify-content: center;
+}

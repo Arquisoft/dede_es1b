@@ -9,11 +9,12 @@ import MenuBar from "../menuBar";
 export default function SimpleAccordion() {
   return (
 
-    <div>
+    <div className="contenedor">
           <MenuBar></MenuBar>
         
         <h1>Preguntas Frecuentes</h1>
-        <Accordion>
+          <div className='acordeones'>
+        <Accordion sx={{width:'600px'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -26,9 +27,9 @@ export default function SimpleAccordion() {
           Lamentablemente aun no aceptamos devoluciones en nuestra tienda online, asi que piense bien antes de comprar algun producto.
           </Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion >
       <br></br>
-      <Accordion>
+      <Accordion sx={{width:'600px'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -43,7 +44,7 @@ export default function SimpleAccordion() {
         </AccordionDetails>
       </Accordion>
       <br></br>
-      <Accordion>
+      <Accordion sx={{width:'600px'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -58,7 +59,7 @@ export default function SimpleAccordion() {
         </AccordionDetails>
       </Accordion>
       <br></br>
-      <Accordion>
+      <Accordion sx={{width:'600px'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -73,7 +74,7 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionDetails>
       </Accordion><br></br>
-      <Accordion>
+      <Accordion sx={{width:'600px'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -87,7 +88,7 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      
+      </div>
     </div>
   );
 }
