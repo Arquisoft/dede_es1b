@@ -1,7 +1,7 @@
 [[section-design-decisions]]
 == Design Decisions
 
-[options="header",cols="1,2,2"]
+[options="header",cols="1,2,2,2,1"]
 |===
 |Decission|Description|Pros|Cons|Status
 |Language|The documentation will be in English|Internationalization|More complex wording|Accepted
