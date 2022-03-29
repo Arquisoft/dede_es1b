@@ -9,4 +9,6 @@
 |HSQLDB|An HSQLDB Database will be used|Portability of the database|It is a local database|Rejected
 |MongoDB|A MongoDB Database will be used|High speed, availability, simplicity, flexibility|High memory usage and limited data size|Accepted
 |MUI|React UI Library to implement the frontend|Improves the web's design|Some elements can be more complex|Accepted
+|Heroku|It will be the deployment platform|There is more documentation|Unknown by the team members|Accepted
+|cloudinary|Repository to keep the web's images|It won't be necessary to keep the images locally||Accepted
 |===
