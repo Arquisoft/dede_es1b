@@ -20,7 +20,7 @@ import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
-const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Cerrar sesión'];
+const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -139,6 +139,11 @@ const ResponsiveAppBar = () => {
           
           </Box>
 
+          <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/ayuda">
+          <Typography>AYUDA</Typography>
+          </MenuItem>
+          </Box>
 
           <Box  sx={{marginLeft:'auto'}}>
           <div className="iconoLoggin">
@@ -172,6 +177,8 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
+
+          
         </Toolbar>
 
         </div>

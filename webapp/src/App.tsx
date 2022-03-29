@@ -7,6 +7,7 @@ import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
 import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/mainPage/Homepage";
+import Ayuda from "./pages/ayudaPage/ayuda";
 
 function App(): JSX.Element {
 
@@ -32,6 +33,8 @@ function App(): JSX.Element {
           <Route path="/inicio" element={<Home/>}/>
           <Route path="/loggin" element={<LogginForm />} />
           <Route path="/registro" element={<Registro />} />
+          <Route path="/ayuda" element={<Ayuda />} />
+
           </Routes>
       </BrowserRouter>
   </>
