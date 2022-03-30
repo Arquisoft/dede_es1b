@@ -13,3 +13,18 @@ export const getProductos: RequestHandler = async (req, res) => {
     
 
 };
+
+export const getProductosPorCategoria: RequestHandler = async (req, res) => {
+    try{
+        let categ:String=req.body.categoria;
+        const productos=await modeloProducto.find({'tipo':categ});
+        return res.json(productos);}
+    catch(error)
+    {
+        res.json(error);
+    }
+    return res.sendStatus(200);
+
+
+
+};

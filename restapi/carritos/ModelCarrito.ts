@@ -2,9 +2,15 @@ const mongoose=require("mongoose");
 const{model,Schema}=mongoose;
 
 const schemaCarrito=new Schema({
-    id:Number,
-    id_usuario:Number,
-    id_producto:Number,
+    id:String,
+    id_usuario:String,
+    listaProductos:[{
+        producto: [{
+            id_p: String,
+            cantidad:Number
+        }]
+    }],
+    precio:Number,
 
 })
 schemaCarrito.set('toJSON',{
