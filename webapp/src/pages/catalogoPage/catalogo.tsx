@@ -9,11 +9,11 @@ import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logo.svg'
 import {useNavigate} from "react-router-dom";
-import CategoriaRopa from "../../images/categoriaRopa.png";
-import CategoriaComida from "../../images/comidaCategoria.png";
+import CategoriaRopa from "../../images/camiseta.png";
+import CategoriaComida from "../../images/fabadaIcono.png";
 import MenuBar from "../menuBar";
 import "./catalogo.css";
-import CategoriaAdornos from "../../images/categoriaAdornos.png";
+import CategoriaAdornos from "../../images/horreo.png";
 import Divider from '@mui/material/Divider';
 
 function Catalogo(): JSX.Element {
@@ -37,7 +37,7 @@ function Catalogo(): JSX.Element {
       <div className="box">
         <button className='categoryButton'>
         <img src={CategoriaRopa} width="250" height="250" alt="logo" /> 
-        <Divider style={{ background: 'black' }}/>
+        <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>ROPA</span>
         </button>
     </div>
@@ -47,7 +47,7 @@ function Catalogo(): JSX.Element {
     <div className="box">
     <button className='categoryButton'>
     <img src={CategoriaComida} width="250" height="250" alt="logo" /> 
-    <Divider style={{ background: 'black' }}/>
+    <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>COMIDA</span>
         </button>
     </div>
@@ -57,7 +57,7 @@ function Catalogo(): JSX.Element {
     <div className="box">
     <button className='categoryButton'>
     <img src={CategoriaAdornos} width="250" height="250" alt="logo" /> 
-    <Divider style={{ background: 'black' }}/>
+    <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>SOUVENIRS</span>
         </button>
     </div>
