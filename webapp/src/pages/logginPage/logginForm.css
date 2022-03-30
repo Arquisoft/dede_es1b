@@ -2,6 +2,13 @@ body{
   background-image: url("../../fondoAsturias2.jpg");
 }
 
+.span{
+  background-color: white;
+  line-height: 2;
+  font-size: large;
+
+}
+
 .loggin-container {
   background-color: rgba(255, 255, 255, 0.5);
   display: flex;
@@ -14,6 +21,8 @@ body{
   margin: auto;
 
 }
+
+
 
 .field-container{
   -webkit-box-sizing: border-box;

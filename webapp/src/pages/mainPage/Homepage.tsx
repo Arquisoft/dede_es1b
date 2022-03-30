@@ -13,7 +13,7 @@ function Init(): JSX.Element {
             <div className="productos">
                 <ListaProductos />
             </div>
-        </div>
+        ºº</div>
     </div>
     );
 }

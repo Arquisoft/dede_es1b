@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
 import { getProductos } from '../../api/api';
 import { Producto } from '../../shared/shareddtypes';
+import "./listaProductos.css";
 
 function ListaProductos(): JSX.Element {
 
@@ -16,8 +17,10 @@ function ListaProductos(): JSX.Element {
   }, [])
 
   return (
-    <div className="productos">
+    <div className="productos-container" >
+      <div className='productos'>
       <Productos productos={productos} />
+      </div>
     </div>
   )
 }

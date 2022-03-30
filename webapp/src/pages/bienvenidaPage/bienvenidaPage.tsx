@@ -24,7 +24,7 @@ function Bienvenida(): JSX.Element {
 
           <br></br> <br></br> <br></br> <br></br> <br></br>
 
-         <a className="boton"  onClick={() => navigate("/loggin")}  >Empezar</a
+         <a className="boton"  onClick={() => navigate("/inicio")}  >Empezar</a
          >
      
     </>

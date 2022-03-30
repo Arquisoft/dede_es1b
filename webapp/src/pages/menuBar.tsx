@@ -19,8 +19,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import "./menuBar.css";
+import Divider from '@mui/material/Divider';
 
-const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Cerrar sesión'];
+const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -99,14 +101,9 @@ const ResponsiveAppBar = () => {
           </MenuItem>
           </Box>
 
-        <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/loggin">
-          <Typography>LOGGIN</Typography>
-          </MenuItem>
-          </Box>
-
+       
           <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/registro" >
+          <MenuItem component={Link} to="/catalogo" >
           <Typography>CATÁLOGO</Typography>
           </MenuItem>
           </Box>
@@ -133,7 +130,7 @@ const ResponsiveAppBar = () => {
           <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
           <div className="shoppingIcon">
           <IconButton  >
-                <ShoppingCart />
+                <ShoppingCart/>                
             </IconButton>
           </div>
           

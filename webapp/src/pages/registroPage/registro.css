@@ -10,12 +10,14 @@ body{
     text-transform: uppercase; 
     font-family: 'Helvetica', sans-serif;
     border-radius: 50px; 
+    margin: auto;
     }
+
 .registro-container {
        background-color: rgba(255, 255, 255, 0.5);
         display: flex;
         margin: auto;
-        align-items: center;
+        align-items: left;
         justify-content: center;
         border-color: rgb(0, 0, 0);
         border-radius: 2rem;
@@ -25,12 +27,6 @@ body{
       }
       
 
-      
-  
-    h1{
-      font-size: 60px;
-      font-family: fantasy;
-      align-content: center;
-      text-transform: uppercase; 
-  
-    }
+.textField{
+  background-color: rgba(255, 255, 255, 0.431);
+}
