@@ -8,6 +8,10 @@ const schemaUsuario=new Schema({
     usuario:String,
     contrasenia:String,
     correo:String,
+    tipo:String,
+    listaProductos:[{
+        id_p: String
+    }],
 
 })
 schemaUsuario.set('toJSON',{
