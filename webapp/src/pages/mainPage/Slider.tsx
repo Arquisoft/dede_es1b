@@ -20,7 +20,7 @@ function SliderProductos(): JSX.Element {
     <div className="productos-container" >
       <div className="slider">
             {productos.map((prod: Producto) => {
-                return <CardSlider {...prod.imagen} />;
+                return <CardSlider producto={prod} />;
             })}
         </div>
     </div>
