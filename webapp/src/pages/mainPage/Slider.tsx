@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import Productos from '../../components/Productos';
 import { getProductos } from '../../api/api';
 import { Producto } from '../../shared/shareddtypes';
-import "./listaProductos.css";
+import CardSlider from './CardSlider';
+import "./homepage.css";
 
-function ListaProductos(): JSX.Element {
+function SliderProductos(): JSX.Element {
 
   const[productos, setProductos] = useState<Producto[]>([])
 
@@ -18,11 +18,13 @@ function ListaProductos(): JSX.Element {
 
   return (
     <div className="productos-container" >
-      <div className='productos'>
-        <Productos productos={productos} />
-      </div>
+      <div className="slider">
+            {productos.map((prod: Producto) => {
+                return <CardSlider {...prod.imagen} />;
+            })}
+        </div>
     </div>
   )
 }
 
-export default ListaProductos;
+export default SliderProductos;
