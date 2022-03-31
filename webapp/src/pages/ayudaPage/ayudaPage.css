@@ -1,9 +1,17 @@
 .contenedor{
   margin:auto;
+  justify-content: center;
+  display: flex;
   position: relative;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .acordeones{
   margin-left: 400px;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
+
