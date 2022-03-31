@@ -2,7 +2,7 @@ const mongoose=require("mongoose");
 const{model,Schema}=mongoose;
 
 const schemaUsuario=new Schema({
-    id:Number,
+    id:String,
     name:String,
     surname:String,
     usuario:String,
