@@ -1,6 +1,6 @@
 import {RequestHandler} from "express";
 import{modeloUsuario} from "./modeloUsuario";
-
+import{generarToken}from "./GenerarToken"
 
 
 export const getUsuarios:RequestHandler=async (required,resultado)=>{
@@ -19,6 +19,7 @@ export const checkUsuario:RequestHandler=async (required,resultado)=>{
         let contrasenia1:String=required.body.contraseña;
         const usuario=await modeloUsuario.findOne({usuario:usuario1,contrasenia:contrasenia1});
         if(usuario){
+            resultado.json(generarToken(required.body.email));
             return resultado.status(200).json();
         }else{
             return resultado.status(404).json();
