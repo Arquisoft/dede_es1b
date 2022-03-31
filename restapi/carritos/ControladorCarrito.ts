@@ -1,6 +1,7 @@
 import {RequestHandler} from "express";
 import{modeloCarrito} from "./ModelCarrito";
 import {modeloUsuario} from "../usuarios/modeloUsuario";
+import {generarCodigoCarrito} from "../generadorCodigos";
 
 export const getCarrito:RequestHandler=async (required,resultado)=>{
     try{
@@ -30,7 +31,7 @@ export const añadirProductoCarrito:RequestHandler=async (required,resultado)=>{
 
 export const crearCarrito:RequestHandler=async (required,resultado)=>{
     try{
-        let id_carrito:String ="aquiiriaelgeneradordeids";
+        let id_carrito:String =await generarCodigoCarrito();
         let id_usuario:String=required.body.id_usuario;
 
         let precio:Number=0;

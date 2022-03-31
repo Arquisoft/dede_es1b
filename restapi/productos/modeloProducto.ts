@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+const mongoose=require("mongoose");
+const{model,Schema}=mongoose;
 
-const producto = new mongoose.Schema({
+const producto = new Schema({
     id: Number,
     name:String,
     precio:Number,
@@ -20,6 +21,9 @@ producto.set('toJSON',{
     }
 
 })
+
+
+
 
 
 export const modeloProducto = mongoose.model('Productos', producto)
