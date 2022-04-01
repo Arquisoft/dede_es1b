@@ -15,15 +15,16 @@ import MenuBar from "../menuBar";
 import "./catalogo.css";
 import CategoriaAdornos from "../../images/horreo.png";
 import Divider from '@mui/material/Divider';
+import CatalogoListado from "../productosPorCategoria/productosPorCategoria";
 
 function Catalogo(): JSX.Element {
-
 
   const navigate = useNavigate();
 
 
   return (
     <>
+    
     
     <MenuBar></MenuBar>
     <h1>CATÁLOGO</h1>
@@ -33,9 +34,10 @@ function Catalogo(): JSX.Element {
       <table className="tabla-categorias">
 
     <tr>
-      <td>
+    <td>
+
       <div className="box">
-        <button className='categoryButton'>
+        <button className='categoryButton' onClick={() => navigate('/catalogo/ropa')} >
         <img src={CategoriaRopa} width="250" height="250" alt="logo" /> 
         <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>ROPA</span>
@@ -45,17 +47,18 @@ function Catalogo(): JSX.Element {
 
     <td>
     <div className="box">
-    <button className='categoryButton'>
+    <button className='categoryButton' onClick={() => navigate('/catalogo/comida')}>
     <img src={CategoriaComida} width="250" height="250" alt="logo" /> 
     <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>COMIDA</span>
+
         </button>
     </div>
     </td>
 
     <td>
     <div className="box">
-    <button className='categoryButton'>
+    <button className='categoryButton' onClick={() => navigate('/catalogo/recuerdo')}>
     <img src={CategoriaAdornos} width="250" height="250" alt="logo" /> 
     <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>SOUVENIRS</span>
@@ -66,11 +69,13 @@ function Catalogo(): JSX.Element {
     </tr>
     </table>
     </div>
+
     </div>
       
     </>
   );
 }
+
 
  export default Catalogo;
 

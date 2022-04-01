@@ -41,6 +41,17 @@ export async function getProductos(): Promise<Producto[]> {
   return response.json()
 }
 
+export async function getProductosPorCategoria(categoria:String): Promise<Producto[]> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/products/catalogo', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'categoria':categoria})
+    });
+    return response.json()
+
+}
+
 export async function checkUser(username:String,password:String):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/usuarios/login', {

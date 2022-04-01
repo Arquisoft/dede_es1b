@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
-import { getProductos} from '../../api/api';
+import { getProductosPorCategoria } from '../../api/api';
 import { Producto } from '../../shared/shareddtypes';
-import "./listaProductos.css";
+import MenuBar from "../menuBar";
+import {useParams} from "react-router-dom";
 
-function ListaProductos(): JSX.Element {
+function ListaProductos(props:any): JSX.Element {
 
   const[productos, setProductos] = useState<Producto[]>([])
+  const {categoria} = useParams();
+
+  let cat:string =categoria!; 
 
   async function cargar() {
-    setProductos(await getProductos());
+    setProductos(await getProductosPorCategoria(cat));
   }
 
   useEffect( () => {
@@ -17,8 +21,13 @@ function ListaProductos(): JSX.Element {
   }, [])
 
   return (
+      
     <div className="productos-container" >
+          <MenuBar/>
+            <h1>AsturShop</h1>
+
       <div className='productos'>
+
       <Productos productos={productos} />
       </div>
     </div>
