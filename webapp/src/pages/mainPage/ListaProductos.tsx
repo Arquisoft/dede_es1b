@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
-import { getProductos, getProductosPorCategoria } from '../../api/api';
+import { getProductos} from '../../api/api';
 import { Producto } from '../../shared/shareddtypes';
 import "./listaProductos.css";
 
@@ -9,7 +9,7 @@ function ListaProductos(): JSX.Element {
   const[productos, setProductos] = useState<Producto[]>([])
 
   async function cargar() {
-    setProductos(await getProductosPorCategoria('recuerdo'));
+    setProductos(await getProductos());
   }
 
   useEffect( () => {
