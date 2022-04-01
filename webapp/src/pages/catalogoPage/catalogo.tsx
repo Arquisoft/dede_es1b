@@ -9,9 +9,6 @@ import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logo.svg'
 import {useNavigate} from "react-router-dom";
-import {Link} from "react-router-dom";
-import {Outlet} from "react-router-dom";
-
 import CategoriaRopa from "../../images/camiseta.png";
 import CategoriaComida from "../../images/fabadaIcono.png";
 import MenuBar from "../menuBar";
