@@ -79,6 +79,9 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
   
+  const token = localStorage.getItem("token");
+
+  if(token!=("")){
   return (
     <div className="appBar">
     <AppBar position="static">
@@ -177,9 +180,87 @@ const ResponsiveAppBar = () => {
     
     </div>
   );
+  }
+  else{
+    return (
+      <div className="appBar">
+      <AppBar position="static">
+        
+        <div className="menu-container">
+            <Toolbar >
+            <Typography
+              variant="h6"
+              noWrap
+              component={Link} to="/inicio"
+              sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+              
+            >
+                      <img src={logo} width="100" height="80" alt="logo" /> 
+  
+            </Typography>
+            <Box>
+            <MenuItem component={Link} to="/inicio">
+            <Typography>INICIO</Typography>
+            </MenuItem>
+            </Box>
+  
+         
+            <Box sx={{ paddingLeft: '3%' }}>
+            <MenuItem component={Link} to="/catalogo" >
+            <Typography>CATÁLOGO</Typography>
+            </MenuItem>
+            </Box>
+  
+            <Box sx={{ paddingLeft: '3%' }}>
+            <MenuItem component={Link} to="/registro" >
+            <Typography>¿ERES PROVEEDOR?</Typography>
+            </MenuItem>
+            </Box>
+  
+            <Box  sx={{ paddingLeft: '3%' }}>
+            <Search >
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+            
+            </Box>
+            
+            <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
+            <div className="shoppingIcon">
+            <IconButton  >
+                  <ShoppingCart/>                
+              </IconButton>
+            </div>
+            
+            </Box>
+  
+  
+            <Box  sx={{marginLeft:'auto'}}>
+            <div className="iconoLoggin">
+                  <IconButton onClick={handleOpenUserMenu}  >
+                  <AccountCircle 
+                    style={{ fontSize: "35px", color: '#FFFFFF ' }}
+                  />
+                  </IconButton>
+  
+            </div>
+            
+            </Box>
+          </Toolbar>
+  
+          </div>
+  
+      </AppBar>
+      
+      </div>
+    );
+  }
 };
 export default ResponsiveAppBar;
-function setAnchorElUser(currentTarget: any) {
-  throw new Error('Function not implemented.');
-}
+
 

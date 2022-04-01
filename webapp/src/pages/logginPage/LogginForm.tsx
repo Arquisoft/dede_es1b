@@ -11,6 +11,7 @@ import logo from '../../logoAsturShop.png'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import MenuBar from "../menuBar";
 import {useNavigate} from 'react-router-dom';
+import { getProductosPorCategoria } from '../../api/api';
 
 type EmailFormProps = {
   OnUserListChange: () => void;
@@ -34,7 +35,8 @@ function EmailForm(): JSX.Element {
   
   const navigate = useNavigate();
 
-
+  
+  
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let result:boolean = await checkUser(username,password);
@@ -51,7 +53,7 @@ function EmailForm(): JSX.Element {
       setNotificationStatus(true);
       setNotification({ 
         severity:'error',
-        message:'There\'s been an error in the register proccess.'
+        message:'Usuario o contraseña incorrecta'
       });
     }
   }

@@ -59,8 +59,10 @@ export async function checkUser(username:String,password:String):Promise<boolean
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'usuario':username, 'contraseña':password})
     });
-  if (response.status===200)
+  if (response.status===200){
+    localStorage.setItem("token",await response.json());
     return true;
+  }
   else
     return false;
-}
+} 
