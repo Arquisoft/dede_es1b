@@ -21,6 +21,7 @@ import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBar.css";
 import Divider from '@mui/material/Divider';
+import {useNavigate} from 'react-router-dom';
 
 const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
 
@@ -80,6 +81,8 @@ const ResponsiveAppBar = () => {
   };
   
   const token = localStorage.getItem("token");
+
+  const navigate = useNavigate();
 
   if(token!=("")){
   return (
@@ -245,6 +248,7 @@ const ResponsiveAppBar = () => {
                   <IconButton onClick={handleOpenUserMenu}  >
                   <AccountCircle 
                     style={{ fontSize: "35px", color: '#FFFFFF ' }}
+                    onClick={() => navigate("/loggin")}
                   />
                   </IconButton>
   

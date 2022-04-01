@@ -12,6 +12,7 @@ export async function addUser(user:User):Promise<boolean>{
     else
       return false;
 }
+
 /*
 Metodo que selecciona los productos por categoría
  */
