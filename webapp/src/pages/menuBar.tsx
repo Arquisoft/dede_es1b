@@ -25,7 +25,6 @@ import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
 
 const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
-const settingsAdmin = ['Cerrar sesión'];
 
 
 const Search = styled('div')(({ theme }) => ({
