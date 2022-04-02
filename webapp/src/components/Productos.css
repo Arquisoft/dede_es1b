@@ -1,7 +1,0 @@
-.productos {
-    display: grid;
-    grid-template-columns: repeat(3, 500px);
-    grid-template-rows: auto;
-    grid-gap: 30px;
-    column-gap: 50px;
-}

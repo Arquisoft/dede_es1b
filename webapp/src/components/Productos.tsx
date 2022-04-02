@@ -1,6 +1,6 @@
 import { Producto } from '../shared/shareddtypes';
 import CardProducto from '../pages/mainPage/CardProducto';
-import "./Productos.css";
+import "../pages/mainPage/homepage.css";
 
 type ProductosProps = {
     productos: Producto[];
@@ -9,7 +9,7 @@ type ProductosProps = {
 const Productos = (props: ProductosProps) => {
 
     const handleAddToCart = (prod: Producto) => null;
-    
+
     return (
         <div className="productos">
             {
