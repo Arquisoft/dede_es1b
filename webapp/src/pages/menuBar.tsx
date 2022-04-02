@@ -22,8 +22,10 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBar.css";
 import Divider from '@mui/material/Divider';
 import {useNavigate} from 'react-router-dom';
+import MenuBarAdmin from "./menuBarAdmin";
 
 const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
+const settingsAdmin = ['Cerrar sesión'];
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -102,10 +104,11 @@ const ResponsiveAppBar = () => {
   };
   
   const token = localStorage.getItem("token");
+  const tipoUser = localStorage.getItem("tipoUser");
 
   const navigate = useNavigate();
 
-  if(token!=("")){
+  if(token!=("") && tipoUser=="usuario"){
   return (
     <div className="appBar">
     <AppBar position="static">
@@ -204,6 +207,11 @@ const ResponsiveAppBar = () => {
     
     </div>
   );
+  }
+  else if(tipoUser=="administrador" && token!=""){
+    return (
+    <MenuBarAdmin></MenuBarAdmin>
+    );
   }
   else{
     return (
