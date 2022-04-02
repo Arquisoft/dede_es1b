@@ -70,6 +70,8 @@ export const añadirUsuario:RequestHandler=async (required,resultado)=>{
 
         });
         await newUser.save();
+
+
         return resultado.sendStatus(200);
 
     }catch (err){
