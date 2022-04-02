@@ -30,5 +30,6 @@
 | |Convention|Motivation
 |C1|SOLID|The application must follow the SOLID principles in order to respect customer privacy
 |C2|Architecture documentation|Documentation structure must follow arc42 template
+|C3|GitHub Pages|The documentation will be deployed through GitHub Pages
 |===
  
