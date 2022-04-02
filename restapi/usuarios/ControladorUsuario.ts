@@ -36,16 +36,18 @@ export const checkUsuario:RequestHandler=async (required,resultado)=>{
         let contrasenia1:String=required.body.contraseña;
         const usuario=await modeloUsuario.findOne({usuario:usuario1,contrasenia:contrasenia1});
         if(usuario){
-            resultado.json(generarToken(required.body.email));
-            return resultado.status(200).json();
+            let obj = JSON.stringify({token:generarToken(required.body.usuario), tipoUser: usuario.tipo})
+            resultado.status(200).json(obj);
         }else{
-            return resultado.status(404).json();
+            resultado.status(404).json();
         }
     }catch (err){
         resultado.json(err);
     }
 
 };
+
+
 export const añadirUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let nombre:String=required.body.nombre;

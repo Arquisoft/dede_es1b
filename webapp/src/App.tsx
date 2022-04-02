@@ -13,7 +13,6 @@ import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria
 
 function App(): JSX.Element {
 
-  const [token, setToken] = useState();
 
 
   const [users,setUsers] = useState<User[]>([]);

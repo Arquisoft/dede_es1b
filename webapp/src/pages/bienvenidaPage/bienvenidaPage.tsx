@@ -15,7 +15,7 @@ function Bienvenida(): JSX.Element {
 
 
   const navigate = useNavigate();
-
+  localStorage.setItem("token","");
 
   return (
     <>

@@ -151,7 +151,7 @@ function RegisterForm(): JSX.Element {
         />
 
         </div>
-        <Button variant="contained" type="submit"  sx={{ my: 2 } }>Registrarse</Button>
+        <Button variant="contained" type="submit" onClick={() => navigate("/inicio")} sx={{ my: 2 } }>Registrarse</Button>
         </form>
         </div>
         <br></br><br></br>

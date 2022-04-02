@@ -1,3 +1,4 @@
+import { RestorePageOutlined } from '@mui/icons-material';
 import { User, Producto } from '../shared/shareddtypes';
 
 export async function addUser(user:User):Promise<boolean>{
@@ -12,6 +13,7 @@ export async function addUser(user:User):Promise<boolean>{
     else
       return false;
 }
+
 /*
 Metodo que selecciona los productos por categoría
  */
@@ -59,8 +61,12 @@ export async function checkUser(username:String,password:String):Promise<boolean
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'usuario':username, 'contraseña':password})
     });
-  if (response.status===200)
-    return true;
+  if (response.status===200){
+    let obj =JSON.parse(await response.json());
+    localStorage.setItem("tipoUser",obj.tipoUser);
+    localStorage.setItem("token",obj.tipoUser);
+     return true;  
+  }
   else
     return false;
-}
+} 
