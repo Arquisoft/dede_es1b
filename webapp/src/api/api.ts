@@ -12,6 +12,21 @@ export async function addUser(user:User):Promise<boolean>{
     else
       return false;
 }
+/*
+Metodo que selecciona los productos por categoría
+ */
+/*export async function getProductByCategory(categoria:string):Promise<boolean>{
+    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+    let response = await fetch(apiEndPoint+'/products/catalogo', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({'categoria':categoria})
+    });
+    if (response.status===200)
+        return true;
+    else
+        return false;
+}*/
 
 export async function getUsers():Promise<User[]>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
@@ -24,6 +39,17 @@ export async function getProductos(): Promise<Producto[]> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/products/list');
   return response.json()
+}
+
+export async function getProductosPorCategoria(categoria:String): Promise<Producto[]> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/products/catalogo', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'categoria':categoria})
+    });
+    return response.json()
+
 }
 
 export async function checkUser(username:String,password:String):Promise<boolean>{

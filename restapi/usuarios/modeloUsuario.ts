@@ -2,12 +2,16 @@ const mongoose=require("mongoose");
 const{model,Schema}=mongoose;
 
 const schemaUsuario=new Schema({
-    id:Number,
+    id:String,
     name:String,
     surname:String,
     usuario:String,
     contrasenia:String,
     correo:String,
+    tipo:String,
+    listaProductos:[{
+        id_p: String
+    }],
 
 })
 schemaUsuario.set('toJSON',{

@@ -72,13 +72,14 @@ function RegisterForm(): JSX.Element {
         <div className="registro-contenido">
 
        <div className='field-container'>
+       <h3>Nombre:</h3>
 
-          <TextField
+          <TextField className='textField'
           required
           label="Nombre:"
           name="name"
           id="filled-size-small"
-          variant="filled"
+          variant="outlined"
           value={name}
           onChange={e => setName(e.target.value)}
           sx={{ my: 2 }}
@@ -87,13 +88,14 @@ function RegisterForm(): JSX.Element {
         </div>
 
         <div className='field-container'>
+        <h3>Apellidos:</h3>
 
-        <TextField
+        <TextField className='textField'
           required
           label="Apellidos:"    
           name="surname"
           id="filled-size-small"
-          variant="filled"
+          variant="outlined"
           value={surname}
           onChange={e => setSurname(e.target.value)}
           sx={{ my: 2 }}
@@ -101,13 +103,14 @@ function RegisterForm(): JSX.Element {
         />
         </div>
         <div className='field-container'>
+        <h3>Correo electrónico:</h3>
 
-        <TextField
+        <TextField className='textField'
           required
           label="Correo Electronico:"
           name="email"
           id="filled-size-small"
-          variant="filled"
+          variant="outlined"
           value={email}
           onChange={e => setEmail(e.target.value)}
           sx={{ my: 2 }}
@@ -116,26 +119,31 @@ function RegisterForm(): JSX.Element {
 
         </div>
         <div className='field-container'>
+        <h3>Usuario:</h3>
 
-        <TextField
+        <TextField className='textField'
           required
           label="Usuario:"
           name="username"
           id="filled-size-small"
-          variant="filled"
+          variant="outlined"
           value={username}
           onChange={e => setUsername(e.target.value)}
           sx={{ my: 2 }}
 
         />
         </div>
-        <TextField
+        
+        <h3>Contraseña:</h3>
+
+        <TextField className='textField'
           required
           label="Contraseña:"
           name="password"
           id="filled-size-small"
-          variant="filled"
+          variant="outlined"
           type="password"
+        
           value={password}
           onChange={e => setPassword(e.target.value)}
           sx={{ my: 2 }}
@@ -146,6 +154,7 @@ function RegisterForm(): JSX.Element {
         <Button variant="contained" type="submit"  sx={{ my: 2 } }>Registrarse</Button>
         </form>
         </div>
+        <br></br><br></br>
 
     </>
   );

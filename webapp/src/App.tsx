@@ -8,6 +8,8 @@ import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/mainPage/Homepage";
 import Ayuda from "./pages/ayudaPage/ayuda";
+import Catalogo from "./pages/catalogoPage/catalogo";
+import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria";
 
 function App(): JSX.Element {
 
@@ -31,7 +33,10 @@ function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<Bienvenida/>}/>
           <Route path="/inicio" element={<Home/>}/>
-          <Route path="/loggin" element={<LogginForm />} />
+          <Route path="/catalogo" element={<Catalogo/>}/>
+            <Route path="catalogo/:categoria" element={<CatalogoListado />} />
+
+          <Route path="/loggin" element={<LogginForm />} /> 
           <Route path="/registro" element={<Registro />} />
           <Route path="/ayuda" element={<Ayuda />} />
 

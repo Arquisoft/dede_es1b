@@ -5,11 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import { MenuList } from '@mui/material';
@@ -19,10 +14,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import "./menuBar.css";
-import Divider from '@mui/material/Divider';
-
-const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
+import "./menuBarAdmin.css";
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -67,7 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const ResponsiveAppBar = () => {
+const AdminAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 
@@ -96,83 +88,22 @@ const ResponsiveAppBar = () => {
 
           </Typography>
           <Box>
-          <MenuItem component={Link} to="/inicio">
-          <Typography>INICIO</Typography>
+          <MenuItem component={Link} to="/listar/clientes">
+          <Typography>Lista de clientes</Typography>
           </MenuItem>
           </Box>
 
        
           <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/catalogo" >
-          <Typography>CATÁLOGO</Typography>
+          <MenuItem component={Link} to="/añadir/productos" >
+          <Typography>Añadir productos</Typography>
           </MenuItem>
           </Box>
 
           <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/registro" >
-          <Typography>¿ERES PROVEEDOR?</Typography>
+          <MenuItem component={Link} to="/listar/productos" >
+          <Typography>Lista de productos</Typography>
           </MenuItem>
-          </Box>
-
-          <Box  sx={{ paddingLeft: '3%' }}>
-          <Search >
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-          
-          </Box>
-          
-          <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
-          <div className="shoppingIcon">
-          <IconButton  >
-                <ShoppingCart/>                
-            </IconButton>
-          </div>
-          
-          </Box>
-
-          <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/ayuda">
-          <Typography>AYUDA</Typography>
-          </MenuItem>
-          </Box>
-
-          <Box  sx={{marginLeft:'auto'}}>
-          <div className="iconoLoggin">
-                <IconButton onClick={handleOpenUserMenu}  >
-                <AccountCircle 
-                  style={{ fontSize: "35px", color: '#FFFFFF ' }}
-                />
-                </IconButton>
-
-          </div>
-          <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
 
           
@@ -185,8 +116,7 @@ const ResponsiveAppBar = () => {
     </div>
   );
 };
-export default ResponsiveAppBar;
+export default AdminAppBar;
 function setAnchorElUser(currentTarget: any) {
   throw new Error('Function not implemented.');
 }
-

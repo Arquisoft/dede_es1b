@@ -68,7 +68,7 @@ function EmailForm(): JSX.Element {
       <h3>Usuario:</h3>
       <div className='field-container'>
       
-        <TextField
+        <TextField  className='textField'
             required
             name="Usuario"
             label="username" 
@@ -81,7 +81,7 @@ function EmailForm(): JSX.Element {
       <div className='field-container'>
    
         <h3>Contraseña:</h3>
-        <TextField
+        <TextField  className='textField'
           required
           name="Contraseña"
           label="password" 
