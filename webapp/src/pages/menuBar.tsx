@@ -127,17 +127,15 @@ const ResponsiveAppBar = () => {
           
           </Box>
           
-          <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
-          <div className="shoppingIcon">
-          <IconButton  >
+          <Box sx={{ marginLeft:'auto'}}>
+            <div className="shoppingIcon">
+              <IconButton  >
                 <ShoppingCart/>                
-            </IconButton>
-          </div>
-          
+              </IconButton>
+            </div>
           </Box>
 
-
-          <Box  sx={{marginLeft:'auto'}}>
+          <Box  sx={{marginLeft:"5px"}}>
           <div className="iconoLoggin">
                 <IconButton onClick={handleOpenUserMenu}  >
                 <AccountCircle 

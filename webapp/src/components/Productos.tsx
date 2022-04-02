@@ -7,13 +7,16 @@ type ProductosProps = {
 }
 
 const Productos = (props: ProductosProps) => {
+
+    const handleAddToCart = (prod: Producto) => null;
+    
     return (
         <div className="productos">
             {
                 props.productos.map(
                     (prod: Producto) => {
                         return (
-                        <CardProducto producto={prod} />
+                            <CardProducto key={prod.id} producto={prod} handleAddToCart={handleAddToCart} />
                         )
                     }
                 )

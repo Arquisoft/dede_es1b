@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -15,16 +14,16 @@ function ProductoCarrito(props: ProdProps) {
     let imagen: string = require("../../images/" + props.producto.imagen);
 
   return (
-    <Card className="producto">
+    <Card className="producto" sx={{ maxWidth: 350 } }>
         <CardContent>
-            <Typography variant="h5">
+            <Typography variant="h6">
                 {props.producto.name}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
                 {props.producto.tipo}
             </Typography>
             <Typography variant="h6" color="blue">
-                {props.producto.precio + " €"}
+                {"x uds. (" + props.producto.precio + " €)"}
             </Typography>
         </CardContent>
         <CardMedia

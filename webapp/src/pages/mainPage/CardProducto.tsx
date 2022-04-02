@@ -7,9 +7,11 @@ import Typography from '@mui/material/Typography';
 import { Producto } from '../../shared/shareddtypes';
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import "./homepage.css"
 
 type ProdProps = {
     producto: Producto;
+    handleAddToCart: (prod: Producto) => void;
 }
 
 function CardProducto(props: ProdProps) {
@@ -17,7 +19,7 @@ function CardProducto(props: ProdProps) {
     let imagen: string = require("../../images/" + props.producto.imagen);
 
     return (
-        <Card sx={{ maxWidth: 345, maxHeight: 500 } }>
+        <Card sx={{ maxWidth: 345, maxHeight: 490 } }>
           <CardMedia sx={{ m: "10rm", mx:'auto'}}
             component="img"
             style={{height:"220px",width:'auto'}}
@@ -25,7 +27,7 @@ function CardProducto(props: ProdProps) {
             
             alt={props.producto.name}
           />
-          <CardContent>
+          <CardContent className="text">
             <Typography variant="h6" component="div">
               {props.producto.name}
             </Typography>
@@ -40,8 +42,8 @@ function CardProducto(props: ProdProps) {
             </Typography>
           </CardContent>
           <CardActions>
-            <IconButton color="primary" aria-label="add to shopping cart">
-              <AddShoppingCartIcon />
+            <IconButton className="buttons" color="primary" aria-label="add to shopping cart">
+              <AddShoppingCartIcon onClick={() => props.handleAddToCart(props.producto)}/>
             </IconButton>
           </CardActions>
         </Card>

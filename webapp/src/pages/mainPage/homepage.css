@@ -4,14 +4,13 @@ h1 {
     text-align: center;
     text-shadow: .1em .1em 0 hsl(200 50% 30%);
     font-size: 80px;
-    
 }
-
 
 .productos {
     margin-left: 30px;
     margin-bottom: 50px;
-    
 }
 
-
+.buttons {
+    vertical-align: bottom;
+}
