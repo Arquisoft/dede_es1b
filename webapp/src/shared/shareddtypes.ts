@@ -13,6 +13,7 @@ export type Producto = {
     imagen: string;
     tipo: string;
     descripcion: string;
+    cantidad: number;
 }
 
 export type Carrito = {

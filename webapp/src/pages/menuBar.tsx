@@ -5,14 +5,8 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
-import { MenuList } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -20,7 +14,8 @@ import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBar.css";
-import Divider from '@mui/material/Divider';
+import { setCarritoAb, carrito, getTotalItems } from "./mainPage/Homepage";
+import Badge from '@mui/material/Badge';
 
 const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
 
@@ -129,8 +124,10 @@ const ResponsiveAppBar = () => {
           
           <Box sx={{ marginLeft:'auto'}}>
             <div className="shoppingIcon">
-              <IconButton  >
-                <ShoppingCart/>                
+              <IconButton onClick={() => setCarritoAb(true)}>
+                <Badge badgeContent={getTotalItems(carrito)} color="success">
+                  <ShoppingCart/>
+                </Badge>            
               </IconButton>
             </div>
           </Box>
