@@ -76,6 +76,27 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(event.currentTarget);
   };
 
+  const handleUserMenuOptions = (setting:string) => {
+    switch(setting){
+      case "Cerrar sesión":{
+        localStorage.setItem("token","");
+        console.log(localStorage.getItem("token"));
+        navigate("/inicio");
+        console.log("clickaste cerrar sesion");
+        break;
+      }
+      case "Perfil":{
+        console.log("clickaste perfil");
+        break;
+      }
+      default:{
+        console.log("otruuuutrucutrucu");
+        break;
+      }
+    }
+
+  };
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -169,7 +190,7 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={()=>handleUserMenuOptions(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
