@@ -136,6 +136,11 @@ const ResponsiveAppBar = () => {
           
           </Box>
 
+          <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/ayuda">
+          <Typography>AYUDA</Typography>
+          </MenuItem>
+          </Box>
 
           <Box  sx={{marginLeft:'auto'}}>
           <div className="iconoLoggin">
@@ -169,6 +174,8 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
+
+          
         </Toolbar>
 
         </div>
