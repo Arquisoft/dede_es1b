@@ -20,7 +20,7 @@ function CardProducto(props: ProdProps) {
         <Card sx={{ maxWidth: 345, maxHeight: 500 } }>
           <CardMedia sx={{ m: "10rm", mx:'auto'}}
             component="img"
-            style={{height: "300px",width:"300"}}
+            style={{height:"220px",width:'auto'}}
             image={imagen}
             
             alt={props.producto.name}
