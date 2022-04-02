@@ -1,4 +1,5 @@
 import ListaProductos from './ListaProductos';
+import Carrito from '../../components/carrito/Carrito';
 import MenuBar from "../menuBar";
 import "./homepage.css";
 
@@ -12,6 +13,9 @@ function Init(): JSX.Element {
             <h1>AsturShop</h1>
             <div className="productos">
                 <ListaProductos />
+            </div>
+            <div className="pruebaProductosCarrito">
+                <Carrito />
             </div>
         ºº</div>
     </div>

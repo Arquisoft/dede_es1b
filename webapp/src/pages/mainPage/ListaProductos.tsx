@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
 import { getProductos} from '../../api/api';
 import { Producto } from '../../shared/shareddtypes';
-import "./listaProductos.css";
 
 function ListaProductos(): JSX.Element {
 

@@ -1,0 +1,10 @@
+.producto {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    column-gap: 20px;
+}
+
+.foto {
+    align-self: center;
+}
