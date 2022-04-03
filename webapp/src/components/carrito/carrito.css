@@ -1,0 +1,28 @@
+.producto {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    column-gap: 20px;
+}
+
+.foto {
+    align-self: center;
+}
+
+.productosCarrito {
+    display: grid;
+    width: 380px;
+}
+
+.carrito {
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: 70px 70px;
+    column-gap: 5px;
+}
