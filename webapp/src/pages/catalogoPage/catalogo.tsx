@@ -20,8 +20,6 @@ import CatalogoListado from "../productosPorCategoria/productosPorCategoria";
 function Catalogo(): JSX.Element {
 
   const navigate = useNavigate();
-
-
   return (
     <>
     

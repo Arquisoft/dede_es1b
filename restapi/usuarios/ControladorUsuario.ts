@@ -7,7 +7,7 @@ import{generarToken}from "./GenerarToken"
 
 export const getUsuarios:RequestHandler=async (required,resultado)=>{
     try{
-        const usuarios=await modeloUsuario.find();
+        const usuarios=await modeloUsuario.find({"tipo":'usuario'});
         return resultado.json(usuarios);
     }catch (err){
         resultado.json(err);
@@ -17,8 +17,9 @@ export const getUsuarios:RequestHandler=async (required,resultado)=>{
 
 export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     try{
-        let id_user:String=required.body.user_id;
-        const usuario=await modeloUsuario.delete({"id":id_user});
+        let id_user:String=required.body.id;
+        console.log(id_user);
+        const usuario=await modeloUsuario.deleteOne({"_id":id_user});
         if(usuario){
             return resultado.status(200).json();
         }else{
@@ -36,16 +37,18 @@ export const checkUsuario:RequestHandler=async (required,resultado)=>{
         let contrasenia1:String=required.body.contraseña;
         const usuario=await modeloUsuario.findOne({usuario:usuario1,contrasenia:contrasenia1});
         if(usuario){
-            resultado.json(generarToken(required.body.email));
-            return resultado.status(200).json();
+            let obj = JSON.stringify({token:generarToken(required.body.usuario), tipoUser: usuario.tipo})
+            resultado.status(200).json(obj);
         }else{
-            return resultado.status(404).json();
+            resultado.status(404).json();
         }
     }catch (err){
         resultado.json(err);
     }
 
 };
+
+
 export const añadirUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let nombre:String=required.body.nombre;
@@ -68,6 +71,8 @@ export const añadirUsuario:RequestHandler=async (required,resultado)=>{
 
         });
         await newUser.save();
+
+
         return resultado.sendStatus(200);
 
     }catch (err){

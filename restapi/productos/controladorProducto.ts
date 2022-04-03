@@ -16,8 +16,10 @@ export const getProductos: RequestHandler = async (req, res) => {
 };
 export const borrarProducto:RequestHandler=async (required,resultado)=>{
     try{
-        let id_producto:String=required.body.producto_id;
-        const producto=await modeloProducto.delete({"id":id_producto});
+        let id_producto:String=required.body.id;
+        //console.log(id_producto)
+
+        const producto=await modeloProducto.deleteOne({"_id":id_producto});
         if(producto){
             return resultado.status(200).json();
         }else{

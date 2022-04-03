@@ -6,14 +6,19 @@ import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
 import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/mainPage/Homepage";
+import Ayuda from "./pages/ayudaPage/ayuda";
 import Catalogo from "./pages/catalogoPage/catalogo";
 import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria";
+
 import { Producto } from './shared/shareddtypes';
 import './App.css';
 
+
+import ListaUsuariosParaEliminar from './pages/listaClientes/listaClientes';
+import ListaProductosParaEliminar from './pages/listaProductosAdmin/listaProductosAdmin';
+
 function App(): JSX.Element {
 
-  const [token, setToken] = useState();
 
   const [users,setUsers] = useState<User[]>([]);
 
@@ -33,10 +38,14 @@ function App(): JSX.Element {
           <Route path="/" element={<Bienvenida/>}/>
           <Route path="/inicio" element={<Home />}/>
           <Route path="/catalogo" element={<Catalogo/>}/>
-            <Route path="catalogo/:categoria" element={<CatalogoListado />} />
+          <Route path="catalogo/:categoria" element={<CatalogoListado />} />
 
           <Route path="/loggin" element={<LogginForm />} /> 
           <Route path="/registro" element={<Registro />} />
+          <Route path="/ayuda" element={<Ayuda />} />
+          <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
+          <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
+
 
           </Routes>
       </BrowserRouter>

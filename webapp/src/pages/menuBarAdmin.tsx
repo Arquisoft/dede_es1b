@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
-import { MenuList } from '@mui/material';
+import { backdropClasses, MenuList } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -15,7 +15,9 @@ import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBarAdmin.css";
+import {useNavigate} from 'react-router-dom';
 
+const settingsAdmin = ['Cerrar sesión'];
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -31,6 +33,7 @@ const Search = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
+
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -59,9 +62,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
+
 const AdminAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const navigate = useNavigate();
 
   const handleOpenUserMenu = (event: { currentTarget: any; }) => {
     setAnchorElUser(event.currentTarget);
@@ -70,10 +76,26 @@ const AdminAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleUserMenuOptions = (setting:string) => {
+    switch(setting){
+      case "Cerrar sesión":{
+        localStorage.setItem("token","");
+        navigate("/inicio");
+        console.log("clickaste cerrar sesion");
+        break;
+      }
+      default:{
+        console.log("otruuuutrucutrucu");
+        break;
+      }
+    }
+  
+  };
   
   return (
     <div className="appBar">
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: '#2e7d32' }}>
       
       <div className="menu-container">
           <Toolbar >
@@ -88,7 +110,7 @@ const AdminAppBar = () => {
 
           </Typography>
           <Box>
-          <MenuItem component={Link} to="/listar/clientes">
+          <MenuItem component={Link} to="/usuarios/list">
           <Typography>Lista de clientes</Typography>
           </MenuItem>
           </Box>
@@ -101,11 +123,43 @@ const AdminAppBar = () => {
           </Box>
 
           <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/listar/productos" >
+          <MenuItem component={Link} to="/productos/list" >
           <Typography>Lista de productos</Typography>
           </MenuItem>
           </Box>
+          
+          <Box  sx={{marginLeft:'auto'}}>
+          <div className="iconoLoggin">
+                <IconButton onClick={handleOpenUserMenu}  >
+                <AccountCircle 
+                  style={{ fontSize: "35px", color: '#FFFFFF ' }}
+                />
+                </IconButton>
 
+          </div>
+          <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settingsAdmin.map((setting) => (
+                <MenuItem key={setting} onClick={()=>handleUserMenuOptions(setting)}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
           
         </Toolbar>
 

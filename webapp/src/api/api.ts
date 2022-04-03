@@ -1,17 +1,20 @@
+import { RestorePageOutlined } from '@mui/icons-material';
 import { User, Producto } from '../shared/shareddtypes';
 
 export async function addUser(user:User):Promise<boolean>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+   
     let response = await fetch(apiEndPoint+'/usuarios/add', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({'nombre':user.name,'apellidos':user.surname,'usuario':user.username, 'contraseña':user.password, 'correo':user.email})
+        body: JSON.stringify({'nombre':user.name,'apellidos':user.surname,'usuario':user.usuario, 'contraseña':user.password, 'correo':user.correo})
       });
     if (response.status===200)
       return true;
     else
       return false;
 }
+
 /*
 Metodo que selecciona los productos por categoría
  */
@@ -35,6 +38,34 @@ export async function getUsers():Promise<User[]>{
     return response.json()
 }
 
+export async function deleteUser(id:String):Promise<boolean>{
+  
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/usuarios/delete', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'id':id})
+  });
+    
+  if(response.status==200){
+    
+    return true;}
+  return false;
+}
+export async function deleteProduct(id:String):Promise<boolean>{
+  
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/delete', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'id':id})
+  });
+    
+  if(response.status==200){
+    
+    return true;}
+  return false;
+}
 export async function getProductos(): Promise<Producto[]> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/products/list');
@@ -59,8 +90,12 @@ export async function checkUser(username:String,password:String):Promise<boolean
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'usuario':username, 'contraseña':password})
     });
-  if (response.status===200)
-    return true;
+  if (response.status===200){
+    let obj =JSON.parse(await response.json());
+    localStorage.setItem("tipoUser",obj.tipoUser);
+    localStorage.setItem("token",obj.tipoUser);
+     return true;  
+  }
   else
     return false;
-}
+} 
