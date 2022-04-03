@@ -4,11 +4,10 @@ import "../pages/mainPage/homepage.css";
 
 type ProductosProps = {
     productos: Producto[];
+    handleAñadirAlCarrito: (prod: Producto) => void;
 }
 
 const Productos = (props: ProductosProps) => {
-
-    const handleAddToCart = (prod: Producto) => null;
 
     return (
         <div className="productos">
@@ -16,7 +15,7 @@ const Productos = (props: ProductosProps) => {
                 props.productos.map(
                     (prod: Producto) => {
                         return (
-                            <CardProducto key={prod.id} producto={prod} handleAddToCart={handleAddToCart} />
+                            <CardProducto key={prod.id} producto={prod} handleAñadirAlCarrito={props.handleAñadirAlCarrito} />
                         )
                     }
                 )

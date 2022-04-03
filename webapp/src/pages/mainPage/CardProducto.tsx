@@ -11,7 +11,7 @@ import "./homepage.css"
 
 type ProdProps = {
     producto: Producto;
-    handleAddToCart: (prod: Producto) => void;
+    handleAñadirAlCarrito: (prod: Producto) => void;
 }
 
 function CardProducto(props: ProdProps) {
@@ -43,7 +43,7 @@ function CardProducto(props: ProdProps) {
           </CardContent>
           <CardActions>
             <IconButton className="buttons" color="primary" aria-label="add to shopping cart">
-              <AddShoppingCartIcon onClick={() => props.handleAddToCart(props.producto)}/>
+              <AddShoppingCartIcon onClick={() => props.handleAñadirAlCarrito(props.producto)}/>
             </IconButton>
           </CardActions>
         </Card>

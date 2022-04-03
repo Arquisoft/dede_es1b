@@ -28,7 +28,19 @@ function Init(): JSX.Element {
         cargar();
     }, [])
 
-    const handleAñadirAlCarrito = (prod: Producto) => null;
+    const handleAñadirAlCarrito = (prod: Producto) => {
+        setCarrito(prev => {
+            const prodAñadido = prev.find(p => p.id === prod.id)
+            if (prodAñadido) {
+                return prev.map(p => (
+                    p.id === prod.id ? {
+                        ...p, cantidad: p.cantidad + 1
+                    } : p
+                ));
+            }
+            return [...prev, {...prod, cantidad: 1}];
+        });
+    };
     const handleEliminarDelCarrito = () => null;
 
     return (
@@ -36,7 +48,7 @@ function Init(): JSX.Element {
         <div className="encabezado">
             <MenuBar />
             <h1>AsturShop</h1>
-            <Productos productos={productos} />
+            <Productos productos={productos} handleAñadirAlCarrito={handleAñadirAlCarrito} />
             <SwipeableDrawer anchor="right" open={carritoAb} onOpen={() => setCarritoAb(true)} onClose={() => setCarritoAb(false)}>
                 <Carrito 
                     carrito={carrito} 

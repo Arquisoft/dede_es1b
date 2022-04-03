@@ -5,7 +5,11 @@ import { Producto } from '../../shared/shareddtypes';
 import MenuBar from "../menuBar";
 import {useParams} from "react-router-dom";
 
-function ListaProductos(props:any): JSX.Element {
+type ProdProps = {
+  handleAñadirAlCarrito: (prod: Producto) => void;
+}
+
+function ListaProductos(props: ProdProps): JSX.Element {
 
   const[productos, setProductos] = useState<Producto[]>([])
   const {categoria} = useParams();
@@ -28,7 +32,7 @@ function ListaProductos(props:any): JSX.Element {
 
       <div className='productos'>
 
-      <Productos productos={productos} />
+      <Productos productos={productos} handleAñadirAlCarrito={props.handleAñadirAlCarrito} />
       </div>
     </div>
   )
