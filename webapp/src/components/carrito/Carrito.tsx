@@ -10,6 +10,9 @@ type CarritoProps = {
 
 const Carrito = (props: CarritoProps) => {
 
+  const calcularTotal = (productos: Producto[]) => 
+    productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
+
   return (
     <div className="carrito" >
       <h2>Carrito de la compra</h2>
@@ -23,6 +26,7 @@ const Carrito = (props: CarritoProps) => {
               eliminarProd={props.eliminarProd}
           />
         ))}
+        <h2>Total: {calcularTotal(props.carrito).toFixed(2)} €</h2>
       </div>
     </div>
   )

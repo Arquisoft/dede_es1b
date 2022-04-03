@@ -25,7 +25,7 @@ function ProductoCarrito(props: ProdProps) {
             <Typography variant="subtitle1" color="text.secondary">
                 {props.producto.tipo}
             </Typography>
-            <Typography variant="h6" color="blue">
+            <Typography variant="body1" color="blue">
                 {props.producto.cantidad + " uds. (" + (props.producto.cantidad * props.producto.precio).toFixed(2) + " €)"}
             </Typography>
             <div className="botones">
@@ -46,7 +46,7 @@ function ProductoCarrito(props: ProdProps) {
         <CardMedia
             className = "foto"
             component="img"
-            sx={{ width: 90 }}
+            sx={{ width: 90, maxWidth: 90 }}
             image={imagen}
             alt={props.producto.name}
         />

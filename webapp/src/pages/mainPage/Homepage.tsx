@@ -41,7 +41,20 @@ function Init(): JSX.Element {
             return [...prev, {...prod, cantidad: 1}];
         });
     };
-    const handleEliminarDelCarrito = () => null;
+    const handleEliminarDelCarrito = (id: string) => {
+        setCarrito(prev => (
+            prev.reduce((accum, p) => {
+                if (p.id === id) {
+                    if (p.cantidad === 1) {
+                        return accum;
+                    }
+                    return [...accum, {...p, cantidad: p.cantidad - 1}];
+                } else {
+                    return [...accum, p];
+                }
+            }, [] as Producto[])
+        ));
+    };
 
     return (
     <div className="homepage-container">

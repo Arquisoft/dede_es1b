@@ -20,3 +20,9 @@
     margin-right: 15px;
     margin-bottom: 15px;
 }
+
+.botones {
+    display: grid;
+    grid-template-columns: 70px 70px;
+    column-gap: 5px;
+}
