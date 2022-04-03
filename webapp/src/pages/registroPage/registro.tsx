@@ -21,14 +21,28 @@ type NotificationType = {
 
 
 function RegisterForm(): JSX.Element {
-
+  
   const [usuario, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [correo, setEmail] = useState('');
+  
+   const registrar =()=>{
+    navigate("/inicio");
+    var id= '';
+    console.log("llegó");
+    addUser({id,name,surname,usuario,password,correo});
+    console.log({name});
+    console.log({surname});
+    console.log({usuario});
+    console.log({password});
+    console.log({correo});
 
-
+   
+  
+}
+  
   const [notificationStatus, setNotificationStatus] = useState(false);
   const [notification, setNotification] = useState<NotificationType>({severity:'success',message:''});
   
@@ -36,6 +50,7 @@ function RegisterForm(): JSX.Element {
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('prueba');
     var id= '';
     e.preventDefault();
     let result:boolean = await addUser({id,name,surname,usuario,password,correo});
@@ -152,7 +167,7 @@ function RegisterForm(): JSX.Element {
         />
 
         </div>
-        <Button variant="contained" type="submit" onClick={() => navigate("/inicio")} sx={{ my: 2 } }>Registrarse</Button>
+        <Button  variant="contained" type="button" onClick={() => registrar()} sx={{ my: 2 } }>Registrarse</Button>
         </form>
         </div>
         <br></br><br></br>
