@@ -6,7 +6,7 @@ export async function addUser(user:User):Promise<boolean>{
     let response = await fetch(apiEndPoint+'/usuarios/add', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({'nombre':user.name,'apellidos':user.surname,'usuario':user.username, 'contraseña':user.password, 'correo':user.email})
+        body: JSON.stringify({'nombre':user.name,'apellidos':user.surname,'usuario':user.usuario, 'contraseña':user.password, 'correo':user.correo})
       });
     if (response.status===200)
       return true;
@@ -37,6 +37,34 @@ export async function getUsers():Promise<User[]>{
     return response.json()
 }
 
+export async function deleteUser(id:String):Promise<boolean>{
+  
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/usuarios/delete', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'id':id})
+  });
+    
+  if(response.status==200){
+    
+    return true;}
+  return false;
+}
+export async function deleteProduct(id:String):Promise<boolean>{
+  
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/delete', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'id':id})
+  });
+    
+  if(response.status==200){
+    
+    return true;}
+  return false;
+}
 export async function getProductos(): Promise<Producto[]> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/products/list');

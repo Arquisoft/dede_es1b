@@ -110,7 +110,7 @@ const AdminAppBar = () => {
 
           </Typography>
           <Box>
-          <MenuItem component={Link} to="/listar/clientes">
+          <MenuItem component={Link} to="/usuarios/list">
           <Typography>Lista de clientes</Typography>
           </MenuItem>
           </Box>
@@ -123,7 +123,7 @@ const AdminAppBar = () => {
           </Box>
 
           <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/listar/productos" >
+          <MenuItem component={Link} to="/productos/list" >
           <Typography>Lista de productos</Typography>
           </MenuItem>
           </Box>

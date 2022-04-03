@@ -1,16 +1,17 @@
 export type User = {
+    id:string
     name:string;
     surname:string;
-    username:string;
-    email:string;
+    usuario:string;
+    correo:string;
     password:string;
   }
 
   export type Producto = {
     id: string;
-    nombre: string;
+    name: string;
     precio: number;
     imagen: string;
-    categoria: string;
+    tipo: string;
     descripcion: string;
 }

@@ -22,11 +22,11 @@ type NotificationType = {
 
 function RegisterForm(): JSX.Element {
 
-  const [username, setUsername] = useState('');
+  const [usuario, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
+  const [correo, setEmail] = useState('');
 
 
   const [notificationStatus, setNotificationStatus] = useState(false);
@@ -36,13 +36,14 @@ function RegisterForm(): JSX.Element {
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    var id= '';
     e.preventDefault();
-    let result:boolean = await addUser({name,surname,username,password,email});
+    let result:boolean = await addUser({id,name,surname,usuario,password,correo});
     console.log({name});
     console.log({surname});
-    console.log({username});
+    console.log({usuario});
     console.log({password});
-    console.log({email});
+    console.log({correo});
 
     if (result){
       console.log("hola");
@@ -111,7 +112,7 @@ function RegisterForm(): JSX.Element {
           name="email"
           id="filled-size-small"
           variant="outlined"
-          value={email}
+          value={correo}
           onChange={e => setEmail(e.target.value)}
           sx={{ my: 2 }}
 
@@ -127,7 +128,7 @@ function RegisterForm(): JSX.Element {
           name="username"
           id="filled-size-small"
           variant="outlined"
-          value={username}
+          value={usuario}
           onChange={e => setUsername(e.target.value)}
           sx={{ my: 2 }}
 
