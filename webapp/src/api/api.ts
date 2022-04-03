@@ -3,6 +3,7 @@ import { User, Producto } from '../shared/shareddtypes';
 
 export async function addUser(user:User):Promise<boolean>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+   
     let response = await fetch(apiEndPoint+'/usuarios/add', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
