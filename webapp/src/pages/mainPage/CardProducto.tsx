@@ -23,14 +23,14 @@ function CardProducto(props: ProdProps) {
             style={{height: "300px",width:"300"}}
             image={imagen}
             
-            alt={props.producto.nombre}
+            alt={props.producto.name}
           />
           <CardContent>
             <Typography variant="h6" component="div">
-              {props.producto.nombre}
+              {props.producto.name}
             </Typography>
             <Typography gutterBottom variant="subtitle1" color="text.secondary">
-              {props.producto.categoria}
+              {props.producto.tipo}
             </Typography>
             <Typography variant="body1">
               {props.producto.descripcion}
