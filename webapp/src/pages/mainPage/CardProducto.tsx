@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography';
 import { Producto } from '../../shared/shareddtypes';
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Button from '@mui/material/Button';
+import {useNavigate} from 'react-router-dom';
 
 type ProdProps = {
     producto: Producto;
@@ -15,7 +17,12 @@ type ProdProps = {
 function CardProducto(props: ProdProps) {
 
     let imagen: string = require("../../images/" + props.producto.imagen);
+    const navigate = useNavigate();
 
+    const handleSubmit =() => {
+      localStorage.setItem("productoClickado",props.producto.id);
+      navigate("/detallesProducto");
+    }
     return (
         <Card sx={{ maxWidth: 345, maxHeight: 500 } }>
           <CardMedia sx={{ m: "10rm", mx:'auto'}}
@@ -33,7 +40,7 @@ function CardProducto(props: ProdProps) {
               {props.producto.categoria}
             </Typography>
             <Typography variant="body1">
-              {props.producto.descripcion}
+              {props.producto.nombre}
             </Typography>
             <Typography variant="h6" color="blue">
                 {props.producto.precio + " €"}
@@ -43,7 +50,8 @@ function CardProducto(props: ProdProps) {
             <IconButton color="primary" aria-label="add to shopping cart">
               <AddShoppingCartIcon />
             </IconButton>
-          </CardActions>
+          <Button size="small" onClick={() => handleSubmit} >VER DETALLES</Button>
+         </CardActions>
         </Card>
       );
 }

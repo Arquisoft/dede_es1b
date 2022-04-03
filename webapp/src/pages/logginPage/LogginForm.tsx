@@ -47,6 +47,8 @@ function EmailForm(): JSX.Element {
         message:'You have been registered in the system!'
       });
       console.log("tokeeen"+localStorage.getItem("token"));
+      console.log("tokeeen"+localStorage.getItem("tipoUser"));
+
       navigate("/inicio");
       //Notify the change to the parent component
     }

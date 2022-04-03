@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -23,9 +23,16 @@ import "./menuBar.css";
 import Divider from '@mui/material/Divider';
 import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
+import Alert from '@mui/material/Alert';
+import type { AlertColor } from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 
 const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
 
+type NotificationType = {
+  severity: AlertColor,
+  message: string;
+}
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -72,6 +79,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+ 
+  const [notificationStatus, setNotificationStatus] = useState(false);
+  const [notification, setNotification] = useState<NotificationType>({severity:'success',message:''});
+  
 
   const handleOpenUserMenu = (event: { currentTarget: any; }) => {
     setAnchorElUser(event.currentTarget);
@@ -82,18 +93,19 @@ const ResponsiveAppBar = () => {
       case "Cerrar sesión":{
         localStorage.setItem("token","");
         console.log(localStorage.getItem("token"));
+         setNotificationStatus(true);
+        setNotification({ 
+          severity:'success',
+          message:'Sesión cerrada correctamente.'
+        });
         navigate("/inicio");
-        console.log("clickaste cerrar sesion");
         break;
       }
       case "Perfil":{
         console.log("clickaste perfil");
         break;
       }
-      default:{
-        console.log("otruuuutrucutrucu");
-        break;
-      }
+
     }
 
   };
@@ -276,7 +288,12 @@ const ResponsiveAppBar = () => {
             </div>
             
             </Box>
-  
+
+            <Box sx={{ paddingLeft: '3%' }}>
+            <MenuItem component={Link} to="/ayuda">
+            <Typography>AYUDA</Typography>
+            </MenuItem>
+            </Box>
   
             <Box  sx={{marginLeft:'auto'}}>
             <div className="iconoLoggin">

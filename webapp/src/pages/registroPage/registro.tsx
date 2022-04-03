@@ -37,13 +37,14 @@ function RegisterForm(): JSX.Element {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let result:boolean = await addUser({name,surname,username,password,email});
     console.log({name});
     console.log({surname});
     console.log({username});
     console.log({password});
     console.log({email});
 
+    let result:boolean = await addUser({name,surname,username,password,email});
+    
     if (result){
       console.log("hola");
       setNotificationStatus(true);
@@ -78,7 +79,6 @@ function RegisterForm(): JSX.Element {
           required
           label="Nombre:"
           name="name"
-          id="filled-size-small"
           variant="outlined"
           value={name}
           onChange={e => setName(e.target.value)}
@@ -94,7 +94,6 @@ function RegisterForm(): JSX.Element {
           required
           label="Apellidos:"    
           name="surname"
-          id="filled-size-small"
           variant="outlined"
           value={surname}
           onChange={e => setSurname(e.target.value)}
@@ -109,7 +108,6 @@ function RegisterForm(): JSX.Element {
           required
           label="Correo Electronico:"
           name="email"
-          id="filled-size-small"
           variant="outlined"
           value={email}
           onChange={e => setEmail(e.target.value)}
@@ -125,7 +123,6 @@ function RegisterForm(): JSX.Element {
           required
           label="Usuario:"
           name="username"
-          id="filled-size-small"
           variant="outlined"
           value={username}
           onChange={e => setUsername(e.target.value)}
@@ -140,7 +137,6 @@ function RegisterForm(): JSX.Element {
           required
           label="Contraseña:"
           name="password"
-          id="filled-size-small"
           variant="outlined"
           type="password"
         
@@ -151,7 +147,7 @@ function RegisterForm(): JSX.Element {
         />
 
         </div>
-        <Button variant="contained" type="submit" onClick={() => navigate("/inicio")} sx={{ my: 2 } }>Registrarse</Button>
+        <Button variant="contained" type="submit" onClick={() => handleSubmit} sx={{ my: 2 } }>Registrarse</Button>
         </form>
         </div>
         <br></br><br></br>
