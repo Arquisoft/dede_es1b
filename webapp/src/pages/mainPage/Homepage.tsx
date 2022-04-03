@@ -19,15 +19,7 @@ function Init(): JSX.Element {
 
     const getTotalItems = (items: Producto[]) => 
         items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
-
-    async function cargar() {
-        setProductos(await getProductos());
-    }
-
-    useEffect( () => {
-        cargar();
-    }, [])
-
+    
     const handleAñadirAlCarrito = (prod: Producto) => {
         setCarrito(prev => {
             const prodAñadido = prev.find(p => p.id === prod.id)
@@ -56,6 +48,14 @@ function Init(): JSX.Element {
         ));
     };
 
+    async function cargar() {
+        setProductos(await getProductos());
+    }
+
+    useEffect( () => {
+        cargar();
+    }, [])
+
     return (
     <div className="homepage-container">
         <div className="encabezado">
@@ -70,7 +70,7 @@ function Init(): JSX.Element {
                 />
             </SwipeableDrawer>
             <IconButton className="botonCarrito" onClick={() => setCarritoAb(true)}>
-                <Badge badgeContent={getTotalItems(carrito)} color="success">
+                <Badge variant="dot" badgeContent={getTotalItems(carrito)} color='error'>
                     <ShoppingCart className="botonCarrito" style={{maxWidth: '70px', maxHeight: '70px', minWidth: '50px', minHeight: '50px'}}/>
                 </Badge>            
             </IconButton>

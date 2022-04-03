@@ -25,33 +25,15 @@ function App(): JSX.Element {
     refreshUserList();
   },[]);
 
-  const [carritoAb, setCarritoAb] = useState(false);
-  const [carrito, setCarrito] = useState([] as Producto[]);
-
-  const handleAñadirAlCarrito = (prod: Producto) => {
-    setCarrito(prev => {
-        const prodAñadido = prev.find(p => p.id === prod.id)
-        if (prodAñadido) {
-            return prev.map(p => (
-                p.id === prod.id ? {
-                    ...p, cantidad: p.cantidad + 1
-                } : p
-            ));
-        }
-        return [...prev, {...prod, cantidad: 1}];
-    });
-};
-const handleEliminarDelCarrito = () => null;
-
   return (
     <>        
 
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Bienvenida/>}/>
-          <Route path="/inicio" element={<Home/>}/>
+          <Route path="/inicio" element={<Home />}/>
           <Route path="/catalogo" element={<Catalogo/>}/>
-            <Route path="catalogo/:categoria" element={<CatalogoListado handleAñadirAlCarrito={handleAñadirAlCarrito} />} />
+            <Route path="catalogo/:categoria" element={<CatalogoListado />} />
 
           <Route path="/loggin" element={<LogginForm />} /> 
           <Route path="/registro" element={<Registro />} />
