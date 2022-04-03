@@ -164,7 +164,7 @@ const ResponsiveAppBar = () => {
 
           <Box  sx={{marginLeft:"5px"}}>
 
-          <Box sx={{ paddingLeft: '3%' }}>
+         
           <MenuItem component={Link} to="/ayuda">
           <Typography>AYUDA</Typography>
           </MenuItem>
