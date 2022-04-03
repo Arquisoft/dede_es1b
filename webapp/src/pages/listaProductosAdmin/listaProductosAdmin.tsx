@@ -19,6 +19,7 @@ function ListaProductosParaEliminar(props:any): JSX.Element {
     const navigate = useNavigate();
 
     const eliminar=(id:String)=>{
+      
       deleteProduct(id);
       window.location.replace('');
 
