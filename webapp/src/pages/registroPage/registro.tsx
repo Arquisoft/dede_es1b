@@ -21,14 +21,28 @@ type NotificationType = {
 
 
 function RegisterForm(): JSX.Element {
-
-  const [username, setUsername] = useState('');
+  
+  const [usuario, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
+  const [correo, setEmail] = useState('');
+  
+   const registrar =()=>{
+    navigate("/inicio");
+    var id= '';
+    console.log("llegó");
+    addUser({id,name,surname,usuario,password,correo});
+    console.log({name});
+    console.log({surname});
+    console.log({usuario});
+    console.log({password});
+    console.log({correo});
 
-
+   
+  
+}
+  
   const [notificationStatus, setNotificationStatus] = useState(false);
   const [notification, setNotification] = useState<NotificationType>({severity:'success',message:''});
   
@@ -36,13 +50,15 @@ function RegisterForm(): JSX.Element {
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('prueba');
+    var id= '';
     e.preventDefault();
-    let result:boolean = await addUser({name,surname,username,password,email});
+    let result:boolean = await addUser({id,name,surname,usuario,password,correo});
     console.log({name});
     console.log({surname});
-    console.log({username});
+    console.log({usuario});
     console.log({password});
-    console.log({email});
+    console.log({correo});
 
     if (result){
       console.log("hola");
@@ -72,13 +88,14 @@ function RegisterForm(): JSX.Element {
         <div className="registro-contenido">
 
        <div className='field-container'>
+       <h3>Nombre:</h3>
 
-          <TextField
+          <TextField className='textField'
           required
           label="Nombre:"
           name="name"
           id="filled-size-small"
-          variant="filled"
+          variant="outlined"
           value={name}
           onChange={e => setName(e.target.value)}
           sx={{ my: 2 }}
@@ -87,13 +104,14 @@ function RegisterForm(): JSX.Element {
         </div>
 
         <div className='field-container'>
+        <h3>Apellidos:</h3>
 
-        <TextField
+        <TextField className='textField'
           required
           label="Apellidos:"    
           name="surname"
           id="filled-size-small"
-          variant="filled"
+          variant="outlined"
           value={surname}
           onChange={e => setSurname(e.target.value)}
           sx={{ my: 2 }}
@@ -101,14 +119,15 @@ function RegisterForm(): JSX.Element {
         />
         </div>
         <div className='field-container'>
+        <h3>Correo electrónico:</h3>
 
-        <TextField
+        <TextField className='textField'
           required
           label="Correo Electronico:"
           name="email"
           id="filled-size-small"
-          variant="filled"
-          value={email}
+          variant="outlined"
+          value={correo}
           onChange={e => setEmail(e.target.value)}
           sx={{ my: 2 }}
 
@@ -116,26 +135,31 @@ function RegisterForm(): JSX.Element {
 
         </div>
         <div className='field-container'>
+        <h3>Usuario:</h3>
 
-        <TextField
+        <TextField className='textField'
           required
           label="Usuario:"
           name="username"
           id="filled-size-small"
-          variant="filled"
-          value={username}
+          variant="outlined"
+          value={usuario}
           onChange={e => setUsername(e.target.value)}
           sx={{ my: 2 }}
 
         />
         </div>
-        <TextField
+        
+        <h3>Contraseña:</h3>
+
+        <TextField className='textField'
           required
           label="Contraseña:"
           name="password"
           id="filled-size-small"
-          variant="filled"
+          variant="outlined"
           type="password"
+        
           value={password}
           onChange={e => setPassword(e.target.value)}
           sx={{ my: 2 }}
@@ -143,9 +167,10 @@ function RegisterForm(): JSX.Element {
         />
 
         </div>
-        <Button variant="contained" type="submit"  sx={{ my: 2 } }>Registrarse</Button>
+        <Button  variant="contained" type="button" onClick={() => registrar()} sx={{ my: 2 } }>Registrarse</Button>
         </form>
         </div>
+        <br></br><br></br>
 
     </>
   );

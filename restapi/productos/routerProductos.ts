@@ -6,6 +6,8 @@ const router:Router = express.Router()
 
 router.get('/products/list',
  ControladorProducto.getProductos);
+router.post('/products/catalogo',ControladorProducto.getProductosPorCategoria);
+router.post('/productos/delete',ControladorProducto.borrarProducto);
 
 
 export default router;

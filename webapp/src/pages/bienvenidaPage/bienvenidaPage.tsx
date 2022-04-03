@@ -15,7 +15,7 @@ function Bienvenida(): JSX.Element {
 
 
   const navigate = useNavigate();
-
+  localStorage.setItem("token","");
 
   return (
     <>
@@ -24,7 +24,7 @@ function Bienvenida(): JSX.Element {
 
           <br></br> <br></br> <br></br> <br></br> <br></br>
 
-         <a className="boton"  onClick={() => navigate("/loggin")}  >Empezar</a
+         <a className="boton"  onClick={() => navigate("/inicio")}  >Empezar</a
          >
      
     </>

@@ -17,11 +17,11 @@ function UserList(props: UserListProps): JSX.Element {
       <List>
       {props.users.map((user,i)=>{
         return (
-          <ListItem key={user.email}>
+          <ListItem key={user.correo}>
             <ListItemIcon>
               <ContactPageIcon/>
             </ListItemIcon>
-            <ListItemText primary={user.name} secondary={user.email}/>
+            <ListItemText primary={user.name} secondary={user.correo}/>
           </ListItem>
         )
       })}

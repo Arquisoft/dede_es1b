@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  box-sizing: border-box;
+  height: 100vh;
+  position: relative;
+}
+
+.box {
+  border-color: rgba(68, 171, 212, 0.342);
+  line-height: 0;
+  animation:scale-up-center .5s cubic-bezier(.39,.575,.565,1.000) both;
+}
+
+.categoryButton:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  background-color: rgba(208, 213, 214, 0.493);
+
+}
+
+.categoryButton:hover .categorySpan{
+  visibility: visible;
+}
+
+.categoryButton:hover .divider{
+  visibility: visible;
+}
+
+.divider{
+  visibility: hidden;
+}
+
+.categoryButton{
+  background-color: rgba(121, 134, 139, 0.383);
+    transition: transform .2s; /* Animation */
+  height: 300px;
+  width: 300px;
+  border-radius: 50px;
+
+}
+
+.categorySpan{
+  line-height: 2;
+  font-size: large;
+  font-weight: bolder;
+  color: azure;
+  text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+  stroke: black;
+  stroke-width: 10px;
+  visibility: hidden;
+}
+
+.tabla-categorias{  
+  border-spacing: 20px 5px;
+  justify-content: center;
+  margin: auto;
+  margin-left: 320px;
+  margin-top: 60px;
+}
+
+
+@keyframes scale-up-center{0%{transform:scale(.5)}100%{transform:scale(1)}}
