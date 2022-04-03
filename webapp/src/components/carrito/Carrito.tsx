@@ -1,33 +1,29 @@
 import { Producto } from '../../shared/shareddtypes';
-import { useEffect, useState } from 'react';
-import { getProductos} from '../../api/api';
 import ProductoCarrito from './ProductoCarrito';
+import "./carrito.css";
 
-const Carrito = () => {
-    
-    const[productos, setProductos] = useState<Producto[]>([])
+type CarritoProps = {
+  carrito: Producto[];
+  añadirProd: (prod: Producto) => void;
+  eliminarProd: (id: string) => void;
+}
 
-  async function cargar() {
-    setProductos(await getProductos());
-  }
-
-  useEffect( () => {
-    cargar();
-  }, [])
+const Carrito = (props: CarritoProps) => {
 
   return (
-    <div className="productos-container" >
-        <div className="productos">
-            {
-                productos.map(
-                    (prod: Producto) => {
-                        return (
-                        <ProductoCarrito producto={prod} />
-                        )
-                    }
-                )
-            }
-        </div>
+    <div className="carrito" >
+      <h2>Carrito de la compra</h2>
+      {props.carrito.length === 0 ? <p>El carrito está vacío</p>: null}
+      <div className="productosCarrito">
+        {props.carrito.map(p => (
+          <ProductoCarrito 
+              key={p.id} 
+              producto={p} 
+              añadirProd={props.añadirProd}
+              eliminarProd={props.eliminarProd}
+          />
+        ))}
+      </div>
     </div>
   )
 }

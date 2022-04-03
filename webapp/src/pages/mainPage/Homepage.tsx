@@ -5,12 +5,20 @@ import MenuBar from "../menuBar";
 import { Producto } from '../../shared/shareddtypes';
 import { getProductos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+import { ShoppingCart } from '@mui/icons-material';
 import "./homepage.css";
 
 function Init(): JSX.Element {
 
     const [productos, setProductos] = useState<Producto[]>([]);
     
+    const [carritoAb, setCarritoAb] = useState(false);
+    const [carrito, setCarrito] = useState([] as Producto[]);
+
+    const getTotalItems = (items: Producto[]) => 
+        items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
 
     async function cargar() {
         setProductos(await getProductos());
@@ -20,25 +28,30 @@ function Init(): JSX.Element {
         cargar();
     }, [])
 
+    const handleAñadirAlCarrito = (prod: Producto) => null;
+    const handleEliminarDelCarrito = () => null;
+
     return (
     <div className="homepage-container">
         <div className="encabezado">
-            <MenuBar/>
+            <MenuBar />
             <h1>AsturShop</h1>
             <Productos productos={productos} />
-            <div className="pruebaProductosCarrito">
-                <Carrito />
-            </div>
             <SwipeableDrawer anchor="right" open={carritoAb} onOpen={() => setCarritoAb(true)} onClose={() => setCarritoAb(false)}>
-                CARRITO
+                <Carrito 
+                    carrito={carrito} 
+                    añadirProd={handleAñadirAlCarrito}
+                    eliminarProd={handleEliminarDelCarrito} 
+                />
             </SwipeableDrawer>
-        ºº</div>
+            <IconButton className="botonCarrito" onClick={() => setCarritoAb(true)}>
+                <Badge badgeContent={getTotalItems(carrito)} color="success">
+                    <ShoppingCart className="botonCarrito" style={{maxWidth: '70px', maxHeight: '70px', minWidth: '50px', minHeight: '50px'}}/>
+                </Badge>            
+            </IconButton>
+        </div>
     </div>
     );
-}
-
-export const [carritoAb, setCarritoAb] = useState(false);
-export const [carrito, setCarrito] = useState([] as Producto[]);
-export const getTotalItems = (items: Producto[]) => null;
+};
 
 export default Init;

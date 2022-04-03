@@ -3,10 +3,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Producto } from '../../shared/shareddtypes';
+import Button from '@mui/material/Button';
 import "./carrito.css";
 
 type ProdProps = {
     producto: Producto;
+    añadirProd: (prod: Producto) => void;
+    eliminarProd: (id: string) => void;
 }
 
 function ProductoCarrito(props: ProdProps) {
@@ -23,8 +26,22 @@ function ProductoCarrito(props: ProdProps) {
                 {props.producto.tipo}
             </Typography>
             <Typography variant="h6" color="blue">
-                {"x uds. (" + props.producto.precio + " €)"}
+                {props.producto.cantidad + " uds. (" + (props.producto.cantidad * props.producto.precio).toFixed(2) + " €)"}
             </Typography>
+            <div className="botones">
+                <Button
+                    size="small"
+                    disableElevation
+                    variant="contained"
+                    onClick={() => props.eliminarProd(props.producto.id)}
+                >-</Button>
+                <Button
+                    size="small"
+                    disableElevation
+                    variant="contained"
+                    onClick={() => props.añadirProd(props.producto)}
+                >+</Button>
+            </div>
         </CardContent>
         <CardMedia
             className = "foto"

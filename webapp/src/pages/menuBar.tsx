@@ -14,8 +14,6 @@ import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBar.css";
-import { setCarritoAb, carrito, getTotalItems } from "./mainPage/Homepage";
-import Badge from '@mui/material/Badge';
 
 const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
 
@@ -124,10 +122,8 @@ const ResponsiveAppBar = () => {
           
           <Box sx={{ marginLeft:'auto'}}>
             <div className="shoppingIcon">
-              <IconButton onClick={() => setCarritoAb(true)}>
-                <Badge badgeContent={getTotalItems(carrito)} color="success">
+              <IconButton>
                   <ShoppingCart/>
-                </Badge>            
               </IconButton>
             </div>
           </Box>
