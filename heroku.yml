@@ -1,4 +1,4 @@
 build:
   docker:
-    web: docker-compose-deploy
+    web: webapp/Dockerfile
 
