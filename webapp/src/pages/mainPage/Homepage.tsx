@@ -18,8 +18,7 @@ function Init(): JSX.Element {
     const [carrito, setCarrito] = useState([] as Producto[]);
 
     const getTotalItems = (items: Producto[]) => {
-        let total = 0;
-        items.reduce((accum: number, prod) => total = accum + prod.cantidad, 0);
+        let total = items.reduce((accum: number, prod) => total = accum + prod.cantidad, 0);
         localStorage.setItem("cantidadCarrito",JSON.stringify(total));
     }
     
