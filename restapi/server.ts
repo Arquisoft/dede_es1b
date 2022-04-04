@@ -15,7 +15,7 @@ const conectionString =process.env.URI_MONGO;
 
 
 const app: Application = express();
-const port: number = 5000;
+var port= process.env.PORT || 5000;
 
 const options: cors.CorsOptions = {
   origin: ['http://localhost:3000']
@@ -31,7 +31,7 @@ app.use(bp.json());
 app.use(routerUsuario);
 app.use(routerProducto);
 
-app.listen( process.env.PORT||port, ():void => {
+app.listen( port, ():void => {
     console.log('Restapi listening on '+ port);
 }).on("error",(error:Error)=>{
     console.error('Error occured: ' + error.message);
