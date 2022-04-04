@@ -15,17 +15,12 @@ function Bienvenida(): JSX.Element {
 
 
   const navigate = useNavigate();
-  localStorage.setItem("token","");
+  localStorage.getItem("productoClickado");
 
   return (
     <>
 
-          <h1>Bienvenido a AsturShop</h1>
-
-          <br></br> <br></br> <br></br> <br></br> <br></br>
-      
-         <a className="boton"  onClick={() => navigate("/inicio")}  >Empezar</a
-         >
+          
      
     </>
   );

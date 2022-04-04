@@ -43,3 +43,18 @@ export const getProductosPorCategoria: RequestHandler = async (req, res) => {
 
 
 };
+
+export const getProductoPorID: RequestHandler = async (req, res) => {
+    try{
+        let id:Number=req.body.id;
+        const productos=await modeloProducto.find({'id':id});
+        return res.json(productos);}
+    catch(error)
+    {
+        res.json(error);
+    }
+    return res.sendStatus(200);
+
+
+
+};

@@ -50,7 +50,8 @@ function CardProducto(props: ProdProps) {
             <IconButton color="primary" aria-label="add to shopping cart">
               <AddShoppingCartIcon />
             </IconButton>
-          <Button size="small" onClick={() => handleSubmit} >VER DETALLES</Button>
+          <Button size="small" onClick={() =>   {    localStorage.setItem("productoClickado",props.producto.id);
+          navigate("/detallesProducto")}} >VER DETALLES</Button>
          </CardActions>
         </Card>
       );
