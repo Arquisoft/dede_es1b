@@ -1,7 +1,4 @@
 build:
   docker:
-    web: webapp/Dockerfile
+    web: docker-compose-deploy
 
-build:
-  docker:
-    web: restapi/Dockerfile
