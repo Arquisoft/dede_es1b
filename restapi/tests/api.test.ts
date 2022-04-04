@@ -31,11 +31,21 @@ afterAll(async () => {
 
 describe('user ', () => {
     /**
-     * Test that we can list users without any error.
+     * Test that we can list products without any error.
      */
-    it('can be listed',async () => {
-        const response:Response = await request(app).get("/api/users/list");
+    it('podemos sacar una lista de productos',async () => {
+        const response:Response = await request(app).get('/products/list');
         expect(response.statusCode).toBe(200);
+        expect(response.type).toBe("application/json");
+    });
+    /**
+     * Test that we can list products without any error.
+     */
+    it('podemos sacar una lista de productos de una categoria',async () => {
+        let categ="comida";
+        const response:Response = await request(app).post('/products/catalogo').send({categoria:categ});
+        expect(response.statusCode).toBe(200);
+        expect(response.type).toBe("application/json");
     });
 
     /**
