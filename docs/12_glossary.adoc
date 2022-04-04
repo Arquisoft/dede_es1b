@@ -42,5 +42,9 @@ React (also called React.js or ReactJS) is an open source Javascript library des
 It is a dependency that allows us to maintain a file where we will leave information that the rest of the people should not access (example: database code).
 | Heroku | 
 Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+| Tokens JSON | 
+JSON Web Token (JWT) is a compact URL-safe means of representing claims to be transferred between two parties.
+| MUI react | 
+MUI provides a simple, customizable, and accessible library of React components.
 |===
 
