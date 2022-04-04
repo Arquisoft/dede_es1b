@@ -21,7 +21,6 @@ function Init(): JSX.Element {
         let total = 0;
         items.reduce((accum: number, prod) => total = accum + prod.cantidad, 0);
         localStorage.setItem("cantidadCarrito",JSON.stringify(total));
-        return total;
     }
     
     
