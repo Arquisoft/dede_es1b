@@ -15,7 +15,9 @@ const conectionString =process.env.URI_MONGO;
 
 
 const app: Application = express();
-var port= process.env.PORT || 5000;
+//var port= process.env.PORT || 5000;
+var port= process.env.PORT;
+
 
 const options: cors.CorsOptions = {
   origin: ['http://localhost:3000']
