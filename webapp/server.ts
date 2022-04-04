@@ -7,7 +7,7 @@ const port: number = 3000;
 
 app.use(express.static('build'))
 
-app.listen(port ||process.env.PORT, ():void => {
+app.listen(process.env.PORT||port , ():void => {
     console.log('Webapp started on port '+ port);
 }).on("error",(error:Error)=>{
     console.error('Error occured: ' + error.message);
