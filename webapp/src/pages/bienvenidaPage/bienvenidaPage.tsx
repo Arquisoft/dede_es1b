@@ -21,7 +21,7 @@ function Bienvenida(): JSX.Element {
     <>
 
           
-     
+      <h1>Hola</h1>
     </>
   );
 }

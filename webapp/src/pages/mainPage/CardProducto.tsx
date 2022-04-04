@@ -20,7 +20,8 @@ function CardProducto(props: ProdProps) {
     const navigate = useNavigate();
 
     const handleSubmit =() => {
-      localStorage.setItem("productoClickado",props.producto.id);
+      let productoString = props.producto.nombre+','+props.producto.descripcion+','+ props.producto.categoria+','+props.producto.imagen;
+      localStorage.setItem("productoClickado",productoString);
       navigate("/detallesProducto");
     }
     return (
@@ -50,8 +51,9 @@ function CardProducto(props: ProdProps) {
             <IconButton color="primary" aria-label="add to shopping cart">
               <AddShoppingCartIcon />
             </IconButton>
-          <Button size="small" onClick={() =>   {    localStorage.setItem("productoClickado",props.producto.id);
-          navigate("/detallesProducto")}} >VER DETALLES</Button>
+          <Button size="small" onClick={() =>   {  let productoString = props.producto.nombre+','+props.producto.descripcion+','+ props.producto.categoria+','+props.producto.imagen;
+      localStorage.setItem("productoClickado",productoString);
+      navigate("/detallesProducto");}} >VER DETALLES</Button>
          </CardActions>
         </Card>
       );

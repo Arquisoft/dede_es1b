@@ -11,29 +11,20 @@ import Productos from '../../components/Productos';
 import { getProductoPorID } from '../../api/api';
 import { Producto } from '../../shared/shareddtypes';
 import { useEffect } from 'react';
-import { Carta } from '../mainPage/CardProducto';
+import Carta  from '../mainPage/CardProducto';
 
 function ProductPage(): JSX.Element {
   
-  const[producto, setProducto] = useState<Producto>()
-  let prodId= localStorage.getItem("productoClickado");
 
 
-  async function cargar() {
-    if(prodId!=null)
-     setProducto(await getProductoPorID(parseInt(prodId)));
-  }
-
-  useEffect( () => {
-    cargar();
-  })
-
+  var str = localStorage.getItem("productoClickado")!;
+  var splitted = str.split(","); 
+  console.log(splitted)
   const navigate = useNavigate();
-
+  
   return (
     <>
-
-     
+    <h1>{splitted[0]}</h1>
     </>
   );
 }
