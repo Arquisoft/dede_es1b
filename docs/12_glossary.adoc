@@ -46,5 +46,9 @@ Heroku is a platform as a service (PaaS) that enables developers to build, run, 
 JSON Web Token (JWT) is a compact URL-safe means of representing claims to be transferred between two parties.
 | MUI react | 
 MUI provides a simple, customizable, and accessible library of React components.
+| Unit test | 
+A unit test is a way of testing a unit the smallest piece of code that can be logically isolated in a system.
+|Mongoose| 
+ Mongoose is an ODM (Object Document Mapping) - it acts as an interface to MongoDB by letting you define Models. 
 |===
 
