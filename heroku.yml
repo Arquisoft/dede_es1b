@@ -1,4 +1,4 @@
 build:
   docker:
     worker: webapp/Dockerfile
-    worker: restapi/Dockerfile
+    #worker: restapi/Dockerfile
