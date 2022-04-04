@@ -31,7 +31,7 @@ app.use(bp.json());
 app.use(routerUsuario);
 app.use(routerProducto);
 
-app.listen(port, ():void => {
+app.listen(port|| process.env.PORT, ():void => {
     console.log('Restapi listening on '+ port);
 }).on("error",(error:Error)=>{
     console.error('Error occured: ' + error.message);
