@@ -21,6 +21,8 @@ import Grid from '@mui/material/Grid';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import './productPage.css';
 import Paper from '@mui/material/Paper';
+import MenuBar from '../menuBar';
+import { borderRadius } from '@mui/system';
 
 function ProductPage(): JSX.Element {
   
@@ -34,52 +36,59 @@ function ProductPage(): JSX.Element {
 
   return (
     <>
+      <MenuBar></MenuBar>
         <h1>{splitted[1]}</h1>
 
-<div className='productPageContainer'>
-<table><tr>
-  <td>
-<Box sx={{ flexGrow: 1 }}>
+      <div className='productPageContainer'>
+      <table><tr>
+      <td>
+      <Box sx={{ flexGrow: 1 }}>
  
-    <Card sx={{ maxWidth: 400, marginLeft:'50px' }}>
+  <Card className='imagenProd' sx={{ maxWidth: 400, marginLeft:'50px', borderRadius:'2rem' }}>
   <CardActionArea>
-    <CardMedia
+    <CardMedia  
       component="img"
       height="400"
       image={imagen}
     />
-  </CardActionArea>
-  </Card>
-</Box>    
-
-</td><td>
-  <Box>
+      </CardActionArea>
+    </Card>
+    </Box>    
+    </td><td>
+ 
+ 
+   <Box sx={{marginRight:'25px'}}>  
    <Grid container spacing={1}>
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
-    <Paper>
-    Categoria: {splitted[3]}
+    <Paper className="papel">
+    <strong>Categoria:</strong> {splitted[3]}
     </Paper>
+
 
     </Grid>
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
     <Paper className="papel" elevation={3}>
-    Descripcion: {splitted[2]}
+    <strong>Descripcion: </strong> {splitted[2]}
     </Paper>
-
     </Grid>
+
 
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
-    <Paper>
-    Precio: {splitted[5]}
+    <Paper className="papel">
+    <strong>Precio: </strong> {splitted[5]} €
     </Paper>
-
     </Grid>
+
+
+
     </Grid>
 
   </Box>   
 
   </td> </tr></table>
 </div>
+<br></br><br></br><br></br>
+
     </>
 
   );

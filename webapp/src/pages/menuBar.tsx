@@ -78,7 +78,7 @@ const ResponsiveAppBar = () => {
     switch(setting){
       case "Cerrar sesión":{
         localStorage.setItem("token","");
-        console.log(localStorage.getItem("token"));
+        localStorage.setItem("cantidadCarrito","0");
         navigate("/inicio");
         console.log("clickaste cerrar sesion");
         break;

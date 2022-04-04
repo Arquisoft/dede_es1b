@@ -1,15 +1,16 @@
 
-.datos{
-    background-color: rgba(255, 255, 255, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-color: rgb(0, 0, 0);
-    border-radius: 2rem;
-    box-shadow: 0px 0px 3rem rgba(46, 45, 45, 0.192);
-    margin: auto;  
-  }
+
 
   .papel{
-    background: aqua;
+    background: white;
+  }
+
+  
+
+  .productPageContainer{
+    background-color: rgba(18, 96, 132, 0.747);
+    width: 90%;
+    margin: auto;
+    border-radius: 2rem;
+
   }
