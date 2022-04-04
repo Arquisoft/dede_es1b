@@ -62,7 +62,7 @@ function ProductPage(): JSX.Element {
 
     </Grid>
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
-    <Paper>
+    <Paper className="papel" elevation={3}>
     Descripcion: {splitted[2]}
     </Paper>
 
