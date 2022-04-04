@@ -34,7 +34,6 @@ app.use(routerUsuario);
 app.use(routerProducto);
 
 app.listen( port, ():void => {
-    console.log('HEKORU PORT: '+process.env.PORT);
     console.log('Restapi listening on '+ port);
 }).on("error",(error:Error)=>{
     console.error('Error occured: ' + error.message);
