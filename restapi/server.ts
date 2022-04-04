@@ -15,8 +15,8 @@ const conectionString =process.env.URI_MONGO;
 
 
 const app: Application = express();
-//var port= process.env.PORT || 5000;
-var port= process.env.PORT;
+var port= process.env.PORT || 5000;
+
 
 
 const options: cors.CorsOptions = {
@@ -34,6 +34,7 @@ app.use(routerUsuario);
 app.use(routerProducto);
 
 app.listen( port, ():void => {
+    console.log('HEKORU PORT: '+process.env.PORT);
     console.log('Restapi listening on '+ port);
 }).on("error",(error:Error)=>{
     console.error('Error occured: ' + error.message);
