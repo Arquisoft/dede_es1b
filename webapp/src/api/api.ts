@@ -64,7 +64,7 @@ export async function checkUser(username:String,password:String):Promise<boolean
   if (response.status===200){
     let obj =JSON.parse(await response.json());
     localStorage.setItem("tipoUser",obj.tipoUser);
-    localStorage.setItem("token",obj.tipoUser);
+    localStorage.setItem("token",obj.token);
      return true;  
   }
   else
