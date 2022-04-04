@@ -5,7 +5,7 @@ import express,{Application} from 'express';
 var app: Application = express()
 var port= process.env.PORT || 3000;
 
-app.use(express.static('build'))
+//app.use(express.static('build'))
 
 app.listen(port , ():void => {
     console.log('Webapp started on port '+ port);
