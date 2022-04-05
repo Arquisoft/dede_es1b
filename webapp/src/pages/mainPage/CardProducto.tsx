@@ -8,6 +8,8 @@ import { Producto } from '../../shared/shareddtypes';
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import "./homepage.css"
+import {useNavigate} from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 type ProdProps = {
     producto: Producto;
@@ -15,11 +17,12 @@ type ProdProps = {
 }
 
 function CardProducto(props: ProdProps) {
+  const navigate = useNavigate();
 
     let imagen: string = require("../../images/" + props.producto.imagen);
 
     return (
-        <Card sx={{ maxWidth: 345, maxHeight: 490 } }>
+        <Card sx={{ width: 345, maxHeight: 490 } }>
           <CardMedia className="foto" sx={{ m: "10rm", mx:'auto'}}
             component="img"
             style={{height:"220px",width:'auto'}}
@@ -34,17 +37,18 @@ function CardProducto(props: ProdProps) {
             <Typography gutterBottom variant="subtitle1" color="text.secondary">
               {props.producto.tipo}
             </Typography>
-            <Typography variant="body1">
-              {props.producto.descripcion}
-            </Typography>
             <Typography variant="h6" color="blue">
                 {props.producto.precio + " €"}
             </Typography>
           </CardContent>
           <CardActions>
             <IconButton className="buttons" color="primary" aria-label="add to shopping cart">
-              <AddShoppingCartIcon onClick={() => props.handleAñadirAlCarrito(props.producto)}/>
+              <AddShoppingCartIcon onClick={() => {props.handleAñadirAlCarrito(props.producto); }}/>
             </IconButton>
+             <Button size="small" onClick={() =>   {  let productoString = props.producto.name+','+props.producto.descripcion+','+ props.producto.tipo+','+props.producto.imagen+','+props.producto.precio
+             ;
+      localStorage.setItem("productoClickado",productoString);
+      navigate("/detallesProducto");}} >VER DETALLES</Button>
           </CardActions>
         </Card>
       );

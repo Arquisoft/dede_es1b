@@ -38,5 +38,19 @@ Solid is an exciting new project led by Prof. Tim Berners-Lee, inventor of the W
 Node.js is an open source, cross-platform runtime environment for the server layer (but not limited to) based on the JavaScript programming language, asynchronous, with data I/O in an event-driven architecture and based on Google's V8 engine.
 | React | 
 React (also called React.js or ReactJS) is an open source Javascript library designed to create user interfaces with the goal of facilitating the development of single-page applications. It is maintained by Facebook and the free software community. In the project there are more than a thousand free developers.
+| Dotenv | 
+It is a dependency that allows us to maintain a file where we will leave information that the rest of the people should not access (example: database code).
+| Heroku | 
+Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+| Tokens JSON | 
+JSON Web Token (JWT) is a compact URL-safe means of representing claims to be transferred between two parties.
+| MUI react | 
+MUI provides a simple, customizable, and accessible library of React components.
+| Unit test | 
+A unit test is a way of testing a unit the smallest piece of code that can be logically isolated in a system.
+|Mongoose| 
+ Mongoose is an ODM (Object Document Mapping) - it acts as an interface to MongoDB by letting you define Models. 
+|Docker| 
+ Docker is an open source containerization platform. It enables developers to package applications into containers—standardized executable components combining application source code with the operating system (OS) libraries and dependencies required to run that code in any environment.
 |===
 

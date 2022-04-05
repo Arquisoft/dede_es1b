@@ -9,6 +9,7 @@ import Home from "./pages/mainPage/Homepage";
 import Ayuda from "./pages/ayudaPage/ayuda";
 import Catalogo from "./pages/catalogoPage/catalogo";
 import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria";
+import DetallesProducto from "./pages/productPage/productPage";
 
 import { Producto } from './shared/shareddtypes';
 import './App.css';
@@ -45,6 +46,7 @@ function App(): JSX.Element {
           <Route path="/ayuda" element={<Ayuda />} />
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
+          <Route path="/detallesProducto" element={<DetallesProducto />} />
 
 
           </Routes>

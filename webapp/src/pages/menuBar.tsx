@@ -14,8 +14,8 @@ import logo from '../logoAsturShop.png'
 import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBar.css";
-
-
+import Badge from '@mui/material/Badge';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import Divider from '@mui/material/Divider';
 import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
@@ -78,7 +78,7 @@ const ResponsiveAppBar = () => {
     switch(setting){
       case "Cerrar sesión":{
         localStorage.setItem("token","");
-        console.log(localStorage.getItem("token"));
+        localStorage.setItem("cantidadCarrito","0");
         navigate("/inicio");
         console.log("clickaste cerrar sesion");
         break;
@@ -156,7 +156,9 @@ const ResponsiveAppBar = () => {
           <Box sx={{ marginLeft:'auto'}}>
             <div className="shoppingIcon">
               <IconButton>
+              <Badge badgeContent={localStorage.getItem("cantidadCarrito")} color="error">
                   <ShoppingCart/>
+              </Badge>
               </IconButton>
             </div>
           </Box>
@@ -271,7 +273,9 @@ const ResponsiveAppBar = () => {
             <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
             <div className="shoppingIcon">
             <IconButton  >
-                  <ShoppingCart/>                
+            <Badge badgeContent={localStorage.getItem("cantidadCarrito")} color="error">
+                  <ShoppingCart/>    
+                  </Badge>
               </IconButton>
             </div>
             
