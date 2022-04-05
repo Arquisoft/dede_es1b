@@ -69,6 +69,7 @@ export const añadirUsuario:RequestHandler=async (required,resultado)=>{
                 'listaProductos':listaProductos
 
         });
+        
         await newUser.save();
         return resultado.sendStatus(200);
 
