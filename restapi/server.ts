@@ -34,7 +34,8 @@ app.use(routerUsuario);
 app.use(routerProducto);
 
 app.listen( port, ():void => {
-    console.log('Restapi listening on '+ port);
+  
+  console.log('Restapi listening on '+ port);
 }).on("error",(error:Error)=>{
     console.error('Error occured: ' + error.message);
 });

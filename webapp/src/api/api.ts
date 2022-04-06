@@ -2,7 +2,7 @@ import { RestorePageOutlined } from '@mui/icons-material';
 import { User, Producto } from '../shared/shareddtypes';
 
 export async function addUser(user:User):Promise<boolean>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+    const apiEndPoint= process.env.REACT_APP_API_URI || "https://dede-es1b-restapi.herokuapp.com/"
    
     let response = await fetch(apiEndPoint+'/usuarios/add', {
         method: 'POST',
@@ -32,7 +32,7 @@ Metodo que selecciona los productos por categoría
 }*/
 
 export async function getUsers():Promise<User[]>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+    const apiEndPoint= process.env.REACT_APP_API_URI || "https://dede-es1b-restapi.herokuapp.com"
     let response = await fetch(apiEndPoint+'/usuarios/list');
     //The objects returned by the api are directly convertible to User objects
     return response.json()
@@ -40,7 +40,7 @@ export async function getUsers():Promise<User[]>{
 
 export async function deleteUser(id:String):Promise<boolean>{
   
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || "https://dede-es1b-restapi.herokuapp.com"
   let response = await fetch(apiEndPoint+'/usuarios/delete', {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -54,7 +54,7 @@ export async function deleteUser(id:String):Promise<boolean>{
 }
 export async function deleteProduct(id:String):Promise<boolean>{
   
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || "https://dede-es1b-restapi.herokuapp.com"
   let response = await fetch(apiEndPoint+'/productos/delete', {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -67,13 +67,13 @@ export async function deleteProduct(id:String):Promise<boolean>{
   return false;
 }
 export async function getProductos(): Promise<Producto[]> {
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || "https://dede-es1b-restapi.herokuapp.com"
   let response = await fetch(apiEndPoint+'/products/list');
   return response.json()
 }
 
 export async function getProductosPorCategoria(categoria:String): Promise<Producto[]> {
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || "https://dede-es1b-restapi.herokuapp.com"
   let response = await fetch(apiEndPoint+'/products/catalogo', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -84,7 +84,7 @@ export async function getProductosPorCategoria(categoria:String): Promise<Produc
 }
 
 export async function checkUser(username:String,password:String):Promise<boolean>{
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || "https://dede-es1b-restapi.herokuapp.com"
   let response = await fetch(apiEndPoint+'/usuarios/login', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
