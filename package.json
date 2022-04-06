@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "@types/babel__core": "^7.1.19"
+  },
+  "scripts": {
+    "start": "node tu-script-main.js"
   }
+  
 }
