@@ -1,14 +1,5 @@
 {
-  "dependencies": {
-    "node": "^17.7.2"
-  },
-  "engines": {
-    "node": "v16.14.2",
-    "npm": "8.5.0"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "build": "tsc",
-    "tsc":"tsc"
+  "devDependencies": {
+    "@types/babel__core": "^7.1.19"
   }
 }
