@@ -15,8 +15,9 @@ import { Producto } from './shared/shareddtypes';
 import './App.css';
 
 
-import ListaUsuariosParaEliminar from './pages/listaClientes/listaClientes';
-import ListaProductosParaEliminar from './pages/listaProductosAdmin/listaProductosAdmin';
+import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes';
+import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
+import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 
 function App(): JSX.Element {
 
@@ -45,6 +46,7 @@ function App(): JSX.Element {
           <Route path="/registro" element={<Registro />} />
           <Route path="/ayuda" element={<Ayuda />} />
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
+          <Route path="/gestionProductos" element={<GestionProductos />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
 

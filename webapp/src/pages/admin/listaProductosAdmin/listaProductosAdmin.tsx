@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Producto, User } from '../../shared/shareddtypes';
-import MenuBar from "../menuBarAdmin";
+import { Producto, User } from '../../../shared/shareddtypes';
+import MenuBar from "../../menuBarAdmin";
 import {useNavigate} from 'react-router-dom';
-import { getProductos, getUsers } from '../../api/api';
-import { deleteProduct } from '../../api/api';
+import { getProductos, getUsers } from '../../../api/api';
+import { deleteProduct } from '../../../api/api';
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
