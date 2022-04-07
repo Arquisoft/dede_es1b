@@ -2,6 +2,10 @@ import {RequestHandler} from "express";
 import{modeloPedido} from "./ModelPedido";
 import {modeloUsuario} from "../usuarios/modeloUsuario";
 import {generarCodigoCarrito, generarCodigoPedido} from "../generadorCodigos";
+//Coordenadas nuestra tienda
+const latitud=43.33972222222222;
+const longitud=-5.335555555555556;
+
 
 export const getPedidos:RequestHandler=async (required,resultado)=>{
     try{
@@ -38,7 +42,8 @@ export const crearPedido:RequestHandler=async (required,resultado)=>{
             'id_usuario':id_usuario,
             'listaProductos':[],
             'precioTotal':precio,
-            'direccionAsignada':direccion
+            'direccionAsignada':direccion,
+            'estado':"Pendiente"
         });
         newPedido.listaProductos=required.body.productosPedido;
         await  newPedido.save();
