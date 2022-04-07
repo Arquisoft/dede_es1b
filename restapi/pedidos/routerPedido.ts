@@ -5,8 +5,8 @@ import {modeloPedido} from "./ModelPedido";
 
 const router:Router = express.Router()
 
-router.get('/carrito/list',
- ControladorProducto.getCarrito);
+router.get('/pedido/list',
+    ControladorPedido.getPedidos);
 router.post('/pedido/encontrarPorUsuario',
     ControladorPedido.getPedidosByUsuario);
 router.post('pedido/crear',ControladorPedido.crearPedido);

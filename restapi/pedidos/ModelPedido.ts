@@ -12,6 +12,7 @@ const schemaPedido=new Schema({
     }],
     direccionAsignada:String,
     precioTotal:Number,
+    estado:String,
 
 })
 schemaPedido.set('toJSON',{
