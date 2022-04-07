@@ -1,7 +1,7 @@
 import {RequestHandler} from "express";
 import{modeloPedido} from "./ModelPedido";
 import {modeloUsuario} from "../usuarios/modeloUsuario";
-import {generarCodigoCarrito} from "../generadorCodigos";
+import {generarCodigoCarrito, generarCodigoPedido} from "../generadorCodigos";
 
 export const getPedidos:RequestHandler=async (required,resultado)=>{
     try{
@@ -25,19 +25,23 @@ export const getPedidosByUsuario:RequestHandler=async (required,resultado)=>{
 };
 
 
-export const crearCarrito:RequestHandler=async (required,resultado)=>{
+export const crearPedido:RequestHandler=async (required,resultado)=>{
     try{
-        let id_carrito:String =await generarCodigoCarrito();
+        let id_pedido:String =await generarCodigoPedido();
         let id_usuario:String=required.body.id_usuario;
+        //let productos:=required.body.productos;
 
-        let precio:Number=0;
-        let newCarrito=new modeloCarrito({
-            'id':id_carrito,
+        let precio:Number=required.body.precio;
+        let direccion:String=required.body.direcc;
+        let newPedido=new modeloPedido({
+            'id':id_pedido,
             'id_usuario':id_usuario,
             'listaProductos':[],
-            'precio':precio
+            'precioTotal':precio,
+            'direccionAsignada':direccion
         });
-        await  newCarrito.save();
+        newPedido.listaProductos=required.body.productosPedido;
+        await  newPedido.save();
         return resultado.sendStatus(200)
 
     }catch (err){
