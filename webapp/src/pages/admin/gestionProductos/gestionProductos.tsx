@@ -40,23 +40,28 @@ function GestionProductos(props:any): JSX.Element {
       return (
 
             <><AdminAppBar></AdminAppBar>
-            <div className="botones">
-                <div className='contenido'>
-                <button className="button-48" role="button"><span className="text">
+            <h1>GESTIÓN PRODUCTOS</h1>
+
+                <table className="tablaBotones">
+                <tr>
+                <button className="button-48" role="button" ><span className="text">
                     <strong>Añadir producto</strong>
                 </span></button>
+                </tr>
 
-
+                <tr>
                 <button className="button-48" role="button"><span className="text">
                     <strong>Modificar producto</strong>
                 </span></button>
+                </tr>
 
-
+                <tr>
                 <button className="button-48" role="button"><span className="text">
-                    <strong>Añadir / modificar categoria</strong>
+                    <strong>Añadir / modificar categoría</strong>
                 </span></button>
-                </div>
-             </div>
+                </tr>
+                </table>
+
             </>
  
         );

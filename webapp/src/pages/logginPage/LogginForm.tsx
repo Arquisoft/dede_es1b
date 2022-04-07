@@ -46,8 +46,12 @@ function EmailForm(): JSX.Element {
         severity:'success',
         message:'You have been registered in the system!'
       });
-      console.log("tokeeen"+localStorage.getItem("token"));
-      navigate("/inicio");
+      let userType = localStorage.getItem("tipoUser");
+      if(userType!="administrador")
+        navigate("/inicio");
+      else
+      navigate("/usuarios/list");
+
       //Notify the change to the parent component
     }
     else{

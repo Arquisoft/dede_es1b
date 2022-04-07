@@ -1,36 +1,27 @@
-.botones{
-    margin: auto;
-    align-items: center;
-    align-content: center;
-}
 
-.contenido{
-    background-color: rgba(255, 255, 255, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-color: rgb(0, 0, 0);
-    border-radius: 2rem;
-    box-shadow: 0px 0px 3rem rgba(46, 45, 45, 0.192);
-    width: 40%;
-    margin: auto;
+.tablaBotones{
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse:separate;
+  border-spacing:0 15px;
 }
   
 
 /* CSS */
 .button-48 {
   appearance: none;
-  background-color: #FFFFFF;
+  background-color:rgba(255, 255, 255, 0.5);
   border-width: 0;
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
   display: inline-block;
   font-family: Clarkson,Helvetica,sans-serif;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1em;
+  width: 100%;
   margin: 0;
   opacity: 1;
   outline: 0;
