@@ -13,7 +13,7 @@ type ProdProps = {
 
 function ProductoPedido(props: ProdProps) {
     return (
-        <Card className="producto" sx={{ maxWidth: 600 } }>
+        <Card className="producto">
             <CardContent>
                 <Typography variant="h4">
                     {props.nombre}

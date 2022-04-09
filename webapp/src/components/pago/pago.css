@@ -1,13 +1,30 @@
-.producto {
-    margin-bottom: 15px;
+.pedido {
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
-.prodsPedido {
+.productosPedido {
     background-color: cornflowerblue;
-    padding: 25px;
-    max-width: 650px;
-    align-self: center;
-    align-content: center;
-    margin-left: 5%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    max-width: 90%;
+    height: auto;
     border-radius: 3%;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 13%;
+}
+
+.datosPedido {
+    margin-right: 5%;
+    max-width: 90%;
+}
+
+.boton {
+    margin: 2%;
 }
