@@ -10,6 +10,7 @@ router.get('/pedido/list',
 router.post('/pedido/encontrarPorUsuario',
     ControladorPedido.getPedidosByUsuario);
 router.post('pedido/crear',ControladorPedido.crearPedido);
+router.post('pedido/gastosEnvio',ControladorPedido.calcularGastosEnvio);
 
 
 export default router;
