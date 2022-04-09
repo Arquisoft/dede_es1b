@@ -1,6 +1,7 @@
 import { Producto } from '../../shared/shareddtypes';
 import ProductoCarrito from './ProductoCarrito';
 import Button from '@mui/material/Button';
+import {useNavigate} from 'react-router-dom';
 import "./carrito.css";
 
 type CarritoProps = {
@@ -10,6 +11,8 @@ type CarritoProps = {
 }
 
 const Carrito = (props: CarritoProps) => {
+
+  const navigate = useNavigate();
 
   const calcularTotal = (productos: Producto[]) => 
     productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
@@ -32,10 +35,11 @@ const Carrito = (props: CarritoProps) => {
         <h2>Total: {calcularTotal(props.carrito).toFixed(2)} €</h2>
       </div>
       <Button
-          size="small"
+          size="large"
           disableElevation
           variant="contained"
           disabled={vacio}
+          onClick={() => navigate("/pago")}
       >
         Pagar
       </Button>
