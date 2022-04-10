@@ -1,4 +1,3 @@
-import { Producto } from '../../shared/shareddtypes';
 import MenuBar from "../menuBar";
 import Container from '@mui/material/Container';
 import ProductoPedido from '../../components/pago/ProductoPedido';
@@ -52,14 +51,16 @@ function VentanaPago(): JSX.Element {
             <h1>Detalles del pedido</h1>
             <div className="pedido">
                 <Container className="productosPedido">
-                    {
-                        carrito.map((prod: ProductoParaPedido) => {
-                            return (
-                                <ProductoPedido nombre={prod.nombre} imagen={prod.imagen} precio={prod.precio}
-                                    cantidad={prod.cantidad} />
-                            )
-                        })
-                    }
+                    <div className="prods">
+                        {
+                            carrito.map((prod: ProductoParaPedido) => {
+                                return (
+                                    <ProductoPedido nombre={prod.nombre} imagen={prod.imagen} precio={prod.precio}
+                                        cantidad={prod.cantidad} />
+                                )
+                            })
+                        }
+                    </div>
                 </Container>
                 <Container className="datosPedido">
                     <Card>
@@ -79,15 +80,16 @@ function VentanaPago(): JSX.Element {
                                 {"Total a pagar: " + totalProductos + " €"}
                             </Typography>
                         </CardContent>
-                        <Button
-                            className="boton"
-                            size="large"
-                            disableElevation
-                            variant="contained"
-                            onClick={() => navigate("/pago/finalizado")}
-                        >
-                            Confirmar pago
-                        </Button>
+                        <div className="button">
+                            <Button
+                                size="large"
+                                disableElevation
+                                variant="contained"
+                                onClick={() => navigate("/pago/finalizado")}
+                            >
+                                Confirmar pago
+                            </Button>
+                        </div>
                     </Card>
                 </Container>
             </div>
