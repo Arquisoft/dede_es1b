@@ -40,6 +40,12 @@ function VentanaPago(): JSX.Element {
     let carritoData: string = localStorage.getItem("carrito")!;
     var carrito = getCarrito(carritoData);
 
+    const calcularTotal = (productos: ProductoParaPedido[]) => {
+        return productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
+    }
+
+    let totalProductos: number = calcularTotal(carrito);
+
     return (
         <div>
             <MenuBar />
@@ -63,14 +69,14 @@ function VentanaPago(): JSX.Element {
                             </Typography>
                             <br></br>
                             <Typography variant="body1">
-                                {"Total del pedido: " + "PRECIO TOTAL"}
+                                {"Total del pedido: " + totalProductos + " €"}
                             </Typography>
                             <Typography variant="body1">
                                 {"Gastos de envío: "}
                             </Typography>
                             <br></br>
                             <Typography variant="h5">
-                                {"Total a pagar: "}
+                                {"Total a pagar: " + totalProductos + " €"}
                             </Typography>
                         </CardContent>
                         <Button
