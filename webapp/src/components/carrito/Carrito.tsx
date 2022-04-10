@@ -18,6 +18,15 @@ const Carrito = (props: CarritoProps) => {
     productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
   
   let vacio = props.carrito.length === 0;
+    
+  const saveCarrito = (items: Producto[]) => {
+      let result: string = "";
+      items.forEach((i) => {result = result + i.name + "-" + i.imagen + "-" + JSON.stringify(i.precio) +
+          "-" + JSON.stringify(i.cantidad) + ";"});
+      console.log(result);
+      localStorage.setItem("carrito", result);
+      return result;
+  };
 
   return (
     <div className="carrito" >
@@ -39,7 +48,10 @@ const Carrito = (props: CarritoProps) => {
           disableElevation
           variant="contained"
           disabled={vacio}
-          onClick={() => navigate("/pago")}
+          onClick={() => {
+            saveCarrito(props.carrito);
+            navigate("/pago");
+          }}
       >
         Pagar
       </Button>

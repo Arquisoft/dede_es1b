@@ -9,9 +9,36 @@ import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
 
+type ProductoParaPedido = {
+    nombre: string;
+    imagen: string;
+    precio: number;
+    cantidad: number;
+};
+
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
+
+    const getCarrito = (data: string) => {
+        var result = [] as ProductoParaPedido[];
+        var productos = data.split(";");
+        productos.forEach((p) => {
+            var datosProd = p.split("-");
+            let prod: ProductoParaPedido = {
+                nombre: datosProd[0],
+                imagen: datosProd[1],
+                precio: Number(datosProd[2]),
+                cantidad: parseInt(datosProd[3]),
+            }
+            result.push(prod);
+        });
+        result.pop();
+        return result;
+    };
+
+    let carritoData: string = localStorage.getItem("carrito")!;
+    var carrito = getCarrito(carritoData);
 
     return (
         <div>
@@ -19,8 +46,14 @@ function VentanaPago(): JSX.Element {
             <h1>Detalles del pedido</h1>
             <div className="pedido">
                 <Container className="productosPedido">
-                    <ProductoPedido nombre={"Producto"} precio={8} cantidad={6} imagen={"imagen"} />
-                    <ProductoPedido nombre={"Prueba2"} precio={2} cantidad={4} imagen={"imagen"} />
+                    {
+                        carrito.map((prod: ProductoParaPedido) => {
+                            return (
+                                <ProductoPedido nombre={prod.nombre} imagen={prod.imagen} precio={prod.precio}
+                                    cantidad={prod.cantidad} />
+                            )
+                        })
+                    }
                 </Container>
                 <Container className="datosPedido">
                     <Card>

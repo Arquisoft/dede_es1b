@@ -22,7 +22,6 @@ function Init(): JSX.Element {
         localStorage.setItem("cantidadCarrito",JSON.stringify(total));
     }
     
-    
     const handleAñadirAlCarrito = (prod: Producto) => {
         setCarrito(prev => {
             const prodAñadido = prev.find(p => p.id === prod.id)

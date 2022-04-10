@@ -15,7 +15,7 @@ function ProductoPedido(props: ProdProps) {
     return (
         <Card className="producto">
             <CardContent>
-                <Typography variant="h4">
+                <Typography variant="h5">
                     {props.nombre}
                 </Typography>
                 <Typography variant="body1" color="black">
