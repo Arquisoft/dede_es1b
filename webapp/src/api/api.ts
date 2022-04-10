@@ -15,6 +15,20 @@ export async function addUser(user:User):Promise<boolean>{
       return false;
 }
 
+export async function addProduct(prod:Producto):Promise<boolean>{
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+ 
+  let response = await fetch(apiEndPoint+'/productos/add', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'nombre':prod.name,'precio':prod.precio,'descripcion':prod.descripcion, 'tipo':prod.tipo, 'imagen':prod.imagen})
+    });
+  if (response.status===200)
+    return true;
+  else
+    return false;
+}
+
 /*
 Metodo que selecciona los productos por categoría
  */

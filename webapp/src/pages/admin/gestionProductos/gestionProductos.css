@@ -10,8 +10,9 @@
 /* CSS */
 .button-48 {
   appearance: none;
+  border-radius: 10px;
   background-color:rgba(255, 255, 255, 0.5);
-  border-width: 0;
+  border-width: 100%;
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
@@ -40,6 +41,7 @@
 }
 
 .button-48:before {
+  border-radius: 10px;
   animation: opacityFallbackOut .5s step-end forwards;
   backface-visibility: hidden;
   background-color: #EBEBEB;
@@ -55,11 +57,13 @@
 }
 
 .button-48:hover:before {
+  border-radius: 10px;
   animation: opacityFallbackIn 0s step-start forwards;
   clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
 }
 
 .button-48:after {
+  border-radius: 10px;
   background-color: #FFFFFF;
 }
 
