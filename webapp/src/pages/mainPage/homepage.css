@@ -6,6 +6,14 @@ h1 {
     font-size: 80px;
 }
 
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: WHITE;
+    text-align: center;
+    text-shadow: .1em .1em 0 hsl(200 50% 30%);
+    font-size: 30px;
+}
+
 .productos {
     display: grid;
     /*grid-template-columns: repeat(3, 500px);*/
