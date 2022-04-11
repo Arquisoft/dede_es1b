@@ -5,6 +5,7 @@ import bp from 'body-parser';
 import cors from 'cors';
 import api from '../api';
 import apiUsuario from '../usuarios/routerUsuario';
+import apiProducto from '../productos/routerProductos';
 let app:Application;
 let server:http.Server;
 const mongoose = require('mongoose');
@@ -19,6 +20,7 @@ beforeAll(async () => {
     app.use(bp.json());
     //app.use("/api", api)
     app.use(apiUsuario);
+    app.use(apiProducto);
     
 
     server = app.listen(port, ():void => {
@@ -78,6 +80,26 @@ describe('usuarios', () => {
         expect(response.statusCode).toBe(200);
 
     });
+    
 
     
+});
+describe('productos', () => {
+     /**
+     * Test listar productos sin error
+     */
+      it('can be listed',async () => {
+        const response:Response = await request(app).get("/products/list");
+        expect(response.statusCode).toBe(200);
+    });
+    /**
+     * Test listar productos por categoría
+     */
+    it('get products with type',async () => {
+        const response:Response = await request(app).post('/products/catalogo').send({
+            tipo:'comida'
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+
 });

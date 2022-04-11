@@ -4,5 +4,5 @@ export default {
         "^.+\\.tsx?$": "ts-jest"
     },
     collectCoverage: true,
-    collectCoverageFrom:["**/*ControladorUsuario.ts"]
+    collectCoverageFrom:["**/*ControladorUsuario.ts","**/*controladorProducto.ts"]
 }
