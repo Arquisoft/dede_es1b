@@ -17,7 +17,7 @@ beforeAll(async () => {
     };
     app.use(cors(options));
     app.use(bp.json());
-    app.use("/api", api)
+    //app.use("/api", api)
     app.use(apiUsuario);
     
 
@@ -39,11 +39,44 @@ afterAll(async () => {
 
 describe('usuarios', () => {
     /**
-     * Test that we can list users without any error.
+     * Test listar usuarios sin error
      */
     it('can be listed',async () => {
         const response:Response = await request(app).get("/usuarios/list");
         expect(response.statusCode).toBe(200);
+    });
+    /**
+     * Test loguear un usuario sin error
+     */
+    it('can get a user',async () => {
+        const response:Response = await request(app).post('/usuarios/login').send({
+            usuario:"useruser",
+            contraseña: "useruser"
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    /**
+     * Test loguear un usuario con error
+     */
+    it('can get a user',async () => {
+        const response:Response = await request(app).post('/usuarios/login').send({
+            usuario:"useruser",
+            contraseña: "fail"
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(404);
+    });
+    /**
+     * Test de creación de usuario   
+     */ 
+    it('create correctly', async () => {
+        let usuario:string = 'prueba123';
+        let nombre:string = 'prueba123';
+        let surname:string = 'prueba123';
+        let correo:string = 'prueba123@email.com';
+        let contraseña:string = "prueba123";
+        const response:Response = await request(app).post('/usuarios/add').send({usuario: usuario,correo: correo,contrasenia: contraseña,name: nombre,surname:surname}).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+
     });
 
     
