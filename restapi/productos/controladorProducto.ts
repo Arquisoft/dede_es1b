@@ -33,35 +33,32 @@ export const borrarProducto:RequestHandler=async (required,resultado)=>{
 
 export const añadirProducto:RequestHandler=async (required,resultado)=>{
     try{
-        let id:String=await generarCodigoProducto();
-        let nombre:String=required.body.nombre;
-        let precio:Number=required.body.precio;
+        let name:String=required.body.nombre;
+        let precio:String=required.body.precio;
         let descripcion:String=required.body.descripcion;
         let tipo:String=required.body.tipo;
         let imagen:String=required.body.imagen;
-        let newProducto=new modeloProducto({
+        let id:String=await generarCodigoProducto();
+
+       
+        let newProduct=new modeloProducto({
                 'id':id,
-                'name':nombre,
+                'name':name,
                 'precio':precio,
                 'descripcion':descripcion,
                 'tipo':tipo,
                 'imagen':imagen,
+                
         });
-        console.log("nombre -> "+nombre);
-        console.log("descripciooon -> "+descripcion);
-        console.log("precio -> "+precio);
-        console.log("imagen -> "+imagen);
-        console.log("tipo -> "+tipo);
-        console.log("id -> "+id);
+        await newProduct.save();
 
 
-        const productSaved =await newProducto.save();
-        console.log("kjhjkh");
-        return resultado.json("conseguido").status(200);
+        return resultado.sendStatus(200);
 
     }catch (err){
         resultado.json(err);
     }
+
 };
 
 export const getProductosPorCategoria: RequestHandler = async (req, res) => {
