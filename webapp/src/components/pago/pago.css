@@ -1,0 +1,41 @@
+.pedido {
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.productosPedido {
+    background-color: cornflowerblue;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    max-width: 90%;
+    height: 100%;
+    border-radius: 3%;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.prods {
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 20px;
+}
+
+.datosPedido {
+    margin-right: 5%;
+    max-width: 90%;
+}
+
+.button {
+    margin: 5%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.foto {
+    justify-content: right;
+    justify-self: right;
+    margin-right: 20%;
+}

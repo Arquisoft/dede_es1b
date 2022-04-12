@@ -10,8 +10,12 @@ import Ayuda from "./pages/ayudaPage/ayuda";
 import Catalogo from "./pages/catalogoPage/catalogo";
 import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria";
 import DetallesProducto from "./pages/productPage/productPage";
+
 import { render } from "react-dom";
 import { Producto } from './shared/shareddtypes';
+
+import VentanaPago from "./pages/pagoPage/VentanaPago";
+import PagoFinalizado from "./pages/pagoPage/PagoFinalizado";
 import './App.css';
 
 
@@ -54,10 +58,11 @@ function App(): JSX.Element {
           <Route path="/productos/add" element={<AñadirProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
+          <Route path="/pago" element={<VentanaPago />} />
+          <Route path="/pago/finalizado" element={<PagoFinalizado />} />
 
-
-          </Routes>
-      </BrowserRouter>
+        </Routes>
+    </BrowserRouter>
   </>
 
   );
