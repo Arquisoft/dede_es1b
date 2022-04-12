@@ -8,8 +8,6 @@ const producto = new Schema({
     descripcion:String,
     tipo:String ,
     imagen:String,
-
-
 })
 
 producto.set('toJSON',{
@@ -21,9 +19,5 @@ producto.set('toJSON',{
     }
 
 })
-
-
-
-
 
 export const modeloProducto = mongoose.model('Productos', producto)

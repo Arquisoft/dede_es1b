@@ -1,4 +1,6 @@
 import { RequestHandler } from "express";
+import { IntegerType } from "mongodb";
+import { generarCodigoProducto } from "../generadorCodigos";
 import { modeloProducto } from "./modeloProducto";
 
 
@@ -10,10 +12,8 @@ export const getProductos: RequestHandler = async (req, res) => {
         {
             res.json(error);
         }
-
-    
-
 };
+
 export const borrarProducto:RequestHandler=async (required,resultado)=>{
     try{
         let id_producto:String=required.body.id;
@@ -31,6 +31,39 @@ export const borrarProducto:RequestHandler=async (required,resultado)=>{
 
 };
 
+export const añadirProducto:RequestHandler=async (required,resultado)=>{
+    try{
+        let id:String=await generarCodigoProducto();
+        let nombre:String=required.body.nombre;
+        let precio:Number=required.body.precio;
+        let descripcion:String=required.body.descripcion;
+        let tipo:String=required.body.tipo;
+        let imagen:String=required.body.imagen;
+        let newProducto=new modeloProducto({
+                'id':id,
+                'name':nombre,
+                'precio':precio,
+                'descripcion':descripcion,
+                'tipo':tipo,
+                'imagen':imagen,
+        });
+        console.log("nombre -> "+nombre);
+        console.log("descripciooon -> "+descripcion);
+        console.log("precio -> "+precio);
+        console.log("imagen -> "+imagen);
+        console.log("tipo -> "+tipo);
+        console.log("id -> "+id);
+
+
+        const productSaved =await newProducto.save();
+        console.log("kjhjkh");
+        return resultado.json("conseguido").status(200);
+
+    }catch (err){
+        resultado.json(err);
+    }
+};
+
 export const getProductosPorCategoria: RequestHandler = async (req, res) => {
     try{
         let categ:String=req.body.categoria;
@@ -41,7 +74,5 @@ export const getProductosPorCategoria: RequestHandler = async (req, res) => {
         res.json(error);
     }
     return res.sendStatus(200);
-
-
 
 };
