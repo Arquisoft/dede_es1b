@@ -24,4 +24,4 @@ schemaPedido.set('toJSON',{
 })
 
 
-export const modeloPedido=mongoose.model('Pedido',schemaPedido)
+export const modeloPedido=mongoose.model('Pedidos',schemaPedido)
