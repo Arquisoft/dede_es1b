@@ -8,6 +8,7 @@ router.get('/products/list',
  ControladorProducto.getProductos);
 router.post('/products/catalogo',ControladorProducto.getProductosPorCategoria);
 router.post('/productos/delete',ControladorProducto.borrarProducto);
+router.post('/productos/add',ControladorProducto.añadirProducto);
 
 
 export default router;

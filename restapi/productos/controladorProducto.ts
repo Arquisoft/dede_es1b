@@ -1,4 +1,6 @@
 import { RequestHandler } from "express";
+import { IntegerType } from "mongodb";
+import { generarCodigoProducto } from "../generadorCodigos";
 import { modeloProducto } from "./modeloProducto";
 
 
@@ -10,10 +12,8 @@ export const getProductos: RequestHandler = async (req, res) => {
         {
             res.json(error);
         }
-
-    
-
 };
+
 export const borrarProducto:RequestHandler=async (required,resultado)=>{
     try{
         let id_producto:String=required.body.id;
@@ -31,6 +31,36 @@ export const borrarProducto:RequestHandler=async (required,resultado)=>{
 
 };
 
+export const añadirProducto:RequestHandler=async (required,resultado)=>{
+    try{
+        let name:String=required.body.nombre;
+        let precio:String=required.body.precio;
+        let descripcion:String=required.body.descripcion;
+        let tipo:String=required.body.tipo;
+        let imagen:String=required.body.imagen;
+        let id:String=await generarCodigoProducto();
+
+       
+        let newProduct=new modeloProducto({
+                'id':id,
+                'name':name,
+                'precio':precio,
+                'descripcion':descripcion,
+                'tipo':tipo,
+                'imagen':imagen,
+                
+        });
+        await newProduct.save();
+
+
+        return resultado.sendStatus(200);
+
+    }catch (err){
+        resultado.json(err);
+    }
+
+};
+
 export const getProductosPorCategoria: RequestHandler = async (req, res) => {
     try{
         let categ:String=req.body.categoria;
@@ -41,7 +71,5 @@ export const getProductosPorCategoria: RequestHandler = async (req, res) => {
         res.json(error);
     }
     return res.sendStatus(200);
-
-
 
 };

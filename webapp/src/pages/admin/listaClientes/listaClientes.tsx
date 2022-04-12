@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { User } from '../../shared/shareddtypes';
-import MenuBar from "../menuBarAdmin";
+import { User } from '../../../shared/shareddtypes';
+import MenuBar from "../../menuBarAdmin";
 import {useNavigate} from 'react-router-dom';
-import { getUsers } from '../../api/api';
-import { deleteUser } from '../../api/api';
+import { getUsers } from '../../../api/api';
+import { deleteUser } from '../../../api/api';
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';

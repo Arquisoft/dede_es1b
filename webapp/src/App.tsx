@@ -10,13 +10,20 @@ import Ayuda from "./pages/ayudaPage/ayuda";
 import Catalogo from "./pages/catalogoPage/catalogo";
 import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria";
 import DetallesProducto from "./pages/productPage/productPage";
+
+import { render } from "react-dom";
+import { Producto } from './shared/shareddtypes';
+
 import VentanaPago from "./pages/pagoPage/VentanaPago";
 import PagoFinalizado from "./pages/pagoPage/PagoFinalizado";
 import './App.css';
 
 
-import ListaUsuariosParaEliminar from './pages/listaClientes/listaClientes';
-import ListaProductosParaEliminar from './pages/listaProductosAdmin/listaProductosAdmin';
+import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes';
+import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
+import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
+import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
+
 
 function App(): JSX.Element {
 
@@ -44,7 +51,11 @@ function App(): JSX.Element {
           <Route path="/loggin" element={<LogginForm />} /> 
           <Route path="/registro" element={<Registro />} />
           <Route path="/ayuda" element={<Ayuda />} />
+
+          
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
+          <Route path="/gestionProductos" element={<GestionProductos />} />
+          <Route path="/productos/add" element={<AñadirProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
           <Route path="/pago" element={<VentanaPago />} />

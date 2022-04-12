@@ -18,11 +18,18 @@ function Init(): JSX.Element {
     const [carrito, setCarrito] = useState([] as Producto[]);
 
     const getTotalItems = (items: Producto[]) => {
-        let total: number = items.reduce((accum: number, prod) => total = accum + prod.cantidad, 0);
+
+        let total=0;
+        total = items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
+        console.log("iwu  "+total);
+
+
         localStorage.setItem("cantidadCarrito",JSON.stringify(total));
     }
     
     const handleAñadirAlCarrito = (prod: Producto) => {
+        getTotalItems(carrito);
+        let res;
         setCarrito(prev => {
             const prodAñadido = prev.find(p => p.id === prod.id)
             if (prodAñadido) {
@@ -37,6 +44,7 @@ function Init(): JSX.Element {
         });
     };
     const handleEliminarDelCarrito = (id: string) => {
+        getTotalItems(carrito);
         setCarrito(prev => (
             prev.reduce((accum, p) => {
                 if (p.id === id) {
@@ -74,7 +82,9 @@ function Init(): JSX.Element {
                 />
             </SwipeableDrawer>
             <IconButton className="botonCarrito" onClick={() => setCarritoAb(true)}>
+
                 <ShoppingCart className="botonCarrito" style={{maxWidth: '70px', maxHeight: '70px', minWidth: '50px', minHeight: '50px'}}/>           
+
             </IconButton>
         </div>
     </div>
