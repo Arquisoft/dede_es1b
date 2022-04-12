@@ -1,5 +1,5 @@
 import { RestorePageOutlined } from '@mui/icons-material';
-import { User, Producto } from '../shared/shareddtypes';
+import { User, Producto, Prod } from '../shared/shareddtypes';
 
 export async function addUser(user:User):Promise<boolean>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
@@ -15,7 +15,7 @@ export async function addUser(user:User):Promise<boolean>{
       return false;
 }
 
-export async function addProduct(prod:Producto):Promise<boolean>{
+export async function addProduct(prod:Prod):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
  
   let response = await fetch(apiEndPoint+'/productos/add', {
@@ -23,8 +23,10 @@ export async function addProduct(prod:Producto):Promise<boolean>{
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'nombre':prod.name,'precio':prod.precio,'descripcion':prod.descripcion, 'tipo':prod.tipo, 'imagen':prod.imagen})
     });
-  if (response.status===200)
+  if (response.status===200){
+    console.log("jason   "+response.json());
     return true;
+  }
   else
     return false;
 }

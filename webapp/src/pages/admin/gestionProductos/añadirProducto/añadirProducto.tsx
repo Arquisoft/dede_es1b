@@ -39,6 +39,7 @@ function App() {
       <Steps>
         <div className='step'><Step component={Step1} /></div>
         <div className='step'><Step component={Step2} /></div>
+        
         <div className='step'><Step component={FinalStep} /></div>
       </Steps><br></br><br></br>
       </div>

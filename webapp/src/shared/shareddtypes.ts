@@ -17,6 +17,14 @@ export type Producto = {
     cantidad: number;
 }
 
+export type Prod = {
+  name: String;
+  precio: Number;
+  imagen: String;
+  tipo: String;
+  descripcion: String;
+}
+
 export type Carrito = {
     id: string;
     id_usuario: string;
