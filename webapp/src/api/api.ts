@@ -1,5 +1,7 @@
 import { RestorePageOutlined } from '@mui/icons-material';
 import { User, Producto, Prod } from '../shared/shareddtypes';
+import ProductoPedido from "../components/pago/ProductoPedido";
+import {ProductoParaPedido} from "../pages/pagoPage/VentanaPago";
 
 export async function addUser(user:User):Promise<boolean>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
@@ -13,6 +15,19 @@ export async function addUser(user:User):Promise<boolean>{
       return true;
     else
       return false;
+}
+export async function addPedido(products:ProductoParaPedido[] ,user_id:String|undefined,precioTot:number):Promise<boolean>{
+    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+
+    let response = await fetch(apiEndPoint+'/pedido/crear', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({'id_usuario':user_id,'productos':products,'precio':precioTot, 'direcc':"Oviedo"})
+    });
+    if (response.status===200)
+        return true;
+    else
+        return false;
 }
 
 

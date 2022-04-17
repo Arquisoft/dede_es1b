@@ -8,10 +8,10 @@ import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
 import {TextField} from "@mui/material";
-import {getGastosEnvio} from "../../api/api";
+import {addPedido, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
 
-type ProductoParaPedido = {
+export type ProductoParaPedido = {
     nombre: string;
     imagen: string;
     precio: number;
@@ -112,7 +112,9 @@ function VentanaPago(): JSX.Element {
                                 size="large"
                                 disableElevation
                                 variant="contained"
-                                onClick={() => navigate("/pago/finalizado")}
+                                onClick={() => {addPedido(carrito,"dadad",Number.parseFloat(calcularTotalFinal()));
+                                    navigate("/pago/finalizado");
+                                }}
                             >
                                 Confirmar pago
                             </Button>
