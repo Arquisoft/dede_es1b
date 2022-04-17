@@ -83,6 +83,6 @@ export const calcularGastosEnvio:RequestHandler=async (required,resultado)=>{
     let c=2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
     let distanciaKm=radioTierra*c;
     let precioKm=0.33;
-    costes=Number.parseFloat((distanciaKm*precioKm).toFixed(2));
+    costes=Number.parseFloat((distanciaKm*precioKm/10).toFixed(2));
     resultado.send(costes.toString());
 };

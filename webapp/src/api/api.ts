@@ -15,6 +15,21 @@ export async function addUser(user:User):Promise<boolean>{
       return false;
 }
 
+
+export async function getGastosEnvio():Promise<number>{
+    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+
+    let response = await fetch(apiEndPoint+'/pedido/gastosEnvio', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({"direcc":"Oviedo"})
+    });
+    if (response.status===200)
+        return response.json();
+    else
+        return -1;
+}
+
 export async function addProduct(prod:Prod):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   console.log("pruebaaaaaaaaaa: "+localStorage.getItem("nombreNuevoProd"));

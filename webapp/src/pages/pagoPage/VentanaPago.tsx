@@ -7,6 +7,9 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
+import {TextField} from "@mui/material";
+import {getGastosEnvio} from "../../api/api";
+import {useEffect, useState} from "react";
 
 type ProductoParaPedido = {
     nombre: string;
@@ -38,12 +41,27 @@ function VentanaPago(): JSX.Element {
 
     let carritoData: string = localStorage.getItem("carrito")!;
     var carrito = getCarrito(carritoData);
-
+    const [gastosEnv,setGastosEnv]=useState<number>();
+    const cogerGastos=async ()=>{
+        setGastosEnv(await getGastosEnvio());
+    }
+    useEffect(()=>{
+        cogerGastos();
+    },[]);
+    function calcularTotalFinal(){
+        if(gastosEnv){
+            return (gastosEnv+calcularTotal(carrito)).toFixed(2);
+        }else{
+            return calcularTotal(carrito).toFixed(2);
+        }
+    }
     const calcularTotal = (productos: ProductoParaPedido[]) =>
         productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
 
     let totalProductos: number = calcularTotal(carrito);
 
+    // @ts-ignore
+    // @ts-ignore
     return (
         <div>
             <MenuBar />
@@ -71,12 +89,22 @@ function VentanaPago(): JSX.Element {
                             <Typography variant="body1">
                                 {"Total del pedido: " + totalProductos.toFixed(2) + " €"}
                             </Typography>
+                            <TextField  className='textField'
+                                        required
+                                        name="direccion"
+                                        label="password"
+                                        variant="outlined"
+
+                                        sx={{ my: 2 }}
+                            />
+
                             <Typography variant="body1">
-                                {"Gastos de envío: "}
+                                {"Gastos de envío: "+gastosEnv}
                             </Typography>
                             <br></br>
                             <Typography variant="h5">
-                                {"Total a pagar: " + totalProductos.toFixed(2) + " €"}
+
+                                {"Total a pagar: " + calcularTotalFinal() + " €"}
                             </Typography>
                         </CardContent>
                         <div className="button">
