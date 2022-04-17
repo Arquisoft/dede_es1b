@@ -88,6 +88,12 @@ export async function getProductos(): Promise<Producto[]> {
   return response.json()
 }
 
+export async function getCategorias(): Promise<Producto[]> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/products/categorias');
+  return response.json()
+}
+
 export async function getProductosPorCategoria(categoria:String): Promise<Producto[]> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/products/catalogo', {

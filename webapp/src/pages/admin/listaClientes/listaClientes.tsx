@@ -57,7 +57,7 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {usuario.correo}
+                {usuario.id}
               </TableCell>
               <TableCell align="right">{usuario.name}</TableCell>
               <TableCell align="right">{usuario.surname}</TableCell>

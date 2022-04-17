@@ -23,6 +23,8 @@ import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes
 import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
 import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
+import ModificarProducto from './pages/admin/gestionProductos/modificarProducto/modificarProducto';
+import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/gestionPedidos';
 
 
 function App(): JSX.Element {
@@ -56,7 +58,9 @@ function App(): JSX.Element {
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
           <Route path="/gestionProductos" element={<GestionProductos />} />
           <Route path="/productos/add" element={<AñadirProducto />} />
+          <Route path="/productos/modificar" element={<ModificarProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
+          <Route path="/pedidos/list" element={<ListaPedidosPorUsuario />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
           <Route path="/pago" element={<VentanaPago />} />
           <Route path="/pago/finalizado" element={<PagoFinalizado />} />

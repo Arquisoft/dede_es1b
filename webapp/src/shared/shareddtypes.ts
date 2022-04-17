@@ -7,6 +7,20 @@ export type User = {
     password:string;
   }
 
+  export type Pedido = {
+    id:string,
+    id_usuario:String,
+    listaProductos:[{
+        producto: [{
+            id_p: String,
+            cantidad:Number
+        }]
+    }],
+    direccionAsignada:String,
+    precioTotal:Number,
+    estado:String,
+  }
+
 export type Producto = {
     id: string;
     name: string;

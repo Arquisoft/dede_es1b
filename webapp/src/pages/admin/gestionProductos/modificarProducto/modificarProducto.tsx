@@ -7,7 +7,7 @@ import type { AlertColor } from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import logo from '../../logo.svg'
 import {useNavigate} from "react-router-dom";
-
+import AdminAppBar from '../../../menuBarAdmin';
 
 function ModificarProducto(): JSX.Element {
 
@@ -16,8 +16,12 @@ function ModificarProducto(): JSX.Element {
 
   return (
     <>
+      <h1>MODIFICAR PRODUCTO</h1>
 
-          
+        <AdminAppBar></AdminAppBar>
+
+        
+
           
     </>
   );
