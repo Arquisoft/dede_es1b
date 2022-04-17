@@ -38,21 +38,24 @@ export const crearPedido:RequestHandler=async (required,resultado)=>{
     try{
         let id_pedido:String =await generarCodigoPedido();
         let id_usuario:String=required.body.id_usuario;
-        //let productos:=required.body.productos;
+        let productos=required.body.productos;
+
 
         let precio:Number=required.body.precio;
         let direccion:String=required.body.direcc;
+
         let newPedido=new modeloPedido({
             'id':id_pedido,
             'id_usuario':id_usuario,
-            'listaProductos':[],
+            'listaProductos':productos,
             'precioTotal':precio,
             'direccionAsignada':direccion,
             'estado':"Pendiente"
         });
-        newPedido.listaProductos=required.body.productosPedido;
         await  newPedido.save();
+        console.log("Añadido pedido");
         return resultado.sendStatus(200)
+
 
     }catch (err){
         resultado.json(err);
@@ -83,6 +86,6 @@ export const calcularGastosEnvio:RequestHandler=async (required,resultado)=>{
     let c=2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
     let distanciaKm=radioTierra*c;
     let precioKm=0.33;
-    costes=Number.parseFloat((distanciaKm*precioKm).toFixed(2));
+    costes=Number.parseFloat((distanciaKm*precioKm/10).toFixed(2));
     resultado.send(costes.toString());
 };

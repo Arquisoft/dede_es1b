@@ -4,12 +4,7 @@ const{model,Schema}=mongoose;
 const schemaPedido=new Schema({
     id:String,
     id_usuario:String,
-    listaProductos:[{
-        producto: [{
-            id_p: String,
-            cantidad:Number
-        }]
-    }],
+    listaProductos:[],
     direccionAsignada:String,
     precioTotal:Number,
     estado:String,
