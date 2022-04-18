@@ -31,13 +31,13 @@ export async function addPedido(products:ProductoParaPedido[] ,user_id:String|un
 }
 
 
-export async function getGastosEnvio():Promise<number>{
+export async function getGastosEnvio(direccion: string):Promise<number>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
 
     let response = await fetch(apiEndPoint+'/pedido/gastosEnvio', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({"direcc":"Oviedo"})
+        body: JSON.stringify({"direcc":direccion})
     });
     if (response.status===200)
         return response.json();
