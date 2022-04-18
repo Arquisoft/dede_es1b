@@ -12,7 +12,7 @@ const schemaUsuario=new Schema({
     listaProductos:[{
         id_p: String
     }],
-
+    estado:Boolean
 })
 schemaUsuario.set('toJSON',{
     transform:(objeto1:any,objeto2:any)=>{

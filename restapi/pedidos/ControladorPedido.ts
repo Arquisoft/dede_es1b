@@ -26,6 +26,7 @@ export const getPedidosByUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let usuario_id=required.body.user_id;
         const pedidos=await modeloPedido.find({id:usuario_id});
+        console.log(usuario_id);
         return resultado.json(pedidos);
     }catch (err){
         resultado.json(err);
@@ -70,9 +71,7 @@ export const calcularGastosEnvio:RequestHandler=async (required,resultado)=>{
     let costes=0;
 
     let direccion:String=required.body.direcc;//Esto sacarlo de los pods
-    console.log(direccion);
     const cordenadas=await geo.geocode(direccion);
-    console.log(cordenadas);
     let coordcadena=JSON.stringify(cordenadas);
     let coordJson=JSON.parse(coordcadena);
     let latitud=coordJson[0].latitude;
