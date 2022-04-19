@@ -12,6 +12,8 @@ router.post('/productos/delete',ControladorProducto.borrarProducto);
 router.post('/productos/add',ControladorProducto.añadirProducto);
 router.get('/productos/categorias',ControladorProducto.getCategorias);
 router.post('/productos/reactivar',ControladorProducto.reactivarProducto);
+router.post('/productos/incrementarVentas',ControladorProducto.incrementarVentasProducto);
+router.post('/productos/getNVentas',ControladorProducto.getNVentas);
 
 
 export default router;

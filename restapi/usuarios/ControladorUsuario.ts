@@ -19,7 +19,22 @@ export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let id_user:String=required.body.id;
         console.log(id_user);
-        const usuario=await modeloUsuario.deleteOne({"_id":id_user});
+        const usuario=await modeloUsuario.update({"_id":id_user},{ "estado": false });
+        if(usuario){
+            return resultado.status(200).json();
+        }else{
+            return resultado.status(404).json();
+        }
+    }catch (err){
+        resultado.json(err);
+    }
+
+};
+
+export const reactivarUsuario:RequestHandler=async (required,resultado)=>{
+    try{
+        let id_user:String=required.body.id;
+        const usuario=await modeloUsuario.update({"_id":id_user},{ "estado": true });
         if(usuario){
             return resultado.status(200).json();
         }else{
@@ -67,7 +82,8 @@ export const añadirUsuario:RequestHandler=async (required,resultado)=>{
                 'contrasenia':contraseña1,
                 'correo':correo1,
                 'tipo':tipo,
-                'listaProductos':listaProductos
+                'listaProductos':listaProductos,
+                "estado":true
 
         });
         await newUser.save();

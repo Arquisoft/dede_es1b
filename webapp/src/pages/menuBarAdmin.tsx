@@ -127,6 +127,12 @@ const AdminAppBar = () => {
           <Typography>Lista de productos</Typography>
           </MenuItem>
           </Box>
+
+          <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/pedidos/list" >
+          <Typography>Lista de pedidos</Typography>
+          </MenuItem>
+          </Box>
           
           <Box  sx={{marginLeft:'auto'}}>
           <div className="iconoLoggin">

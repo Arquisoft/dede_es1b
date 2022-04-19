@@ -3,7 +3,6 @@ import LogginForm from './pages/logginPage/LogginForm';
 import  {getUsers} from './api/api';
 import {User} from './shared/shareddtypes';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
-import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/mainPage/Homepage";
 import Ayuda from "./pages/ayudaPage/ayuda";
@@ -23,6 +22,7 @@ import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes
 import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
 import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
+import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/gestionPedidos';
 
 
 function App(): JSX.Element {
@@ -49,7 +49,6 @@ function App(): JSX.Element {
           <Route path="catalogo/:categoria" element={<CatalogoListado />} />
 
           <Route path="/loggin" element={<LogginForm />} /> 
-          <Route path="/registro" element={<Registro />} />
           <Route path="/ayuda" element={<Ayuda />} />
 
           
@@ -57,6 +56,7 @@ function App(): JSX.Element {
           <Route path="/gestionProductos" element={<GestionProductos />} />
           <Route path="/productos/add" element={<AñadirProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
+          <Route path="/pedidos/list" element={<ListaPedidosPorUsuario />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
           <Route path="/pago" element={<VentanaPago />} />
           <Route path="/pago/finalizado" element={<PagoFinalizado />} />

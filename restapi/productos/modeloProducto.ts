@@ -8,6 +8,7 @@ const schemaProducto = new Schema({
     descripcion:String,
     tipo:String ,
     imagen:String,
+    nventas:Number,
     estado:Boolean
 })
 

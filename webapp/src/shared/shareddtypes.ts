@@ -5,6 +5,21 @@ export type User = {
     usuario:string;
     correo:string;
     password:string;
+    estado:Boolean
+  }
+
+  export type Pedido = {
+    id:string,
+    id_usuario:String,
+    listaProductos:[{
+        producto: [{
+            id_p: String,
+            cantidad:Number
+        }]
+    }],
+    direccionAsignada:String,
+    precioTotal:Number,
+    estado:String,
   }
 
 export type Producto = {
@@ -15,6 +30,8 @@ export type Producto = {
     tipo: string;
     descripcion: string;
     cantidad: number;
+    nventas:number;
+    estado:Boolean;
 }
 
 export type Prod = {
@@ -23,6 +40,8 @@ export type Prod = {
   imagen: String;
   tipo: String;
   descripcion: String;
+  nventas:number;
+  estado:Boolean;
 }
 
 export type Carrito = {

@@ -18,6 +18,8 @@ type Prod={
   descripcion:String,
   tipo:String ,
   imagen:String,
+  nventas:number,
+  estado:Boolean
 }
 
 function FinalStep(props:any) {
@@ -28,8 +30,9 @@ function FinalStep(props:any) {
     precio:parseInt(localStorage.getItem("precioNuevoProd")!),
     imagen:"fabada.png",
     tipo:localStorage.getItem("categoriaNuevoProd")!,
-    descripcion:localStorage.getItem("descripcionNuevoProd")!
-
+    descripcion:localStorage.getItem("descripcionNuevoProd")!,
+    nventas:0,
+    estado:true
  }
 
  let imagen: string = require("../../../../images/" + producto.imagen);

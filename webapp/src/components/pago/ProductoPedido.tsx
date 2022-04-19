@@ -6,6 +6,7 @@ import "./pago.css";
 
 type ProdProps = {
     nombre: string;
+    id:string;
     precio: number;
     cantidad: number;
     imagen: string;

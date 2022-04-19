@@ -3,7 +3,7 @@ import { User } from '../../../shared/shareddtypes';
 import MenuBar from "../../menuBarAdmin";
 import {useNavigate} from 'react-router-dom';
 import { getUsers } from '../../../api/api';
-import { deleteUser } from '../../../api/api';
+import { deleteUser,reactivarUsuario } from '../../../api/api';
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -20,6 +20,19 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
 
     const eliminar=(id:String)=>{
       deleteUser(id);
+      window.location.replace('');
+
+    }
+
+    const printearEstado=(estado:Boolean)=>{
+      if(estado)
+      return 'Activo';
+      else return 'No activo';
+
+    }
+
+    const reactivar=(id:String)=>{
+      reactivarUsuario(id);
       window.location.replace('');
 
     }
@@ -47,6 +60,7 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
             <TableCell align="right">Nombre</TableCell>
             <TableCell align="right">Apellidos</TableCell>
             <TableCell align="right">Usuario</TableCell>
+            <TableCell align="right">Estado</TableCell>
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
@@ -57,12 +71,15 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {usuario.correo}
+                {usuario.id}
               </TableCell>
               <TableCell align="right">{usuario.name}</TableCell>
               <TableCell align="right">{usuario.surname}</TableCell>
               <TableCell align="right">{usuario.usuario}</TableCell>
+              <TableCell align="right">{printearEstado(usuario.estado)}</TableCell>
               <TableCell align="right"> <button   type="submit" onClick={() => eliminar(usuario.id)}>Eliminar</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() => reactivar(usuario.id)}>Reactivar</button></TableCell>
+
             </TableRow>
           ))}
         </TableBody>

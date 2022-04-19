@@ -21,7 +21,7 @@ const Carrito = (props: CarritoProps) => {
     
   const saveCarrito = (items: Producto[]) => {
       let result: string = "";
-      items.forEach((i) => {result = result + i.name + "-" + i.imagen + "-" + JSON.stringify(i.precio) +
+      items.forEach((i) => {result = result + i.name + "-" + i.id + "-" + i.imagen + "-" + JSON.stringify(i.precio) +
           "-" + JSON.stringify(i.cantidad) + ";"});
       console.log(result);
       localStorage.setItem("carrito", result);

@@ -8,11 +8,12 @@ import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
 import {TextField} from "@mui/material";
-import {addPedido, getGastosEnvio} from "../../api/api";
+import {addPedido, getGastosEnvio, incrementarVentasProducto} from "../../api/api";
 import {useEffect, useState} from "react";
 
 export type ProductoParaPedido = {
     nombre: string;
+    id:string;
     imagen: string;
     precio: number;
     cantidad: number;
@@ -29,9 +30,10 @@ function VentanaPago(): JSX.Element {
             var datosProd = p.split("-");
             let prod: ProductoParaPedido = {
                 nombre: datosProd[0],
-                imagen: datosProd[1],
-                precio: Number(datosProd[2]),
-                cantidad: parseInt(datosProd[3]),
+                id:datosProd[1],
+                imagen: datosProd[2],
+                precio: Number(datosProd[3]),
+                cantidad: parseInt(datosProd[4]),
             }
             result.push(prod);
         });
@@ -48,6 +50,8 @@ function VentanaPago(): JSX.Element {
     useEffect(()=>{
         cogerGastos();
     },[]);
+
+
     function calcularTotalFinal(){
         if(gastosEnv){
             return (gastosEnv+calcularTotal(carrito)).toFixed(2);
@@ -55,10 +59,18 @@ function VentanaPago(): JSX.Element {
             return calcularTotal(carrito).toFixed(2);
         }
     }
+
+    function incrementarVentasProductosCarrito(){
+        carrito.map((prod: ProductoParaPedido) => {
+            incrementarVentasProducto(prod.id,prod.cantidad);
+        })
+    }
+    
     const calcularTotal = (productos: ProductoParaPedido[]) =>
         productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
 
     let totalProductos: number = calcularTotal(carrito);
+
 
     // @ts-ignore
     // @ts-ignore
@@ -72,7 +84,7 @@ function VentanaPago(): JSX.Element {
                         {
                             carrito.map((prod: ProductoParaPedido) => {
                                 return (
-                                    <ProductoPedido nombre={prod.nombre} imagen={prod.imagen} precio={prod.precio}
+                                    <ProductoPedido nombre={prod.nombre} id={prod.id} imagen={prod.imagen} precio={prod.precio}
                                         cantidad={prod.cantidad} />
                                 )
                             })
@@ -112,7 +124,10 @@ function VentanaPago(): JSX.Element {
                                 size="large"
                                 disableElevation
                                 variant="contained"
-                                onClick={() => {addPedido(carrito,"dadad",Number.parseFloat(calcularTotalFinal()));
+                                onClick={() => 
+                                { 
+                                    addPedido(carrito,"dadad",Number.parseFloat(calcularTotalFinal()));
+                                    incrementarVentasProductosCarrito();
                                     navigate("/pago/finalizado");
                                 }}
                             >
