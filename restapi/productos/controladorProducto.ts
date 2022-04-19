@@ -15,6 +15,19 @@ export const getProductos: RequestHandler = async (req, res) => {
         }
 };
 
+export const getProductoPorID: RequestHandler = async (req, res) => {
+    try{
+        let id_producto:String=req.body.id;
+        const producto=await modeloProducto.findOne({'_id':id_producto});
+        return res.json(producto);
+    }
+        catch(error)
+        {
+            res.json(error);
+        }
+};
+
+
 export const actualizarProducto: RequestHandler = async (required, res) => {
     try{
         let id_producto:String=required.body.id;

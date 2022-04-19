@@ -14,6 +14,7 @@ router.get('/productos/categorias',ControladorProducto.getCategorias);
 router.post('/productos/reactivar',ControladorProducto.reactivarProducto);
 router.post('/productos/incrementarVentas',ControladorProducto.incrementarVentasProducto);
 router.post('/productos/getNVentas',ControladorProducto.getNVentas);
+router.post('/productos/getProductoPorId',ControladorProducto.getProductoPorID);
 
 
 export default router;

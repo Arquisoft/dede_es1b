@@ -116,6 +116,18 @@ export async function getPedidosPorUsuario(id:String): Promise<Pedido[]> {
     return response.json()
 
 }
+
+export async function getProductoPorID(id:String): Promise<Producto> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/getProductoPorId', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'id':id})
+    });
+    return response.json()
+}
+
+
 export async function deleteUser(id:String):Promise<boolean>{
   
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'

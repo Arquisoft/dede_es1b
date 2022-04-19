@@ -10,6 +10,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
+import EstadisticasProducto from './ventanaEstadisticas/estadisticasProducto';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
@@ -61,12 +62,13 @@ function ListaProductosParaEliminar(props:any): JSX.Element {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Nombre</TableCell>
-            <TableCell align="right">Precio</TableCell>
-            <TableCell align="right">Descripcion</TableCell>
-            <TableCell align="right">Tipo</TableCell>
-            <TableCell align="right">N ventas</TableCell>
-            <TableCell align="right">Ganancias</TableCell>
+          <TableCell align="center">ID</TableCell>
+            <TableCell align="center">NOMBRE</TableCell>
+            <TableCell align="right">ESTADO</TableCell>
+            <TableCell align="right">DETALLES</TableCell>
+            <TableCell align="right">ESTADÍSTICAS</TableCell>
+            <TableCell align="right">ELIMINAR</TableCell>
+            <TableCell align="right">REACTIVAR</TableCell>
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
@@ -77,14 +79,13 @@ function ListaProductosParaEliminar(props:any): JSX.Element {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {producto.name}
+                {producto.id}
               </TableCell>
+              <TableCell align="right">{producto.name}</TableCell>
               <TableCell align="right">{printearEstado(producto.estado)}</TableCell>
-              <TableCell align="right">{producto.descripcion}</TableCell>
-              <TableCell align="right">{producto.tipo}</TableCell>
-              <TableCell align="right">{producto.nventas}</TableCell>
-              <TableCell align="right">{producto.nventas*producto.precio}</TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() => eliminar(producto.id)}>Eliminar</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() => eliminar(producto.id)}>Ver</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() =>navigate('estadisticas/'+producto.id)}>Ver</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() => navigate('/detallesProducto')}>Eliminar</button></TableCell>
               <TableCell align="right"> <button   type="submit" onClick={() => reactivar(producto.id)}>Reactivar</button></TableCell>
 
             </TableRow>

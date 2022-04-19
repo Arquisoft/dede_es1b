@@ -23,6 +23,7 @@ import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaP
 import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
 import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/gestionPedidos';
+import EstadisticasProducto from './pages/admin/listaProductosAdmin/ventanaEstadisticas/estadisticasProducto';
 
 
 function App(): JSX.Element {
@@ -56,6 +57,7 @@ function App(): JSX.Element {
           <Route path="/gestionProductos" element={<GestionProductos />} />
           <Route path="/productos/add" element={<AñadirProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
+          <Route path="estadisticas/:id" element={<EstadisticasProducto />} />
           <Route path="/pedidos/list" element={<ListaPedidosPorUsuario />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
           <Route path="/pago" element={<VentanaPago />} />
