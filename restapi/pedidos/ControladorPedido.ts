@@ -25,7 +25,7 @@ export const getPedidos:RequestHandler=async (required,resultado)=>{
 export const getPedidosByUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let usuario_id=required.body.user_id;
-        const pedidos=await modeloPedido.find({id:usuario_id});
+        const pedidos=await modeloPedido.find({id_usuario:usuario_id});
         return resultado.json(pedidos);
     }catch (err){
         resultado.json(err);
