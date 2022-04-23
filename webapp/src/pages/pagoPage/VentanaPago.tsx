@@ -100,9 +100,6 @@ function VentanaPago(): JSX.Element {
                                 {"Detalles"}
                             </Typography>
                             <br></br>
-                            <Typography variant="body1">
-                                {"Total del pedido: " + totalProductos.toFixed(2) + " €"}
-                            </Typography>
                             <TextField  className='textField'
                                         required
                                         name="direccion"
@@ -114,6 +111,7 @@ function VentanaPago(): JSX.Element {
                                         sx={{ my: 2 }}
                             />
                             <Button
+                                className="buttonDireccion"
                                 size="small"
                                 disableElevation
                                 variant="contained"
@@ -124,7 +122,10 @@ function VentanaPago(): JSX.Element {
                                 Confirmar dirección
                             </Button>
                             <Typography variant="body1">
-                                {"Gastos de envío: " + gastosEnv}
+                                {"Total del pedido: " + totalProductos.toFixed(2) + " €"}
+                            </Typography>
+                            <Typography variant="body1">
+                                {"Gastos de envío: " + gastosEnv + " €"}
                             </Typography>
                             <Typography variant="h5">
                                 {"Total a pagar: " + calcularTotalFinal() + " €"}
