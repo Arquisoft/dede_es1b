@@ -36,3 +36,16 @@ export type Carrito = {
       }
     }];
 }
+export type Pedido = {
+    id:string,
+    id_usuario:String,
+    listaProductos:[{
+        producto: [{
+            id_p: String,
+            cantidad:Number
+        }]
+    }],
+    direccionAsignada:String,
+    precioTotal:Number,
+    estado:String,
+}

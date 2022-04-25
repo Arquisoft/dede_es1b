@@ -23,7 +23,7 @@ import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes
 import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
 import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
-
+import ListaMisPedidos from './pages/gestionMisPedidos/listaPedidos';
 
 function App(): JSX.Element {
 
@@ -52,7 +52,7 @@ function App(): JSX.Element {
           <Route path="/registro" element={<Registro />} />
           <Route path="/ayuda" element={<Ayuda />} />
 
-          
+          <Route path="/pedidos/usuario/list" element={<ListaMisPedidos />} />
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
           <Route path="/gestionProductos" element={<GestionProductos />} />
           <Route path="/productos/add" element={<AñadirProducto />} />

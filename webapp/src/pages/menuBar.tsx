@@ -140,6 +140,12 @@ const ResponsiveAppBar = () => {
           </MenuItem>
           </Box>
 
+          <Box sx={{ paddingLeft: '3%' }}>
+              <MenuItem component={Link} to="/pedidos/usuario/list" >
+                  <Typography>Ver mis pedidos</Typography>
+              </MenuItem>
+          </Box>
+
           <Box  sx={{ paddingLeft: '3%' }}>
           <Search >
             <SearchIconWrapper>
