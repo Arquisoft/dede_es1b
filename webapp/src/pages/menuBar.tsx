@@ -104,6 +104,8 @@ const ResponsiveAppBar = () => {
 
   const navigate = useNavigate();
 
+  const logoImg = "https://res.cloudinary.com/dlix47jlq/image/upload/v1650910768/iconos/logoAsturShop_i41dwr.png";
+
   if(token!=("") && tipoUser=="usuario"){
   return (
     <div className="appBar">
@@ -118,7 +120,7 @@ const ResponsiveAppBar = () => {
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             
           >
-                    <img src={logo} width="100" height="80" alt="logo" /> 
+                    <img src={logoImg} width="100" height="80" alt="logo" /> 
 
           </Typography>
           <Box>
