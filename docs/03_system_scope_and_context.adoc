@@ -23,7 +23,7 @@ image:DiagramaNegocio.png["Fallo imagen"]
 | _POD_ |_User personal info/Personal info requests from the app_|_Personal info requested by the app_
 | _OpenStreetMap_ |_An address for the user data_|_The string of the user address_
 |
-| _Database_|_Data request by the shop_|_Data requested_
+ _Database_|_Data request by the shop_|_Data requested_
 |===
 
 === Technical Context
