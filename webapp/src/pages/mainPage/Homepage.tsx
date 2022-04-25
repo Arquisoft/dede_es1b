@@ -18,18 +18,10 @@ function Init(): JSX.Element {
     const [carritoAb, setCarritoAb] = useState(false);
     const [carrito, setCarrito] = useState(carritoLS);
 
-    const getTotalItems = (items: Producto[]) => {
-        let total=0;
-        total = items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
-        if (total === 0) {
-            localStorage.setItem("cantidadCarrito",JSON.stringify(0));
-        } else {
-            localStorage.setItem("cantidadCarrito",JSON.stringify(total+1));
-        }
-    }
+    const getTotalItems = (items: Producto[]) => 
+        items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
     
     const handleAñadirAlCarrito = (prod: Producto) => {
-        getTotalItems(carrito);
         setCarrito(prev => {
             const prodAñadido = prev.find(p => p.id === prod.id)
             if (prodAñadido) {
@@ -44,7 +36,6 @@ function Init(): JSX.Element {
         });
     };
     const handleEliminarDelCarrito = (id: string) => {
-        getTotalItems(carrito);
         setCarrito(prev => (
             prev.reduce((accum, p) => {
                 if (p.id === id) {
@@ -66,6 +57,7 @@ function Init(): JSX.Element {
     useEffect( () => {
         cargar();
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        localStorage.setItem("cantidadCarrito", JSON.stringify(getTotalItems(carrito)));
     }, [carrito])
 
 
