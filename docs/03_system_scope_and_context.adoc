@@ -21,6 +21,8 @@ image:DiagramaNegocio.png["Fallo imagen"]
 | _User of the app_ |_Services from the shop_ |_Tries to access to the shop._
 | _Shop_ | _Return information requested/Information from database/Access request from user._|_Data request/Personal Information request from the POD/Servuces requested by user_
 | _POD_ |_User personal info/Personal info requests from the app_|_Personal info requested by the app_
+| _OpenStreetMap_ |_The provider of addresses from the user direction provided by the pod_
+|
 | _Database_|_Data request by the shop_|_Data requested_
 |===
 
