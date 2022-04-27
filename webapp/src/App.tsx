@@ -57,9 +57,10 @@ function App(): JSX.Element {
           <Route path="/gestionProductos" element={<GestionProductos />} />
           <Route path="/productos/add" element={<AñadirProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
-          <Route path="estadisticas/:id" element={<EstadisticasProducto />} />
+          <Route path="productos/list/estadisticas/:id" element={<EstadisticasProducto />} />
+          <Route path="productos/list/detallesProducto/:id" element={<DetallesProducto />} />
           <Route path="/pedidos/list" element={<ListaPedidosPorUsuario />} />
-          <Route path="/detallesProducto" element={<DetallesProducto />} />
+          <Route path="/detallesProducto/:id" element={<DetallesProducto />} />
           <Route path="/pago" element={<VentanaPago />} />
           <Route path="/pago/finalizado" element={<PagoFinalizado />} />
 

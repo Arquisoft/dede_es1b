@@ -29,8 +29,8 @@ function ListaProductosParaEliminar(props:any): JSX.Element {
 
     const printearEstado=(estado:Boolean)=>{
       if(estado)
-      return 'Activo';
-      else return 'No activo';
+      return 'En venta';
+      else return 'Descatalogado';
 
     }
 
@@ -83,9 +83,9 @@ function ListaProductosParaEliminar(props:any): JSX.Element {
               </TableCell>
               <TableCell align="right">{producto.name}</TableCell>
               <TableCell align="right">{printearEstado(producto.estado)}</TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() => eliminar(producto.id)}>Ver</button></TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() =>navigate('estadisticas/'+producto.id)}>Ver</button></TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() => navigate('/detallesProducto')}>Eliminar</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() =>navigate('detallesProducto/'+producto.id)} >Ver</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() => navigate('estadisticas/'+producto.id)}>Ver</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() =>eliminar(producto.id)} >Eliminar</button></TableCell>
               <TableCell align="right"> <button   type="submit" onClick={() => reactivar(producto.id)}>Reactivar</button></TableCell>
 
             </TableRow>

@@ -5,7 +5,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import type { AlertColor } from '@mui/material/Alert';
 import logo from '../../logo.svg'
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Productos from '../../components/Productos';
 import { Producto } from '../../shared/shareddtypes';
 import { useEffect } from 'react';
@@ -23,21 +23,38 @@ import './productPage.css';
 import Paper from '@mui/material/Paper';
 import MenuBar from '../menuBar';
 import { borderRadius } from '@mui/system';
+import { getProductoPorID } from '../../api/api';
 
 function ProductPage(): JSX.Element {
   
+  const [producto,setProducto] = useState<Producto>();
+  const [nombre,setNombre] = useState('');
+  const [tipo,setTipo] =useState('');
+  const [descripcion,setDescripcion] = useState('');
+  const [precio,setPrecio] = useState('');
 
-  var str = localStorage.getItem("productoClickado")!;
-  var splitted = str.split(","); 
-  console.log(splitted)
-  const navigate = useNavigate();
+  const {id} = useParams();
 
-  let imagen: string = require("../../images/" + splitted[4]);
+
+
+  async function cargar() {
+    let p:Producto = await getProductoPorID(id!);
+    if(p!=null){
+      setProducto(p);
+      setNombre(p.name);
+      setTipo(p.tipo);
+      setDescripcion(p.descripcion);
+    }
+  }
+
+  useEffect( () => {
+    cargar();
+  }, [])
 
   return (
     <>
       <MenuBar></MenuBar>
-        <h1>{splitted[1]}</h1>
+        <h1>{nombre}</h1>
 
       <div className='productPageContainer'>
       <table><tr>
@@ -49,7 +66,7 @@ function ProductPage(): JSX.Element {
     <CardMedia  
       component="img"
       height="400"
-      image={imagen}
+      //image={imagen}
     />
       </CardActionArea>
     </Card>
@@ -61,21 +78,21 @@ function ProductPage(): JSX.Element {
    <Grid container spacing={1}>
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
     <Paper className="papel">
-    <strong>Categoria:</strong> {splitted[3]}
+    <strong>Categoria:</strong> {tipo}
     </Paper>
 
 
     </Grid>
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
     <Paper className="papel" elevation={3}>
-    <strong>Descripcion: </strong> {splitted[2]}
+    <strong>Descripcion: </strong> {producto?.descripcion}
     </Paper>
     </Grid>
 
 
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
     <Paper className="papel">
-    <strong>Precio: </strong> {splitted[5]} €
+    <strong>Precio: </strong> {precio} €
     </Paper>
     </Grid>
 
