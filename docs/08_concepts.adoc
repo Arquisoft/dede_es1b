@@ -3,5 +3,5 @@
 
 === Domain Concepts
 :imagesdir: images/
-image:08_domainModel.PNG["Fallo imagen"]
+image:08_domainModel.png["Fallo imagen"]
 
