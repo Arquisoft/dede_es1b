@@ -19,8 +19,20 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Divider from '@mui/material/Divider';
 import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
+import {
+  LoginButton,
+  Text,
+  useSession,
+  CombinedDataProvider,
+  LogoutButton,
+  SessionProvider,
+} from "@inrupt/solid-ui-react";
+import { iniciarSesion } from '../api/api';
 
 
+const authOptions = {
+  clientName: "Solid Todo App",
+};
 const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
 
 
@@ -69,7 +81,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-
   const handleOpenUserMenu = (event: { currentTarget: any; }) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -79,12 +90,13 @@ const ResponsiveAppBar = () => {
       case "Cerrar sesión":{
         localStorage.setItem("token","");
         localStorage.setItem("cantidadCarrito","0");
+        sessionStorage.removeItem("sesionSolid");
         navigate("/inicio");
         console.log("clickaste cerrar sesion");
         break;
       }
       case "Perfil":{
-        console.log("clickaste perfil");
+        navigate("/perfilUsuario");
         break;
       }
       default:{
@@ -103,8 +115,19 @@ const ResponsiveAppBar = () => {
   const tipoUser = localStorage.getItem("tipoUser");
 
   const navigate = useNavigate();
+  const { session } = useSession();
 
-  if(token!=("") && tipoUser=="usuario"){
+  //SOLID
+  let sesionId = sessionStorage.getItem("sesionSolid")!;
+  let isLogged = session.info.isLoggedIn;
+
+
+  const manejoLogin = () =>{
+    iniciarSesion(session.info.webId!);
+    console.log("llegamos");
+  }
+
+  if(isLogged){
   return (
     <div className="appBar">
     <AppBar position="static">
@@ -172,6 +195,19 @@ const ResponsiveAppBar = () => {
           </MenuItem>
           </Box>
 
+          <div className="loggedout">	  
+          <SessionProvider sessionId={sesionId}>       
+	          <LogoutButton 
+             onLogout={()=>{navigate("/catalogo");}}
+             
+            />
+           </SessionProvider>
+	         </div>
+
+           <Box sx={{ paddingLeft: '3%' }}>
+                <Typography>POD: {session.info.webId}</Typography>
+          </Box>
+
           <Box  sx={{marginLeft:'auto'}}>
 
           <div className="iconoLoggin">
@@ -179,7 +215,7 @@ const ResponsiveAppBar = () => {
                 <AccountCircle 
                   style={{ fontSize: "35px", color: '#FFFFFF ' }}
                 />
-                </IconButton>
+          </IconButton>
 
           </div>
           <Menu
@@ -215,11 +251,6 @@ const ResponsiveAppBar = () => {
     
     </div>
   );
-  }
-  else if(tipoUser=="administrador" && token!=""){
-    return (
-    <MenuBarAdmin></MenuBarAdmin>
-    );
   }
   else{
     return (
@@ -281,16 +312,24 @@ const ResponsiveAppBar = () => {
             
             </Box>
   
-  
+            
             <Box  sx={{marginLeft:'auto'}}>
             <div className="iconoLoggin">
-                  <IconButton onClick={handleOpenUserMenu}  >
+
+                  <LoginButton 
+                  oidcIssuer={"https://inrupt.net/"}
+		              redirectUrl={"http://localhost:3000/inicio"}
+		               authOptions={authOptions}
+                  >
+                  
+                  <IconButton onClick={()=> console.log("llegamos")} >
+
                   <AccountCircle 
                     style={{ fontSize: "35px", color: '#FFFFFF ' }}
-                    onClick={() => navigate("/loggin")}
                   />
+
                   </IconButton>
-  
+                  </LoginButton>
             </div>
             
             </Box>

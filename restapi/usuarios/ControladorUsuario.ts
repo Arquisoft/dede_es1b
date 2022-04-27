@@ -15,6 +15,39 @@ export const getUsuarios:RequestHandler=async (required,resultado)=>{
 
 };
 
+export const inicioSesion:RequestHandler=async (required,resultado)=>{
+    try{
+
+        let webid:String=required.body.webid;
+
+        const usuario=await modeloUsuario.findOne({"_webid":webid});
+        if(usuario){
+            return resultado.status(200).json("usuario ya existente");
+        }else{
+            //insertar usuario y generar un id.
+            try{
+                let webid:String=required.body.webid;
+                let id:String=await generarCodigoUsuario();
+                let listaProductos:string[]=[];
+                let newUser=new modeloUsuario({
+                        'id':id,
+                        'webid':webid,
+                        'listaProductos':listaProductos
+                });
+                await newUser.save();
+        
+                return resultado.sendStatus(200).json("usuario añadido.");
+        
+            }catch (err){
+                resultado.json(err);
+            }
+        }
+    }catch (err){
+        resultado.json(err);
+    }
+
+};
+
 export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let id_user:String=required.body.id;
@@ -31,7 +64,7 @@ export const borrarUsuario:RequestHandler=async (required,resultado)=>{
 
 };
 
-export const checkUsuario:RequestHandler=async (required,resultado)=>{
+/* export const checkUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let usuario1:String=required.body.usuario;
         let contrasenia1:String=required.body.contraseña;
@@ -47,28 +80,17 @@ export const checkUsuario:RequestHandler=async (required,resultado)=>{
     }
 
 };
-
+ */
 
 export const añadirUsuario:RequestHandler=async (required,resultado)=>{
     try{
-        let nombre:String=required.body.nombre;
-        let apellidos:String=required.body.apellidos;
-        let usuario1:String=required.body.usuario;
-        let contraseña1:String=required.body.contraseña;
-        let correo1:String=required.body.correo;
-        let tipo:String="usuario";
+        let webid:String=required.body.webid;
         let id:String=await generarCodigoUsuario();
         let listaProductos:string[]=[];
         let newUser=new modeloUsuario({
                 'id':id,
-                'name':nombre,
-                'surname':apellidos,
-                'usuario':usuario1,
-                'contrasenia':contraseña1,
-                'correo':correo1,
-                'tipo':tipo,
+                'webid':webid,
                 'listaProductos':listaProductos
-
         });
         await newUser.save();
 

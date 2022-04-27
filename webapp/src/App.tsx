@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LogginForm from './pages/logginPage/LogginForm';
-import  {getUsers} from './api/api';
+import  {getUsers, iniciarSesion} from './api/api';
 import {User} from './shared/shareddtypes';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
 import Registro from './pages/registroPage/registro';
@@ -12,7 +11,10 @@ import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria
 import DetallesProducto from "./pages/productPage/productPage";
 import VentanaPago from "./pages/pagoPage/VentanaPago";
 import PagoFinalizado from "./pages/pagoPage/PagoFinalizado";
+import PerfilUsuario from "./pages/perfilUsuario/perfilUsuario";
+
 import './App.css';
+import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 
 
 import ListaUsuariosParaEliminar from './pages/listaClientes/listaClientes';
@@ -22,6 +24,7 @@ function App(): JSX.Element {
 
 
   const [users,setUsers] = useState<User[]>([]);
+  const { session } = useSession();
 
   const refreshUserList = async () => {
     setUsers(await getUsers());
@@ -31,9 +34,22 @@ function App(): JSX.Element {
     refreshUserList();
   },[]);
 
+  
+  const updateLoggedUserOnDatabase = async () => {
+    if(session.info.isLoggedIn){
+      iniciarSesion(session.info.webId!);
+      console.log('webid -->   '+session.info.webId)
+    }
+  }
+  useEffect(()=>{
+    updateLoggedUserOnDatabase();
+  },[]);
+
+
+
   return (
     <>        
-
+    <SessionProvider>
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Bienvenida/>}/>
@@ -41,8 +57,8 @@ function App(): JSX.Element {
           <Route path="/catalogo" element={<Catalogo/>}/>
           <Route path="catalogo/:categoria" element={<CatalogoListado />} />
 
-          <Route path="/loggin" element={<LogginForm />} /> 
           <Route path="/registro" element={<Registro />} />
+          <Route path="/perfilUsuario" element={<PerfilUsuario />} />
           <Route path="/ayuda" element={<Ayuda />} />
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
@@ -52,6 +68,7 @@ function App(): JSX.Element {
 
         </Routes>
     </BrowserRouter>
+    </SessionProvider>
   </>
 
   );

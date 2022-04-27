@@ -9,8 +9,14 @@ import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import { ShoppingCart } from '@mui/icons-material';
 import "./homepage.css";
+import { useSession } from '@inrupt/solid-ui-react';
 
 function Init(): JSX.Element {
+    const { session } = useSession();
+
+    session.onLogin(()=>{
+        sessionStorage.setItem("sesionSolid", JSON.stringify(session));
+    })
 
     const [productos, setProductos] = useState<Producto[]>([]);
     

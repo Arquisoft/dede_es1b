@@ -14,6 +14,8 @@ export const getProductos: RequestHandler = async (req, res) => {
     
 
 };
+
+
 export const borrarProducto:RequestHandler=async (required,resultado)=>{
     try{
         let id_producto:String=required.body.id;

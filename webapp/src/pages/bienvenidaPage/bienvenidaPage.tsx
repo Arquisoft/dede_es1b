@@ -9,23 +9,40 @@ import {addUser} from '../../api/api';
 import Box from '@mui/material/Box';
 import logo from '../../logo.svg'
 import {useNavigate} from "react-router-dom";
+import { Container } from '@mui/material';
+import { Typography } from '@mui/material';
+import { CardContent } from '@mui/material';
+import { CardActionArea } from '@mui/material';
+import { useSession } from '@inrupt/solid-ui-react';
 
 
 function Bienvenida(): JSX.Element {
 
-
+  const { session } = useSession();
+  const { webId } = session.info;
   const navigate = useNavigate();
   localStorage.setItem("token","");
 
   return (
     <>
 
-          <h1>Bienvenido a AsturShop</h1>
+      {/* <Container fixed>
+      <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+        <Card style={{ maxWidth: 480 }}>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              <Text property={FOAF.name.iri.value} />
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p" style={{ display: "flex", alignItems: "center" }}>
+              <Text property={VCARD.organization_name.iri.value} />
+            </Typography>
+          </CardContent>
 
-          <br></br> <br></br> <br></br> <br></br> <br></br>
-
-         <a className="boton"  onClick={() => navigate("/inicio")}  >Empezar</a
-         >
+          <CardActionArea style={{ justifyContent: "center", display: "flex" }}>
+            <Image property={VCARD.hasPhoto.iri.value} width={480} />
+          </CardActionArea>
+        </Card>
+      </CombinedDataProvider> */}
      
     </>
   );
