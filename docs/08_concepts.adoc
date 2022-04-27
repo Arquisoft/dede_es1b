@@ -1,7 +1,16 @@
 [[section-concepts]]
 == Cross-cutting Concepts
 
-=== Domain Concepts
+=== Domain diagram
 :imagesdir: images/
 image:08_domainModel.png["Fallo imagen"]
+
+=== Domain table
+[options="header",cols="1,2"]
+|===
+|Entities|Description
+| _User of the app_  |_Tries to access to the shop , see all products and buy._
+| _Products_|_The variety of things that you can buy on this shop_
+| _Orders_ |_The list of products that a user has bought_
+|===
 
