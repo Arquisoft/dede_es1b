@@ -14,7 +14,7 @@ import Paper from "@mui/material/Paper";
 import {getPedidosUsuario, getUsers} from "../../api/api";
 
 
-function listPedidos(props:any) {
+function listPedidos(props:any):JSX.Element {
     const[pedidos, setPedidos] = useState<Pedido[]>([]);
     const refreshPedidos = async () => {
         setPedidos(await getPedidosUsuario("cl123"));
@@ -55,13 +55,7 @@ function listPedidos(props:any) {
                     </Table>
                 </TableContainer>
             </div><div>
-            <Divider color='black'></Divider><br></br>
-            <button className="añadirProdButton" data-testid="prev" onClick={props.prev}>
-                Prev
-            </button>
-            <button className="añadirProdButton" data-testid="next" onClick={props.next}>
-                Next
-            </button>
+
         </div>
         </>
     );

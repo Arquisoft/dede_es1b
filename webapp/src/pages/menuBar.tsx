@@ -86,7 +86,10 @@ const ResponsiveAppBar = () => {
       case "Perfil":{
         console.log("clickaste perfil");
         break;
-      }
+      }case "Mis pedidos":{
+            navigate("/pedidos/usuario/list");
+            break;
+        }
       default:{
         console.log("otruuuutrucutrucu");
         break;
@@ -140,11 +143,6 @@ const ResponsiveAppBar = () => {
           </MenuItem>
           </Box>
 
-          <Box sx={{ paddingLeft: '3%' }}>
-              <MenuItem component={Link} to="/pedidos/usuario/list" >
-                  <Typography>Ver mis pedidos</Typography>
-              </MenuItem>
-          </Box>
 
           <Box  sx={{ paddingLeft: '3%' }}>
           <Search >
