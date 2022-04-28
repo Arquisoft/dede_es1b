@@ -19,6 +19,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Divider from '@mui/material/Divider';
 import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
+
 import {
   LoginButton,
   Text,
@@ -27,14 +28,9 @@ import {
   LogoutButton,
   SessionProvider,
 } from "@inrupt/solid-ui-react";
-import { iniciarSesion } from '../api/api';
 
-
-const authOptions = {
-  clientName: "Solid Todo App",
-};
-const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
-
+import { getRoleFromPod, iniciarSesion } from '../api/api';
+import { useEffect, useState } from 'react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -79,6 +75,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const ResponsiveAppBar = () => {
+const { session } = useSession();
+const [tipoUsuario,setTipoUsuario] = useState('');
+
+
+
+const authOptions = {
+  clientName: "Solid Todo App",
+};
+
+const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
+
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event: { currentTarget: any; }) => {
@@ -90,7 +97,6 @@ const ResponsiveAppBar = () => {
       case "Cerrar sesión":{
         localStorage.setItem("token","");
         localStorage.setItem("cantidadCarrito","0");
-        sessionStorage.removeItem("sesionSolid");
         navigate("/inicio");
         console.log("clickaste cerrar sesion");
         break;
@@ -111,23 +117,38 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
   
-  const token = localStorage.getItem("token");
-  const tipoUser = localStorage.getItem("tipoUser");
 
   const navigate = useNavigate();
-  const { session } = useSession();
+  
 
   //SOLID
   let sesionId = sessionStorage.getItem("sesionSolid")!;
-  let isLogged = session.info.isLoggedIn;
-
-
-  const manejoLogin = () =>{
-    iniciarSesion(session.info.webId!);
-    console.log("llegamos");
+  
+  const manejoSesion = async () =>{
+    console.log("akaka `+ "+ session.info.webId);
+    await iniciarSesion(""+session.info.webId);
   }
+  
+  
 
-  if(isLogged){
+  useEffect( () => {
+    session.onLogin(async () => {
+      
+      manejoSesion();
+      let rol = await getRoleFromPod(session.info.webId!);
+      if(rol==null)
+        localStorage.setItem("rol","usuario");
+      else
+          localStorage.setItem("rol",rol);
+
+      console.log("onlogin   ",session.info.webId);
+
+    })
+  }, [])
+
+
+
+  if(session.info.isLoggedIn && localStorage.getItem("rol")=="usuario"){
   return (
     <div className="appBar">
     <AppBar position="static">
@@ -252,7 +273,11 @@ const ResponsiveAppBar = () => {
     </div>
   );
   }
-  else{
+  else if(session.info.isLoggedIn && localStorage.getItem("rol")==("Admin")){
+    return (
+      <MenuBarAdmin></MenuBarAdmin>
+      );
+  }else{
     return (
       <div className="appBar">
       <AppBar position="static">
@@ -317,12 +342,12 @@ const ResponsiveAppBar = () => {
             <div className="iconoLoggin">
 
                   <LoginButton 
-                  oidcIssuer={"https://inrupt.net/"}
-		              redirectUrl={"http://localhost:3000/inicio"}
-		               authOptions={authOptions}
-                  >
-                  
-                  <IconButton onClick={()=> console.log("llegamos")} >
+                    oidcIssuer={"https://inrupt.net/"}
+		                redirectUrl={"http://localhost:3000/inicio"}
+		                authOptions={authOptions}
+                   >
+                
+                  <IconButton >
 
                   <AccountCircle 
                     style={{ fontSize: "35px", color: '#FFFFFF ' }}

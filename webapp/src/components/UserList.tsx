@@ -14,7 +14,7 @@ type UserListProps = {
 function UserList(props: UserListProps): JSX.Element {
   return (
     <>
-      <List>
+   {/*    <List>
       {props.users.map((user,i)=>{
         return (
           <ListItem key={user.correo}>
@@ -25,7 +25,7 @@ function UserList(props: UserListProps): JSX.Element {
           </ListItem>
         )
       })}
-      </List>
+      </List> */}
       
         
           

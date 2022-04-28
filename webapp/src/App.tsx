@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import  {getUsers, iniciarSesion} from './api/api';
+import  {getRoleFromPod, getUsers, iniciarSesion} from './api/api';
 import {User} from './shared/shareddtypes';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
-import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/mainPage/Homepage";
 import Ayuda from "./pages/ayudaPage/ayuda";
@@ -25,6 +24,8 @@ function App(): JSX.Element {
 
   const [users,setUsers] = useState<User[]>([]);
   const { session } = useSession();
+  const [ userLogged,setUserLogged ] = useState('');
+
 
   const refreshUserList = async () => {
     setUsers(await getUsers());
@@ -34,16 +35,6 @@ function App(): JSX.Element {
     refreshUserList();
   },[]);
 
-  
-  const updateLoggedUserOnDatabase = async () => {
-    if(session.info.isLoggedIn){
-      iniciarSesion(session.info.webId!);
-      console.log('webid -->   '+session.info.webId)
-    }
-  }
-  useEffect(()=>{
-    updateLoggedUserOnDatabase();
-  },[]);
 
 
 
@@ -57,7 +48,6 @@ function App(): JSX.Element {
           <Route path="/catalogo" element={<Catalogo/>}/>
           <Route path="catalogo/:categoria" element={<CatalogoListado />} />
 
-          <Route path="/registro" element={<Registro />} />
           <Route path="/perfilUsuario" element={<PerfilUsuario />} />
           <Route path="/ayuda" element={<Ayuda />} />
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />

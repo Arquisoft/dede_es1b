@@ -3,11 +3,12 @@ import{modeloUsuario} from "./modeloUsuario";
 import {DeleteResult} from "mongodb";
 import {generarCodigoUsuario} from "../generadorCodigos";
 import{generarToken}from "./GenerarToken"
+import { resolve } from "path";
 
 
 export const getUsuarios:RequestHandler=async (required,resultado)=>{
     try{
-        const usuarios=await modeloUsuario.find({"tipo":'usuario'});
+        const usuarios=await modeloUsuario.find({});
         return resultado.json(usuarios);
     }catch (err){
         resultado.json(err);
@@ -19,10 +20,14 @@ export const inicioSesion:RequestHandler=async (required,resultado)=>{
     try{
 
         let webid:String=required.body.webid;
+        console.log("lo que llega a la consulta   "+webid);
 
-        const usuario=await modeloUsuario.findOne({"_webid":webid});
-        if(usuario){
-            return resultado.status(200).json("usuario ya existente");
+        const usuario=await modeloUsuario.findOne({"webid":webid});
+
+        console.log(usuario);
+        
+        if(usuario!=null){
+            return resultado.sendStatus(200).json();
         }else{
             //insertar usuario y generar un id.
             try{
@@ -35,8 +40,10 @@ export const inicioSesion:RequestHandler=async (required,resultado)=>{
                         'listaProductos':listaProductos
                 });
                 await newUser.save();
-        
-                return resultado.sendStatus(200).json("usuario añadido.");
+                
+                // let obj = JSON.stringify({rol:usuario.rol});
+
+                return resultado.sendStatus(200).json();
         
             }catch (err){
                 resultado.json(err);
@@ -51,7 +58,7 @@ export const inicioSesion:RequestHandler=async (required,resultado)=>{
 export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let id_user:String=required.body.id;
-        console.log(id_user);
+        
         const usuario=await modeloUsuario.deleteOne({"_id":id_user});
         if(usuario){
             return resultado.status(200).json();

@@ -12,13 +12,13 @@ import {
 import { FOAF, VCARD } from "@inrupt/vocab-common-rdf";
 
 
-export async function addUser(user:User):Promise<boolean>{
+export async function addUser(webid:string,rol:string):Promise<boolean>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
    
     let response = await fetch(apiEndPoint+'/usuarios/add', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({'nombre':user.name,'apellidos':user.surname,'usuario':user.usuario, 'contraseña':user.password, 'correo':user.correo})
+        body: JSON.stringify({'webid':webid,'rol':rol})
       });
     if (response.status===200)
       return true;
@@ -112,18 +112,21 @@ export async function getProductosPorCategoria(categoria:String): Promise<Produc
 
 } */
 
-export async function iniciarSesion(webid:String):Promise<boolean>{
+export async function iniciarSesion(webid:String):Promise<string>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  
+
   let response = await fetch(apiEndPoint+'/usuarios/inicioSesion', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'webid':webid})
     });
   if (response.status===200){
-     return true;  
+   // let obj =JSON.parse(await response.json());
+    return "";  
   }
   else
-    return false;
+    return "";
 
 }
 
@@ -137,6 +140,11 @@ async function getProfile(webId: string): Promise<Thing> {
 export async function getNameFromPod(webId: string) {
   if (webId === "" || webId === undefined) return "Name not found"; // we return the empty string
   return getStringNoLocale(await getProfile(webId), FOAF.name) as string;
+}
+
+export async function getRoleFromPod(webId: string) {
+  if (webId === "" || webId === undefined) return "Role not found"; // we return the empty string
+  return await getStringNoLocale(await getProfile(webId), VCARD.role) as string;
 }
 
 export async function getAddressesFromPod(webId: string) {

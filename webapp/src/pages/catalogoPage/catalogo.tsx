@@ -11,7 +11,7 @@ import logo from '../../logo.svg'
 import {useNavigate} from "react-router-dom";
 import CategoriaRopa from "../../images/camiseta.png";
 import CategoriaComida from "../../images/fabadaIcono.png";
-import MenuBar from "../menuBar";
+import MenuBarAdmin from "../menuBarAdmin";
 import "./catalogo.css";
 import CategoriaAdornos from "../../images/horreo.png";
 import Divider from '@mui/material/Divider';
@@ -24,7 +24,7 @@ function Catalogo(): JSX.Element {
     <>
     
     
-    <MenuBar></MenuBar>
+    <MenuBarAdmin></MenuBarAdmin>
     <h1>CATÁLOGO</h1>
     <div className="container">
    
