@@ -11,11 +11,14 @@ import {TextField} from "@mui/material";
 import {addPedido, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
 import { Producto } from "../../shared/shareddtypes";
+import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
 
+    
+      
     const getCarrito = (data: string) => {
         var result = [] as Producto[];
         var productos = data.split(";");
@@ -134,8 +137,10 @@ function VentanaPago(): JSX.Element {
                                 disableElevation
                                 variant="contained"
                                 onClick={() => {
-                                    addPedido(carrito,"dadad",Number.parseFloat(calcularTotalFinal()));
+
+                                    addPedido(carrito,localStorage.getItem('userId')!,Number.parseFloat(calcularTotalFinal()));
                                     navigate("/pago/finalizado");
+                                   
                                 }}
                             >
                                 Confirmar pago

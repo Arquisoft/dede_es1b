@@ -66,7 +66,7 @@ export async function addProduct(prod:Prod):Promise<boolean>{
     return false;
 }
 
-export async function addPedido(products:Producto[] ,user_id:String|undefined,precioTot:number):Promise<boolean>{
+export async function addPedido(products:Producto[] ,user_id:String,precioTot:number):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
 
   let response = await fetch(apiEndPoint+'/pedido/crear', {

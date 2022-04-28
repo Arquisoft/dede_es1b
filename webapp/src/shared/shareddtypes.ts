@@ -20,6 +20,13 @@ export type Prod = {
   descripcion: String;
 }
 
+export type Direccion = {
+  calle: String;
+  cod_postal: Number;
+  ciudad: String;
+  pais: String;
+}
+
 
 
 export type Carrito = {

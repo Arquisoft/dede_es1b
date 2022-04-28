@@ -20,17 +20,10 @@ import Divider from '@mui/material/Divider';
 import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
 
-import {
-  LoginButton,
-  Text,
-  useSession,
-  CombinedDataProvider,
-  LogoutButton,
-  SessionProvider,
-} from "@inrupt/solid-ui-react";
 
 import { getRoleFromPod, iniciarSesion } from '../api/api';
 import { useEffect, useState } from 'react';
+import { LoginButton, LogoutButton, SessionProvider, useSession } from '@inrupt/solid-ui-react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
