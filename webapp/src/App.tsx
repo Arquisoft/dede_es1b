@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import LogginForm from './pages/logginPage/LogginForm';
 import  {getUsers} from './api/api';
 import {User} from './shared/shareddtypes';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
-import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/mainPage/Homepage";
 import Ayuda from "./pages/ayudaPage/ayuda";
 import Catalogo from "./pages/catalogoPage/catalogo";
 import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria";
 import DetallesProducto from "./pages/productPage/productPage";
+import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 
 import { render } from "react-dom";
 import { Producto } from './shared/shareddtypes';
@@ -40,7 +39,7 @@ function App(): JSX.Element {
 
   return (
     <>        
-
+    <SessionProvider>
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Bienvenida/>}/>
@@ -48,8 +47,6 @@ function App(): JSX.Element {
           <Route path="/catalogo" element={<Catalogo/>}/>
           <Route path="catalogo/:categoria" element={<CatalogoListado />} />
 
-          <Route path="/loggin" element={<LogginForm />} /> 
-          <Route path="/registro" element={<Registro />} />
           <Route path="/ayuda" element={<Ayuda />} />
 
           
@@ -63,6 +60,8 @@ function App(): JSX.Element {
 
         </Routes>
     </BrowserRouter>
+   </SessionProvider>
+
   </>
 
   );

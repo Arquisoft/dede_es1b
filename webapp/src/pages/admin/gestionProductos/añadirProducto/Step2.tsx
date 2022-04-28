@@ -1,7 +1,6 @@
 import Divider from "@mui/material/Divider";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import TextField from "@mui/material/TextField";
-import { Input } from "antd";
 import React,{useState} from "react";
 import './step2.css'
 type AddProductProps = {

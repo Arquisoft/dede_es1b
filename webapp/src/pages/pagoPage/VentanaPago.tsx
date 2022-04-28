@@ -10,28 +10,25 @@ import "../../components/pago/pago.css";
 import {TextField} from "@mui/material";
 import {addPedido, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
-
-export type ProductoParaPedido = {
-    nombre: string;
-    imagen: string;
-    precio: number;
-    cantidad: number;
-};
+import { Producto } from "../../shared/shareddtypes";
 
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
 
     const getCarrito = (data: string) => {
-        var result = [] as ProductoParaPedido[];
+        var result = [] as Producto[];
         var productos = data.split(";");
         productos.forEach((p) => {
             var datosProd = p.split("-");
-            let prod: ProductoParaPedido = {
-                nombre: datosProd[0],
-                imagen: datosProd[1],
+            let prod: Producto = {
+                id: datosProd[0],
+                name: datosProd[1],
                 precio: Number(datosProd[2]),
-                cantidad: parseInt(datosProd[3]),
+                imagen: datosProd[3],
+                tipo: datosProd[4],
+                descripcion: datosProd[5],
+                cantidad: parseInt(datosProd[6])
             }
             result.push(prod);
         });
@@ -66,7 +63,7 @@ function VentanaPago(): JSX.Element {
         }
     }
 
-    const calcularTotal = (productos: ProductoParaPedido[]) =>
+    const calcularTotal = (productos: Producto[]) =>
         productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
 
 
@@ -84,9 +81,9 @@ function VentanaPago(): JSX.Element {
                 <Container className="productosPedido">
                     <div className="prods">
                         {
-                            carrito.map((prod: ProductoParaPedido) => {
+                            carrito.map((prod: Producto) => {
                                 return (
-                                    <ProductoPedido key={prod.nombre} nombre={prod.nombre} imagen={prod.imagen} precio={prod.precio}
+                                    <ProductoPedido key={prod.id} nombre={prod.name} imagen={prod.imagen} precio={prod.precio}
                                         cantidad={prod.cantidad} />
                                 )
                             })

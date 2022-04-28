@@ -1,10 +1,6 @@
 export type User = {
     id:string
-    name:string;
-    surname:string;
-    usuario:string;
-    correo:string;
-    password:string;
+    webid:string;
   }
 
 export type Producto = {
@@ -16,7 +12,6 @@ export type Producto = {
     descripcion: string;
     cantidad: number;
 }
-
 export type Prod = {
   name: String;
   precio: Number;
@@ -24,6 +19,8 @@ export type Prod = {
   tipo: String;
   descripcion: String;
 }
+
+
 
 export type Carrito = {
     id: string;

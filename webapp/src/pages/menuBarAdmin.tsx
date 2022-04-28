@@ -17,6 +17,15 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBarAdmin.css";
 import {useNavigate} from 'react-router-dom';
 
+import {
+  LoginButton,
+  Text,
+  useSession,
+  CombinedDataProvider,
+  LogoutButton,
+  SessionProvider,
+} from "@inrupt/solid-ui-react";
+
 const settingsAdmin = ['Cerrar sesión'];
 
 const Search = styled('div')(({ theme }) => ({
@@ -117,7 +126,7 @@ const AdminAppBar = () => {
 
        
           <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/gestionProductos" >
+          <MenuItem component={Link} to="/añadir/productos" >
           <Typography>Añadir productos</Typography>
           </MenuItem>
           </Box>
@@ -128,6 +137,13 @@ const AdminAppBar = () => {
           </MenuItem>
           </Box>
           
+          <SessionProvider >       
+	          <LogoutButton 
+             onLogout={()=>{navigate("/inicio");}}
+             
+            />
+           </SessionProvider>
+
           <Box  sx={{marginLeft:'auto'}}>
           <div className="iconoLoggin">
                 <IconButton onClick={handleOpenUserMenu}  >
