@@ -6,30 +6,22 @@ import { Producto } from '../../shared/shareddtypes';
 import { getProductos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import { ShoppingCart } from '@mui/icons-material';
 import "./homepage.css";
+
+const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
 
 function Init(): JSX.Element {
 
     const [productos, setProductos] = useState<Producto[]>([]);
     
     const [carritoAb, setCarritoAb] = useState(false);
-    const [carrito, setCarrito] = useState([] as Producto[]);
+    const [carrito, setCarrito] = useState(carritoLS);
 
-    const getTotalItems = (items: Producto[]) => {
-
-        let total=0;
-        total = items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
-        console.log("iwu  "+total);
-
-
-        localStorage.setItem("cantidadCarrito",JSON.stringify(total));
-    }
+    const getTotalItems = (items: Producto[]) => 
+        items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
     
     const handleAñadirAlCarrito = (prod: Producto) => {
-        getTotalItems(carrito);
-        let res;
         setCarrito(prev => {
             const prodAñadido = prev.find(p => p.id === prod.id)
             if (prodAñadido) {
@@ -44,7 +36,6 @@ function Init(): JSX.Element {
         });
     };
     const handleEliminarDelCarrito = (id: string) => {
-        getTotalItems(carrito);
         setCarrito(prev => (
             prev.reduce((accum, p) => {
                 if (p.id === id) {
@@ -65,7 +56,9 @@ function Init(): JSX.Element {
 
     useEffect( () => {
         cargar();
-    }, [])
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        localStorage.setItem("cantidadCarrito", JSON.stringify(getTotalItems(carrito)));
+    }, [carrito])
 
 
     return (
@@ -82,9 +75,7 @@ function Init(): JSX.Element {
                 />
             </SwipeableDrawer>
             <IconButton className="botonCarrito" onClick={() => setCarritoAb(true)}>
-
-                <ShoppingCart className="botonCarrito" style={{maxWidth: '70px', maxHeight: '70px', minWidth: '50px', minHeight: '50px'}}/>           
-
+                <ShoppingCart className="botonCarrito" style={{maxWidth: '70px', maxHeight: '70px', minWidth: '50px', minHeight: '50px'}}/>
             </IconButton>
         </div>
     </div>

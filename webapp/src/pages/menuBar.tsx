@@ -132,9 +132,6 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
         localStorage.setItem("rol","usuario");
       else
           localStorage.setItem("rol",rol);
-
-      console.log("onlogin   ",session.info.webId);
-
     })
   }, [])
 
@@ -154,7 +151,7 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             
           >
-                    <img src={logo} width="100" height="80" alt="logo" /> 
+                    <img src={logoImg} width="100" height="80" alt="logo" /> 
 
           </Typography>
           <Box>

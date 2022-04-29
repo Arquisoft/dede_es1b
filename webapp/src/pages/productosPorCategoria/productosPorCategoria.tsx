@@ -11,6 +11,8 @@ import Badge from '@mui/material/Badge';
 import { ShoppingCart } from '@mui/icons-material';
 import "./productosPorCategoria.css";
 
+const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
+
 function ListaProductos(): JSX.Element {
 
   const[productos, setProductos] = useState<Producto[]>([])
@@ -22,15 +24,18 @@ function ListaProductos(): JSX.Element {
     setProductos(await getProductosPorCategoria(cat));
   }
 
+  const [carritoAb, setCarritoAb] = useState(false);
+  const [carrito, setCarrito] = useState(carritoLS);
+
   useEffect( () => {
     cargar();
-  }, [])
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("cantidadCarrito", JSON.stringify(getTotalItems(carrito)));
+  }, [carrito])
   
-  const [carritoAb, setCarritoAb] = useState(false);
-  const [carrito, setCarrito] = useState([] as Producto[]);
 
   const getTotalItems = (items: Producto[]) => 
-        items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
+      items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
 
   const handleAñadirAlCarrito = (prod: Producto) => {
     setCarrito(prev => {

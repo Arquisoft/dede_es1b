@@ -72,9 +72,10 @@ const Carrito = (props: CarritoProps) => {
           variant="contained"
           disabled={vacio}
           onClick={() => {
-
             if(session.info.isLoggedIn){
               saveCarrito(props.carrito);
+
+            localStorage.setItem("carrito", JSON.stringify(props.carrito));
             navigate("/pago");
             }
             else{
