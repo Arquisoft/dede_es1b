@@ -1,7 +1,9 @@
 import Divider from "@mui/material/Divider";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import TextField from "@mui/material/TextField";
+import { Input } from "antd";
 import React,{useState} from "react";
+
 import './step2.css'
 type AddProductProps = {
   nombre: String;
@@ -12,12 +14,12 @@ type AddProductProps = {
 function Step2(props:any) {
   const [descripcion, setDescripcion] = useState('');
   const [imagen, setImagen] = useState('');
-  const [precio, setPrecio] = useState('');
+  const [precio, setPrecio] = useState<number>(0);
 
   return (
     <div>
       <p>
-      <h3 >Descripción:</h3></p>
+      <h2 >Descripción:</h2></p>
       <p>
       <TextareaAutosize 
           aria-label="empty textarea"
@@ -27,19 +29,10 @@ function Step2(props:any) {
           onChange={e =>{ setDescripcion(e.target.value); localStorage.setItem("descripcionNuevoProd",descripcion);}}
       />
       </p>
-      <p><h3 >Precio:</h3></p>
+      <p><h2 >Precio:</h2></p>
 
-      <p>
-        <TextField  className='textField'
-            required
-            name="Precio"
-            label="precio" 
-            variant="outlined"
-            value={precio}
-            onChange={e =>{ setPrecio(e.target.value); localStorage.setItem("imagenNuevoProd",imagen);}}
-          />
-      </p>
-      <p><h3 >Imagen:</h3></p>
+      
+      <p><h4 >Imagen:</h4></p>
 
       <p>
       <TextField  className='textField'

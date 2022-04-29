@@ -15,10 +15,9 @@ import AdminAppBar from '../../menuBarAdmin';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import './gestionProductos.css';
 import {useNavigate} from 'react-router-dom';
 
-function GestionProductos(props:any): JSX.Element {
+function GestionPedidos(props:any): JSX.Element {
     
     const navigate = useNavigate();
     
@@ -30,26 +29,22 @@ function GestionProductos(props:any): JSX.Element {
 
                 <table className="tablaBotones">
                 <tr>
-                <button className="button-48" role="button"  onClick={() => navigate("/productos/add")}><span className="text">
-                    <strong>Añadir producto</strong>
+                <button className="button-48" role="button"  onClick={() => navigate("/gestionPedidos/listado")}><span className="text">
+                    <strong>Listado</strong>
                 </span></button>
                 </tr>
 
                 <tr>
                 <button className="button-48" role="button" onClick={() => navigate("/productos/add")}><span className="text">
-                    <strong>Modificar producto</strong>
+                    <strong>Pedidos por usuario</strong>
                 </span></button>
                 </tr>
 
-                <tr>
-                <button className="button-48" role="button"><span className="text">
-                    <strong>Añadir / modificar categoría</strong>
-                </span></button>
-                </tr>
+             
                 </table>
 
             </>
  
         );
     } 
-export default GestionProductos;
+export default GestionPedidos;

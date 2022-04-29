@@ -22,6 +22,9 @@ import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes
 import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
 import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
+import GestionPedidos from './pages/admin/gestionPedidos/gestionPedidos';
+import ListadoPedidos from './pages/admin/gestionPedidos/listadoPedidos/listadoPedidos';
+import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/listadoPorUsuario/pedidosPorUsuario';
 
 
 function App(): JSX.Element {
@@ -52,9 +55,13 @@ function App(): JSX.Element {
           
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
           <Route path="/gestionProductos" element={<GestionProductos />} />
+          <Route path="/gestionPedidos" element={<GestionPedidos />} />
+          <Route path="/gestionPedidos/listado" element={<ListadoPedidos />} />
+          <Route path="/gestionPedidos/listadoPorUsuario" element={<ListaPedidosPorUsuario />} />
           <Route path="/productos/add" element={<AñadirProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
+          <Route path="/pedidos/list" element={<ListaPedidosPorUsuario />} />
           <Route path="/pago" element={<VentanaPago />} />
           <Route path="/pago/finalizado" element={<PagoFinalizado />} />
 

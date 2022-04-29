@@ -126,14 +126,20 @@ const AdminAppBar = () => {
 
        
           <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/añadir/productos" >
-          <Typography>Añadir productos</Typography>
+          <MenuItem component={Link} to="/gestionProductos" >
+          <Typography>Gestión productos</Typography>
           </MenuItem>
           </Box>
 
           <Box sx={{ paddingLeft: '3%' }}>
           <MenuItem component={Link} to="/productos/list" >
           <Typography>Lista de productos</Typography>
+          </MenuItem>
+          </Box>
+
+          <Box sx={{ paddingLeft: '3%' }}>
+          <MenuItem component={Link} to="/gestionPedidos" >
+          <Typography>Gestión pedidos</Typography>
           </MenuItem>
           </Box>
           

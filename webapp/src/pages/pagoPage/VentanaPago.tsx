@@ -10,7 +10,7 @@ import "../../components/pago/pago.css";
 import {TextField} from "@mui/material";
 import {addPedido, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
-import { Producto } from "../../shared/shareddtypes";
+import { ProductoPago } from "../../shared/shareddtypes";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 
 function VentanaPago(): JSX.Element {
@@ -20,11 +20,11 @@ function VentanaPago(): JSX.Element {
     
       
     const getCarrito = (data: string) => {
-        var result = [] as Producto[];
+        var result = [] as ProductoPago[];
         var productos = data.split(";");
         productos.forEach((p) => {
             var datosProd = p.split("-");
-            let prod: Producto = {
+            let prod: ProductoPago = {
                 id: datosProd[0],
                 name: datosProd[1],
                 precio: Number(datosProd[2]),
@@ -66,7 +66,7 @@ function VentanaPago(): JSX.Element {
         }
     }
 
-    const calcularTotal = (productos: Producto[]) =>
+    const calcularTotal = (productos: ProductoPago[]) =>
         productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
 
 
@@ -84,7 +84,7 @@ function VentanaPago(): JSX.Element {
                 <Container className="productosPedido">
                     <div className="prods">
                         {
-                            carrito.map((prod: Producto) => {
+                            carrito.map((prod: ProductoPago) => {
                                 return (
                                     <ProductoPedido key={prod.id} nombre={prod.name} imagen={prod.imagen} precio={prod.precio}
                                         cantidad={prod.cantidad} />

@@ -1,5 +1,5 @@
 import { RestorePageOutlined } from '@mui/icons-material';
-import { User, Producto, Prod } from '../shared/shareddtypes';
+import { User, Producto,ProductoPago, Prod, Pedido } from '../shared/shareddtypes';
 
 import {
   getSolidDataset,
@@ -56,7 +56,7 @@ export async function addProduct(prod:Prod):Promise<boolean>{
   let response = await fetch(apiEndPoint+'/productos/add', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({'nombre':prod.name,'precio':prod.precio,'descripcion':prod.descripcion, 'tipo':prod.tipo, 'imagen':prod.imagen})
+      body: JSON.stringify({'nombre':prod.name,'precio':prod.precio,'descripcion':prod.descripcion, 'tipo':prod.tipo, 'imagen':prod.imagen,'nventas':prod.nventas,'estado':prod.estado})
     });
   if (response.status===200){
     console.log("jason   "+response.json());
@@ -66,7 +66,22 @@ export async function addProduct(prod:Prod):Promise<boolean>{
     return false;
 }
 
-export async function addPedido(products:Producto[] ,user_id:String,precioTot:number):Promise<boolean>{
+export async function actualizarProducto(prod:Prod):Promise<boolean>{
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/actualizar', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'nombre':prod.name,'precio':prod.precio,'descripcion':prod.descripcion, 'tipo':prod.tipo, 'imagen':prod.imagen,'estado':prod.imagen})
+    });
+  if (response.status===200){
+    console.log("jason   "+response.json());
+    return true;
+  }
+  else
+    return false;
+}
+
+export async function addPedido(products:ProductoPago[] ,user_id:String,precioTot:number):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
 
   let response = await fetch(apiEndPoint+'/pedido/crear', {
@@ -124,6 +139,71 @@ export async function deleteProduct(id:String):Promise<boolean>{
     return true;}
   return false;
 }
+
+export async function getPedidos():Promise<Pedido[]>{
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/pedidos/list');
+  //The objects returned by the api are directly convertible to User objects
+  return response.json()
+}
+
+export async function getPedidosPorUsuario(id:String): Promise<Pedido[]> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/pedido/encontrarPorUsuario', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'user_id':id})
+    });
+    return response.json()
+
+}
+
+export async function reactivarProducto(id:String):Promise<boolean>{
+  
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/reactivar', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'id':id})
+  });
+    
+  if(response.status==200){
+    
+    return true;}
+  return false;
+}
+
+export async function incrementarVentasProducto(id:String,cantidad:Number):Promise<boolean>{
+  
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/incrementarVentas', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'id':id,'cantidad':cantidad})
+  });
+
+  if(response.status==200){
+    return true;}
+  return false;
+}
+
+export async function getProductosActivos(): Promise<Producto[]> {
+  console.log('aki si');
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/activos');
+  return response.json()
+}
+
+export async function getNVentas(id:String): Promise<Number> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/getNVentas', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'id':id})
+  });  
+  return response.json()
+}
+
 export async function getProductos(): Promise<Producto[]> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/products/list');
@@ -160,6 +240,16 @@ export async function getProductosPorCategoria(categoria:String): Promise<Produc
     return false;
 
 } */
+
+export async function getProductoPorID(id:String): Promise<Producto> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/productos/getProductoPorId', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'id':id})
+    });
+    return response.json()
+}
 
 export async function iniciarSesion(webid:String):Promise<string>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'

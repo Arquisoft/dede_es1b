@@ -30,7 +30,6 @@ function PerfilUsuario(): JSX.Element {
   
   const refreshDirecciones = async () => {
     setDirecciones(await getAddressesFromPod(session.info.webId!));
-    console.log(sessionStorage.getItem("sesionSolid"));
   }
 
   useEffect(()=>{

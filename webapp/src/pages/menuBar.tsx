@@ -115,7 +115,6 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
   
 
   //SOLID
-  let sesionId = sessionStorage.getItem("sesionSolid")!;
   
   const manejoSesion = async () =>{
     console.log("akaka `+ "+ session.info.webId);
@@ -129,7 +128,7 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
       
       manejoSesion();
       let rol = await getRoleFromPod(session.info.webId!);
-      if(rol==null)
+      if(rol!="Admin")
         localStorage.setItem("rol","usuario");
       else
           localStorage.setItem("rol",rol);
@@ -210,7 +209,7 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
           </Box>
 
           <div className="loggedout">	  
-          <SessionProvider sessionId={sesionId}>       
+          <SessionProvider >       
 	          <LogoutButton 
              onLogout={()=>{navigate("/catalogo");}}
              

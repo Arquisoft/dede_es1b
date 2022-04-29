@@ -1,9 +1,7 @@
 import React from "react";
-import './añadirProducto.css'
 import { Steps, Step } from "react-step-builder";
-import Step1 from "./Step1";
-import Step2 from "./Step2";
-import FinalStep from "./FinalStep";
+import Step1 from "./step1"
+import Step2 from "./step2";
 import { Button, Col, Row } from "antd";
 import AdminAppBar from '../../../menuBarAdmin';
 import { Box, Container } from "@mui/material";
@@ -30,9 +28,6 @@ function App() {
     <>
     <AdminAppBar></AdminAppBar>
     <div className="App">
-      <br />
-      <h1>AÑADIR PRODUCTO</h1>
-      <br />
       
 
       <div className="pasos">
@@ -40,7 +35,6 @@ function App() {
         <div className='step'><Step component={Step1} /></div>
         <div className='step'><Step component={Step2} /></div>
         
-        <div className='step'><Step component={FinalStep} /></div>
       </Steps><br></br><br></br>
       </div>
     </div>

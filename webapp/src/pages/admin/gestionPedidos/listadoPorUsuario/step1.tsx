@@ -4,8 +4,7 @@ import { Divider, TextField } from "@mui/material";
 
 function Step1(props:any) {
 
-  const [nombre, setNombre] = useState('');
-  const [categoria, setCategoria] = useState('');
+  const [userid, setUserId] = useState('');
 
 
   return (
@@ -15,24 +14,11 @@ function Step1(props:any) {
       <p>
       <TextField  className='textField'
             required
-            name="Nombre"
-            label="nombre" 
+            name="userid"
+            label="Id usuario" 
             variant="outlined"
-            value={nombre}
-            onChange={e =>{ setNombre(e.target.value); localStorage.setItem("nombreNuevoProd",nombre);}}
-            sx={{ my: 2 }}
-          />
-      </p>
-      <p>
-      <h2>Categoría:</h2></p>
-      <p>
-      <TextField  className='textField'
-            required
-            name="Categoria"
-            label="categoria" 
-            variant="outlined"
-            value={categoria}
-            onChange={e =>{ setCategoria(e.target.value); localStorage.setItem("categoriaNuevoProd",categoria);}}
+            value={userid}
+            onChange={e =>{ setUserId(e.target.value); localStorage.setItem("userIdBuscarPedido",userid);}}
             sx={{ my: 2 }}
           />
       </p>
