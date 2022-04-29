@@ -11,21 +11,23 @@ import TableBody from "@mui/material/TableBody";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { getPedidos } from '../../../../api/api';
+import { getPedidos, getPedidosPorUsuario } from '../../../../api/api';
+import {useNavigate} from 'react-router-dom';
 
 
 function Step2(props:any) {
   const[pedidos, setPedidos] = useState<Pedido[]>([])
 
-  let id:String = '625c2ea4bf758537a0797b24';
   async function cargar() {
-    setPedidos(await getPedidos());
+    setPedidos(await getPedidosPorUsuario(localStorage.getItem("userIdBuscarPedido")!));
   } 
   
   useEffect( () => {
     cargar();
   }, [])
   
+  const navigate = useNavigate();
+
   return (
      <>
        <h4>{localStorage.getItem('userIdBuscarPedido')}</h4>
@@ -37,8 +39,8 @@ function Step2(props:any) {
       <button className="añadirProdButton" data-testid="prev" onClick={props.prev}>
 				Prev
 			</button>
-			<button className="añadirProdButton" data-testid="next" onClick={props.next}>
-				Next
+			<button className="añadirProdButton" data-testid="next" onClick={()=>navigate("/gestionPedidos")}>
+				Finalizar
 			</button>
     </div>
     </>

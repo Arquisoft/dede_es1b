@@ -14,7 +14,7 @@ type AddProductProps = {
 function Step2(props:any) {
   const [descripcion, setDescripcion] = useState('');
   const [imagen, setImagen] = useState('');
-  const [precio, setPrecio] = useState<number>(0);
+  const [precio, setPrecio] = useState('');
 
   return (
     <div>
@@ -26,12 +26,31 @@ function Step2(props:any) {
           placeholder="Descripción"
           value={descripcion}
           style={{ width: 300, height:40 }}
-          onChange={e =>{ setDescripcion(e.target.value); localStorage.setItem("descripcionNuevoProd",descripcion);}}
+          onChange={e =>{
+            localStorage.removeItem("descripcionNuevoProd");
+             setDescripcion(e.target.value); 
+            localStorage.setItem("descripcionNuevoProd",descripcion);
+          }}
       />
       </p>
       <p><h2 >Precio:</h2></p>
 
-      
+      <TextField
+                  value={precio}
+                  name="precio"
+                  id="outlined-full-width"
+                  label="Product price"
+                  style={{ margin: 8 }}
+                  required
+                  margin="normal"
+                  type="number"
+                  variant="outlined"
+                  onChange={(event) => {
+                    localStorage.removeItem("precioNuevoProd");
+                    setPrecio(parseFloat(event.target.value).toString());
+                    localStorage.setItem("precioNuevoProd",precio);
+                  }}
+                />
       <p><h4 >Imagen:</h4></p>
 
       <p>

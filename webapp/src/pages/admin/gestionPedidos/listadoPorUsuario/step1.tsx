@@ -10,7 +10,7 @@ function Step1(props:any) {
   return (
     <div>
       <p>
-      <h2>Nombre:</h2></p>
+      <h2>ID:</h2></p>
       <p>
       <TextField  className='textField'
             required

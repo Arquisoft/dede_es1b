@@ -35,7 +35,7 @@ function GestionPedidos(props:any): JSX.Element {
                 </tr>
 
                 <tr>
-                <button className="button-48" role="button" onClick={() => navigate("/productos/add")}><span className="text">
+                <button className="button-48" role="button" onClick={() => navigate("/gestionPedidos/listadoPorUsuario")}><span className="text">
                     <strong>Pedidos por usuario</strong>
                 </span></button>
                 </tr>

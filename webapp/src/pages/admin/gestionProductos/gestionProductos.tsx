@@ -43,7 +43,13 @@ function GestionProductos(props:any): JSX.Element {
 
                 <tr>
                 <button className="button-48" role="button"><span className="text">
-                    <strong>Añadir / modificar categoría</strong>
+                    <strong>Buscar por ID</strong>
+                </span></button>
+                </tr>
+
+                <tr>
+                <button className="button-48" role="button"><span className="text">
+                    <strong>Listado</strong>
                 </span></button>
                 </tr>
                 </table>

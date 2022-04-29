@@ -19,7 +19,6 @@ import MenuBarAdmin from "../../../menuBarAdmin";
 function Step2(props:any) {
   const[pedidos, setPedidos] = useState<Pedido[]>([])
 
-  let id:String = '625c2ea4bf758537a0797b24';
   async function cargar() {
     setPedidos(await getPedidos());
   } 
