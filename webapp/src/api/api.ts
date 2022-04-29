@@ -142,7 +142,7 @@ export async function deleteProduct(id:String):Promise<boolean>{
 
 export async function getPedidos():Promise<Pedido[]>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
-  let response = await fetch(apiEndPoint+'/pedidos/list');
+  let response = await fetch(apiEndPoint+'/pedido/list');
   //The objects returned by the api are directly convertible to User objects
   return response.json()
 }
