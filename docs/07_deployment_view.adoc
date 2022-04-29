@@ -4,7 +4,7 @@
 == Deployment View
 === Infraestructure
 :imagesdir: images/
-image:07-diagramaDespliegue.png["Fallo imagen"]
+image:07-diagramaDespliegue.PNG["Fallo imagen"]
 
 
 ==== Motivation
