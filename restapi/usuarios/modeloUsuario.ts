@@ -3,16 +3,10 @@ const{model,Schema}=mongoose;
 
 const schemaUsuario=new Schema({
     id:String,
-    name:String,
-    surname:String,
-    usuario:String,
-    contrasenia:String,
-    correo:String,
-    tipo:String,
+    webid:String,
     listaProductos:[{
         id_p: String
     }],
-
 })
 schemaUsuario.set('toJSON',{
     transform:(objeto1:any,objeto2:any)=>{

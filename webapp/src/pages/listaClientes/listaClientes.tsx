@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { User } from '../../../shared/shareddtypes';
-import MenuBar from "../../menuBarAdmin";
+import { User } from '../../shared/shareddtypes';
+import MenuBar from "../menuBarAdmin";
 import {useNavigate} from 'react-router-dom';
-import { getNameFromPod, getUsers } from '../../../api/api';
+import { getNameFromPod, getUsers } from '../../api/api';
+import { deleteUser } from '../../api/api';
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,33 +12,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useSession } from '@inrupt/solid-ui-react';
 
 function ListaUsuariosParaEliminar(props:any): JSX.Element {
     
     const[usuarios, setUsuarios] = useState<User[]>([])
     const navigate = useNavigate();
-
-/*     const eliminar=(id:String)=>{
+    
+    const eliminar=(id:String)=>{
       deleteUser(id);
       window.location.replace('');
 
-    }
- */
-    const printearEstado=(estado:Boolean)=>{
-      if(estado)
-      return 'Activo';
-      else return 'No activo';
-
-    }
-
-/*     const reactivar=(id:String)=>{
-      reactivarUsuario(id);
-      window.location.replace('');
-
-    } */
-
-    const nombreUsuario = async (webid:string) =>{
-      return await getNameFromPod(webid);
     }
   
     async function cargar() {
@@ -59,9 +44,10 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell align="right">WebID</TableCell>
-            <TableCell align="right">Número pedidos</TableCell>
+            <TableCell>Correo</TableCell>
+            <TableCell align="right">ID</TableCell>
+            <TableCell align="right">WEBID</TableCell>
+            <TableCell align="right">NOMBRE</TableCell>
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
@@ -75,8 +61,9 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
                 {usuario.id}
               </TableCell>
               <TableCell align="right">{usuario.webid}</TableCell>
-              <TableCell align="right">{1}</TableCell>
-           
+              <TableCell align="right">{usuario.webid}</TableCell>
+              <TableCell align="right">{}</TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() => eliminar(usuario.id)}>Eliminar</button></TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -90,3 +77,6 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
       )
           } 
 export default ListaUsuariosParaEliminar;
+
+
+

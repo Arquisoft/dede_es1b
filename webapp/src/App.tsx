@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import LogginForm from './pages/logginPage/LogginForm';
 import  {getUsers} from './api/api';
 import {User} from './shared/shareddtypes';
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
-import Registro from './pages/registroPage/registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/mainPage/Homepage";
 import Ayuda from "./pages/ayudaPage/ayuda";
 import Catalogo from "./pages/catalogoPage/catalogo";
 import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria";
 import DetallesProducto from "./pages/productPage/productPage";
+import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 
 import { render } from "react-dom";
 import { Producto } from './shared/shareddtypes';
@@ -23,6 +22,9 @@ import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes
 import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
 import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
+import GestionPedidos from './pages/admin/gestionPedidos/gestionPedidos';
+import ListadoPedidos from './pages/admin/gestionPedidos/listadoPedidos/listadoPedidos';
+import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/listadoPorUsuario/pedidosPorUsuario';
 
 
 function App(): JSX.Element {
@@ -40,7 +42,7 @@ function App(): JSX.Element {
 
   return (
     <>        
-
+    <SessionProvider>
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Bienvenida/>}/>
@@ -48,21 +50,25 @@ function App(): JSX.Element {
           <Route path="/catalogo" element={<Catalogo/>}/>
           <Route path="/catalogo/:categoria" element={<CatalogoListado />} />
 
-          <Route path="/loggin" element={<LogginForm />} /> 
-          <Route path="/registro" element={<Registro />} />
           <Route path="/ayuda" element={<Ayuda />} />
 
           
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
           <Route path="/gestionProductos" element={<GestionProductos />} />
+          <Route path="/gestionPedidos" element={<GestionPedidos />} />
+          <Route path="/gestionPedidos/listado" element={<ListadoPedidos />} />
+          <Route path="/gestionPedidos/listadoPorUsuario" element={<ListaPedidosPorUsuario />} />
           <Route path="/productos/add" element={<AñadirProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
+          <Route path="/pedidos/list" element={<ListaPedidosPorUsuario />} />
           <Route path="/pago" element={<VentanaPago />} />
           <Route path="/pago/finalizado" element={<PagoFinalizado />} />
 
         </Routes>
     </BrowserRouter>
+   </SessionProvider>
+
   </>
 
   );

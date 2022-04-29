@@ -3,6 +3,7 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import TextField from "@mui/material/TextField";
 import { Input } from "antd";
 import React,{useState} from "react";
+
 import './step2.css'
 type AddProductProps = {
   nombre: String;
@@ -18,29 +19,39 @@ function Step2(props:any) {
   return (
     <div>
       <p>
-      <h3 >Descripción:</h3></p>
+      <h2 >Descripción:</h2></p>
       <p>
       <TextareaAutosize 
           aria-label="empty textarea"
           placeholder="Descripción"
           value={descripcion}
           style={{ width: 300, height:40 }}
-          onChange={e =>{ setDescripcion(e.target.value); localStorage.setItem("descripcionNuevoProd",descripcion);}}
+          onChange={e =>{
+            localStorage.removeItem("descripcionNuevoProd");
+             setDescripcion(e.target.value); 
+            localStorage.setItem("descripcionNuevoProd",descripcion);
+          }}
       />
       </p>
-      <p><h3 >Precio:</h3></p>
+      <p><h2 >Precio:</h2></p>
 
-      <p>
-        <TextField  className='textField'
-            required
-            name="Precio"
-            label="precio" 
-            variant="outlined"
-            value={precio}
-            onChange={e =>{ setPrecio(e.target.value); localStorage.setItem("imagenNuevoProd",imagen);}}
-          />
-      </p>
-      <p><h3 >Imagen:</h3></p>
+      <TextField
+                  value={precio}
+                  name="precio"
+                  id="outlined-full-width"
+                  label="Product price"
+                  style={{ margin: 8 }}
+                  required
+                  margin="normal"
+                  type="number"
+                  variant="outlined"
+                  onChange={(event) => {
+                    localStorage.removeItem("precioNuevoProd");
+                    setPrecio(parseFloat(event.target.value).toString());
+                    localStorage.setItem("precioNuevoProd",precio);
+                  }}
+                />
+      <p><h4 >Imagen:</h4></p>
 
       <p>
       <TextField  className='textField'
