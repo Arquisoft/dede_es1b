@@ -16,15 +16,10 @@ The theme of the online shop will be related to Asturias, so that the products s
 * The system will calculate the shipping costs.
 * The customer will be able to see his orders placed.
 * The customer will be able to redo a previously placed order.
-* The customer will be able to save orders as a draft without paying for them.
 * The system will save the address of the customer's last order to be used as the default address for subsequent orders.
-* The customer can delete orders from his order history.
-* The provider will be able to see the products he has in the shop and the statistics of each one of them.
-* The provider will be able to unsubscribe from the shop and the system will delete all his products.
-* The administrator may decide to place bids on products
-* The administrator may ban customers and providers.
-* The administrator can delete products
-* The administrator will have the final decision on whether to place a product or not.
+* The administrator may ban customers.
+* The administrator can disable products
+* The administrator can add products.
 
 
 === Quality Goals
@@ -46,7 +41,6 @@ The theme of the online shop will be related to Asturias, so that the products s
 |Role/Nombre|Expectations
 | Customers | Interested in buying products on the application.
 | Administrators | They are in charge of managing the application to make sure that everything works properly.
-| Providers | They are the ones who propose the products of the shop.
 | Teachers | They help in the realization of the project and are interested in its outcome.
 | Other students | They recommend for the improvement of the application and get inspiration for their own applications.
 |===
