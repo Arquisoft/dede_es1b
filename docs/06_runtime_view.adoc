@@ -7,11 +7,11 @@ Bob: Clicks on login button -> Dede: Displays the loggin form -> Bob: Complete u
 
 === Some admin utilities
 :imagesdir: images/
-image:SecuenciaBuscCat.png["Fallo imagen"] 
+image:AdminThings.png["Fallo imagen"] 
 
 === Search by category
 :imagesdir: images/
-image:AdminThings.png["Fallo imagen"] 
+image:SecuenciaBuscCat.png["Fallo imagen"] 
 
 === Buying product
 :imagesdir: images/
