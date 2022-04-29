@@ -47,16 +47,7 @@ describe('usuarios', () => {
         const response:Response = await request(app).get("/usuarios/list");
         expect(response.statusCode).toBe(200);
     });
-    /**
-     * Test loguear un usuario sin error
-     */
-    it('can get a user',async () => {
-        const response:Response = await request(app).post('/usuarios/login').send({
-            usuario:"useruser",
-            contraseña: "useruser"
-        }).set('Accept', 'application/json');
-        expect(response.statusCode).toBe(200);
-    });
+  
     /**
      * Test loguear un usuario con error
      */
@@ -81,7 +72,25 @@ describe('usuarios', () => {
 
     });
     
-
+      /**
+     * Test loguear un usuario sin error
+     */
+       it('can get a user',async () => {
+        const response:Response = await request(app).post('/usuarios/login').send({
+            usuario:"prueba123",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    /**
+     * Test de borrar un usuario
+     */
+     it('delete an user',async () => {
+        const response:Response = await request(app).post('/usuarios/delete').send({
+            usuario:"prueba123",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    
     
 });
 describe('productos', () => {
@@ -98,6 +107,28 @@ describe('productos', () => {
     it('get products with type',async () => {
         const response:Response = await request(app).post('/products/catalogo').send({
             tipo:'comida'
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    /**
+     * Crear producto 
+     */
+    it('create product',async () => {
+        let name:string = 'cachopo';
+        let precio:Number = 32;
+        let descripcion:string = 'plato de carne';
+        let tipo:string = 'ropa';
+        let imagen:string = "aaaa";
+        const response:Response = await request(app).post('/productos/add').send({name: name,precio: precio,descripcion: descripcion,tipo: tipo,imagen:imagen}).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+
+    });
+    /**
+     * Test de borrar un producto
+     */
+     it('delete an user',async () => {
+        const response:Response = await request(app).post('/productos/delete').send({
+            usuario:"cachopo",
         }).set('Accept', 'application/json');
         expect(response.statusCode).toBe(200);
     });
