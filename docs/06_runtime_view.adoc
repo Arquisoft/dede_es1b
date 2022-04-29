@@ -5,13 +5,13 @@
 === Loggin
 Bob: Clicks on login button -> Dede: Displays the loggin form -> Bob: Complete username and password fields and confirm clicking on login button -> Dede: Gives welcome to Bob
 
-=== Delete account
-Bob: Clicks on setting button -> Dede: Displays the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on delete account
--> Dede: Shows message of advertation waiting for confirmation -> Bob: Confirms message
+=== Some admin utilities
+:imagesdir: images/
+image:SecuenciaBuscCat.png["Fallo imagen"] 
 
 === Search by category
 :imagesdir: images/
-image:SecuenciaBuscCat.png["Fallo imagen"] 
+image:AdminThings.png["Fallo imagen"] 
 
 === Buying product
 :imagesdir: images/
