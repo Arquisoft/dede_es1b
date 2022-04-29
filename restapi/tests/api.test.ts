@@ -126,11 +126,32 @@ describe('productos', () => {
     /**
      * Test de borrar un producto
      */
-     it('delete an user',async () => {
+     it('delete an product',async () => {
         const response:Response = await request(app).post('/productos/delete').send({
             usuario:"cachopo",
         }).set('Accept', 'application/json');
         expect(response.statusCode).toBe(200);
     });
+    });
+    describe('pedidos', () => {
+          /**
+     * Test listar pedidos sin error
+     */
+      it('can be listed',async () => {
+        const response:Response = await request(app).get("/pedido/list");
+        expect(response.statusCode).toBe(404);
+    });
+     /**
+     * Test listar pedidos por usuario
+     */
+      it('get pedidos with type',async () => {
+        const response:Response = await request(app).post('/pedido/encontrarPorUsuario').send({
+            id_usuario:'prueba123'
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(404);
+    });
+  
 
-});
+
+    });
+
