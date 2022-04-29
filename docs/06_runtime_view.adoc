@@ -9,9 +9,9 @@ Bob: Clicks on login button -> Dede: Displays the loggin form -> Bob: Complete u
 Bob: Clicks on setting button -> Dede: Displays the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on delete account
 -> Dede: Shows message of advertation waiting for confirmation -> Bob: Confirms message
 
-=== Change password
-Bob: Clicks on setting button -> Dede: Shows the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on change password
--> Dede: Displays a form  -> Bob: Completes password and new password fields -> Dede: updates user's password if form was correct
+=== Search by category
+:imagesdir: images/
+image:SecuenciaBuscCat.png["Fallo imagen"] 
 
 === Buying product
 :imagesdir: images/
