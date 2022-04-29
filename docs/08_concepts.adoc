@@ -1,5 +1,15 @@
 [[section-concepts]]
 == Cross-cutting Concepts
+=== Persistence
+We focused on developing an app that uses MERN (MongoDb,Express,React,Node) so we use mongoDb as a container for our data , pods for user personal data and we will use a extern repository for images.
+
+=== Internationalization 
+Even though we decided to do the documentation part in english , we also decided that our app would be in spanish,
+just to make us easier to focus on the development part.
+
+=== Test 
+For this part we will be doing three types of test , unitary ones , which will test only little funcionalities without external dependences , end to end to prove full developed functions of the app , and finally load test to see if the app
+stops if the amount of users is high.
 
 === Domain diagram
 :imagesdir: images/
