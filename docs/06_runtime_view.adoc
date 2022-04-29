@@ -14,7 +14,8 @@ Bob: Clicks on setting button -> Dede: Shows the settings menu -> Bob: Access to
 -> Dede: Displays a form  -> Bob: Completes password and new password fields -> Dede: updates user's password if form was correct
 
 === Buying product
-Bob: Checks the sections of products -> Dede: shows all sections in the menu->Bob:choose the food section ->Dede: shows the food section->Bob: add the product to the shopping cart and decides to only buy that one, so clicks in buy  -> Dede: displays form >Bob: fills the form and confirm 
+:imagesdir: images/
+image:SecComprar.png["Fallo imagen"] 
 
 === Check orders
 Bob: clicks on MyAccount button -> Dede: Displays MyAccount view -> Bob: Clicks on MyOrders section -> Dede: Displays view and charge on it all the orders made by that user
