@@ -6,6 +6,7 @@ import cors from 'cors';
 import api from '../api';
 import apiUsuario from '../usuarios/routerUsuario';
 import apiProducto from '../productos/routerProductos';
+import apiPedido from '../pedidos/routerPedido';
 let app:Application;
 let server:http.Server;
 const mongoose = require('mongoose');
@@ -21,6 +22,7 @@ beforeAll(async () => {
     //app.use("/api", api)
     app.use(apiUsuario);
     app.use(apiProducto);
+    app.use(apiPedido)
     
 
     server = app.listen(port, ():void => {
@@ -139,7 +141,7 @@ describe('productos', () => {
      */
       it('can be listed',async () => {
         const response:Response = await request(app).get("/pedido/list");
-        expect(response.statusCode).toBe(404);
+        expect(response.statusCode).toBe(200);
     });
      /**
      * Test listar pedidos por usuario
@@ -148,9 +150,22 @@ describe('productos', () => {
         const response:Response = await request(app).post('/pedido/encontrarPorUsuario').send({
             id_usuario:'prueba123'
         }).set('Accept', 'application/json');
-        expect(response.statusCode).toBe(404);
+        expect(response.statusCode).toBe(200);
     });
-  
+  /**
+     * Test crear pedido
+     */
+   it('create pedido',async () => {
+    let id_usuario:string = '543535534';
+    let direccionAsignada:String = "calle Dolores";
+    let precioTotal:Number = 32;
+    let estado:string = 'prueba';
+    
+    const response:Response = await request(app).post('/pedido/crear').send({id_usuario: id_usuario,direccionAsignada: direccionAsignada,precioTotal: precioTotal,estado: estado})
+    .set('Accept', 'application/json');
+    expect(response.statusCode).toBe(200);
+
+});
 
 
     });
