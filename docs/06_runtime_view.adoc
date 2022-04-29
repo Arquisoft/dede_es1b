@@ -2,8 +2,9 @@
 [[section-runtime-view]]
 == Runtime View
 
-=== Loggin
-Bob: Clicks on login button -> Dede: Displays the loggin form -> Bob: Complete username and password fields and confirm clicking on login button -> Dede: Gives welcome to Bob
+=== See user orders
+:imagesdir: images/
+image:UserOrders.png["Fallo imagen"] 
 
 === Some admin utilities
 :imagesdir: images/
