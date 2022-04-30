@@ -13,13 +13,12 @@ import {useEffect, useState} from "react";
 import { ProductoPago } from "../../shared/shareddtypes";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 
+const carritoLS: ProductoPago[] = JSON.parse(localStorage.getItem("carrito") || "[]");
 
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
 
-    
-      
     const getCarrito = (data: string) => {
         var result = [] as ProductoPago[];
         var productos = data.split(";");
@@ -41,7 +40,7 @@ function VentanaPago(): JSX.Element {
     };
 
     let carritoData: string = localStorage.getItem("carrito")!;
-    var carrito = getCarrito(carritoData);
+    var carrito = carritoLS;
 
     const [gastosEnv,setGastosEnv]=useState<number>();
 
