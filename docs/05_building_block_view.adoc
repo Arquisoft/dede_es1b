@@ -5,9 +5,13 @@
 
 === Scope and context
 :imagesdir: images/
-image:05_scopeAndContext.PNG["Fallo imagen"]
+image:diagrama1_doc5.PNG["Fallo imagen"]
 
-=== Level 1
+=== Level 2
 :imagesdir: images/
-image:05_level1.PNG["Fallo imagen"]
+image:diagrama2_doc5.PNG["Fallo imagen"]
+
+=== Level 3
+:imagesdir: images/
+image:diagrama3_doc5.PNG["Fallo imagen"]
 
