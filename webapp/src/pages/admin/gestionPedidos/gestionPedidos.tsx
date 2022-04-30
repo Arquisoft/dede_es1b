@@ -25,7 +25,7 @@ function GestionPedidos(props:any): JSX.Element {
       return (
 
             <><AdminAppBar></AdminAppBar>
-            <h1>GESTIÓN PRODUCTOS</h1>
+            <h1>GESTIÓN PEDIDOS</h1>
 
                 <table className="tablaBotones">
                 <tr>

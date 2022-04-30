@@ -53,10 +53,10 @@ export type Prod = {
 
 
 export type Direccion = {
-  calle: String;
-  cod_postal: Number;
-  ciudad: String;
-  pais: String;
+  calle: string;
+  cod_postal: string;
+  ciudad: string;
+  region: string;
 }
 
 
