@@ -12,8 +12,6 @@ type ProdProps = {
 }
 
 function ProductoPedido(props: ProdProps) {
-    
-   // let imagen: string = require("../../images/" + props.imagen);
 
     return (
         <Card className="producto">

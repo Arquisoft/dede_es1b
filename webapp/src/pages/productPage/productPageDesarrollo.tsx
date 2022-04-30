@@ -27,6 +27,7 @@ function ProductPageDes(): JSX.Element {
 
   const navigate = useNavigate();
 
+  const imagen = "https://res.cloudinary.com/dlix47jlq/image/upload/v1650910880/productos/cortina_yyf3ip.png";
 
   return (
     <>
@@ -42,7 +43,7 @@ function ProductPageDes(): JSX.Element {
         <CardMedia
           component="img"
           height="400"
-          image={Imagen}
+          image={imagen}
         />
       </CardActionArea>
       </Card>

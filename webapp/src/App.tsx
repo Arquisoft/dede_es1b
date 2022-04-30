@@ -48,7 +48,7 @@ function App(): JSX.Element {
           <Route path="/" element={<Bienvenida/>}/>
           <Route path="/inicio" element={<Home />}/>
           <Route path="/catalogo" element={<Catalogo/>}/>
-          <Route path="catalogo/:categoria" element={<CatalogoListado />} />
+          <Route path="/catalogo/:categoria" element={<CatalogoListado />} />
 
           <Route path="/ayuda" element={<Ayuda />} />
 

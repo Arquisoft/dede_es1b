@@ -32,7 +32,7 @@ function ProductPage(): JSX.Element {
   console.log(splitted)
   const navigate = useNavigate();
 
-  let imagen: string = require("../../images/" + splitted[4]);
+  let imagen: string = splitted[4];
 
   return (
     <>

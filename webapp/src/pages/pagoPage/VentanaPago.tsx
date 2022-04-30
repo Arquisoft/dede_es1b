@@ -14,6 +14,7 @@ import { ProductoPago } from "../../shared/shareddtypes";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 import Direcciones from "./direcciones";
 
+
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
@@ -69,6 +70,7 @@ function VentanaPago(): JSX.Element {
     }
 
     const calcularTotal = (productos: ProductoPago[]) =>
+
         productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
 
 
