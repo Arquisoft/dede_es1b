@@ -23,7 +23,7 @@ function Step1(props:any) {
             label="nombre" 
             variant="outlined"
             value={nombre}
-            onChange={e =>{ setNombre(e.target.value); localStorage.setItem("nombreNuevoProd",nombre);}}
+            onChange={e =>{ setNombre(e.target.value);localStorage.setItem("nombreNuevoProd",nombre+"a");}}
             sx={{ my: 2 , background:'white', marginLeft:'70px',width:'100%'}}
           />
           </div>
@@ -39,7 +39,7 @@ function Step1(props:any) {
             label="categoria" 
             variant="outlined"
             value={categoria}
-            onChange={e =>{ setCategoria(e.target.value); localStorage.setItem("categoriaNuevoProd",categoria);}}
+            onChange={e =>{ setCategoria(e.target.value); localStorage.setItem("categoriaNuevoProd",categoria+"a");}}
             sx={{ my: 2 , background:'white', marginLeft:'70px',width:'100%'}}
           />
           </div>

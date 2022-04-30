@@ -87,7 +87,7 @@ function Step2(props:any) {
           onChange={e =>{
             localStorage.removeItem("descripcionNuevoProd");
              setDescripcion(e.target.value); 
-            localStorage.setItem("descripcionNuevoProd",descripcion);
+            localStorage.setItem("descripcionNuevoProd",descripcion+"a");
           }}
          
 
@@ -105,12 +105,12 @@ function Step2(props:any) {
             name="Precio"
             label="Precio" 
             variant="outlined"
-            type="number"
+            type="text"
             value={precio}
             onChange={(event) => {
               localStorage.removeItem("precioNuevoProd");
-              setPrecio(parseFloat(event.target.value).toString());
-              localStorage.setItem("precioNuevoProd",precio);
+              setPrecio(event.target.value);localStorage.setItem("precioNuevoProd",precio);
+
             }}
             sx={{ my: 2 , background:'white', marginLeft:'70px',width:'100%'}}
 
@@ -129,7 +129,7 @@ function Step2(props:any) {
             label="imagen" 
             variant="outlined"
             value={imagen}
-            onChange={e =>{ setImagen(e.target.value); localStorage.setItem("imagenNuevoProd",imagen);}}
+            onChange={e =>{ setImagen(e.target.value); localStorage.setItem("imagenNuevoProd",imagen+"g");localStorage.setItem("precioNuevoProd",precio+"a")}}
             sx={{ my: 2 , background:'white', marginLeft:'70px',width:'100%'}}
 
           />

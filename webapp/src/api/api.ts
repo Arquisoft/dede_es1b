@@ -57,7 +57,8 @@ export async function getUsers():Promise<User[]>{
 
 export async function addProduct(prod:Prod):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
-  console.log("pruebaaaaaaaaaa: "+localStorage.getItem("nombreNuevoProd"));
+ 
+
   let response = await fetch(apiEndPoint+'/productos/add', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},

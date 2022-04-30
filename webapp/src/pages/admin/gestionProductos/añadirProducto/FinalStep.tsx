@@ -29,14 +29,13 @@ function FinalStep(props:any) {
  var producto:Prod={
     name:localStorage.getItem("nombreNuevoProd")!,
     precio:parseInt(localStorage.getItem("precioNuevoProd")!),
-    imagen:"fabada.png",
+    imagen:localStorage.getItem("imagenNuevoProd")!,
     tipo:localStorage.getItem("categoriaNuevoProd")!,
     descripcion:localStorage.getItem("descripcionNuevoProd")!,
     nventas:0,
     estado:true
  }
 
- let imagen: string = require("../../../../images/" + producto.imagen);
 
   const handleSubmit =async () => {
     const result = await addProduct(producto);
@@ -53,11 +52,6 @@ function FinalStep(props:any) {
     <div className="finalStepAddProductContainer">
           <div className = "finalStepAddProductContent" style={{ textAlign: "left" }}>
     <Card sx={{ width: 345, maxHeight: 600 } }>
-          <CardMedia className="foto"  sx={{ m: "10rm", mx:'auto'}}
-             component="img"
-             height="140"
-             image={imagen}
-           />
           <CardContent className="text">
             <Typography variant="h6" component="div">
               Nombre: {producto.name}
