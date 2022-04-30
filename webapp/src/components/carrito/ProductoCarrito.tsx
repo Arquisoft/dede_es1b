@@ -2,13 +2,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Producto,ProductoPago} from '../../shared/shareddtypes';
+import { Producto} from '../../shared/shareddtypes';
 import Button from '@mui/material/Button';
 import "./carrito.css";
 
 type ProdProps = {
-    producto: ProductoPago;
-    añadirProd: (prod: ProductoPago) => void;
+    producto: Producto;
+    añadirProd: (prod: Producto) => void;
     eliminarProd: (id: string) => void;
 }
 

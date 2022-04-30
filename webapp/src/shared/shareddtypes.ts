@@ -15,15 +15,7 @@ export type User = {
     estado:Boolean;
 }
 
-export type ProductoPago = {
-  id: string;
-  name: string;
-  precio: number;
-  imagen: string;
-  tipo: string;
-  descripcion: string;
-  cantidad: number;
-}
+
 
 
 export type Pedido = {

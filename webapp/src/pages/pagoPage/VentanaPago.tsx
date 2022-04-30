@@ -10,10 +10,11 @@ import "../../components/pago/pago.css";
 import {TextField} from "@mui/material";
 import {addPedido, getAddressesFromPod, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
-import { ProductoPago } from "../../shared/shareddtypes";
+import { Producto } from "../../shared/shareddtypes";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 import Direcciones from "./direcciones";
 
+const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
 
 function VentanaPago(): JSX.Element {
 
@@ -21,29 +22,8 @@ function VentanaPago(): JSX.Element {
     const {session} = useSession();
     
       
-    const getCarrito = (data: string) => {
-        var result = [] as ProductoPago[];
-        
-        var productos = data.split(";");
-        productos.forEach((p) => {
-            var datosProd = p.split("-");
-            let prod: ProductoPago = {
-                id: datosProd[0],
-                name: datosProd[0],
-                precio: Number(datosProd[2]),
-                cantidad: parseInt(datosProd[3]),
-                imagen: datosProd[1],
-                tipo: datosProd[4],
-                descripcion: datosProd[5],
-            }
-            result.push(prod);
-        });
-        result.pop();
-        return result;
-    };
-
-    let carritoData: string = localStorage.getItem("carrito")!;
-    var carrito = getCarrito(carritoData);
+   
+    var carrito = carritoLS;
 
     const [gastosEnv,setGastosEnv]=useState<number>();
 
@@ -69,7 +49,7 @@ function VentanaPago(): JSX.Element {
         }
     }
 
-    const calcularTotal = (productos: ProductoPago[]) =>
+    const calcularTotal = (productos: Producto[]) =>
 
         productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
 
@@ -88,7 +68,7 @@ function VentanaPago(): JSX.Element {
                 <Container className="productosPedido">
                     <div className="prods">
                         {
-                            carrito.map((prod: ProductoPago) => {
+                            carrito.map((prod: Producto) => {
                                 return (
                                     <ProductoPedido key={prod.id} nombre={prod.name} precio={prod.precio}
                                      cantidad={prod.cantidad} imagen={prod.imagen} 

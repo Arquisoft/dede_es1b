@@ -1,5 +1,5 @@
 import { RestorePageOutlined } from '@mui/icons-material';
-import { User, Producto,ProductoPago, Prod, Pedido, Direccion } from '../shared/shareddtypes';
+import { User, Producto, Prod, Pedido, Direccion } from '../shared/shareddtypes';
 
 
 import {
@@ -86,7 +86,7 @@ export async function actualizarProducto(prod:Prod):Promise<boolean>{
     return false;
 }
 
-export async function addPedido(products:ProductoPago[] ,user_id:String,precioTot:number):Promise<boolean>{
+export async function addPedido(products:Producto[] ,user_id:String,precioTot:number):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
 
   let response = await fetch(apiEndPoint+'/pedido/crear', {
