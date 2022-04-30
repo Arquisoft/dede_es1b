@@ -18,28 +18,7 @@ const carritoLS: ProductoPago[] = JSON.parse(localStorage.getItem("carrito") || 
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
-
-    const getCarrito = (data: string) => {
-        var result = [] as ProductoPago[];
-        var productos = data.split(";");
-        productos.forEach((p) => {
-            var datosProd = p.split("-");
-            let prod: ProductoPago = {
-                id: datosProd[0],
-                name: datosProd[1],
-                precio: Number(datosProd[2]),
-                imagen: datosProd[3],
-                tipo: datosProd[4],
-                descripcion: datosProd[5],
-                cantidad: parseInt(datosProd[6])
-            }
-            result.push(prod);
-        });
-        result.pop();
-        return result;
-    };
-
-    let carritoData: string = localStorage.getItem("carrito")!;
+    
     var carrito = carritoLS;
 
     const [gastosEnv,setGastosEnv]=useState<number>();

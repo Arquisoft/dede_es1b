@@ -13,8 +13,35 @@ type AddProductProps = {
 
 function Step2(props:any) {
   const [descripcion, setDescripcion] = useState('');
-  const [imagen, setImagen] = useState('');
   const [precio, setPrecio] = useState('');
+
+  const [fileInputState, setFileInputState] = useState('');
+  const [imagen, setImagen] = useState('');
+  const handleFileInputChange = (e) => {
+      const file = e.target.files[0];
+      previewFile(file);
+  }
+
+  const [previewSource, setPreviewSource] = useState('');
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    }
+  }
+
+  const handleSubmitFile = (e) => {
+    e.preventDefault();
+    if (!imagen) {
+      return;
+    }
+    uploadImage(previewSource);
+  }
+
+  const uploadImage = (base64EncodedImage) => {
+
+  }
 
   return (
     <div>
@@ -51,18 +78,31 @@ function Step2(props:any) {
                     localStorage.setItem("precioNuevoProd",precio);
                   }}
                 />
+      
       <p><h4 >Imagen:</h4></p>
+      <div>
+        <form
+            onSubmit={handleSubmitFile}>
+              <input 
+                  type="file" 
+                  name="image" 
+                  onChange={handleFileInputChange}
+                  value={imagen}
+                  className="inputImagen">
+                    <button
+                        className="button"
+                        type="submit">
 
-      <p>
-      <TextField  className='textField'
-            required
-            name="Imagen"
-            label="imagen" 
-            variant="outlined"
-            value={imagen}
-            onChange={e =>{ setImagen(e.target.value); localStorage.setItem("imagenNuevoProd",imagen);}}
-          />
-      </p>
+                    </button>
+              </input>
+        </form>
+      </div>
+      {previewSource && (
+        <img
+          src={previewSource}
+          alt="imagen escogida"/>
+      )}
+      
       <Divider color='black'></Divider><br></br>
       <button className="añadirProdButton" data-testid="prev" onClick={props.prev}>
 				Prev
