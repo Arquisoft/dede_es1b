@@ -14,7 +14,7 @@ import Paper from "@mui/material/Paper";
 import {getPedidosUsuario, getUsers} from "../../api/api";
 
 
-function listPedidos(props:any):JSX.Element {
+function ListPedidos(props:any):JSX.Element {
     const[pedidos, setPedidos] = useState<Pedido[]>([]);
     const refreshPedidos = async () => {
         setPedidos(await getPedidosUsuario("cl123"));
@@ -61,4 +61,4 @@ function listPedidos(props:any):JSX.Element {
     );
 }
 
-export default listPedidos;
+export default ListPedidos;
