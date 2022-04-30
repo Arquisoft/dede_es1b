@@ -1,5 +1,5 @@
 import { RestorePageOutlined } from '@mui/icons-material';
-import { User, Producto,ProductoPago, Prod, Pedido } from '../shared/shareddtypes';
+import { User, Producto,ProductoPago, Prod, Pedido, Direccion } from '../shared/shareddtypes';
 
 import {
   getSolidDataset,
@@ -301,27 +301,34 @@ export async function getRoleFromPod(webId: string) {
 
 export async function getAddressesFromPod(webId: string) {
   console.log("webid: "+webId);
-  let addressURLs = getUrlAll(await getProfile(webId), VCARD.hasAddress);
-  let addresses: string[] = [];
+  let direccionesPod = getUrlAll(await getProfile(webId), VCARD.hasAddress);
+  let direcciones: Direccion[] = [];
 
-  for (let addressURL of addressURLs) {
-    let address = getStringNoLocale(
+  for (let addressURL of direccionesPod) {
+    let callePOD = getStringNoLocale(
       await getProfile(addressURL),
       VCARD.street_address
     );
-    let locality = getStringNoLocale(
+    let localidadPOD = getStringNoLocale(
       await getProfile(addressURL),
       VCARD.locality
     );
-    let region = getStringNoLocale(await getProfile(addressURL), VCARD.region);
-    let postal_code = getStringNoLocale(
+    let regionPOD = getStringNoLocale(await getProfile(addressURL), VCARD.region);
+    let codigo_postalPOD = getStringNoLocale(
       await getProfile(addressURL),
       VCARD.postal_code
     );
 
-    if (address)
-      addresses.push(`${address} - ${locality}, ${region} - ${postal_code}`);
+    if (callePOD){
+      const direc: Direccion = {
+        calle: callePOD!,
+        ciudad:localidadPOD!,
+        region:regionPOD!,
+        cod_postal:codigo_postalPOD!
+      }
+      direcciones.push(direc);
+    }
   }
-  return addresses;
+  return direcciones;
   
 }

@@ -8,15 +8,16 @@ import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
 import {TextField} from "@mui/material";
-import {addPedido, getGastosEnvio} from "../../api/api";
+import {addPedido, getAddressesFromPod, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
 import { ProductoPago } from "../../shared/shareddtypes";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
+import Direcciones from "./direcciones";
 
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
-
+    const {session} = useSession();
     
       
     const getCarrito = (data: string) => {
@@ -101,7 +102,7 @@ function VentanaPago(): JSX.Element {
                                 {"Detalles"}
                             </Typography>
                             <br></br>
-                            <TextField  className='textField'
+                          {/*   <TextField  className='textField'
                                         required
                                         name="direccion"
                                         label="Dirección"
@@ -110,13 +111,14 @@ function VentanaPago(): JSX.Element {
                                             setDireccion(e.target.value);
                                         }}
                                         sx={{ my: 2 }}
-                            />
+                            /> */}
+                            <Direcciones></Direcciones>
                             <Button
                                 className="buttonDireccion"
                                 size="small"
                                 disableElevation
                                 variant="contained"
-                                onClick={() => {
+                                onClick={async () => {
                                     calcularGastos();
                                 }}
                             >
