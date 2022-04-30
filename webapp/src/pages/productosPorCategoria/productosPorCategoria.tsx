@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
 import { getProductosPorCategoria } from '../../api/api';
-import { Producto } from '../../shared/shareddtypes';
+import { ProductoPago } from '../../shared/shareddtypes';
 import MenuBar from "../menuBar";
 import {useParams} from "react-router-dom";
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
@@ -11,11 +11,11 @@ import Badge from '@mui/material/Badge';
 import { ShoppingCart } from '@mui/icons-material';
 import "./productosPorCategoria.css";
 
-const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
+const carritoLS: ProductoPago[] = JSON.parse(localStorage.getItem("carrito") || "[]");
 
 function ListaProductos(): JSX.Element {
 
-  const[productos, setProductos] = useState<Producto[]>([])
+  const[productos, setProductos] = useState<ProductoPago[]>([])
   const {categoria} = useParams();
 
   let cat:string =categoria!; 
@@ -34,10 +34,10 @@ function ListaProductos(): JSX.Element {
   }, [carrito])
   
 
-  const getTotalItems = (items: Producto[]) => 
+  const getTotalItems = (items: ProductoPago[]) => 
       items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
 
-  const handleAñadirAlCarrito = (prod: Producto) => {
+  const handleAñadirAlCarrito = (prod: ProductoPago) => {
     setCarrito(prev => {
         const prodAñadido = prev.find(p => p.id === prod.id)
         if (prodAñadido) {
@@ -61,7 +61,7 @@ function ListaProductos(): JSX.Element {
             } else {
                 return [...accum, p];
             }
-        }, [] as Producto[])
+        }, [] as ProductoPago[])
     ));
   };
 

@@ -2,28 +2,28 @@ import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
 import Carrito from '../../components/carrito/Carrito';
 import MenuBar from "../menuBar";
-import { Producto } from '../../shared/shareddtypes';
+import { Producto,ProductoPago } from '../../shared/shareddtypes';
 import { getProductos, getProductosActivos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
 import { ShoppingCart } from '@mui/icons-material';
 import "./homepage.css";
 
-const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
+const carritoLS: ProductoPago[] = new ProductoPago[5];
 
 function Init(): JSX.Element {
 
-    const [productos, setProductos] = useState<Producto[]>([]);
+    const [productos, setProductos] = useState<ProductoPago[]>([]);
     
     const [carritoAb, setCarritoAb] = useState(false);
 
     const [carrito, setCarrito] = useState(carritoLS);
 
-    const getTotalItems = (items: Producto[]) => 
+    const getTotalItems = (items: ProductoPago[]) => 
         items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
     
 
-    const handleAñadirAlCarrito = (prod: Producto) => {
+    const handleAñadirAlCarrito = (prod: ProductoPago) => {
         setCarrito(prev => {
             const prodAñadido = prev.find(p => p.id === prod.id)
             if (prodAñadido) {
@@ -37,7 +37,6 @@ function Init(): JSX.Element {
             return [...prev, {...prod, cantidad: 1}];
         });
     };
-
     const handleEliminarDelCarrito = (id: string) => {
         setCarrito(prev => (
             prev.reduce((accum, p) => {
@@ -49,7 +48,7 @@ function Init(): JSX.Element {
                 } else {
                     return [...accum, p];
                 }
-            }, [] as Producto[])
+            }, [] as ProductoPago[])
         ));
     };
 

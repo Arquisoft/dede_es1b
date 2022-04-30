@@ -10,7 +10,7 @@ import "../../components/pago/pago.css";
 import {FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField} from "@mui/material";
 import {addPedido, getAddressesFromPod, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
-import { ProductoPago, Direccion } from "../../shared/shareddtypes";
+import { Producto, Direccion } from "../../shared/shareddtypes";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 import React from "react";
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
