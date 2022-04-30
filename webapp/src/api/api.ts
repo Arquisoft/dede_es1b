@@ -28,8 +28,6 @@ export async function addUser(webid:string):Promise<boolean>{
       return false;
 }
 
-export async function addPedido(products:Producto[] ,user_id:String|undefined,precioTot:number):Promise<boolean>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
 
 /*
 Metodo que selecciona los productos por categoría
