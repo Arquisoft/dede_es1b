@@ -6,6 +6,7 @@ import cors from 'cors';
 import api from '../api';
 import apiUsuario from '../usuarios/routerUsuario';
 import apiProducto from '../productos/routerProductos';
+import apiPedido from '../pedidos/routerPedido';
 let app:Application;
 let server:http.Server;
 const mongoose = require('mongoose');
@@ -21,6 +22,7 @@ beforeAll(async () => {
     //app.use("/api", api)
     app.use(apiUsuario);
     app.use(apiProducto);
+    app.use(apiPedido)
     
 
     server = app.listen(port, ():void => {
@@ -47,16 +49,7 @@ describe('usuarios', () => {
         const response:Response = await request(app).get("/usuarios/list");
         expect(response.statusCode).toBe(200);
     });
-    /**
-     * Test loguear un usuario sin error
-     */
-    it('can get a user',async () => {
-        const response:Response = await request(app).post('/usuarios/login').send({
-            usuario:"useruser",
-            contraseña: "useruser"
-        }).set('Accept', 'application/json');
-        expect(response.statusCode).toBe(200);
-    });
+  
     /**
      * Test loguear un usuario con error
      */
@@ -81,7 +74,25 @@ describe('usuarios', () => {
 
     });
     
-
+      /**
+     * Test loguear un usuario sin error
+     */
+       it('can get a user',async () => {
+        const response:Response = await request(app).post('/usuarios/login').send({
+            usuario:"prueba123",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    /**
+     * Test de borrar un usuario
+     */
+     it('delete an user',async () => {
+        const response:Response = await request(app).post('/usuarios/delete').send({
+            usuario:"prueba123",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    
     
 });
 describe('productos', () => {
@@ -101,5 +112,61 @@ describe('productos', () => {
         }).set('Accept', 'application/json');
         expect(response.statusCode).toBe(200);
     });
+    /**
+     * Crear producto 
+     */
+    it('create product',async () => {
+        let name:string = 'cachopo';
+        let precio:Number = 32;
+        let descripcion:string = 'plato de carne';
+        let tipo:string = 'ropa';
+        let imagen:string = "aaaa";
+        const response:Response = await request(app).post('/productos/add').send({name: name,precio: precio,descripcion: descripcion,tipo: tipo,imagen:imagen}).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+
+    });
+    /**
+     * Test de borrar un producto
+     */
+     it('delete an product',async () => {
+        const response:Response = await request(app).post('/productos/delete').send({
+            usuario:"cachopo",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    });
+    describe('pedidos', () => {
+          /**
+     * Test listar pedidos sin error
+     */
+      it('can be listed',async () => {
+        const response:Response = await request(app).get("/pedido/list");
+        expect(response.statusCode).toBe(200);
+    });
+     /**
+     * Test listar pedidos por usuario
+     */
+      it('get pedidos with type',async () => {
+        const response:Response = await request(app).post('/pedido/encontrarPorUsuario').send({
+            id_usuario:'prueba123'
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+  /**
+     * Test crear pedido
+     */
+   it('create pedido',async () => {
+    let id_usuario:string = '543535534';
+    let direccionAsignada:String = "calle Dolores";
+    let precioTotal:Number = 32;
+    let estado:string = 'prueba';
+    
+    const response:Response = await request(app).post('/pedido/crear').send({id_usuario: id_usuario,direccionAsignada: direccionAsignada,precioTotal: precioTotal,estado: estado})
+    .set('Accept', 'application/json');
+    expect(response.statusCode).toBe(200);
 
 });
+
+
+    });
+
