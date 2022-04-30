@@ -1,4 +1,7 @@
 import { RestorePageOutlined } from '@mui/icons-material';
+import {User, Producto, Prod, Pedido} from '../shared/shareddtypes';
+import ProductoPedido from "../components/pago/ProductoPedido";
+import {ProductoParaPedido} from "../pages/pagoPage/VentanaPago";
 import { User, Producto, Prod, Pedido, Direccion } from '../shared/shareddtypes';
 
 
@@ -234,6 +237,16 @@ export async function getProductosPorCategoria(categoria:String): Promise<Produc
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'categoria':categoria})
+    });
+    return response.json()
+
+}
+export async function getPedidosUsuario(usuario:String): Promise<Pedido[]> {
+    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+    let response = await fetch(apiEndPoint+'/pedido/encontrarPorUsuario', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({'user_id':usuario})
     });
     return response.json()
 

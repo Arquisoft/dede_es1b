@@ -100,7 +100,10 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
       case "Perfil":{
         navigate("/perfilUsuario");
         break;
-      }
+      }case "Mis pedidos":{
+            navigate("/pedidos/usuario/list");
+            break;
+        }
       default:{
         console.log("otruuuutrucutrucu");
         break;
@@ -185,6 +188,7 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
           <Typography>¿ERES PROVEEDOR?</Typography>
           </MenuItem>
           </Box>
+
 
           <Box  sx={{ paddingLeft: '3%' }}>
           <Search >

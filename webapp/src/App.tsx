@@ -22,6 +22,7 @@ import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes
 import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
 import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
+import ListaMisPedidos from './pages/gestionMisPedidos/listaPedidos';
 import GestionPedidos from './pages/admin/gestionPedidos/gestionPedidos';
 import ListadoPedidos from './pages/admin/gestionPedidos/listadoPedidos/listadoPedidos';
 import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/listadoPorUsuario/pedidosPorUsuario';
@@ -52,7 +53,7 @@ function App(): JSX.Element {
 
           <Route path="/ayuda" element={<Ayuda />} />
 
-          
+          <Route path="/pedidos/usuario/list" element={<ListaMisPedidos />} />
           <Route path="/usuarios/list" element={<ListaUsuariosParaEliminar />} />
           <Route path="/gestionProductos" element={<GestionProductos />} />
           <Route path="/gestionPedidos" element={<GestionPedidos />} />
