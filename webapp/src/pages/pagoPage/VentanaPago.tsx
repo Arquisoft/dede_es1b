@@ -8,39 +8,22 @@ import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
 import {TextField} from "@mui/material";
-import {addPedido, getGastosEnvio} from "../../api/api";
+import {addPedido, getAddressesFromPod, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
+import { Producto } from "../../shared/shareddtypes";
+import { LoginButton, useSession } from "@inrupt/solid-ui-react";
+import Direcciones from "./direcciones";
 
-export type ProductoParaPedido = {
-    nombre: string;
-    imagen: string;
-    precio: number;
-    cantidad: number;
-};
+const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
 
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
-
-    const getCarrito = (data: string) => {
-        var result = [] as ProductoParaPedido[];
-        var productos = data.split(";");
-        productos.forEach((p) => {
-            var datosProd = p.split("-");
-            let prod: ProductoParaPedido = {
-                nombre: datosProd[0],
-                imagen: datosProd[1],
-                precio: Number(datosProd[2]),
-                cantidad: parseInt(datosProd[3]),
-            }
-            result.push(prod);
-        });
-        result.pop();
-        return result;
-    };
-
-    let carritoData: string = localStorage.getItem("carrito")!;
-    var carrito = getCarrito(carritoData);
+    const {session} = useSession();
+    
+      
+   
+    var carrito = carritoLS;
 
     const [gastosEnv,setGastosEnv]=useState<number>();
 
@@ -66,7 +49,8 @@ function VentanaPago(): JSX.Element {
         }
     }
 
-    const calcularTotal = (productos: ProductoParaPedido[]) =>
+    const calcularTotal = (productos: Producto[]) =>
+
         productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
 
 
@@ -84,10 +68,11 @@ function VentanaPago(): JSX.Element {
                 <Container className="productosPedido">
                     <div className="prods">
                         {
-                            carrito.map((prod: ProductoParaPedido) => {
+                            carrito.map((prod: Producto) => {
                                 return (
-                                    <ProductoPedido key={prod.nombre} nombre={prod.nombre} imagen={prod.imagen} precio={prod.precio}
-                                        cantidad={prod.cantidad} />
+                                    <ProductoPedido key={prod.id} nombre={prod.name} precio={prod.precio}
+                                     cantidad={prod.cantidad} imagen={prod.imagen} 
+                                    />
                                 )
                             })
                         }
@@ -100,27 +85,21 @@ function VentanaPago(): JSX.Element {
                                 {"Detalles"}
                             </Typography>
                             <br></br>
-                            <TextField  className='textField'
-                                        required
-                                        name="direccion"
-                                        label="Dirección"
-                                        variant="outlined"
-                                        onChange={e => { 
-                                            setDireccion(e.target.value);
-                                        }}
-                                        sx={{ my: 2 }}
-                            />
+
+                            <Direcciones></Direcciones>
+                            <br></br>
                             <Button
                                 className="buttonDireccion"
                                 size="small"
                                 disableElevation
                                 variant="contained"
-                                onClick={() => {
+                                onClick={async () => {
                                     calcularGastos();
                                 }}
                             >
                                 Confirmar dirección
                             </Button>
+                            <br></br>
                             <Typography variant="body1">
                                 {"Total del pedido: " + totalProductos.toFixed(2) + " €"}
                             </Typography>
@@ -137,8 +116,10 @@ function VentanaPago(): JSX.Element {
                                 disableElevation
                                 variant="contained"
                                 onClick={() => {
-                                    addPedido(carrito,"dadad",Number.parseFloat(calcularTotalFinal()));
+
+                                    addPedido(carrito,localStorage.getItem('userId')!,Number.parseFloat(calcularTotalFinal()));
                                     navigate("/pago/finalizado");
+                                   
                                 }}
                             >
                                 Confirmar pago

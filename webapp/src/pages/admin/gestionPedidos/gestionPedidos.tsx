@@ -15,10 +15,9 @@ import AdminAppBar from '../../menuBarAdmin';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import './gestionProductos.css';
 import {useNavigate} from 'react-router-dom';
 
-function GestionProductos(props:any): JSX.Element {
+function GestionPedidos(props:any): JSX.Element {
     
     const navigate = useNavigate();
     
@@ -26,36 +25,26 @@ function GestionProductos(props:any): JSX.Element {
       return (
 
             <><AdminAppBar></AdminAppBar>
-            <h1>GESTIÓN PRODUCTOS</h1>
+            <h1>GESTIÓN PEDIDOS</h1>
 
                 <table className="tablaBotones">
                 <tr>
-                <button className="button-48" role="button"  onClick={() => navigate("/productos/add")}><span className="text">
-                    <strong>Añadir producto</strong>
-                </span></button>
-                </tr>
-
-                <tr>
-                <button className="button-48" role="button" onClick={() => navigate("/productos/add")}><span className="text">
-                    <strong>Modificar producto</strong>
-                </span></button>
-                </tr>
-
-                <tr>
-                <button className="button-48" role="button"><span className="text">
-                    <strong>Buscar por ID</strong>
-                </span></button>
-                </tr>
-
-                <tr>
-                <button className="button-48" role="button"  onClick={() => navigate("/productos/list")}><span className="text">
+                <button className="button-48" role="button"  onClick={() => navigate("/gestionPedidos/listado")}><span className="text">
                     <strong>Listado</strong>
                 </span></button>
                 </tr>
+
+                <tr>
+                <button className="button-48" role="button" onClick={() => navigate("/gestionPedidos/listadoPorUsuario")}><span className="text">
+                    <strong>Pedidos por usuario</strong>
+                </span></button>
+                </tr>
+
+             
                 </table>
 
             </>
  
         );
     } 
-export default GestionProductos;
+export default GestionPedidos;

@@ -11,6 +11,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Divider from "@mui/material/Divider";
 import { margin } from "@mui/system";
+import './FinalStep.css';
 
 type Prod={
   name:String,
@@ -18,6 +19,8 @@ type Prod={
   descripcion:String,
   tipo:String ,
   imagen:String,
+  nventas:number,
+  estado:Boolean
 }
 
 function FinalStep(props:any) {
@@ -28,8 +31,9 @@ function FinalStep(props:any) {
     precio:parseInt(localStorage.getItem("precioNuevoProd")!),
     imagen:"fabada.png",
     tipo:localStorage.getItem("categoriaNuevoProd")!,
-    descripcion:localStorage.getItem("descripcionNuevoProd")!
-
+    descripcion:localStorage.getItem("descripcionNuevoProd")!,
+    nventas:0,
+    estado:true
  }
 
  let imagen: string = require("../../../../images/" + producto.imagen);
@@ -46,41 +50,41 @@ function FinalStep(props:any) {
   }
   return (
     
-    <div style={{ textAlign: "left" }}>
-    <Card sx={{ width: 345, maxHeight: 490 } }>
-          <CardMedia className="foto" 
+    <div className="finalStepAddProductContainer">
+          <div className = "finalStepAddProductContent" style={{ textAlign: "left" }}>
+    <Card sx={{ width: 345, maxHeight: 600 } }>
+          <CardMedia className="foto"  sx={{ m: "10rm", mx:'auto'}}
              component="img"
              height="140"
              image={imagen}
-             alt="green iguana"
            />
           <CardContent className="text">
             <Typography variant="h6" component="div">
-              {producto.name}
+              Nombre: {producto.name}
             </Typography>
             <Typography gutterBottom variant="subtitle1" color="text.secondary">
-              {producto.tipo}
+              Categoria: {producto.tipo}
             </Typography>
             <Typography variant="subtitle2" color="text.secondary">
-                {producto.descripcion}
+               Descripción:  {producto.descripcion}
             </Typography>
             <Typography variant="h6" color="blue">
-                {producto.precio + " €"}
+               Precio: {producto.precio + " €"}
             </Typography>
           </CardContent>
-         
-        </Card>
-        <br></br><br></br><br></br>
-      <Divider color='black'></Divider>
-
-      <button className="añadirProdButton" data-testid="prev" onClick={props.prev}>
+         <CardActions>
+         <button className="añadirProdButton" data-testid="prev" onClick={props.prev}>
 				Prev
 			</button>
 			<button className="añadirProdButton"  onClick={handleSubmit}>
 				Guardar
 			</button>
-
+         </CardActions>
+        </Card>
+     
     </div>
+    </div>
+
   );
 }
 

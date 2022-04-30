@@ -1,4 +1,4 @@
-import { Producto } from '../shared/shareddtypes';
+import { Producto} from '../shared/shareddtypes';
 import CardProducto from '../pages/mainPage/CardProducto';
 import "../pages/mainPage/homepage.css";
 

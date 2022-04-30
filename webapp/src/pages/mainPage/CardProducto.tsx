@@ -19,14 +19,12 @@ type ProdProps = {
 function CardProducto(props: ProdProps) {
   const navigate = useNavigate();
 
-    let imagen: string = require("../../images/" + props.producto.imagen);
-
     return (
         <Card sx={{ width: 345, maxHeight: 490 } }>
           <CardMedia className="foto" sx={{ m: "10rm", mx:'auto'}}
             component="img"
             style={{height:"220px",width:'auto'}}
-            image={imagen}
+            image={props.producto.imagen}
             
             alt={props.producto.name}
           />

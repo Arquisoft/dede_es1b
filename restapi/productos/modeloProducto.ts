@@ -8,7 +8,10 @@ const schemaProducto = new Schema({
     descripcion:String,
     tipo:String ,
     imagen:String,
+    nventas:Number,
+    estado:Boolean
 })
+
 
 schemaProducto.set('toJSON',{
     transform: (objeto1:any,objeto2:any)=>{
