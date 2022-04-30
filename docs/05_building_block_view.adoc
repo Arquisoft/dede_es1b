@@ -26,7 +26,6 @@ image:diagrama3_doc5.PNG["Fallo imagen"]
 The third level is divided into the Front End in the main views of login, admin, shoping  and the request manager.
  The credentials entered in the LoginView will be verified by the LoginManager that is responsible for accessing the user’s pod and allowing access to the application. On the other hand, the user Will be able to see the shopping view that interacts with the products manager of the backend for visualice the products options.
 After the loggin the administrator Will be able to see the admin view that obteins info fron the order manager, products manager and the users manager due to the admin can acces to all this data.
-
- Finally, in the database the users ids are saved and all the data related to the order of a user and the products aviables in the shop.
+Finally, in the database the users ids are saved and all the data related to the order of a user and the products aviables in the shop.
 
 
