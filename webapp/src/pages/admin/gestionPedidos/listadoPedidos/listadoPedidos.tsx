@@ -35,13 +35,13 @@ function Step2(props:any) {
 
       <div className='users'>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+        <Table sx={{ minWidth: 400 }} aria-label="simple table">
+            <TableHead sx={{background:'#1E9B32'}}>
              <TableRow>
                  <TableCell>ID</TableCell>
                  <TableCell align="right">Id usuario</TableCell>
-                 <TableCell align="right">Número productos</TableCell>
-                 <TableCell align="right">Productos</TableCell>
+                 <TableCell align="right">Precio total</TableCell>
+                 <TableCell align="right">Nº Productos</TableCell>
                  <TableCell align="right"></TableCell>
              </TableRow>
         </TableHead>
@@ -55,8 +55,8 @@ function Step2(props:any) {
             {pedido.id}
           </TableCell>
           <TableCell align="right">{pedido.id_usuario}</TableCell>
-          <TableCell align="right">{1}</TableCell>
-          <TableCell align="right">{1}</TableCell>
+          <TableCell align="right">{pedido.precioTotal}</TableCell>
+          <TableCell align="right">{pedido.listaProductos.length}</TableCell>
 
        
         </TableRow>

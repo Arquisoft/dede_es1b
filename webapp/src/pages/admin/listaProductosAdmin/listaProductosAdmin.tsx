@@ -15,7 +15,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { emitKeypressEvents } from 'readline';
-
+import DoneIcon from '@mui/icons-material/Done';
+import CachedIcon from '@mui/icons-material/Cached';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 function ListaProductosAdmin(props:any): JSX.Element {
     
     const[productos, setProductos] = useState<Producto[]>([])
@@ -82,8 +84,8 @@ function ListaProductosAdmin(props:any): JSX.Element {
               <TableCell align="right">{printearEstado(producto.estado)}</TableCell>
               <TableCell align="right"> <button   type="submit" onClick={() =>navigate('detallesProducto/'+producto.id)} >Ver</button></TableCell>
               <TableCell align="right"> <button   type="submit" onClick={() =>navigate('estadisticasProducto/'+producto.id)} >Ver</button></TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() =>eliminar(producto.id)} >Eliminar</button></TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() => reactivar(producto.id)}>Reactivar</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() =>eliminar(producto.id)} ><HighlightOffIcon></HighlightOffIcon></button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() => reactivar(producto.id)}><CachedIcon></CachedIcon></button></TableCell>
 
             </TableRow>
           ))}

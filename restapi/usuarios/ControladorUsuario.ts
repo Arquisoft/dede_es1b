@@ -15,6 +15,19 @@ export const getUsuarios:RequestHandler=async (required,resultado)=>{
 
 };
 
+export const getIdUserByWebId:RequestHandler=async (required,resultado)=>{
+    try{
+        let webid_user:String=required.body.webid;
+        console.log("webid usuario  ", webid_user);
+        const id:string=await modeloUsuario.findOne({"_webid":webid_user}).select("id");
+        console.log(id);
+        return resultado.json(JSON.stringify({"id":id}));
+    }catch (err){
+        resultado.json(err);
+    }
+
+};
+
 export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let id_user:String=required.body.id;
@@ -30,6 +43,8 @@ export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     }
 
 };
+
+
 
 export const inicioSesion:RequestHandler=async (required,resultado)=>{
     try{

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
 import Carrito from '../../components/carrito/Carrito';
 import MenuBar from "../menuBar";
-import { Producto } from '../../shared/shareddtypes';
-import { getProductos} from '../../api/api';
+import { Producto,ProductoPago } from '../../shared/shareddtypes';
+import { getProductos, getProductosActivos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
 import { ShoppingCart } from '@mui/icons-material';
@@ -13,14 +13,16 @@ const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]"
 
 function Init(): JSX.Element {
 
-    const [productos, setProductos] = useState<Producto[]>([]);
+    const [productos, setProductos] = useState<ProductoPago[]>([]);
     
     const [carritoAb, setCarritoAb] = useState(false);
+
     const [carrito, setCarrito] = useState(carritoLS);
 
     const getTotalItems = (items: Producto[]) => 
         items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
     
+
     const handleAñadirAlCarrito = (prod: Producto) => {
         setCarrito(prev => {
             const prodAñadido = prev.find(p => p.id === prod.id)
@@ -46,12 +48,12 @@ function Init(): JSX.Element {
                 } else {
                     return [...accum, p];
                 }
-            }, [] as Producto[])
+            }, [] as ProductoPago[])
         ));
     };
 
     async function cargar() {
-        setProductos(await getProductos());
+        setProductos(await getProductosActivos());
     }
 
     useEffect( () => {
