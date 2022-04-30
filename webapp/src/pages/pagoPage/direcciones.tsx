@@ -7,35 +7,73 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
-import {TextField} from "@mui/material";
+import {FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField} from "@mui/material";
 import {addPedido, getAddressesFromPod, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
 import { ProductoPago, Direccion } from "../../shared/shareddtypes";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
+import React from "react";
+import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
 
 function Direcciones(): JSX.Element {
 
     const navigate = useNavigate();
     const {session} = useSession();
-    const [direcciones,setDirecciones] = useState<Direccion[]>();
-    const [direccion,setDireccion] = useState<Direccion>();
+    const [direccionElegida,setDireccionElegida] = useState<String>();
 
-    const cargarDirecciones = async () =>{
-        return await getAddressesFromPod(session.info.webId!);
-      }
+    function cargarDirecciones() {
+    let di = sessionStorage.getItem("direcciones")!;
+    console.log("di   ",di);
+
+    var result = [] as Direccion[];
+
+    var direccionesSplit = di.split("$");
+    console.log("direcciones split   ",direccionesSplit);
+        direccionesSplit.forEach((direc) => {
+            var datosDireccion = direc.split(",");
+            let direccion: Direccion = {
+                calle: datosDireccion[0],
+                ciudad: datosDireccion[1],
+                region: datosDireccion[2],
+                cod_postal: datosDireccion[3],
+            }
+            result.push(direccion);
+        });
+        result.pop();
+        return result;
+
+    };
       
-    useEffect( () => {
-        async function name() {
-            setDirecciones(await cargarDirecciones());
-        } 
-        console.log(direcciones);
-
-    }, [])
-
+    var direcciones = cargarDirecciones();
 
     return (
-        <></>
-    );
+      <Container>
+     {/*  {
+        direcciones.map((direc: Direccion) => {
+            return (
+               <p>{direc.calle}   {direc.ciudad}</p>
+            )
+        })
+    } */}
+    <FormControl >
+    <FormLabel id="demo-controlled-radio-buttons-group">Seleccione una dirección:</FormLabel>
+    <RadioGroup
+        aria-labelledby="demo-controlled-radio-buttons-group"
+        name="controlled-radio-buttons-group"
+        value={direccionElegida}
+        onChange={(e)=>{
+          setDireccionElegida(e.target.value)
+          console.log("lili",direccionElegida);
+        }}
+      >
+
+          {direcciones.map((radioItem: Direccion) => (
+            <FormControlLabel value={radioItem.calle +" - " +radioItem.cod_postal} control={<Radio />} label={radioItem.calle +" - " +radioItem.cod_postal} />
+          ))}
+        </RadioGroup>
+      </FormControl>
+    </Container>
+  );
 };
 
 export default Direcciones;

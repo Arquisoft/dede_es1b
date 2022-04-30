@@ -302,7 +302,7 @@ export async function getRoleFromPod(webId: string) {
 export async function getAddressesFromPod(webId: string) {
   console.log("webid: "+webId);
   let direccionesPod = getUrlAll(await getProfile(webId), VCARD.hasAddress);
-  let direcciones: Direccion[] = [];
+  let direcciones: string = "";
 
   for (let addressURL of direccionesPod) {
     let callePOD = getStringNoLocale(
@@ -320,13 +320,15 @@ export async function getAddressesFromPod(webId: string) {
     );
 
     if (callePOD){
-      const direc: Direccion = {
+      let direccionString = callePOD! +","+localidadPOD! +","+regionPOD!+","+codigo_postalPOD! +"$";
+    /*   const direc: Direccion = {
         calle: callePOD!,
         ciudad:localidadPOD!,
         region:regionPOD!,
         cod_postal:codigo_postalPOD!
-      }
-      direcciones.push(direc);
+      }*/
+      console.log(direccionString);
+      direcciones+=direccionString;
     }
   }
   return direcciones;

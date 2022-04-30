@@ -22,6 +22,7 @@ function VentanaPago(): JSX.Element {
       
     const getCarrito = (data: string) => {
         var result = [] as ProductoPago[];
+        
         var productos = data.split(";");
         productos.forEach((p) => {
             var datosProd = p.split("-");
@@ -102,17 +103,9 @@ function VentanaPago(): JSX.Element {
                                 {"Detalles"}
                             </Typography>
                             <br></br>
-                          {/*   <TextField  className='textField'
-                                        required
-                                        name="direccion"
-                                        label="Dirección"
-                                        variant="outlined"
-                                        onChange={e => { 
-                                            setDireccion(e.target.value);
-                                        }}
-                                        sx={{ my: 2 }}
-                            /> */}
+
                             <Direcciones></Direcciones>
+                            <br></br>
                             <Button
                                 className="buttonDireccion"
                                 size="small"
@@ -124,6 +117,7 @@ function VentanaPago(): JSX.Element {
                             >
                                 Confirmar dirección
                             </Button>
+                            <br></br>
                             <Typography variant="body1">
                                 {"Total del pedido: " + totalProductos.toFixed(2) + " €"}
                             </Typography>

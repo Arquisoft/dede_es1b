@@ -3,7 +3,7 @@ import Productos from '../../components/Productos';
 import Carrito from '../../components/carrito/Carrito';
 import MenuBar from "../menuBar";
 import { Producto,ProductoPago } from '../../shared/shareddtypes';
-import { getProductos} from '../../api/api';
+import { getProductos, getProductosActivos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
@@ -60,7 +60,7 @@ function Init(): JSX.Element {
     };
 
     async function cargar() {
-        setProductos(await getProductos());
+        setProductos(await getProductosActivos());
     }
 
     useEffect( () => {

@@ -21,9 +21,10 @@ import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
 
 
-import { getIdPorWebId, getRoleFromPod, iniciarSesion } from '../api/api';
+import { getAddressesFromPod, getIdPorWebId, getRoleFromPod, iniciarSesion } from '../api/api';
 import { useEffect, useState } from 'react';
 import { LoginButton, LogoutButton, SessionProvider, useSession } from '@inrupt/solid-ui-react';
+import { Direccion } from '../shared/shareddtypes';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -129,8 +130,11 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
       manejoSesion();
       let rol = await getRoleFromPod(session.info.webId!);
       let idUser =  await getIdPorWebId(session.info.webId!);
+      let direcciones:String = await getAddressesFromPod(session.info.webId!);
 
       sessionStorage.setItem("idUser",""+idUser);
+
+      sessionStorage.setItem("direcciones",""+direcciones);
       
       if(rol!="Admin")
         localStorage.setItem("rol","usuario");
