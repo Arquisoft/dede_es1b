@@ -158,6 +158,19 @@ export async function getPedidosPorUsuario(id:String): Promise<Pedido[]> {
 
 }
 
+export async function getIdPorWebId(webid_user:String): Promise<String> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/usuarios/getId', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'webid':webid_user})
+    });
+    let obj =JSON.parse(await response.json());
+    return obj.id;
+
+}
+
+
 export async function reactivarProducto(id:String):Promise<boolean>{
   
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
@@ -248,7 +261,7 @@ export async function getProductoPorID(id:String): Promise<Producto> {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'id':id})
     });
-    return response.json()
+    return response.json();
 }
 
 export async function iniciarSesion(webid:String):Promise<string>{

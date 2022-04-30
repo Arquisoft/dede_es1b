@@ -4,7 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Producto } from '../../shared/shareddtypes';
+import { Producto,ProductoPago } from '../../shared/shareddtypes';
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import "./homepage.css"
@@ -12,21 +12,21 @@ import {useNavigate} from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 type ProdProps = {
-    producto: Producto;
-    handleAñadirAlCarrito: (prod: Producto) => void;
+    producto: ProductoPago;
+    handleAñadirAlCarrito: (prod: ProductoPago) => void;
 }
 
 function CardProducto(props: ProdProps) {
   const navigate = useNavigate();
 
-    let imagen: string = require("../../images/" + props.producto.imagen);
+   // let imagen: string = require("../../images/" + props.producto.imagen);
 
     return (
         <Card sx={{ width: 345, maxHeight: 490 } }>
           <CardMedia className="foto" sx={{ m: "10rm", mx:'auto'}}
             component="img"
             style={{height:"220px",width:'auto'}}
-            image={imagen}
+            image={props.producto.imagen}
             
             alt={props.producto.name}
           />

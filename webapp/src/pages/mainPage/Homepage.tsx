@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
 import Carrito from '../../components/carrito/Carrito';
 import MenuBar from "../menuBar";
-import { Producto } from '../../shared/shareddtypes';
+import { Producto,ProductoPago } from '../../shared/shareddtypes';
 import { getProductos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
@@ -12,12 +12,12 @@ import "./homepage.css";
 
 function Init(): JSX.Element {
 
-    const [productos, setProductos] = useState<Producto[]>([]);
+    const [productos, setProductos] = useState<ProductoPago[]>([]);
     
     const [carritoAb, setCarritoAb] = useState(false);
-    const [carrito, setCarrito] = useState([] as Producto[]);
+    const [carrito, setCarrito] = useState([] as ProductoPago[]);
 
-    const getTotalItems = (items: Producto[]) => {
+    const getTotalItems = (items: ProductoPago[]) => {
 
         let total=0;
         total = items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
@@ -27,7 +27,7 @@ function Init(): JSX.Element {
         localStorage.setItem("cantidadCarrito",JSON.stringify(total));
     }
     
-    const handleAñadirAlCarrito = (prod: Producto) => {
+    const handleAñadirAlCarrito = (prod: ProductoPago) => {
         getTotalItems(carrito);
         let res;
         setCarrito(prev => {
@@ -55,7 +55,7 @@ function Init(): JSX.Element {
                 } else {
                     return [...accum, p];
                 }
-            }, [] as Producto[])
+            }, [] as ProductoPago[])
         ));
     };
 

@@ -40,8 +40,6 @@ export const crearPedido:RequestHandler=async (required,resultado)=>{
         let id_pedido:String =await generarCodigoPedido();
         let id_usuario:String=required.body.id_usuario;
         let productos=required.body.productos;
-
-
         let precio:Number=required.body.precio;
         let direccion:String=required.body.direcc;
 

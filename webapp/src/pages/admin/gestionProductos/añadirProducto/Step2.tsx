@@ -106,7 +106,7 @@ function Step2(props:any) {
             label="Precio" 
             variant="outlined"
             type="number"
-            value={imagen}
+            value={precio}
             onChange={(event) => {
               localStorage.removeItem("precioNuevoProd");
               setPrecio(parseFloat(event.target.value).toString());

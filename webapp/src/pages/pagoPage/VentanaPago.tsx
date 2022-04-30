@@ -26,12 +26,12 @@ function VentanaPago(): JSX.Element {
             var datosProd = p.split("-");
             let prod: ProductoPago = {
                 id: datosProd[0],
-                name: datosProd[1],
+                name: datosProd[0],
                 precio: Number(datosProd[2]),
-                imagen: datosProd[3],
+                cantidad: parseInt(datosProd[3]),
+                imagen: datosProd[1],
                 tipo: datosProd[4],
                 descripcion: datosProd[5],
-                cantidad: parseInt(datosProd[6])
             }
             result.push(prod);
         });
@@ -86,8 +86,9 @@ function VentanaPago(): JSX.Element {
                         {
                             carrito.map((prod: ProductoPago) => {
                                 return (
-                                    <ProductoPedido key={prod.id} nombre={prod.name} imagen={prod.imagen} precio={prod.precio}
-                                        cantidad={prod.cantidad} />
+                                    <ProductoPedido key={prod.id} nombre={prod.name} precio={prod.precio}
+                                     cantidad={prod.cantidad} imagen={prod.imagen} 
+                                    />
                                 )
                             })
                         }

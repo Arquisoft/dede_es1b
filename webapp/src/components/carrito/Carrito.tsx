@@ -1,4 +1,4 @@
-import { Producto } from '../../shared/shareddtypes';
+import { Producto,ProductoPago } from '../../shared/shareddtypes';
 import ProductoCarrito from './ProductoCarrito';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
@@ -6,8 +6,8 @@ import "./carrito.css";
 import { LoginButton, SessionProvider, useSession } from '@inrupt/solid-ui-react';
 
 type CarritoProps = {
-  carrito: Producto[];
-  añadirProd: (prod: Producto) => void;
+  carrito: ProductoPago[];
+  añadirProd: (prod: ProductoPago) => void;
   eliminarProd: (id: string) => void;
 }
 
@@ -32,12 +32,12 @@ const Carrito = (props: CarritoProps) => {
 
   const navigate = useNavigate();
 
-  const calcularTotal = (productos: Producto[]) => 
+  const calcularTotal = (productos: ProductoPago[]) => 
     productos.reduce((accum: number, p) => accum + p.cantidad * p.precio, 0);
   
   let vacio = props.carrito.length === 0;
     
-  const saveCarrito = (items: Producto[]) => {
+  const saveCarrito = (items: ProductoPago[]) => {
       let result: string = "";
       items.forEach((i) => {result = result + i.name + "-" + i.imagen + "-" + JSON.stringify(i.precio) +
           "-" + JSON.stringify(i.cantidad) + ";"});
