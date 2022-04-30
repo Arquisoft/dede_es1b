@@ -85,6 +85,8 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
     setAnchorElUser(event.currentTarget);
   };
 
+  const logoImg: string = "https://res.cloudinary.com/dlix47jlq/image/upload/v1650910768/iconos/logoAsturShop_i41dwr.png";
+
   const handleUserMenuOptions = (setting:string) => {
     switch(setting){
       case "Cerrar sesión":{
