@@ -6,7 +6,29 @@
 :imagesdir: images/
 image:10_qualityTree.PNG["Fallo imagen"]
 
-=== Quality Scenarios
+=== Evaluation scenarios
 
-:imagesdir: images/
-image:10_qualityScenarios.PNG["Fallo imagen"]
+_Testability/Coverage_
+
+For this part we will use many tools that allow us to test a 70% at least of our app , also we will do some gatling test in order to test how many requests can the app resist till it breaks .
+
+_Testability/Independet from external sevices_
+
+The architecture should be designed in such a way that algorithms depending on external services can be tested without having the external service available. That is: All external dependencies should be mockable.
+
+_Usability_
+
+The application will be designed in such a way that anyone who can access it will be able to navigate as comfortably as possible.
+
+_Confindenciality_
+
+Clients privacy is respected by using a descentralized delivery following SOLID , in which the user will have a POD where his personal data will be stored so if the app closes the user will still keep his personal information on the POD.
+
+[options="header",cols="1,2"]
+|===
+|AQ|Priority
+| _Testability_ |_Low,High._
+| _Usability_ | _High,High_
+| _Confidentiality_ |_High,Medium_
+
+|===

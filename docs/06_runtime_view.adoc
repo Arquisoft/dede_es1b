@@ -2,23 +2,25 @@
 [[section-runtime-view]]
 == Runtime View
 
-=== Loggin
-Bob: Clicks on login button -> Dede: Displays the loggin form -> Bob: Complete username and password fields and confirm clicking on login button -> Dede: Gives welcome to Bob
+=== See user orders
+:imagesdir: images/
+image:UserOrders.png["Fallo imagen"] 
 
-=== Delete account
-Bob: Clicks on setting button -> Dede: Displays the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on delete account
--> Dede: Shows message of advertation waiting for confirmation -> Bob: Confirms message
+=== Some admin utilities
+:imagesdir: images/
+image:AdminThings.png["Fallo imagen"] 
 
-=== Change password
-Bob: Clicks on setting button -> Dede: Shows the settings menu -> Bob: Access to account section -> Dede: Shows the account setting window -> Bob: Clicks on change password
--> Dede: Displays a form  -> Bob: Completes password and new password fields -> Dede: updates user's password if form was correct
+=== Search by category
+:imagesdir: images/
+image:SecuenciaBuscCat.png["Fallo imagen"] 
 
 === Buying product
-Bob: Checks the sections of products -> Dede: shows all sections in the menu->Bob:choose the food section ->Dede: shows the food section->Bob: add the product to the shopping cart and decides to only buy that one, so clicks in buy  -> Dede: displays form >Bob: fills the form and confirm 
+:imagesdir: images/
+image:SecComprar.png["Fallo imagen"] 
 
-=== Check orders
-Bob: clicks on MyAccount button -> Dede: Displays MyAccount view -> Bob: Clicks on MyOrders section -> Dede: Displays view and charge on it all the orders made by that user
+=== See product details
+:imagesdir: images/
+image:ProductDetails.png["Fallo imagen"] 
 
-=== Save customer data:
-Bob: Complete the information requested for buying a product → Dede: Ask if he wants to save the data for future buying-> Bob: answer yes ->Dede: save data in bob's pod
+
 
