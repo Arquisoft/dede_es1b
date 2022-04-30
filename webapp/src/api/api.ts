@@ -28,9 +28,10 @@ export async function addUser(webid:string):Promise<boolean>{
       return false;
 }
 
+/*
 export async function addPedido(products:Producto[] ,user_id:String|undefined,precioTot:number):Promise<boolean>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
-
+}*/
 /*
 Metodo que selecciona los productos por categoría
  */
@@ -314,5 +315,4 @@ export async function getAddressesFromPod(webId: string) {
       addresses.push(`${address} - ${locality}, ${region} - ${postal_code}`);
   }
   return addresses;
-  
-}
+} 
