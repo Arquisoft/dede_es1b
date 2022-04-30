@@ -11,11 +11,10 @@ export type User = {
     tipo: string;
     descripcion: string;
     cantidad: number;
-    nventas:number;
-    estado:Boolean;
+
 }
 
-export type ProductoPago = {
+export type ProductoEstadisticas = {
   id: string;
   name: string;
   precio: number;
@@ -23,6 +22,8 @@ export type ProductoPago = {
   tipo: string;
   descripcion: string;
   cantidad: number;
+  nventas:number;
+  estado:Boolean;
 }
 
 

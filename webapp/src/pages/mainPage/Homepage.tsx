@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
 import Carrito from '../../components/carrito/Carrito';
 import MenuBar from "../menuBar";
-import { Producto,ProductoPago } from '../../shared/shareddtypes';
+import { Producto } from '../../shared/shareddtypes';
 import { getProductos, getProductosActivos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
@@ -13,7 +13,7 @@ const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]"
 
 function Init(): JSX.Element {
 
-    const [productos, setProductos] = useState<ProductoPago[]>([]);
+    const [productos, setProductos] = useState<Producto[]>([]);
     
     const [carritoAb, setCarritoAb] = useState(false);
 
@@ -37,6 +37,7 @@ function Init(): JSX.Element {
             return [...prev, {...prod, cantidad: 1}];
         });
     };
+
     const handleEliminarDelCarrito = (id: string) => {
         setCarrito(prev => (
             prev.reduce((accum, p) => {
@@ -48,7 +49,7 @@ function Init(): JSX.Element {
                 } else {
                     return [...accum, p];
                 }
-            }, [] as ProductoPago[])
+            }, [] as Producto[])
         ));
     };
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Productos from '../../components/Productos';
 import { getProductosPorCategoria } from '../../api/api';
-import { Producto,ProductoPago } from '../../shared/shareddtypes';
+import { Producto } from '../../shared/shareddtypes';
 import MenuBar from "../menuBar";
 import {useParams} from "react-router-dom";
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
@@ -15,7 +15,7 @@ const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]"
 
 function ListaProductos(): JSX.Element {
 
-  const[productos, setProductos] = useState<ProductoPago[]>([])
+  const[productos, setProductos] = useState<Producto[]>([])
   const {categoria} = useParams();
 
   let cat:string =categoria!; 
@@ -37,7 +37,7 @@ function ListaProductos(): JSX.Element {
   const getTotalItems = (items: Producto[]) => 
       items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
 
-  const handleAñadirAlCarrito = (prod: ProductoPago) => {
+  const handleAñadirAlCarrito = (prod: Producto) => {
     setCarrito(prev => {
         const prodAñadido = prev.find(p => p.id === prod.id)
         if (prodAñadido) {
@@ -61,7 +61,7 @@ function ListaProductos(): JSX.Element {
             } else {
                 return [...accum, p];
             }
-        }, [] as ProductoPago[])
+        }, [] as Producto[])
     ));
   };
 

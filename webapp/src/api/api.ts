@@ -1,5 +1,5 @@
 import { RestorePageOutlined } from '@mui/icons-material';
-import { User, Producto,ProductoPago, Prod, Pedido, Direccion } from '../shared/shareddtypes';
+import { User, Producto,ProductoEstadisticas, Prod, Pedido, Direccion } from '../shared/shareddtypes';
 
 
 import {
@@ -28,24 +28,6 @@ export async function addUser(webid:string):Promise<boolean>{
       return false;
 }
 
-export async function addPedido(products:Producto[] ,user_id:String|undefined,precioTot:number):Promise<boolean>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
-
-/*
-Metodo que selecciona los productos por categoría
- */
-/*export async function getProductByCategory(categoria:string):Promise<boolean>{
-    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
-    let response = await fetch(apiEndPoint+'/products/catalogo', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({'categoria':categoria})
-    });
-    if (response.status===200)
-        return true;
-    else
-        return false;
-}*/
 
 export async function getUsers():Promise<User[]>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
@@ -85,7 +67,7 @@ export async function actualizarProducto(prod:Prod):Promise<boolean>{
     return false;
 }
 
-export async function addPedido(products:ProductoPago[] ,user_id:String,precioTot:number):Promise<boolean>{
+export async function addPedido(products:Producto[] ,user_id:String,precioTot:number):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
 
   let response = await fetch(apiEndPoint+'/pedido/crear', {
@@ -335,6 +317,5 @@ export async function getAddressesFromPod(webId: string) {
       direcciones+=direccionString;
     }
   }
-  return direcciones;
-  
+  return direcciones; 
 }

@@ -22,7 +22,7 @@ import ListaUsuariosParaEliminar from './pages/admin/listaClientes/listaClientes
 import ListaProductosParaEliminar from './pages/admin/listaProductosAdmin/listaProductosAdmin';
 import GestionProductos from './pages/admin/gestionProductos/gestionProductos';
 import AñadirProducto from './pages/admin/gestionProductos/añadirProducto/añadirProducto';
-import GestionPedidos from './pages/admin/gestionPedidos/gestionPedidos';
+import GestionPedidos from './pages/admin/gestionPedidos/gestionPedidos'
 import ListadoPedidos from './pages/admin/gestionPedidos/listadoPedidos/listadoPedidos';
 import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/listadoPorUsuario/pedidosPorUsuario';
 
