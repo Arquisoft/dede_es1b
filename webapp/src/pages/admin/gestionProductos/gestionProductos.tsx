@@ -48,7 +48,7 @@ function GestionProductos(props:any): JSX.Element {
                 </tr>
 
                 <tr>
-                <button className="button-48" role="button"><span className="text">
+                <button className="button-48" role="button"  onClick={() => navigate("/productos/list")}><span className="text">
                     <strong>Listado</strong>
                 </span></button>
                 </tr>

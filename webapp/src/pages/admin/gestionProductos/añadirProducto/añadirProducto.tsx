@@ -30,12 +30,7 @@ function App() {
     <>
     <AdminAppBar></AdminAppBar>
     <div className="App">
-      <br />
-      <h1>AÑADIR PRODUCTO</h1>
-      <br />
-      
 
-      <div className="pasos">
       <Steps>
         <div className='step'><Step component={Step1} /></div>
         <div className='step'><Step component={Step2} /></div>
@@ -43,7 +38,6 @@ function App() {
         <div className='step'><Step component={FinalStep} /></div>
       </Steps><br></br><br></br>
       </div>
-    </div>
     </>
   );
 }

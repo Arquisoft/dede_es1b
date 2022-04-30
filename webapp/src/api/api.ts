@@ -1,5 +1,5 @@
 import { RestorePageOutlined } from '@mui/icons-material';
-import { User, Producto,ProductoPago, Prod, Pedido } from '../shared/shareddtypes';
+import { User, Producto,ProductoPago, Prod, Pedido, Direccion } from '../shared/shareddtypes';
 
 
 import {
@@ -147,7 +147,7 @@ export async function deleteProduct(id:String):Promise<boolean>{
 
 export async function getPedidos():Promise<Pedido[]>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
-  let response = await fetch(apiEndPoint+'/pedidos/list');
+  let response = await fetch(apiEndPoint+'/pedido/list');
   //The objects returned by the api are directly convertible to User objects
   return response.json()
 }
@@ -162,6 +162,19 @@ export async function getPedidosPorUsuario(id:String): Promise<Pedido[]> {
     return response.json()
 
 }
+
+export async function getIdPorWebId(webid_user:String): Promise<String> {
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/usuarios/getId', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'webid':webid_user})
+    });
+    let obj =JSON.parse(await response.json());
+    return obj.id;
+
+}
+
 
 export async function reactivarProducto(id:String):Promise<boolean>{
   
@@ -253,7 +266,7 @@ export async function getProductoPorID(id:String): Promise<Producto> {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'id':id})
     });
-    return response.json()
+    return response.json();
 }
 
 export async function iniciarSesion(webid:String):Promise<string>{
@@ -293,26 +306,36 @@ export async function getRoleFromPod(webId: string) {
 
 export async function getAddressesFromPod(webId: string) {
   console.log("webid: "+webId);
-  let addressURLs = getUrlAll(await getProfile(webId), VCARD.hasAddress);
-  let addresses: string[] = [];
+  let direccionesPod = getUrlAll(await getProfile(webId), VCARD.hasAddress);
+  let direcciones: string = "";
 
-  for (let addressURL of addressURLs) {
-    let address = getStringNoLocale(
+  for (let addressURL of direccionesPod) {
+    let callePOD = getStringNoLocale(
       await getProfile(addressURL),
       VCARD.street_address
     );
-    let locality = getStringNoLocale(
+    let localidadPOD = getStringNoLocale(
       await getProfile(addressURL),
       VCARD.locality
     );
-    let region = getStringNoLocale(await getProfile(addressURL), VCARD.region);
-    let postal_code = getStringNoLocale(
+    let regionPOD = getStringNoLocale(await getProfile(addressURL), VCARD.region);
+    let codigo_postalPOD = getStringNoLocale(
       await getProfile(addressURL),
       VCARD.postal_code
     );
 
-    if (address)
-      addresses.push(`${address} - ${locality}, ${region} - ${postal_code}`);
+    if (callePOD){
+      let direccionString = callePOD! +","+localidadPOD! +","+regionPOD!+","+codigo_postalPOD! +"$";
+    /*   const direc: Direccion = {
+        calle: callePOD!,
+        ciudad:localidadPOD!,
+        region:regionPOD!,
+        cod_postal:codigo_postalPOD!
+      }*/
+      console.log(direccionString);
+      direcciones+=direccionString;
+    }
   }
-  return addresses;
-} 
+  return direcciones;
+  
+}

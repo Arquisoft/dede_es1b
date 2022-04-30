@@ -13,9 +13,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { getPedidos, getPedidosPorUsuario } from '../../../../api/api';
 import {useNavigate} from 'react-router-dom';
+import MenuBarAdmin from "../../../menuBarAdmin";
 
 
-function Step2(props:any) {
+
+
+function Step2PedidosUsuario() {
   const[pedidos, setPedidos] = useState<Pedido[]>([])
 
   async function cargar() {
@@ -26,25 +29,49 @@ function Step2(props:any) {
     cargar();
   }, [])
   
-  const navigate = useNavigate();
-
   return (
-     <>
-       <h4>{localStorage.getItem('userIdBuscarPedido')}</h4>
-       {pedidos.map((pedido:Pedido) => (
-            <h2>Pedidooo {pedido.id}</h2>
-          ))}
-          <div className='pedidos'>
-      <Divider color='black'></Divider><br></br>
-      <button className="añadirProdButton" data-testid="prev" onClick={props.prev}>
-				Prev
-			</button>
-			<button className="añadirProdButton" data-testid="next" onClick={()=>navigate("/gestionPedidos")}>
-				Finalizar
-			</button>
+    <>
+    <div className="users-container" >
+            <h1>Lista de pedidos</h1>
+
+      <div className='users'>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+             <TableRow>
+                 <TableCell>ID</TableCell>
+                 <TableCell align="right">Id usuario</TableCell>
+                 <TableCell align="right">Número productos</TableCell>
+                 <TableCell align="right">Productos</TableCell>
+                 <TableCell align="right"></TableCell>
+             </TableRow>
+        </TableHead>
+    <TableBody>
+      {pedidos.map((pedido:Pedido) => (
+        <TableRow
+          key={pedido.id}
+          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        >
+          <TableCell component="th" scope="row">
+            {pedido.id}
+          </TableCell>
+          <TableCell align="right">{pedido.id_usuario}</TableCell>
+          <TableCell align="right">{1}</TableCell>
+          <TableCell align="right">{1}</TableCell>
+
+       
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
+</TableContainer>
+        
+     
+      
+      </div>
     </div>
     </>
   );
 }
 
-export default Step2;
+export default Step2PedidosUsuario;

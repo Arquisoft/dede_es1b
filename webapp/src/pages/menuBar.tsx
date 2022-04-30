@@ -21,9 +21,10 @@ import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
 
 
-import { getRoleFromPod, iniciarSesion } from '../api/api';
+import { getAddressesFromPod, getIdPorWebId, getRoleFromPod, iniciarSesion } from '../api/api';
 import { useEffect, useState } from 'react';
 import { LoginButton, LogoutButton, SessionProvider, useSession } from '@inrupt/solid-ui-react';
+import { Direccion } from '../shared/shareddtypes';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -130,10 +131,20 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
       
       manejoSesion();
       let rol = await getRoleFromPod(session.info.webId!);
+      let idUser =  await getIdPorWebId(session.info.webId!);
+      let direcciones:String = await getAddressesFromPod(session.info.webId!);
+
+      sessionStorage.setItem("idUser",""+idUser);
+
+      sessionStorage.setItem("direcciones",""+direcciones);
+      
       if(rol!="Admin")
         localStorage.setItem("rol","usuario");
-      else
+      else{
           localStorage.setItem("rol",rol);
+          navigate("/usuarios/list")
+      }
+      console.log("onlogin   ",session.info.webId);
     })
   }, [])
 
@@ -298,11 +309,7 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
             </MenuItem>
             </Box>
   
-            <Box sx={{ paddingLeft: '3%' }}>
-            <MenuItem component={Link} to="/registro" >
-            <Typography>¿ERES PROVEEDOR?</Typography>
-            </MenuItem>
-            </Box>
+        
   
             <Box  sx={{ paddingLeft: '3%' }}>
             <Search >
@@ -327,7 +334,12 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
             </div>
             
             </Box>
-  
+            <Box sx={{ paddingLeft: 'auto' }}>
+         
+               <MenuItem component={Link} to="/ayuda">
+                <Typography>AYUDA</Typography>
+                </MenuItem>
+            </Box>
             
             <Box  sx={{marginLeft:'auto'}}>
             <div className="iconoLoggin">
