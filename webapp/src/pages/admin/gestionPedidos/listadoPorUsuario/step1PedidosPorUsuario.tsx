@@ -21,7 +21,7 @@ function Step1(props:any) {
             label="Id usuario" 
             variant="outlined"
             value={userid}
-            onChange={e =>{ setUserId(e.target.value); localStorage.setItem("userIdBuscarPedido",e.target.value);}}
+            onChange={e =>{ setUserId(e.target.value); localStorage.setItem("userIdBuscarPedido",userid);}}
             sx={{ my: 2 , background:'white', marginLeft:'70px',width:'100%'}}
           />
           </div>

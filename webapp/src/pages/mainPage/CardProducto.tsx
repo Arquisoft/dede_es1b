@@ -43,8 +43,8 @@ function CardProducto(props: ProdProps) {
             <IconButton className="buttons" color="primary" aria-label="add to shopping cart">
               <AddShoppingCartIcon onClick={() => {props.handleAñadirAlCarrito(props.producto); }}/>
             </IconButton>
-             <Button size="small" onClick={() =>   {  let productoString = props.producto.name+'-'+props.producto.descripcion+'-'
-                + props.producto.tipo+'-'+props.producto.imagen+'-'+props.producto.precio;
+             <Button size="small" onClick={() =>   {  let productoString = props.producto.name+','+props.producto.descripcion+','
+                + props.producto.tipo+','+props.producto.imagen+','+props.producto.precio;
                 localStorage.setItem("productoClickado",productoString);
                 navigate("/detallesProducto");}} 
               >VER DETALLES</Button>

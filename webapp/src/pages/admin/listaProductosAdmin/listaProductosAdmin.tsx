@@ -65,6 +65,7 @@ function ListaProductosAdmin(props:any): JSX.Element {
             <TableCell align="center">NOMBRE</TableCell>
             <TableCell align="right">ESTADO</TableCell>
             <TableCell align="right">DETALLES</TableCell>
+            <TableCell align="right">ESTADÍSTICAS</TableCell>
             <TableCell align="right">ELIMINAR</TableCell>
             <TableCell align="right">REACTIVAR</TableCell>
             <TableCell align="right"></TableCell>
@@ -81,12 +82,8 @@ function ListaProductosAdmin(props:any): JSX.Element {
               </TableCell>
               <TableCell align="right">{producto.name}</TableCell>
               <TableCell align="right">{printearEstado(producto.estado)}</TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() =>{
-                 let productoString = producto.name+'-'+producto.descripcion+'-'
-                 + producto.tipo+'-'+producto.imagen+'-'+producto.precio;
-                localStorage.setItem("productoClickado",productoString);
-                navigate('/detallesProducto')}
-                } >Ver</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() =>navigate('detallesProducto/'+producto.id)} >Ver</button></TableCell>
+              <TableCell align="right"> <button   type="submit" onClick={() =>navigate('estadisticasProducto/'+producto.id)} >Ver</button></TableCell>
               <TableCell align="right"> <button   type="submit" onClick={() =>eliminar(producto.id)} ><HighlightOffIcon></HighlightOffIcon></button></TableCell>
               <TableCell align="right"> <button   type="submit" onClick={() => reactivar(producto.id)}><CachedIcon></CachedIcon></button></TableCell>
 
