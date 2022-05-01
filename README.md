@@ -1,17 +1,23 @@
-# dede_es_01b
+<p align="center">
+  <img alt="logo" src="https://res.cloudinary.com/dlix47jlq/image/upload/v1650910768/iconos/logoAsturShop_i41dwr.png" width="200">
+</p>
+
+<h1 align="center">
+    AsturShop
+</h1>
 
 [![CI for ASW2122](https://github.com/Arquisoft/dede_es1b/actions/workflows/asw2122.yml/badge.svg)](https://github.com/Arquisoft/dede_es1b/actions/workflows/asw2122.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_dede_es1b&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_dede_es1b)
 [![codecov](https://codecov.io/gh/Arquisoft/dede_es1b/branch/main/graph/badge.svg?token=DKT4h5szve)](https://codecov.io/gh/Arquisoft/dede_es1b)
 
-<p float="left">
-<img src="https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg" height="100">
-<img src="https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png" height="100">
-<img src="https://miro.medium.com/max/365/1*Jr3NFSKTfQWRUyjblBSKeg.png" height="100">
-</p>
+**AsturShop** offers you the possibility of buying **high-quality** products from Asturias, no matter from which part of the world!
 
-
-This project is a basic example of website using **React** with **Typescript** and an endpoint using **NodeJS** with **express**.
+## dede_es1b
+Click here to access the web application from any browser or device.
+- Technical documentation
+- [Architectural decisions](https://github.com/Arquisoft/dede_es1b/blob/master/architecturalDecisions/Decisiones_arquitectonicas.pdf)
+- Demo showing the shop's features
+- Slides of the project's presentation
 
 ## Team Members
 <ul>
@@ -19,8 +25,16 @@ This project is a basic example of website using **React** with **Typescript** a
   <li>Sergio Salgueiro Monforte (uo276843)</li>
   <li>Héctor Lavandeira Fernández (uo277303)</li>
   <li>Juan Domínguez Álvarez (uo277646)</li>
-  <li>Maria Gonzalez Otero (uo270235)</li>
+  <li>María González Otero (uo270235)</li>
 </ul>
+
+<p float="left">
+<img src="https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg" height="100">
+<img src="https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png" height="100">
+<img src="https://miro.medium.com/max/365/1*Jr3NFSKTfQWRUyjblBSKeg.png" height="100">
+</p>
+
+This project is a basic example of website using **React** with **Typescript** and an endpoint using **NodeJS** with **express**.
 
 ## Quick start guide
 <mark>In case you already have node.js and npm, make sure you update them before attempting to build the images</mark>
