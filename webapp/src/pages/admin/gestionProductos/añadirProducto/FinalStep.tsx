@@ -56,6 +56,8 @@ function FinalStep(props:any) {
                component="img"
                height="400"
                image={""+producto.imagen}
+               alt={"Imagen no cargada correctamente"}
+               
           />
           <CardContent className="text">
 
