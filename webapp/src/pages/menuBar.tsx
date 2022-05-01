@@ -78,7 +78,7 @@ const authOptions = {
   clientName: "Solid Todo App",
 };
 
-const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
+const settings = [ 'Mis pedidos','Cerrar sesión'];
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -99,10 +99,7 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
 
         break;
       }
-      case "Perfil":{
-        navigate("/perfilUsuario");
-        break;
-      }case "Mis pedidos":{
+     case "Mis pedidos":{
             navigate("/pedidos/usuario/list");
             break;
         }
@@ -136,10 +133,10 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
       
       manejoSesion();
       let rol = await getRoleFromPod(session.info.webId!);
-      let idUser =  await getIdPorWebId(session.info.webId!);
+      var userId = await getIdPorWebId(session.info.webId!);
       let direcciones:String = await getAddressesFromPod(session.info.webId!);
-
-      sessionStorage.setItem("idUser",""+idUser);
+      
+      sessionStorage.setItem("idUser",""+userId);
 
       sessionStorage.setItem("direcciones",""+direcciones);
       
@@ -167,7 +164,6 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
             noWrap
             component={Link} to="/inicio"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-            
           >
                     <img src={logoImg} width="100" height="80" alt="logo" /> 
 
@@ -300,20 +296,6 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
             </MenuItem>
             </Box>
   
-        
-  
-            <Box  sx={{ paddingLeft: '3%' }}>
-            <Search >
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </Search>
-            
-            </Box>
             
             <Box sx={{ paddingLeft:'3%' ,marginRight:'auto'}}>
             <div className="shoppingIcon">
