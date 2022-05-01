@@ -270,7 +270,6 @@ export async function getPedidosUsuario(usuario:String): Promise<Pedido[]> {
   }
   else
     return false;
-
 } */
 
 export async function getProductoPorID(id:String): Promise<Producto> {
