@@ -62,11 +62,10 @@ function App(): JSX.Element {
           <Route path="/productos/add" element={<AñadirProducto />} />
           <Route path="/productos/list" element={<ListaProductosParaEliminar />} />
           <Route path="/detallesProducto" element={<DetallesProducto />} />
-
           <Route path="/pedidos/list" element={<ListaPedidosPorUsuario />} />
           <Route path="/pago" element={<VentanaPago />} />
           <Route path="/pago/finalizado" element={<PagoFinalizado />} />
-          
+
         </Routes>
     </BrowserRouter>
    </SessionProvider>
