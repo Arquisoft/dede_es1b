@@ -38,13 +38,12 @@ function Step2PedidosUsuario() {
       <div className='users'>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+            <TableHead sx={{background:'#1E9B32'}}>
              <TableRow>
                  <TableCell>ID</TableCell>
-                 <TableCell align="right">Id usuario</TableCell>
-                 <TableCell align="right">Número productos</TableCell>
-                 <TableCell align="right">Productos</TableCell>
-                 <TableCell align="right"></TableCell>
+                 <TableCell align="left">Precio total</TableCell>
+                 <TableCell align="left">Dirección</TableCell>
+                 <TableCell align="left">Estado</TableCell>
              </TableRow>
         </TableHead>
     <TableBody>
@@ -56,9 +55,10 @@ function Step2PedidosUsuario() {
           <TableCell component="th" scope="row">
             {pedido.id}
           </TableCell>
-          <TableCell align="right">{pedido.id_usuario}</TableCell>
-          <TableCell align="right">{1}</TableCell>
-          <TableCell align="right">{1}</TableCell>
+          <TableCell align="left">{pedido.precioTotal}</TableCell>
+          <TableCell align="left">{pedido.direccionAsignada}</TableCell>
+          <TableCell align="left">{pedido.estado}</TableCell>
+
 
        
         </TableRow>

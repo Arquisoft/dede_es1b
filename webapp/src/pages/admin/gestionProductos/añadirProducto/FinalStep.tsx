@@ -51,7 +51,7 @@ function FinalStep(props:any) {
     
     <div className="finalStepAddProductContainer">
           <div className = "finalStepAddProductContent" style={{ textAlign: "left" }}>
-    <Card sx={{ width: 345, maxHeight: 800 } }>
+    <Card sx={{ width: 345, maxHeight: 800} }>
            <CardMedia  
                component="img"
                height="400"

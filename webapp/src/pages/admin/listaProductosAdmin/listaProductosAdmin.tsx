@@ -59,15 +59,14 @@ function ListaProductosAdmin(props:any): JSX.Element {
           <div className='users'>
           <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+        <TableHead sx={{background:'#1E9B32'}}>
           <TableRow>
-          <TableCell align="center">ID</TableCell>
-            <TableCell align="center">NOMBRE</TableCell>
-            <TableCell align="right">ESTADO</TableCell>
-            <TableCell align="right">DETALLES</TableCell>
-            <TableCell align="right">ELIMINAR</TableCell>
-            <TableCell align="right">REACTIVAR</TableCell>
-            <TableCell align="right"></TableCell>
+          <TableCell align="left">ID</TableCell>
+            <TableCell align="left">NOMBRE</TableCell>
+            <TableCell align="left">ESTADO</TableCell>
+            <TableCell align="center">DETALLES</TableCell>
+            <TableCell align="center">ELIMINAR</TableCell>
+            <TableCell align="center">REACTIVAR</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -79,16 +78,16 @@ function ListaProductosAdmin(props:any): JSX.Element {
               <TableCell component="th" scope="row">
                 {producto.id}
               </TableCell>
-              <TableCell align="right">{producto.name}</TableCell>
-              <TableCell align="right">{printearEstado(producto.estado)}</TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() =>{
+              <TableCell align="left">{producto.name}</TableCell>
+              <TableCell align="left">{printearEstado(producto.estado)}</TableCell>
+              <TableCell align="center"> <button   type="submit" onClick={() =>{
                  let productoString = producto.name+'-'+producto.descripcion+'-'
                  + producto.tipo+'-'+producto.imagen+'-'+producto.precio;
                 localStorage.setItem("productoClickado",productoString);
                 navigate('/detallesProducto')}
                 } >Ver</button></TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() =>eliminar(producto.id)} ><HighlightOffIcon></HighlightOffIcon></button></TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() => reactivar(producto.id)}><CachedIcon></CachedIcon></button></TableCell>
+              <TableCell align="center"> <button   type="submit" onClick={() =>eliminar(producto.id)} ><HighlightOffIcon></HighlightOffIcon></button></TableCell>
+              <TableCell align="center"> <button   type="submit" onClick={() => reactivar(producto.id)}><CachedIcon></CachedIcon></button></TableCell>
 
             </TableRow>
           ))}
