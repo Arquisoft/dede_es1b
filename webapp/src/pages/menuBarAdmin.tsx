@@ -86,12 +86,12 @@ const AdminAppBar = () => {
     setAnchorElUser(null);
   };
 
-  const handleUserMenuOptions = (setting:string) => {
+ /*  const handleUserMenuOptions = (setting:string) => {
     switch(setting){
       case "Cerrar sesión":{
         localStorage.setItem("token","");
-        navigate("/inicio");
         console.log("clickaste cerrar sesion");
+  
         break;
       }
       default:{
@@ -100,7 +100,7 @@ const AdminAppBar = () => {
       }
     }
   
-  };
+  }; */
   
   return (
     <div className="appBar">
@@ -139,13 +139,14 @@ const AdminAppBar = () => {
           </MenuItem>
           </Box>
           
+          <Box sx={{marginLeft:'50%'}}>
           <SessionProvider >       
 	          <LogoutButton 
              onLogout={()=>{navigate("/inicio");}}
              
             />
            </SessionProvider>
-
+           </Box>
           <Box  sx={{marginLeft:'auto'}}>
           <div className="iconoLoggin">
                 <IconButton onClick={handleOpenUserMenu}  >
@@ -171,11 +172,11 @@ const AdminAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settingsAdmin.map((setting) => (
+            {/*   {settingsAdmin.map((setting) => (
                 <MenuItem key={setting} onClick={()=>handleUserMenuOptions(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
           
