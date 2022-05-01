@@ -14,7 +14,7 @@ const geo=nodeGeocoder(options);
 
 export const getPedidos:RequestHandler=async (required,resultado)=>{
     try{
-        const pedidos=await modeloPedido.find({});
+        var pedidos=await modeloPedido.find({});
         return resultado.json(pedidos);
     }catch (err){
         resultado.json(err);
@@ -26,7 +26,7 @@ export const getPedidosByUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let usuario_id=required.body.user_id;
         console.log(usuario_id);
-        const pedidos=await modeloPedido.find({"id_usuario":usuario_id});
+        var pedidos=await modeloPedido.find({"id_usuario":usuario_id});
         return resultado.json(pedidos);
     }catch (err){
         resultado.json(err);
