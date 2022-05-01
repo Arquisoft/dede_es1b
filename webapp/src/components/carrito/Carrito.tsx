@@ -24,7 +24,7 @@ interface ILoginInputOptions {
 
 const modal: ILoginInputOptions = {
   oidcIssuer: "https://inrupt.net/",
-  redirectUrl: "http://localhost:3000/pago",
+  redirectUrl: "https://dede-es1b.herokuapp.com/pago",
   clientName : "Solid Todo App"
 };
 

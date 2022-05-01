@@ -319,7 +319,7 @@ const settings = [ 'Mis pedidos','Cerrar sesión'];
 
                   <LoginButton 
                     oidcIssuer={"https://inrupt.net/"}
-		                redirectUrl={"http://localhost:3000/inicio"}
+		                redirectUrl={"https://dede-es1b.herokuapp.com/inicio"}
 		                authOptions={authOptions}
                    >
                 
