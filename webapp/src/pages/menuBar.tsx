@@ -95,6 +95,8 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
         localStorage.setItem("cantidadCarrito","0");
         navigate("/inicio");
         console.log("clickaste cerrar sesion");
+        session.logout();
+
         break;
       }
       case "Perfil":{
@@ -183,27 +185,11 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
           </MenuItem>
           </Box>
 
-          <Box sx={{ paddingLeft: '3%' }}>
-          <MenuItem component={Link} to="/registro" >
-          <Typography>¿ERES PROVEEDOR?</Typography>
-          </MenuItem>
-          </Box>
 
 
-          <Box  sx={{ paddingLeft: '3%' }}>
-          <Search >
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+        
           
-          </Box>
-          
-          <Box sx={{ marginLeft:'auto'}}>
+          <Box sx={{ marginLeft:'20%'}}>
             <div className="shoppingIcon">
               <IconButton>
               <Badge badgeContent={localStorage.getItem("cantidadCarrito")} color="error">
@@ -214,27 +200,28 @@ const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión
           </Box>
 
 
-          <Box  sx={{marginLeft:"5px"}}>
+        
 
-         
-          <MenuItem component={Link} to="/ayuda">
-          <Typography>AYUDA</Typography>
-          </MenuItem>
-          </Box>
-
-          <div className="loggedout">	  
+       {/*    <div className="loggedout">	  
           <SessionProvider >       
 	          <LogoutButton 
              onLogout={()=>{navigate("/catalogo");}}
              
             />
            </SessionProvider>
-	         </div>
+	         </div> */}
 
-           <Box sx={{ paddingLeft: '3%' }}>
+           <Box sx={{ paddingLeft: '10%' }}>
                 <Typography>POD: {session.info.webId}</Typography>
           </Box>
 
+          <Box  sx={{marginLeft:"3%"}}>
+
+         
+<MenuItem component={Link} to="/ayuda">
+<Typography>AYUDA</Typography>
+</MenuItem>
+</Box>
           <Box  sx={{marginLeft:'auto'}}>
 
           <div className="iconoLoggin">

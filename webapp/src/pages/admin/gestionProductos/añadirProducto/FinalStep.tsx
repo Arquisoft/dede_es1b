@@ -51,8 +51,14 @@ function FinalStep(props:any) {
     
     <div className="finalStepAddProductContainer">
           <div className = "finalStepAddProductContent" style={{ textAlign: "left" }}>
-    <Card sx={{ width: 345, maxHeight: 600 } }>
+    <Card sx={{ width: 345, maxHeight: 800 } }>
+           <CardMedia  
+               component="img"
+               height="400"
+               image={""+producto.imagen}
+          />
           <CardContent className="text">
+
             <Typography variant="h6" component="div">
               Nombre: {producto.name}
             </Typography>
@@ -65,8 +71,10 @@ function FinalStep(props:any) {
             <Typography variant="h6" color="blue">
                Precio: {producto.precio + " €"}
             </Typography>
-          </CardContent>
-         <CardActions>
+          </CardContent>           <br></br>
+
+      <Divider color='black'></Divider>
+         <CardActions sx={{marginLeft:'5%'}}>
          <button className="añadirProdButton" data-testid="prev" onClick={props.prev}>
 				Prev
 			</button>
