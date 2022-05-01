@@ -27,7 +27,6 @@ function Step2PedidosUsuario() {
   
   useEffect( () => {
     cargar();
-    
   }, [])
   
   return (
