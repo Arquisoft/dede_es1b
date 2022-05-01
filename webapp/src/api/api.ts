@@ -88,13 +88,13 @@ export async function actualizarProducto(prod:Prod):Promise<boolean>{
     return false;
 }
 
-export async function addPedido(products:Producto[] ,user_id:String,precioTot:number):Promise<boolean>{
+export async function addPedido(products:Producto[] ,user_id:String,precioTot:number,direccion:String):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
 
   let response = await fetch(apiEndPoint+'/pedido/crear', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({'id_usuario':user_id,'productos':products,'precio':precioTot, 'direcc':"Oviedo"})
+      body: JSON.stringify({'id_usuario':user_id,'productos':products,'precio':precioTot, 'direcc':direccion})
   });
   if (response.status===200)
       return true;
@@ -172,8 +172,8 @@ export async function getIdPorWebId(webid_user:String): Promise<String> {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({'webid':webid_user})
     });
-    let obj =JSON.parse(await response.json());
-    return obj.id;
+    let usuarioid =await response.json();
+    return usuarioid;
 
 }
 
@@ -270,6 +270,7 @@ export async function getPedidosUsuario(usuario:String): Promise<Pedido[]> {
   }
   else
     return false;
+
 } */
 
 export async function getProductoPorID(id:String): Promise<Producto> {

@@ -7,12 +7,13 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
-import {TextField} from "@mui/material";
 import {addPedido, getAddressesFromPod, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
-import { Producto } from "../../shared/shareddtypes";
+import { Direccion, Producto } from "../../shared/shareddtypes";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 import Direcciones from "./direcciones";
+import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
+import {FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField} from "@mui/material";
 
 const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
 
@@ -21,7 +22,29 @@ function VentanaPago(): JSX.Element {
     const navigate = useNavigate();
     const {session} = useSession();
     
-      
+    function cargarDirecciones() {
+        let di = sessionStorage.getItem("direcciones")!;
+    
+        var result = [] as Direccion[];
+    
+        var direccionesSplit = di.split("$");
+
+        direccionesSplit.forEach((direc) => {
+                var datosDireccion = direc.split(",");
+                let direccion: Direccion = {
+                    calle: datosDireccion[0],
+                    ciudad: datosDireccion[1],
+                    region: datosDireccion[2],
+                    cod_postal: datosDireccion[3],
+                }
+                result.push(direccion);
+            });
+            result.pop();
+            return result;
+    
+        };
+          
+    var direcciones = cargarDirecciones();
    
     var carrito = carritoLS;
 
@@ -57,7 +80,11 @@ function VentanaPago(): JSX.Element {
     let totalProductos: number = calcularTotal(carrito);
 
     const [direccion, setDireccion] = useState<string>();
+    const [value, setValue] = useState('');
 
+    const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue((event.target as HTMLInputElement).value);
+      };
     // @ts-ignore
     // @ts-ignore
     return (
@@ -86,7 +113,21 @@ function VentanaPago(): JSX.Element {
                             </Typography>
                             <br></br>
 
-                            <Direcciones></Direcciones>
+                            <Container>
+                <FormControl >
+                      <FormLabel id="demo-controlled-radio-buttons-group">Seleccione una dirección:</FormLabel>
+                      <RadioGroup
+                      aria-labelledby="demo-controlled-radio-buttons-group"
+                      name="controlled-radio-buttons-group"
+                      value={value}
+                      onChange={handleRadioChange}
+                     >
+
+                              {direcciones.map((radioItem: Direccion) => (
+                                 <FormControlLabel value={radioItem.ciudad+" "+radioItem.calle +" " +radioItem.cod_postal} control={<Radio />} label={radioItem.calle +" - " +radioItem.cod_postal} />
+                             ))}
+                         </RadioGroup>
+                   
                             <br></br>
                             <Button
                                 className="buttonDireccion"
@@ -94,11 +135,15 @@ function VentanaPago(): JSX.Element {
                                 disableElevation
                                 variant="contained"
                                 onClick={async () => {
+                                    console.log("midire   ",value);
+                                    setDireccion(value);
                                     calcularGastos();
                                 }}
                             >
                                 Confirmar dirección
                             </Button>
+                            </FormControl>
+                 </Container>
                             <br></br>
                             <Typography variant="body1">
                                 {"Total del pedido: " + totalProductos.toFixed(2) + " €"}
@@ -117,13 +162,14 @@ function VentanaPago(): JSX.Element {
                                 variant="contained"
                                 onClick={() => {
 
-                                    addPedido(carrito,localStorage.getItem('userId')!,Number.parseFloat(calcularTotalFinal()));
+                                    addPedido(carrito,sessionStorage.getItem('idUser')!,Number.parseFloat(calcularTotalFinal()),direccion!);
                                     navigate("/pago/finalizado");
                                    
                                 }}
                             >
                                 Confirmar pago
                             </Button>
+                           
                         </div>
                     </Card>
                 </Container>
