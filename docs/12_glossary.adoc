@@ -18,7 +18,7 @@ A table with columns <Term> and <Definition>.
 
 Potentially more columns in case you need translations.
 
-****
+
 
 [options="header"]
 |===
