@@ -28,7 +28,7 @@ function ProductPage(): JSX.Element {
   
 
   var str = localStorage.getItem("productoClickado")!;
-  var splitted = str.split(","); 
+  var splitted = str.split("-"); 
   console.log(splitted)
   const navigate = useNavigate();
 
@@ -49,7 +49,7 @@ function ProductPage(): JSX.Element {
     <CardMedia  
       component="img"
       height="400"
-      image={imagen}
+      image={splitted[3]}
     />
       </CardActionArea>
     </Card>
@@ -95,4 +95,3 @@ function ProductPage(): JSX.Element {
 }
 
  export default ProductPage;
-
