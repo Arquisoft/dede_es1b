@@ -6,7 +6,7 @@ import { modeloProducto } from "./modeloProducto";
 
 export const getProductos: RequestHandler = async (req, res) => {
     try{
-        const productos=await modeloProducto.find({});
+        var productos=await modeloProducto.find({});
         return res.json(productos);
     }
         catch(error)
@@ -18,7 +18,7 @@ export const getProductos: RequestHandler = async (req, res) => {
 export const getProductoPorID: RequestHandler = async (req, res) => {
     try{
         let id_producto:String=req.body.id;
-        const producto=await modeloProducto.findOne({'_id':id_producto});
+        var producto=await modeloProducto.findOne({'_id':id_producto});
         return res.json(producto);
     }
         catch(error)
@@ -52,7 +52,7 @@ export const actualizarProducto: RequestHandler = async (required, res) => {
 export const getProductosActivos: RequestHandler = async (req, res) => {
     try{
         console.log("entro");
-        const productos=await modeloProducto.find({'estado':true});
+        var productos=await modeloProducto.find({'estado':true});
         return res.json(productos);
     }
         catch(error)
@@ -64,7 +64,7 @@ export const getProductosActivos: RequestHandler = async (req, res) => {
 export const getProductosByName: RequestHandler = async (required, resultado) => {
     try{
         let nombre:String=required.body.nombre;
-        const producto=await modeloProducto.findOne({name:nombre});
+        var producto=await modeloProducto.findOne({name:nombre});
         if(producto){
             resultado.status(200).json(producto);
         }else{
@@ -77,7 +77,7 @@ export const getProductosByName: RequestHandler = async (required, resultado) =>
 
 export const getCategorias: RequestHandler = async (req, res) => {
     try{
-        const categorias=await modeloProducto.find().select('tipo');
+        var categorias=await modeloProducto.find().select('tipo');
         return res.json(categorias);}
         catch(error)
         {
@@ -141,7 +141,7 @@ export const getNVentas:RequestHandler=async (required,resultado)=>{
     try{
         let id_producto:String=required.body.id;
 
-        const ventas=await modeloProducto.find({ "_id": id_producto }).select('nventas');
+        var ventas=await modeloProducto.find({ "_id": id_producto }).select('nventas');
         console.log(ventas);
         return resultado.json(ventas);}
         catch(error)
@@ -187,7 +187,7 @@ export const añadirProducto:RequestHandler=async (required,resultado)=>{
 export const getProductosPorCategoria: RequestHandler = async (req, res) => {
     try{
         let categ:String=req.body.categoria;
-        const productos=await modeloProducto.find({tipo:categ,estado:true});
+        var productos=await modeloProducto.find({tipo:categ,estado:true});
         return res.json(productos);}
     catch(error)
     {

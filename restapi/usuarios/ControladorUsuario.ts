@@ -7,7 +7,7 @@ import{generarToken}from "./GenerarToken"
 
 export const getUsuarios:RequestHandler=async (required,resultado)=>{
     try{
-        const usuarios=await modeloUsuario.find({});
+        var usuarios=await modeloUsuario.find({});
         return resultado.json(usuarios);
     }catch (err){
         resultado.json(err);
@@ -32,7 +32,7 @@ export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     try{
         let id_user:String=required.body.id;
         console.log(id_user);
-        const usuario=await modeloUsuario.deleteOne({"_id":id_user});
+        var usuario=await modeloUsuario.deleteOne({"_id":id_user});
         if(usuario){
             return resultado.status(200).json();
         }else{
@@ -52,7 +52,7 @@ export const inicioSesion:RequestHandler=async (required,resultado)=>{
         let webid:String=required.body.webid;
         console.log("lo que llega a la consulta   "+webid);
 
-        const usuario=await modeloUsuario.findOne({"webid":webid});
+        var usuario=await modeloUsuario.findOne({"webid":webid});
 
         console.log(usuario);
 
