@@ -23,6 +23,10 @@ The program must protect the privacy of clients following the SOLID principles. 
 
 We must develop quality software. An organized structure of packages is important in order to speed up access to the code we are looking for. We also use design and architectural patterns. To correctly understand the project, good documentation must be prepared that explains the functionalities of the system, as well as the use of comments.
 
+**Usability**
+
+The main purpose of this app is to provide an application that could be used by everyone easily in an intuitive way so every person that wants to buy us some product can solve it with no problem.
+
 === Organizational Decisions
 
 **Lenguage**

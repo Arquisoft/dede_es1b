@@ -1,7 +1,26 @@
 [[section-concepts]]
 == Cross-cutting Concepts
+=== Persistence
+We focused on developing an app that uses MERN (MongoDb,Express,React,Node) so we use mongoDb as a container for our data , pods for user personal data and we will use a extern repository for images.
 
-=== Domain Concepts
+=== Internationalization 
+Even though we decided to do the documentation part in english , we also decided that our app would be in spanish,
+just to make us easier to focus on the development part.
+
+=== Test 
+For this part we will be doing three types of test , unitary ones , which will test only little funcionalities without external dependences , end to end to prove full developed functions of the app , and finally load test to see if the app
+stops if the amount of users is high.
+
+=== Domain diagram
 :imagesdir: images/
-image:08_domainModel.PNG["Fallo imagen"]
+image:08_domainModel.png["Fallo imagen"]
+
+=== Domain table
+[options="header",cols="1,2"]
+|===
+|Entities|Description
+| _User of the app_  |_Tries to access to the shop , see all products and buy._
+| _Products_|_The variety of things that you can buy on this shop_
+| _Orders_ |_The list of products that a user has bought_
+|===
 

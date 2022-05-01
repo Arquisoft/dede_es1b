@@ -32,12 +32,12 @@ function ProductPage(): JSX.Element {
   console.log(splitted)
   const navigate = useNavigate();
 
-  let imagen: string = require("../../images/" + splitted[4]);
+  let imagen: string = splitted[3];
 
   return (
     <>
       <MenuBar></MenuBar>
-        <h1>{splitted[1]}</h1>
+        <h1>{splitted[0]}</h1>
 
       <div className='productPageContainer'>
       <table><tr>
@@ -61,21 +61,21 @@ function ProductPage(): JSX.Element {
    <Grid container spacing={1}>
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
     <Paper className="papel">
-    <strong>Categoria:</strong> {splitted[3]}
+    <strong>Categoria:</strong> {splitted[2]}
     </Paper>
 
 
     </Grid>
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
     <Paper className="papel" elevation={3}>
-    <strong>Descripcion: </strong> {splitted[2]}
+    <strong>Descripcion: </strong> {splitted[1]}
     </Paper>
     </Grid>
 
 
     <Grid item xs={12} sx={{marginLeft:'30px'}}>          
     <Paper className="papel">
-    <strong>Precio: </strong> {splitted[5]} €
+    <strong>Precio: </strong> {splitted[4]} €
     </Paper>
     </Grid>
 

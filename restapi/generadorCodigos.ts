@@ -2,6 +2,8 @@ import{modeloUsuario} from "./usuarios/modeloUsuario";
 import {modeloProducto} from "./productos/modeloProducto";
 import {modeloCarrito} from "./carritos/ModelCarrito";
 import {Int32} from "mongodb";
+import {modeloPedido} from "./pedidos/ModelPedido";
+
 export async function generarCodigoUsuario():Promise<String>{
     let numero:Number=getRandomInt();
     let codigo:String="cl"+numero;
@@ -24,6 +26,18 @@ export async function generarCodigoCarrito():Promise<String>{
     }
     return codigo;
 }
+export async function generarCodigoPedido():Promise<String>{
+    let numero:Number=getRandomInt();
+    let codigo:String="ped"+numero;
+    let usuario=modeloPedido.findOne({"id":codigo});
+    while(!usuario){
+        numero=getRandomInt();
+        codigo="ped"+numero;
+        usuario=modeloPedido.findOne({"id":codigo})
+    }
+    return codigo;
+}
+
 export async function generarCodigoProducto():Promise<String>{
     let numero:Number=getRandomInt();
     let codigo:String="pr"+numero;

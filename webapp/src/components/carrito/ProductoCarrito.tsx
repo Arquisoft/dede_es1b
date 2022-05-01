@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Producto } from '../../shared/shareddtypes';
+import { Producto} from '../../shared/shareddtypes';
 import Button from '@mui/material/Button';
 import "./carrito.css";
 
@@ -13,8 +13,6 @@ type ProdProps = {
 }
 
 function ProductoCarrito(props: ProdProps) {
-
-    let imagen: string = require("../../images/" + props.producto.imagen);
 
   return (
     <Card className="producto" sx={{ maxWidth: 350 } }>
@@ -47,7 +45,7 @@ function ProductoCarrito(props: ProdProps) {
             className = "foto"
             component="img"
             sx={{ width: 90, maxWidth: 90 }}
-            image={imagen}
+            image={props.producto.imagen}
             alt={props.producto.name}
         />
     </Card>

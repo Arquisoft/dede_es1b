@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Producto, User } from '../../shared/shareddtypes';
-import MenuBar from "../menuBarAdmin";
+import { User } from '../../../shared/shareddtypes';
+import MenuBar from "../../menuBarAdmin";
 import {useNavigate} from 'react-router-dom';
-import { getProductos, getUsers } from '../../api/api';
-import { deleteProduct } from '../../api/api';
+import { getNameFromPod, getUsers } from '../../../api/api';
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -13,20 +12,36 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function ListaProductosParaEliminar(props:any): JSX.Element {
+function ListaUsuariosParaEliminar(props:any): JSX.Element {
     
-    const[productos, setProductos] = useState<Producto[]>([])
+    const[usuarios, setUsuarios] = useState<User[]>([])
     const navigate = useNavigate();
 
-    const eliminar=(id:String)=>{
-      
-      deleteProduct(id);
+/*     const eliminar=(id:String)=>{
+      deleteUser(id);
       window.location.replace('');
 
     }
+ */
+    const printearEstado=(estado:Boolean)=>{
+      if(estado)
+      return 'Activo';
+      else return 'No activo';
+
+    }
+
+/*     const reactivar=(id:String)=>{
+      reactivarUsuario(id);
+      window.location.replace('');
+
+    } */
+
+    const nombreUsuario = async (webid:string) =>{
+      return await getNameFromPod(webid);
+    }
   
     async function cargar() {
-        setProductos(await getProductos());
+        setUsuarios(await getUsers());
       }
     
       useEffect( () => {
@@ -37,33 +52,31 @@ function ListaProductosParaEliminar(props:any): JSX.Element {
       
         <div className="users-container" >
               <MenuBar/>
-                <h1>Lista de productos</h1>
+                <h1>Lista de clientes</h1>
     
           <div className='users'>
           <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Nombre</TableCell>
-            <TableCell align="right">Precio</TableCell>
-            <TableCell align="right">Descripcion</TableCell>
-            <TableCell align="right">Tipo</TableCell>
+            <TableCell>ID</TableCell>
+            <TableCell align="right">WebID</TableCell>
+            <TableCell align="right">Número pedidos</TableCell>
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {productos.map((producto:Producto) => (
+          {usuarios.map((usuario:User) => (
             <TableRow
-              key={producto.id}
+              key={usuario.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {producto.name}
+                {usuario.id}
               </TableCell>
-              <TableCell align="right">{producto.precio}</TableCell>
-              <TableCell align="right">{producto.descripcion}</TableCell>
-              <TableCell align="right">{producto.tipo}</TableCell>
-              <TableCell align="right"> <button   type="submit" onClick={() => eliminar(producto.id)}>Eliminar</button></TableCell>
+              <TableCell align="right">{usuario.webid}</TableCell>
+              <TableCell align="right">{1}</TableCell>
+           
             </TableRow>
           ))}
         </TableBody>
@@ -76,7 +89,4 @@ function ListaProductosParaEliminar(props:any): JSX.Element {
         </div>
       )
           } 
-export default ListaProductosParaEliminar;
-
-
-
+export default ListaUsuariosParaEliminar;

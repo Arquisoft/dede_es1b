@@ -21,8 +21,10 @@ import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
 
 
-const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
-
+import { getAddressesFromPod, getIdPorWebId, getRoleFromPod, iniciarSesion } from '../api/api';
+import { useEffect, useState } from 'react';
+import { LoginButton, LogoutButton, SessionProvider, useSession } from '@inrupt/solid-ui-react';
+import { Direccion } from '../shared/shareddtypes';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -67,12 +69,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const ResponsiveAppBar = () => {
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+const { session } = useSession();
+const [tipoUsuario,setTipoUsuario] = useState('');
 
+
+
+const authOptions = {
+  clientName: "Solid Todo App",
+};
+
+const settings = ['Perfil', 'Mi cuenta', 'Mis pedidos', 'Ayuda', 'Cerrar sesión'];
+
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event: { currentTarget: any; }) => {
     setAnchorElUser(event.currentTarget);
   };
+
+  const logoImg: string = "https://res.cloudinary.com/dlix47jlq/image/upload/v1650910768/iconos/logoAsturShop_i41dwr.png";
 
   const handleUserMenuOptions = (setting:string) => {
     switch(setting){
@@ -84,9 +98,12 @@ const ResponsiveAppBar = () => {
         break;
       }
       case "Perfil":{
-        console.log("clickaste perfil");
+        navigate("/perfilUsuario");
         break;
-      }
+      }case "Mis pedidos":{
+            navigate("/pedidos/usuario/list");
+            break;
+        }
       default:{
         console.log("otruuuutrucutrucu");
         break;
@@ -99,12 +116,44 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
   
-  const token = localStorage.getItem("token");
-  const tipoUser = localStorage.getItem("tipoUser");
 
   const navigate = useNavigate();
+  
 
-  if(token!=("") && tipoUser=="usuario"){
+  //SOLID
+  
+  const manejoSesion = async () =>{
+    console.log("akaka `+ "+ session.info.webId);
+    await iniciarSesion(""+session.info.webId);
+  }
+  
+  
+
+  useEffect( () => {
+    session.onLogin(async () => {
+      
+      manejoSesion();
+      let rol = await getRoleFromPod(session.info.webId!);
+      let idUser =  await getIdPorWebId(session.info.webId!);
+      let direcciones:String = await getAddressesFromPod(session.info.webId!);
+
+      sessionStorage.setItem("idUser",""+idUser);
+
+      sessionStorage.setItem("direcciones",""+direcciones);
+      
+      if(rol!="Admin")
+        localStorage.setItem("rol","usuario");
+      else{
+          localStorage.setItem("rol",rol);
+          navigate("/usuarios/list")
+      }
+      console.log("onlogin   ",session.info.webId);
+    })
+  }, [])
+
+
+
+  if(session.info.isLoggedIn && localStorage.getItem("rol")=="usuario"){
   return (
     <div className="appBar">
     <AppBar position="static">
@@ -118,7 +167,7 @@ const ResponsiveAppBar = () => {
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             
           >
-                    <img src={logo} width="100" height="80" alt="logo" /> 
+                    <img src={logoImg} width="100" height="80" alt="logo" /> 
 
           </Typography>
           <Box>
@@ -139,6 +188,7 @@ const ResponsiveAppBar = () => {
           <Typography>¿ERES PROVEEDOR?</Typography>
           </MenuItem>
           </Box>
+
 
           <Box  sx={{ paddingLeft: '3%' }}>
           <Search >
@@ -172,6 +222,19 @@ const ResponsiveAppBar = () => {
           </MenuItem>
           </Box>
 
+          <div className="loggedout">	  
+          <SessionProvider >       
+	          <LogoutButton 
+             onLogout={()=>{navigate("/catalogo");}}
+             
+            />
+           </SessionProvider>
+	         </div>
+
+           <Box sx={{ paddingLeft: '3%' }}>
+                <Typography>POD: {session.info.webId}</Typography>
+          </Box>
+
           <Box  sx={{marginLeft:'auto'}}>
 
           <div className="iconoLoggin">
@@ -179,7 +242,7 @@ const ResponsiveAppBar = () => {
                 <AccountCircle 
                   style={{ fontSize: "35px", color: '#FFFFFF ' }}
                 />
-                </IconButton>
+          </IconButton>
 
           </div>
           <Menu
@@ -216,12 +279,11 @@ const ResponsiveAppBar = () => {
     </div>
   );
   }
-  else if(tipoUser=="administrador" && token!=""){
+  else if(session.info.isLoggedIn && localStorage.getItem("rol")==("Admin")){
     return (
-    <MenuBarAdmin></MenuBarAdmin>
-    );
-  }
-  else{
+      <MenuBarAdmin></MenuBarAdmin>
+      );
+  }else{
     return (
       <div className="appBar">
       <AppBar position="static">
@@ -251,11 +313,7 @@ const ResponsiveAppBar = () => {
             </MenuItem>
             </Box>
   
-            <Box sx={{ paddingLeft: '3%' }}>
-            <MenuItem component={Link} to="/registro" >
-            <Typography>¿ERES PROVEEDOR?</Typography>
-            </MenuItem>
-            </Box>
+        
   
             <Box  sx={{ paddingLeft: '3%' }}>
             <Search >
@@ -280,17 +338,30 @@ const ResponsiveAppBar = () => {
             </div>
             
             </Box>
-  
-  
+            <Box sx={{ paddingLeft: 'auto' }}>
+         
+               <MenuItem component={Link} to="/ayuda">
+                <Typography>AYUDA</Typography>
+                </MenuItem>
+            </Box>
+            
             <Box  sx={{marginLeft:'auto'}}>
             <div className="iconoLoggin">
-                  <IconButton onClick={handleOpenUserMenu}  >
+
+                  <LoginButton 
+                    oidcIssuer={"https://inrupt.net/"}
+		                redirectUrl={"http://localhost:3000/inicio"}
+		                authOptions={authOptions}
+                   >
+                
+                  <IconButton >
+
                   <AccountCircle 
                     style={{ fontSize: "35px", color: '#FFFFFF ' }}
-                    onClick={() => navigate("/loggin")}
                   />
+
                   </IconButton>
-  
+                  </LoginButton>
             </div>
             
             </Box>
@@ -305,5 +376,3 @@ const ResponsiveAppBar = () => {
   }
 };
 export default ResponsiveAppBar;
-
-

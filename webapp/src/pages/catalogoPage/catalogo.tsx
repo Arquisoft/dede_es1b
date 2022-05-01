@@ -20,6 +20,11 @@ import CatalogoListado from "../productosPorCategoria/productosPorCategoria";
 function Catalogo(): JSX.Element {
 
   const navigate = useNavigate();
+
+  const imgRopa = "https://res.cloudinary.com/dlix47jlq/image/upload/v1650910847/categorias/categoriaRopa_jkmzbq.png";
+  const imgComida = "https://res.cloudinary.com/dlix47jlq/image/upload/v1650910839/categorias/fabadaIcono_plspt9.png";
+  const imgAdorno = "https://res.cloudinary.com/dlix47jlq/image/upload/v1650910848/categorias/categoriaAdornos_b4inge.png";
+
   return (
     <>
     
@@ -36,7 +41,7 @@ function Catalogo(): JSX.Element {
 
       <div className="box">
         <button className='categoryButton' onClick={() => navigate('/catalogo/ropa')} >
-        <img src={CategoriaRopa} width="250" height="250" alt="logo" /> 
+        <img src={imgRopa} width="250" height="250" alt="logo" /> 
         <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>ROPA</span>
         </button>
@@ -46,7 +51,7 @@ function Catalogo(): JSX.Element {
     <td>
     <div className="box">
     <button className='categoryButton' onClick={() => navigate('/catalogo/comida')}>
-    <img src={CategoriaComida} width="250" height="250" alt="logo" /> 
+    <img src={imgComida} width="250" height="250" alt="logo" /> 
     <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>COMIDA</span>
 
@@ -57,7 +62,7 @@ function Catalogo(): JSX.Element {
     <td>
     <div className="box">
     <button className='categoryButton' onClick={() => navigate('/catalogo/recuerdo')}>
-    <img src={CategoriaAdornos} width="250" height="250" alt="logo" /> 
+    <img src={imgAdorno} width="250" height="250" alt="logo" /> 
     <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>SOUVENIRS</span>
         </button>

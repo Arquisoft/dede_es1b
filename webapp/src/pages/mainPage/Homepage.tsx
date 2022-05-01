@@ -3,26 +3,26 @@ import Productos from '../../components/Productos';
 import Carrito from '../../components/carrito/Carrito';
 import MenuBar from "../menuBar";
 import { Producto } from '../../shared/shareddtypes';
-import { getProductos} from '../../api/api';
+import { getProductos, getProductosActivos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import { ShoppingCart } from '@mui/icons-material';
 import "./homepage.css";
+
+const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
 
 function Init(): JSX.Element {
 
     const [productos, setProductos] = useState<Producto[]>([]);
     
     const [carritoAb, setCarritoAb] = useState(false);
-    const [carrito, setCarrito] = useState([] as Producto[]);
 
-    const getTotalItems = (items: Producto[]) => {
-        let total:number = items.reduce((accum: number, prod) => total = accum + prod.cantidad, 0);
-        localStorage.setItem("cantidadCarrito",JSON.stringify(total));
-    }
+    const [carrito, setCarrito] = useState(carritoLS);
+
+    const getTotalItems = (items: Producto[]) => 
+        items.reduce((accum: number, prod) => accum + prod.cantidad, 0);
     
-    
+
     const handleAñadirAlCarrito = (prod: Producto) => {
         setCarrito(prev => {
             const prodAñadido = prev.find(p => p.id === prod.id)
@@ -53,12 +53,14 @@ function Init(): JSX.Element {
     };
 
     async function cargar() {
-        setProductos(await getProductos());
+        setProductos(await getProductosActivos());
     }
 
     useEffect( () => {
         cargar();
-    }, [])
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        localStorage.setItem("cantidadCarrito", JSON.stringify(getTotalItems(carrito)));
+    }, [carrito])
 
 
     return (
@@ -75,7 +77,7 @@ function Init(): JSX.Element {
                 />
             </SwipeableDrawer>
             <IconButton className="botonCarrito" onClick={() => setCarritoAb(true)}>
-                    <ShoppingCart className="botonCarrito" style={{maxWidth: '70px', maxHeight: '70px', minWidth: '50px', minHeight: '50px'}}/>
+                <ShoppingCart className="botonCarrito" style={{maxWidth: '70px', maxHeight: '70px', minWidth: '50px', minHeight: '50px'}}/>
             </IconButton>
         </div>
     </div>

@@ -1,3 +1,5 @@
+import routerPedido from "./pedidos/routerPedido";
+
 require("dotenv").config();
 import express, { Application, RequestHandler } from "express";
 import cors from 'cors';
@@ -33,6 +35,7 @@ app.use(bp.json());
 //app.use("/api", api)
 app.use(routerUsuario);
 app.use(routerProducto);
+app.use(routerPedido);
 
 app.listen( port, ():void => {
   

@@ -19,6 +19,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.8",
+
+    "node-geocoder": "^4.0.0",
+
     "prom-client": "^14.0.1"
   },
   "devDependencies": {

@@ -1,0 +1,65 @@
+.app{
+    background-color: white;
+    position: relative;
+}
+.step{
+    margin: auto;
+}
+.pasos{
+    height: 500px;
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.659);
+    border-radius: 2%;
+    border-color: black;
+    border-width: 100%;
+    margin: auto;
+    border-style: inset;
+}
+
+/* From cssbuttons.io by @NorthFishHasNa */
+.añadirProdButton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #3d405b;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    padding: 16px;
+    width: 130px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+   }
+   
+   .añadirProdButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+   }
+   
+   .añadirProdButton span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+   }
+   
+   .añadirProdButton:hover span {
+    padding-right: 15px;
+   }
+   
+   .añadirProdButton:hover span:after {
+    opacity: 1;
+    right: 0;
+   }
+
+.tablaNewProduct{
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse:separate;
+        border-spacing:0 15px;        
+}

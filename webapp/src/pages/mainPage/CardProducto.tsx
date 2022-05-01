@@ -19,14 +19,12 @@ type ProdProps = {
 function CardProducto(props: ProdProps) {
   const navigate = useNavigate();
 
-    let imagen: string = require("../../images/" + props.producto.imagen);
-
     return (
         <Card sx={{ width: 345, maxHeight: 490 } }>
           <CardMedia className="foto" sx={{ m: "10rm", mx:'auto'}}
             component="img"
             style={{height:"220px",width:'auto'}}
-            image={imagen}
+            image={props.producto.imagen}
             
             alt={props.producto.name}
           />
@@ -45,10 +43,11 @@ function CardProducto(props: ProdProps) {
             <IconButton className="buttons" color="primary" aria-label="add to shopping cart">
               <AddShoppingCartIcon onClick={() => {props.handleAñadirAlCarrito(props.producto); }}/>
             </IconButton>
-             <Button size="small" onClick={() =>   {  let productoString = props.producto.name+','+props.producto.descripcion+','+ props.producto.tipo+','+props.producto.imagen+','+props.producto.precio
-             ;
-      localStorage.setItem("productoClickado",productoString);
-      navigate("/detallesProducto");}} >VER DETALLES</Button>
+             <Button size="small" onClick={() =>   {  let productoString = props.producto.name+','+props.producto.descripcion+','
+                + props.producto.tipo+','+props.producto.imagen+','+props.producto.precio;
+                localStorage.setItem("productoClickado",productoString);
+                navigate("/detallesProducto");}} 
+              >VER DETALLES</Button>
           </CardActions>
         </Card>
       );

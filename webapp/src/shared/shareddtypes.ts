@@ -1,13 +1,9 @@
 export type User = {
     id:string
-    name:string;
-    surname:string;
-    usuario:string;
-    correo:string;
-    password:string;
+    webid:string;
   }
 
-export type Producto = {
+  export type Producto = {
     id: string;
     name: string;
     precio: number;
@@ -15,7 +11,34 @@ export type Producto = {
     tipo: string;
     descripcion: string;
     cantidad: number;
+    nventas:number;
+    estado:Boolean;
 }
+
+
+
+
+
+
+export type Prod = {
+  name: String;
+  precio: Number;
+  imagen: String;
+  tipo: String;
+  descripcion: String;
+  nventas:number;
+  estado:Boolean;
+}
+
+
+export type Direccion = {
+  calle: string;
+  cod_postal: string;
+  ciudad: string;
+  region: string;
+}
+
+
 
 export type Carrito = {
     id: string;
@@ -27,4 +50,17 @@ export type Carrito = {
         cantidad: number;
       }
     }];
+}
+export type Pedido = {
+    id:string,
+    id_usuario:String,
+    listaProductos:[{
+        producto: [{
+            id_p: String,
+            cantidad:Number
+        }]
+    }],
+    direccionAsignada:String,
+    precioTotal:Number,
+    estado:String,
 }
