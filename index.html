@@ -459,8 +459,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-system-scope-and-context">3. System Scope and Context</a>
 <ul class="sectlevel2">
 <li><a href="#_business_context">3.1. Business Context</a></li>
-<li><a href="#_diagrama_de_contexto_empresarial">3.2. Diagrama de contexto empresarial</a></li>
-<li><a href="#_tabla_de_contexto_empresarial">3.3. Tabla de contexto empresarial</a></li>
+<li><a href="#_business_context_diagram">3.2. Business Context diagram</a></li>
+<li><a href="#_business_context_table">3.3. Business Context table</a></li>
 <li><a href="#_technical_context">3.4. Technical Context</a></li>
 </ul>
 </li>
@@ -474,35 +474,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-building-block-view">5. Building Block View</a>
 <ul class="sectlevel2">
 <li><a href="#_scope_and_context">5.1. Scope and context</a></li>
-<li><a href="#_level_1">5.2. Level 1</a></li>
+<li><a href="#_level_2">5.2. Level 2</a></li>
+<li><a href="#_level_3">5.3. Level 3</a></li>
 </ul>
 </li>
 <li><a href="#section-runtime-view">6. Runtime View</a>
 <ul class="sectlevel2">
-<li><a href="#_loggin">6.1. Loggin</a></li>
-<li><a href="#_delete_account">6.2. Delete account</a></li>
-<li><a href="#_change_password">6.3. Change password</a></li>
+<li><a href="#_see_user_orders">6.1. See user orders</a></li>
+<li><a href="#_some_admin_utilities">6.2. Some admin utilities</a></li>
+<li><a href="#_search_by_category">6.3. Search by category</a></li>
 <li><a href="#_buying_product">6.4. Buying product</a></li>
-<li><a href="#_check_orders">6.5. Check orders</a></li>
-<li><a href="#_save_customer_data">6.6. Save customer data:</a></li>
+<li><a href="#_see_product_details">6.5. See product details</a></li>
 </ul>
 </li>
 <li><a href="#section-deployment-view">7. Deployment View</a>
 <ul class="sectlevel2">
-<li><a href="#_infrastructure_level_1">7.1. Infrastructure Level 1</a></li>
-<li><a href="#_infrastructure_level_2">7.2. Infrastructure Level 2</a></li>
+<li><a href="#_infraestructure">7.1. Infraestructure</a></li>
 </ul>
 </li>
 <li><a href="#section-concepts">8. Cross-cutting Concepts</a>
 <ul class="sectlevel2">
-<li><a href="#_domain_concepts">8.1. Domain Concepts</a></li>
+<li><a href="#_persistence">8.1. Persistence</a></li>
+<li><a href="#_internationalization">8.2. Internationalization</a></li>
+<li><a href="#_test">8.3. Test</a></li>
+<li><a href="#_domain_diagram">8.4. Domain diagram</a></li>
+<li><a href="#_domain_table">8.5. Domain table</a></li>
 </ul>
 </li>
 <li><a href="#section-design-decisions">9. Design Decisions</a></li>
 <li><a href="#section-quality-scenarios">10. Quality Requirements</a>
 <ul class="sectlevel2">
 <li><a href="#_quality_tree">10.1. Quality Tree</a></li>
-<li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
+<li><a href="#_evaluation_scenarios">10.2. Evaluation scenarios</a></li>
 </ul>
 </li>
 <li><a href="#section-technical-risks">11. Risks and Technical Debts</a>
@@ -586,28 +589,16 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <p>The customer will be able to redo a previously placed order.</p>
 </li>
 <li>
-<p>The customer will be able to save orders as a draft without paying for them.</p>
-</li>
-<li>
 <p>The system will save the address of the customer&#8217;s last order to be used as the default address for subsequent orders.</p>
 </li>
 <li>
-<p>The customer can delete orders from his order history.</p>
+<p>The administrator may ban customers.</p>
 </li>
 <li>
-<p>The provider will be able to see the products he has in the shop and the statistics of each one of them.</p>
+<p>The administrator can disable products</p>
 </li>
 <li>
-<p>The provider will be able to unsubscribe from the shop and the system will delete all his products.</p>
-</li>
-<li>
-<p>The administrator may decide to place bids on products</p>
-</li>
-<li>
-<p>The administrator may ban customers and provider.</p>
-</li>
-<li>
-<p>The administrator will have the final decision on whether to place a product or not.</p>
+<p>The administrator can add products.</p>
 </li>
 </ul>
 </div>
@@ -665,11 +656,11 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Administrators</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">They are in charge of managing the application to make sure that everything works properly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">They are in charge of managing the application to make sure that everything works properly.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Teachers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">They help in the realization of the project and are interested in its outcome</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">They help in the realization of the project and are interested in its outcome.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Other students</p></td>
@@ -788,6 +779,11 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <td class="tableblock halign-left valign-top"><p class="tableblock">Architecture documentation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Documentation structure must follow arc42 template</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub Pages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The documentation will be deployed through GitHub Pages</p></td>
+</tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
@@ -804,13 +800,13 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="_diagrama_de_contexto_empresarial">3.2. Diagrama de contexto empresarial</h3>
+<h3 id="_business_context_diagram">3.2. Business Context diagram</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/DiagramaNegocio.PNG" alt="Fallo imagen"></span></p>
+<p><span class="image"><img src="./images/DiagramaNegocio.png" alt="Fallo imagen"></span></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tabla_de_contexto_empresarial">3.3. Tabla de contexto empresarial</h3>
+<h3 id="_business_context_table">3.3. Business Context table</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -841,6 +837,11 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Personal info requested by the app</em></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OpenStreetMap</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The string of the user address</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>An address from the user data</em></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Database</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Data request by the shop</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Data requested</em></p></td>
@@ -851,13 +852,13 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sect2">
 <h3 id="_technical_context">3.4. Technical Context</h3>
 <div class="sect3">
-<h4 id="_diagrama_de_contexto_técnico">3.4.1. Diagrama de contexto técnico</h4>
+<h4 id="_technical_context_diagram">3.4.1. Technical Context diagram</h4>
 <div class="paragraph">
-<p><span class="image"><img src="./images/DiagramaTecnico.PNG" alt="Fallo imagen"></span></p>
+<p><span class="image"><img src="./images/DiagramaTecnico.png" alt="Fallo imagen"></span></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tabla_de_contexto_técnico">3.4.2. Tabla de contexto técnico</h4>
+<h4 id="_technical_context_table">3.4.2. Technical Context table</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -931,6 +932,12 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="paragraph">
 <p>We must develop quality software. An organized structure of packages is important in order to speed up access to the code we are looking for. We also use design and architectural patterns. To correctly understand the project, good documentation must be prepared that explains the functionalities of the system, as well as the use of comments.</p>
 </div>
+<div class="paragraph">
+<p><strong>Usability</strong></p>
+</div>
+<div class="paragraph">
+<p>The main purpose of this app is to provide an application that could be used by everyone easily in an intuitive way so every person that wants to buy us some product can solve it with no problem.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_organizational_decisions">4.3. Organizational Decisions</h3>
@@ -956,16 +963,38 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sect1">
 <h2 id="section-building-block-view">5. Building Block View</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The general system is represented in a white box and composed of different elements such as the black box and building blocks.</p>
+</div>
 <div class="sect2">
 <h3 id="_scope_and_context">5.1. Scope and context</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/05_scopeAndContext.PNG" alt="Fallo imagen"></span></p>
+<p><span class="image"><img src="./images/diagrama1_doc5.PNG" alt="Fallo imagen"></span></p>
+</div>
+<div class="paragraph">
+<p>The user interacts with his own Pod over which he has control and ownership of his data, the user performs operations such as creating it or modifying the permissions to his data. It also interacts with the Dede application, which is represented as a black box in this diagram. On the other hand, Dede interacts with the Pod in order to access the files that are in it, being able to save and load data.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_level_1">5.2. Level 1</h3>
+<h3 id="_level_2">5.2. Level 2</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/05_level1.PNG" alt="Fallo imagen"></span></p>
+<p><span class="image"><img src="./images/diagrama2_doc5.PNG" alt="Fallo imagen"></span></p>
+</div>
+<div class="paragraph">
+<p>It seeks to intercommunicate the user interface (Front End), the business logic (Back End) and the session management system. The Front End needs the services of the Back End layer so that it sends data and results of actions to it so that it can display them to the user. On the other hand, the Front End interacts with the authentication system so that the user can log in with their WebID or through a provider.
+The Front End is also related to the session management system, in order to access the POD data of the user who is currently in session.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_level_3">5.3. Level 3</h3>
+<div class="paragraph">
+<p><span class="image"><img src="./images/diagrama3_doc5.PNG" alt="Fallo imagen"></span></p>
+</div>
+<div class="paragraph">
+<p>The third level is divided into the Front End in the main views of login, admin, shoping  and the request manager.
+ The credentials entered in the LoginView will be verified by the LoginManager that is responsible for accessing the user’s pod and allowing access to the application. On the other hand, the user Will be able to see the shopping view that interacts with the products manager of the backend for visualice the products options.
+After the loggin the administrator Will be able to see the admin view that obteins info fron the order manager, products manager and the users manager due to the admin can acces to all this data.
+Finally, in the database the users ids are saved and all the data related to the order of a user and the products aviables in the shop.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -975,41 +1004,33 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <h2 id="section-runtime-view">6. Runtime View</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_loggin">6.1. Loggin</h3>
+<h3 id="_see_user_orders">6.1. See user orders</h3>
 <div class="paragraph">
-<p>Bob: Clicks on login button &#8594; Dede: Displays the loggin form &#8594; Bob: Complete username and password fields and confirm clicking on login button &#8594; Dede: Gives welcome to Bob</p>
+<p><span class="image"><img src="./images/UserOrders.png" alt="Fallo imagen"></span></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_delete_account">6.2. Delete account</h3>
+<h3 id="_some_admin_utilities">6.2. Some admin utilities</h3>
 <div class="paragraph">
-<p>Bob: Clicks on setting button &#8594; Dede: Displays the settings menu &#8594; Bob: Access to account section &#8594; Dede: Shows the account setting window &#8594; Bob: Clicks on delete account
-&#8594; Dede: Shows message of advertation waiting for confirmation &#8594; Bob: Confirms message</p>
+<p><span class="image"><img src="./images/AdminThings.png" alt="Fallo imagen"></span></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_change_password">6.3. Change password</h3>
+<h3 id="_search_by_category">6.3. Search by category</h3>
 <div class="paragraph">
-<p>Bob: Clicks on setting button &#8594; Dede: Shows the settings menu &#8594; Bob: Access to account section &#8594; Dede: Shows the account setting window &#8594; Bob: Clicks on change password
-&#8594; Dede: Displays a form  &#8594; Bob: Completes password and new password fields &#8594; Dede: updates user&#8217;s password if form was correct</p>
+<p><span class="image"><img src="./images/SecuenciaBuscCat.png" alt="Fallo imagen"></span></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_buying_product">6.4. Buying product</h3>
 <div class="paragraph">
-<p>Bob: Checks the sections of products &#8594; Dede: shows all sections in the menu&#8594;Bob:choose the food section &#8594;Dede: shows the food section&#8594;Bob: add the product to the shopping cart and decides to only buy that one, so clicks in buy  &#8594; Dede: displays form &gt;Bob: fills the form and confirm</p>
+<p><span class="image"><img src="./images/SecComprar.png" alt="Fallo imagen"></span></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_check_orders">6.5. Check orders</h3>
+<h3 id="_see_product_details">6.5. See product details</h3>
 <div class="paragraph">
-<p>Bob: clicks on MyAccount button &#8594; Dede: Displays MyAccount view &#8594; Bob: Clicks on MyOrders section &#8594; Dede: Displays view and charge on it all the orders made by that user</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_save_customer_data">6.6. Save customer data:</h3>
-<div class="paragraph">
-<p>Bob: Complete the information requested for buying a product → Dede: Ask if he wants to save the data for future buying&#8594; Bob: answer yes &#8594;Dede: save data in bob&#8217;s pod</p>
+<p><span class="image"><img src="./images/ProductDetails.png" alt="Fallo imagen"></span></p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1018,124 +1039,55 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sect1">
 <h2 id="section-deployment-view">7. Deployment View</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<div class="title">Content</div>
-<p>The deployment view describes:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>the technical infrastructure used to execute your system, with infrastructure elements like geographical locations, environments, computers, processors, channels and net topologies as well as other infrastructure elements and</p>
-</li>
-<li>
-<p>the mapping of (software) building blocks to that infrastructure elements.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Often systems are executed in different environments, e.g. development environment, test environment, production environment. In such cases you should document all relevant environments.</p>
-</div>
-<div class="paragraph">
-<p>Especially document the deployment view when your software is executed as distributed system with more then one computer, processor, server or container or when you design and construct your own hardware processors and chips.</p>
-</div>
-<div class="paragraph">
-<p>From a software perspective it is sufficient to capture those elements of the infrastructure that are needed to show the deployment of your building blocks. Hardware architects can go beyond that and describe the infrastructure to any level of detail they need to capture.</p>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Software does not run without hardware.
-This underlying infrastructure can and will influence your system and/or some
-cross-cutting concepts. Therefore, you need to know the infrastructure.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Maybe the highest level deployment diagram is already contained in section 3.2. as
-technical context with your own infrastructure as ONE black box. In this section you will
-zoom into this black box using additional deployment diagrams:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>UML offers deployment diagrams to express that view. Use it, probably with nested diagrams,
-when your infrastructure is more complex.</p>
-</li>
-<li>
-<p>When your (hardware) stakeholders prefer other kinds of diagrams rather than the deployment diagram, let them use any kind that is able to show nodes and channels of the infrastructure.</p>
-</li>
-</ul>
-</div>
 <div class="sect2">
-<h3 id="_infrastructure_level_1">7.1. Infrastructure Level 1</h3>
+<h3 id="_infraestructure">7.1. Infraestructure</h3>
 <div class="paragraph">
-<p>Describe (usually in a combination of diagrams, tables, and text):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the distribution of your system to multiple locations, environments, computers, processors, .. as well as the physical connections between them</p>
-</li>
-<li>
-<p>important justification or motivation for this deployment structure</p>
-</li>
-<li>
-<p>Quality and/or performance features of the infrastructure</p>
-</li>
-<li>
-<p>the mapping of software artifacts to elements of the infrastructure</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For multiple environments or alternative deployments please copy that section of arc42 for all relevant environments.</p>
-</div>
-<div class="paragraph">
-<p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Motivation</dt>
-<dd>
-<p><em>&lt;explanation in text form&gt;</em></p>
-</dd>
-<dt class="hdlist1">Quality and/or Performance Features</dt>
-<dd>
-<p><em>&lt;explanation in text form&gt;</em></p>
-</dd>
-<dt class="hdlist1">Mapping of Building Blocks to Infrastructure</dt>
-<dd>
-<p><em>&lt;description of the mapping&gt;</em></p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_infrastructure_level_2">7.2. Infrastructure Level 2</h3>
-<div class="paragraph">
-<p>Here you can include the internal structure of (some) infrastructure elements from level 1.</p>
-</div>
-<div class="paragraph">
-<p>Please copy the structure from level 1 for each selected element.</p>
+<p><span class="image"><img src="./images/07-diagramaDespliegue.PNG" alt="Fallo imagen"></span></p>
 </div>
 <div class="sect3">
-<h4 id="_infrastructure_element_1">7.2.1. <em>&lt;Infrastructure Element 1&gt;</em></h4>
+<h4 id="_motivation">7.1.1. Motivation</h4>
 <div class="paragraph">
-<p><em>&lt;diagram + explanation&gt;</em></p>
+<p>The application will be deployed on the heroku host platform, will store all data with the mongodb database manager and will communicate with all users through the Solid pods.</p>
+</div>
+<div class="paragraph">
+<p>The main objective of the application is that the users who use it feel safe and comfortable using it, respecting above all security and privacy on the internet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_infrastructure_element_2">7.2.2. <em>&lt;Infrastructure Element 2&gt;</em></h4>
+<h4 id="_building_block_mapping_for_infrastructure">7.1.2. Building block mapping for infrastructure</h4>
 <div class="paragraph">
-<p><em>&lt;diagram + explanation&gt;</em></p>
+<p>The infrastructure consists of the following components:</p>
 </div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_infrastructure_element_n">7.2.3. <em>&lt;Infrastructure Element n&gt;</em></h4>
-<div class="paragraph">
-<p><em>&lt;diagram + explanation&gt;</em></p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Node</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DataBase</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database manager, in our case mongodb, which we are going to use to make all our queries.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Device</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Software that we are going to use to display the shop interface, i.e. any browser, preferably a computer browser as it is not perfectly optimised for mobile phones.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Place where user data will be stored respecting the privacy and security of the users, using pods to store the information of each user.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Host service that allows us to deploy both the restapi application and the webapp, the service we used was Heroku.</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1145,10 +1097,59 @@ when your infrastructure is more complex.</p>
 <h2 id="section-concepts">8. Cross-cutting Concepts</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_domain_concepts">8.1. Domain Concepts</h3>
+<h3 id="_persistence">8.1. Persistence</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/08_domainModel.PNG" alt="Fallo imagen"></span></p>
+<p>We focused on developing an app that uses MERN (MongoDb,Express,React,Node) so we use mongoDb as a container for our data , pods for user personal data and we will use a extern repository for images.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_internationalization">8.2. Internationalization</h3>
+<div class="paragraph">
+<p>Even though we decided to do the documentation part in english , we also decided that our app would be in spanish,
+just to make us easier to focus on the development part.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test">8.3. Test</h3>
+<div class="paragraph">
+<p>For this part we will be doing three types of test , unitary ones , which will test only little funcionalities without external dependences , end to end to prove full developed functions of the app , and finally load test to see if the app
+stops if the amount of users is high.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_domain_diagram">8.4. Domain diagram</h3>
+<div class="paragraph">
+<p><span class="image"><img src="./images/08_domainModel.png" alt="Fallo imagen"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_domain_table">8.5. Domain table</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Entities</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>User of the app</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Tries to access to the shop , see all products and buy.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Products</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The variety of things that you can buy on this shop</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Orders</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The list of products that a user has bought</em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1158,34 +1159,39 @@ when your infrastructure is more complex.</p>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 40%;">
-<col style="width: 40%;">
+<col style="width: 12.5%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Decission</th>
 <th class="tableblock halign-left valign-top">Description</th>
 <th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+<th class="tableblock halign-left valign-top">Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Language</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The documentation will be in English</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Internationalization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">More complex wording</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepted</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Theme</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The shop&#8217;s theme will be products from Asturias</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Accepted</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HSQLDB</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An HSQLDB Database will be used</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Portability of the database</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">It is a local database</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rejected</p></td>
@@ -1194,6 +1200,29 @@ when your infrastructure is more complex.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A MongoDB Database will be used</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">High speed, availability, simplicity, flexibility</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High memory usage and limited data size</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MUI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React UI Library to implement the frontend</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improves the web&#8217;s design</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Some elements can be more complex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It will be the deployment platform</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">There is more documentation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unknown by the team members</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudinary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Repository to keep the web&#8217;s images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It won&#8217;t be necessary to keep the images locally</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepted</p></td>
 </tr>
 </tbody>
 </table>
@@ -1210,10 +1239,57 @@ when your infrastructure is more complex.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_quality_scenarios">10.2. Quality Scenarios</h3>
+<h3 id="_evaluation_scenarios">10.2. Evaluation scenarios</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/10_qualityScenarios.PNG" alt="Fallo imagen"></span></p>
+<p><em>Testability/Coverage</em></p>
 </div>
+<div class="paragraph">
+<p>For this part we will use many tools that allow us to test a 70% at least of our app , also we will do some gatling test in order to test how many requests can the app resist till it breaks .</p>
+</div>
+<div class="paragraph">
+<p><em>Testability/Independet from external sevices</em></p>
+</div>
+<div class="paragraph">
+<p>The architecture should be designed in such a way that algorithms depending on external services can be tested without having the external service available. That is: All external dependencies should be mockable.</p>
+</div>
+<div class="paragraph">
+<p><em>Usability</em></p>
+</div>
+<div class="paragraph">
+<p>The application will be designed in such a way that anyone who can access it will be able to navigate as comfortably as possible.</p>
+</div>
+<div class="paragraph">
+<p><em>Confindenciality</em></p>
+</div>
+<div class="paragraph">
+<p>Clients privacy is respected by using a descentralized delivery following SOLID , in which the user will have a POD where his personal data will be stored so if the app closes the user will still keep his personal information on the POD.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">AQ</th>
+<th class="tableblock halign-left valign-top">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Testability</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Low,High.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Usability</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>High,High</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Confidentiality</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>High,Medium</em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1310,6 +1386,106 @@ when your infrastructure is more complex.</p>
 <div class="title">Contents</div>
 <p>The most important domain and technical terms that your stakeholders use when discussing the system.</p>
 </div>
+<div class="paragraph">
+<p>You can also see the glossary as source for translations if you work in multi-language teams.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>You should clearly define your terms, so that all stakeholders</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>have an identical understanding of these terms</p>
+</li>
+<li>
+<p>do not use synonyms and homonyms</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>A table with columns &lt;Term&gt; and &lt;Definition&gt;.</p>
+</div>
+<div class="paragraph">
+<p>Potentially more columns in case you need translations.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Git</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is a version control software designed by Linus Torvalds, thinking about the efficiency, reliability and compatibility of application version maintenance when they have a large number of source code files.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaScript
+is an interpreted programming language, dialect of the ECMAScript standard. It is defined as object-oriented, prototype-based, imperative, weakly typed, and dynamic.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TypeScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TypeScript is a free and open source programming language developed and maintained by Microsoft.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB (huge, "huge") is an open source, document-oriented, NoSQL database system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POD means personal online data , it is an online container capable of storing personal information.
+TypeScript is a free and open source programming language developed and maintained by Microsoft.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solid is an exciting new project led by Prof. Tim Berners-Lee, inventor of the World Wide Web, taking place at MIT. The project aims to radically change the way Web applications work today, resulting in true data ownership as well as improved privacy.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node.js is an open source, cross-platform runtime environment for the server layer (but not limited to) based on the JavaScript programming language, asynchronous, with data I/O in an event-driven architecture and based on Google&#8217;s V8 engine.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React (also called React.js or ReactJS) is an open source Javascript library designed to create user interfaces with the goal of facilitating the development of single-page applications. It is maintained by Facebook and the free software community. In the project there are more than a thousand free developers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dotenv</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is a dependency that allows us to maintain a file where we will leave information that the rest of the people should not access (example: database code).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tokens JSON</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON Web Token (JWT) is a compact URL-safe means of representing claims to be transferred between two parties.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MUI react</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MUI provides a simple, customizable, and accessible library of React components.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unit test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A unit test is a way of testing a unit the smallest piece of code that can be logically isolated in a system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mongoose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mongoose is an ODM (Object Document Mapping) - it acts as an interface to MongoDB by letting you define Models.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker is an open source containerization platform. It enables developers to package applications into containers—standardized executable components combining application source code with the operating system (OS) libraries and dependencies required to run that code in any environment.</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p><strong>About arc42</strong></p>
@@ -1335,7 +1511,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-02 00:44:36 +0100
+Last updated 2022-05-01 13:37:47 +0200
 </div>
 </div>
 </body>
