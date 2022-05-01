@@ -19,14 +19,17 @@ export const getIdUserByWebId:RequestHandler=async (required,resultado)=>{
     try{
         let webid_user:String=required.body.webid;
         console.log("webid usuario  ", webid_user);
-        const id:string=await modeloUsuario.findOne({"_webid":webid_user}).select("id");
-        console.log(id);
-        return resultado.json(JSON.stringify({"id":id}));
+        const usuario=await modeloUsuario.findOne({"webid":webid_user});
+        const usuarioID = usuario.id;
+        console.log("mimimimi   ",usuario.id);
+        return resultado.json(usuarioID);
     }catch (err){
         resultado.json(err);
     }
 
 };
+
+
 
 export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     try{
