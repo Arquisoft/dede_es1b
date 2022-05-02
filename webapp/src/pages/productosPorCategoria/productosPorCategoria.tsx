@@ -17,7 +17,7 @@ function ListaProductos(): JSX.Element {
 
   const[productos, setProductos] = useState<Producto[]>([])
   const {categoria} = useParams();
-
+  
   let cat:string =categoria!; 
 
   async function cargar() {
@@ -31,6 +31,7 @@ function ListaProductos(): JSX.Element {
     cargar();
     localStorage.setItem("carrito", JSON.stringify(carrito));
     localStorage.setItem("cantidadCarrito", JSON.stringify(getTotalItems(carrito)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carrito])
   
 
