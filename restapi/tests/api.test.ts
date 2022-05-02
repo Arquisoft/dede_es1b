@@ -51,15 +51,15 @@ describe('usuarios', () => {
     });
   
     /**
-     * Test loguear un usuario con error
+     * Test loguear un usuario sin error
      */
     it('can get a user',async () => {
-        const response:Response = await request(app).post('/usuarios/login').send({
-            usuario:"useruser",
-            contraseña: "fail"
+        const response:Response = await request(app).post('/usuarios/inicioSesion').send({
+            webid:"https://lorenzo123.inrupt.net/profile/card#me",
         }).set('Accept', 'application/json');
-        expect(response.statusCode).toBe(404);
+        expect(response.statusCode).toBe(200);
     });
+ 
     /**
      * Test de creación de usuario   
      */ 
@@ -81,6 +81,15 @@ describe('usuarios', () => {
      it('delete an user',async () => {
         const response:Response = await request(app).post('/usuarios/delete').send({
             usuario:"prueba123",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    /**
+     * Test obtener un usuario por la webId
+     */
+     it('GET A USER BY WEB ID',async () => {
+        const response:Response = await request(app).post('/usuarios/getId').send({
+           
         }).set('Accept', 'application/json');
         expect(response.statusCode).toBe(200);
     });
@@ -122,13 +131,70 @@ describe('productos', () => {
      */
      it('delete an product',async () => {
         const response:Response = await request(app).post('/productos/delete').send({
-            usuario:"cachopo",
+            _id:"622b81934557a8f7057d1917",
         }).set('Accept', 'application/json');
         expect(response.statusCode).toBe(200);
     });
+   
+    /**
+     * Test de reactivar un producto
+     */
+    it('reactivar un producto',async () => {
+        const response:Response = await request(app).post('/productos/reactivar').send({
+            _id:"622b81934557a8f7057d1917",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
     });
+    /**
+     * Test de ventas
+     */
+     it('numeroDeVentasDeUnProducto',async () => {
+        const response:Response = await request(app).post('/productos/getNVentas').send({
+            _id:"622b81934557a8f7057d1917",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+    /**
+     * Test incrementar ventas
+     */
+     it('incrementarVentas',async () => {
+        const response:Response = await request(app).post('/productos/incrementarVentas').send({
+            _id:"622b81934557a8f7057d1917",
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    });
+
+    /**
+     * Test archivos
+     */
+     it('ver archivos',async () => {
+        const response:Response = await request(app).post('/productos/activos').send({
+            
+        }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(404);
+    });
+  
+/**
+     * Test categorias
+     */
+ it('ver categorias',async () => {
+    const response:Response = await request(app).post('/productos/categorias').send({
+    }).set('Accept', 'application/json');
+    expect(response.statusCode).toBe(404);
+});
+    /**
+     * Test get producto por id
+     */
+ it('ver producto por id',async () => {
+    const response:Response = await request(app).post('/productos/getProductoPorId').send({
+    }).set('Accept', 'application/json');
+    expect(response.statusCode).toBe(200);
+});
+
+})
+
     describe('pedidos', () => {
-          /**
+        /**
      * Test listar pedidos sin error
      */
       it('can be listed',async () => {
@@ -157,6 +223,15 @@ describe('productos', () => {
     .set('Accept', 'application/json');
     expect(response.statusCode).toBe(200);
 
+});
+/**
+ * Test gastos de envio
+ */
+ it('get gastos de envio',async () => {
+    const response:Response = await request(app).post('/pedido/gastosEnvio').send({
+        direcc:'Oviedo'
+    }).set('Accept', 'application/json');
+    expect(response.statusCode).toBe(200);
 });
 
 

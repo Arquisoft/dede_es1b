@@ -1,6 +1,5 @@
 import{modeloUsuario} from "./usuarios/modeloUsuario";
 import {modeloProducto} from "./productos/modeloProducto";
-import {modeloCarrito} from "./carritos/ModelCarrito";
 import {modeloPedido} from "./pedidos/ModelPedido";
 
 export async function generarCodigoUsuario():Promise<string>{
@@ -14,17 +13,7 @@ export async function generarCodigoUsuario():Promise<string>{
     }
     return codigo;
 }
-export async function generarCodigoCarrito():Promise<string>{
-    let numero:number=getRandomInt();
-    let codigo:string="car"+numero;
-    let usuario=modeloCarrito.findOne({"id":codigo});
-    while(!usuario){
-        numero=getRandomInt();
-        codigo="car"+numero;
-        usuario=modeloCarrito.findOne({"id":codigo})
-    }
-    return codigo;
-}
+
 export async function generarCodigoPedido():Promise<string>{
     let numero:number=getRandomInt();
     let codigo:string="ped"+numero;
