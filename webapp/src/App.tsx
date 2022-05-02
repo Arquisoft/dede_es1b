@@ -30,12 +30,13 @@ import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/listadoPorUsuar
 
 function App(): JSX.Element {
 
-
+  //app
   const [users,setUsers] = useState<User[]>([]);
 
   const refreshUserList = async () => {
     setUsers(await getUsers());
   }
+  
 
   useEffect(()=>{
     refreshUserList();

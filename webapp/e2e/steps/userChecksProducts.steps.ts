@@ -7,7 +7,8 @@ let page: puppeteer.Page;
 let browser: puppeteer.Browser;
 
 defineFeature(feature, test => {
-  
+  jest.setTimeout(30000)
+
   beforeAll(async () => {
     browser = process.env.GITHUB_ACTIONS
       ? await puppeteer.launch()
@@ -32,14 +33,24 @@ defineFeature(feature, test => {
       await expect(page).toClick('a',{text:"Empezar"});
       expect(page.url).toContain("/inicio");
 
-     /*  await delay{
-        
-      }) */
-      await expect(page).toClick('button', { text: 'Accept' })
+     delay(1000);
+
     });
 
-    then('A confirmation message should be shown in the screen', async () => {
-      await expect(page).toMatch('You have been registered in the system!')
+    then('products are loaded from database and shown on page', async () => {
+      const welcomePageText = await page.evaluate(()=> document.body.textContent);
+      
+      expect(welcomePageText).toContain("Fabada asturiana");
+      expect(welcomePageText).toContain("Latas de callos con jamón");
+      expect(welcomePageText).toContain("Sidra Asturiana premium (6 uds.)");
+      expect(welcomePageText).toContain("Horreo hecho a mano");
+      expect(welcomePageText).toContain("Traje asturiano mujer");
+      expect(welcomePageText).toContain("comida");
+      expect(welcomePageText).toContain("ropa");
+      expect(welcomePageText).toContain("recuerdo");
+      expect(welcomePageText).toContain("VER DETALLES");
+
+
     });
   })
 
