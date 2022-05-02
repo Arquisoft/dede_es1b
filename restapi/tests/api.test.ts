@@ -74,15 +74,7 @@ describe('usuarios', () => {
 
     });
     
-      /**
-     * Test loguear un usuario sin error
-     */
-       it('can get a user',async () => {
-        const response:Response = await request(app).post('/usuarios/login').send({
-            usuario:"prueba123",
-        }).set('Accept', 'application/json');
-        expect(response.statusCode).toBe(200);
-    });
+
     /**
      * Test de borrar un usuario
      */

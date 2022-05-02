@@ -12,8 +12,7 @@ test("GestionProductos page is rendered", async () => {
     
     
       expect(getByText("GESTIÓN PRODUCTOS")).toBeInTheDocument();
-      expect(getByText("Modificar producto")).toBeInTheDocument();
-      expect(getByText("Buscar por ID")).toBeInTheDocument();
+   
       expect(getByText("Listado")).toBeInTheDocument();
 
 });
@@ -29,17 +28,7 @@ test("GestionProductos page is rendered", async () => {
         fireEvent.click(addButton);
         expect(window.location.pathname).toBe("/productos/add");
       });
-      test("Click on Modificar producto", async () => {
-        const { container } = render(
-            <Router>
-            <GestionProductos></GestionProductos>
-          </Router>
-        );
-      
-        const addButton = getByTestId(container, "boton-modificar-producto");
-        fireEvent.click(addButton);
-        expect(window.location.pathname).toBe("/productos/add");
-      });
+  
 
     
       test("Click on Listado", async () => {

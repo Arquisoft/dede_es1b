@@ -10,7 +10,7 @@ test('ListaPedidos render',async()=>{
         
            
         expect(getByText("Estos son tus pedidos:")).toBeInTheDocument();
-        expect(getByText("Correo")).toBeInTheDocument();
+     
         expect(getByText("Id")).toBeInTheDocument();
         expect(getByText("Direccion")).toBeInTheDocument();
         expect(getByText("Precio Total")).toBeInTheDocument();
