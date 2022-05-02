@@ -30,25 +30,25 @@ function GestionProductos(props:any): JSX.Element {
 
                 <table className="tablaBotones">
                 <tr>
-                <button className="button-48" role="button"  onClick={() => navigate("/productos/add")}><span className="text">
+                <button className="button-48" role="button"data-testid='boton-añadir-producto'  onClick={() => navigate("/productos/add")}><span className="text">
                     <strong>Añadir producto</strong>
                 </span></button>
                 </tr>
 
                 <tr>
-                <button className="button-48" role="button" onClick={() => navigate("/productos/add")}><span className="text">
+                <button className="button-48" role="button"data-testid='boton-modificar-producto' onClick={() => navigate("/productos/add")}><span className="text">
                     <strong>Modificar producto</strong>
                 </span></button>
                 </tr>
 
                 <tr>
-                <button className="button-48" role="button"><span className="text">
+                <button className="button-48" role="button"data-testid='boton-buscar-producto'><span className="text">
                     <strong>Buscar por ID</strong>
                 </span></button>
                 </tr>
 
                 <tr>
-                <button className="button-48" role="button"  onClick={() => navigate("/productos/list")}><span className="text">
+                <button className="button-48" role="button"  data-testid='boton-listar-producto'onClick={() => navigate("/productos/list")}><span className="text">
                     <strong>Listado</strong>
                 </span></button>
                 </tr>
