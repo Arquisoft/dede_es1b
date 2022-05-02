@@ -28,7 +28,7 @@ Clients privacy is respected by using a descentralized delivery following SOLID 
 |===
 |AQ|Priority
 | _Testability_ |_Low,High._
-| _Usability_ | _High,High_
-| _Confidentiality_ |_High,Medium_
+| _Usability_ | _High,Medium_
+| _Confidentiality_ |_High,High_
 
 |===
