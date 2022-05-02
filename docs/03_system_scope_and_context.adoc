@@ -33,7 +33,7 @@ image:DiagramaNegocio.png["Fallo imagen"]
 
 
 :imagesdir: images/
-image:DiagramaTecnico.png["Fallo imagen"]
+image:07-diagramaDespliegue.PNG["Fallo imagen"]
 
 
 ==== Technical Context table
@@ -41,7 +41,7 @@ image:DiagramaTecnico.png["Fallo imagen"]
 [options="header",cols="1,2"]
 |===
 |Elements|Functionality
-| _User_ |_The person who will search for things to buy on the shop._
+| _Device_ |_The computer who will search for things to buy on the shop._
 | _Online shop_ | _Web app that will provide the services_
 | _POD_ |_Will store every user personal information_
 | _SOLID_|_Provides pod used by the app_

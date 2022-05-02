@@ -15,11 +15,15 @@ The theme of the online shop will be related to Asturias, so that the products s
 * The customer can choose the point of delivery of the products.
 * The system will calculate the shipping costs.
 * The customer will be able to see his orders placed.
-* The customer will be able to redo a previously placed order.
-* The system will save the address of the customer's last order to be used as the default address for subsequent orders.
-* The administrator may ban customers.
-* The administrator can disable products
+* The customer can filter the products by type.
+* The customer will have at his disposal a help window with frequently asked questions.
+* The system will pick up the address of solid.
+* The system will automatically log in if there is an inrupt.net account logged into the browser.
+* The administrator can disable products.
 * The administrator can add products.
+* The administrator will be able to see a list of all users.
+* The administrator will be able to view a customer's orders.
+
 
 
 === Quality Goals
