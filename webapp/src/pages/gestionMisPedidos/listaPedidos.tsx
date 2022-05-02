@@ -27,6 +27,7 @@ function ListPedidos(props:any):JSX.Element {
     }
     useEffect(()=>{
         refreshPedidos();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
 

@@ -29,13 +29,13 @@ function GestionPedidos(props:any): JSX.Element {
 
                 <table className="tablaBotones">
                 <tr>
-                <button className="button-48" role="button"  onClick={() => navigate("/gestionPedidos/listado")}><span className="text">
+                <button className="button-48"   onClick={() => navigate("/gestionPedidos/listado")}><span className="text">
                     <strong>Listado</strong>
                 </span></button>
                 </tr>
 
                 <tr>
-                <button className="button-48" role="button" onClick={() => navigate("/gestionPedidos/listadoPorUsuario")}><span className="text">
+                <button className="button-48"  onClick={() => navigate("/gestionPedidos/listadoPorUsuario")}><span className="text">
                     <strong>Pedidos por usuario</strong>
                 </span></button>
                 </tr>
