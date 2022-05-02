@@ -147,6 +147,7 @@ const settings = [ 'Mis pedidos','Cerrar sesión'];
           navigate("/usuarios/list")
       }
       console.log("onlogin   ",session.info.webId);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     })
   }, [])
 

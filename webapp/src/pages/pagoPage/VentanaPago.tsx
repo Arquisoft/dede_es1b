@@ -62,6 +62,7 @@ function VentanaPago(): JSX.Element {
 
     useEffect(()=>{
         calcularGastos();
+          // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     function calcularTotalFinal(){
