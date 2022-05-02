@@ -57,12 +57,10 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
           <div className='users'>
           <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+        <TableHead sx={{background:'#1E9B32'}}>
           <TableRow>
             <TableCell>ID</TableCell>
-            <TableCell align="right">WebID</TableCell>
-            <TableCell align="right">Número pedidos</TableCell>
-            <TableCell align="right"></TableCell>
+            <TableCell align="center">WebID</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -74,8 +72,7 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
               <TableCell component="th" scope="row">
                 {usuario.id}
               </TableCell>
-              <TableCell align="right">{usuario.webid}</TableCell>
-              <TableCell align="right">{1}</TableCell>
+              <TableCell align="center">{usuario.webid}</TableCell>
            
             </TableRow>
           ))}

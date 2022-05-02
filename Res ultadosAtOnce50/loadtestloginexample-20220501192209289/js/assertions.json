@@ -1,0 +1,10 @@
+{
+  "simulation": "profileviewer.LoadTestLoginExample",
+  "simulationId": "loadtestloginexample",
+  "start": 1651432929289,
+  "description": "",
+  "scenarios": ["LoadTestLoginExample"],
+  "assertions": [
+
+  ]
+}
