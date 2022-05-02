@@ -1,4 +1,4 @@
-import { render, fireEvent, act } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Menubar from '../../pages/menuBar';
 import { BrowserRouter as Router } from "react-router-dom";
 

@@ -2,14 +2,13 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import TextField from "@mui/material/TextField";
-import { Input } from "antd";
 import React,{useState} from "react";
 
 import './step2.css'
 type AddProductProps = {
-  nombre: String;
-  categoria: String;
-  descripcion:String;
+  nombre: string;
+  categoria: string;
+  descripcion:string;
 }
 
 function Step2(props:any) {

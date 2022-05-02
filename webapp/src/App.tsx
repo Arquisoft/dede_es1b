@@ -8,10 +8,7 @@ import Ayuda from "./pages/ayudaPage/ayuda";
 import Catalogo from "./pages/catalogoPage/catalogo";
 import CatalogoListado from "./pages/productosPorCategoria/productosPorCategoria";
 import DetallesProducto from "./pages/productPage/productPage";
-import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
-
-import { render } from "react-dom";
-import { Producto } from './shared/shareddtypes';
+import { SessionProvider } from "@inrupt/solid-ui-react";
 
 import VentanaPago from "./pages/pagoPage/VentanaPago";
 import PagoFinalizado from "./pages/pagoPage/PagoFinalizado";

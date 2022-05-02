@@ -1,7 +1,3 @@
-import Divider from "@mui/material/Divider";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
-import TextField from "@mui/material/TextField";
-import { Input } from "antd";
 import { Pedido } from '../../shared/shareddtypes';
 import React, {useEffect, useState} from "react";
 import TableContainer from "@mui/material/TableContainer";
@@ -11,7 +7,7 @@ import TableBody from "@mui/material/TableBody";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import {getIdPorWebId, getPedidosUsuario, getUsers} from "../../api/api";
+import {getIdPorWebId, getPedidosUsuario} from "../../api/api";
 import { useSession } from "@inrupt/solid-ui-react";
 import MenuBar from "../menuBar";
 

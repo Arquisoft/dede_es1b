@@ -1,4 +1,3 @@
-import React from "react";
 import './añadirProducto.css'
 import { Steps, Step } from "react-step-builder";
 import Step1 from "./Step1";
@@ -6,7 +5,6 @@ import Step2 from "./Step2";
 import FinalStep from "./FinalStep";
 import { Button, Col, Row } from "antd";
 import AdminAppBar from '../../../menuBarAdmin';
-import { Box, Container } from "@mui/material";
 
 const Navigation = (props:any) => {
   console.log({ props });

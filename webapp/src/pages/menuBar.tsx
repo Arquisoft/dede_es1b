@@ -9,22 +9,18 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
 import logo from '../logoAsturShop.png'
-import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
+import { ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBar.css";
 import Badge from '@mui/material/Badge';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import Divider from '@mui/material/Divider';
 import {useNavigate} from 'react-router-dom';
 import MenuBarAdmin from "./menuBarAdmin";
 
 
 import { getAddressesFromPod, getIdPorWebId, getRoleFromPod, iniciarSesion } from '../api/api';
 import { useEffect, useState } from 'react';
-import { LoginButton, LogoutButton, SessionProvider, useSession } from '@inrupt/solid-ui-react';
-import { Direccion } from '../shared/shareddtypes';
+import { LoginButton, useSession } from '@inrupt/solid-ui-react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -134,7 +130,7 @@ const settings = [ 'Mis pedidos','Cerrar sesión'];
       manejoSesion();
       let rol = await getRoleFromPod(session.info.webId!);
       var userId = await getIdPorWebId(session.info.webId!);
-      let direcciones:String = await getAddressesFromPod(session.info.webId!);
+      let direcciones:string = await getAddressesFromPod(session.info.webId!);
       
       sessionStorage.setItem("idUser",""+userId);
 

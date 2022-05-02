@@ -7,13 +7,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
-import {addPedido, getAddressesFromPod, getGastosEnvio} from "../../api/api";
+import {addPedido, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
 import { Direccion, Producto } from "../../shared/shareddtypes";
-import { LoginButton, useSession } from "@inrupt/solid-ui-react";
-import Direcciones from "./direcciones";
-import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
-import {FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField} from "@mui/material";
+import { useSession } from "@inrupt/solid-ui-react";
+import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from "@mui/material";
 
 const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
 
@@ -176,6 +174,6 @@ function VentanaPago(): JSX.Element {
             </div>
         </div>
     );
-};
+}
 
 export default VentanaPago;

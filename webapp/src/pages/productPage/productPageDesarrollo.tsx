@@ -1,27 +1,11 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
-import type { AlertColor } from '@mui/material/Alert';
-import logo from '../../logo.svg'
 import {useNavigate} from "react-router-dom";
-import Productos from '../../components/Productos';
-import { Producto } from '../../shared/shareddtypes';
-import { useEffect } from 'react';
-import Carta  from '../mainPage/CardProducto';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
 import './productPage.css';
 import Paper from '@mui/material/Paper';
-import Imagen from "../../images/cortina.png";
 
 function ProductPageDes(): JSX.Element {
 
