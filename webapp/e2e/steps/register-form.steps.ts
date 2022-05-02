@@ -1,13 +1,14 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import puppeteer from "puppeteer";
 
-const feature = loadFeature('./features/register-form.feature');
+const feature = loadFeature('./features/userChecksProducts.feature');
 
 let page: puppeteer.Page;
 let browser: puppeteer.Browser;
 
 defineFeature(feature, test => {
-  
+  jest.setTimeout(30000)
+
   beforeAll(async () => {
     browser = process.env.GITHUB_ACTIONS
       ? await puppeteer.launch()
@@ -21,27 +22,35 @@ defineFeature(feature, test => {
       .catch(() => {});
   });
 
-  test('The user is not registered in the site', ({given,when,then}) => {
-    
-    let email:string;
-    let username:string;
+  test('User accesses to the webpage', ({given,when,then}) => {
 
-    given('An unregistered user', () => {
-      email = "newuser@test.com"
-      username = "newuser"
+    given('a user on welcome page', async () => {
+      const welcomePageText = await page.evaluate(()=> document.body.textContent);
+      expect(welcomePageText).toMatch("Bienvenido a AsturShop");
     });
 
-    when('I fill the data in the form and press submit', async () => {
-      await expect(page).toMatch('Hi, ASW students')
-      await expect(page).toFillForm('form[name="register"]', {
-        username: username,
-        email: email,
-      })
-      await expect(page).toClick('button', { text: 'Accept' })
+    when('user accesses main page', async () => {
+      await expect(page).toClick('a',{text:"Empezar"});
+      expect(page.url).toContain("/inicio");
+
+     delay(1000);
+
     });
 
-    then('A confirmation message should be shown in the screen', async () => {
-      await expect(page).toMatch('You have been registered in the system!')
+    then('products are loaded from database and shown on page', async () => {
+      const welcomePageText = await page.evaluate(()=> document.body.textContent);
+      
+      expect(welcomePageText).toContain("Fabada asturiana");
+      expect(welcomePageText).toContain("Latas de callos con jamón");
+      expect(welcomePageText).toContain("Sidra Asturiana premium (6 uds.)");
+      expect(welcomePageText).toContain("Horreo hecho a mano");
+      expect(welcomePageText).toContain("Traje asturiano mujer");
+      expect(welcomePageText).toContain("comida");
+      expect(welcomePageText).toContain("ropa");
+      expect(welcomePageText).toContain("recuerdo");
+      expect(welcomePageText).toContain("VER DETALLES");
+
+
     });
   })
 
@@ -51,3 +60,8 @@ defineFeature(feature, test => {
 
 });
 
+function delay(time:number){
+  return new Promise(function (resolve){
+    setTimeout(resolve,time);
+  });
+}
