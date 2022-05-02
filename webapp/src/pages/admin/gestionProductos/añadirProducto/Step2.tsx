@@ -5,11 +5,7 @@ import TextField from "@mui/material/TextField";
 import React,{useState} from "react";
 
 import './step2.css'
-type AddProductProps = {
-  nombre: string;
-  categoria: string;
-  descripcion:string;
-}
+
 
 function Step2(props:any) {
   const [descripcion, setDescripcion] = useState('');

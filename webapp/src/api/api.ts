@@ -124,7 +124,7 @@ export async function deleteUser(id:string):Promise<boolean>{
     body: JSON.stringify({'id':id})
   });
     
-  if(response.status==200){
+  if(response.status===200){
     
     return true;}
   return false;
@@ -138,7 +138,7 @@ export async function deleteProduct(id:string):Promise<boolean>{
     body: JSON.stringify({'id':id})
   });
     
-  if(response.status==200){
+  if(response.status===200){
     
     return true;}
   return false;
@@ -184,7 +184,7 @@ export async function reactivarProducto(id:string):Promise<boolean>{
     body: JSON.stringify({'id':id})
   });
     
-  if(response.status==200){
+  if(response.status===200){
     
     return true;}
   return false;
@@ -199,7 +199,7 @@ export async function incrementarVentasProducto(id:string,cantidad:number):Promi
     body: JSON.stringify({'id':id,'cantidad':cantidad})
   });
 
-  if(response.status==200){
+  if(response.status===200){
     return true;}
   return false;
 }

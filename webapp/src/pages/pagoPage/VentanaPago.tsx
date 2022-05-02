@@ -10,7 +10,6 @@ import "../../components/pago/pago.css";
 import {addPedido, getGastosEnvio} from "../../api/api";
 import {useEffect, useState} from "react";
 import { Direccion, Producto } from "../../shared/shareddtypes";
-import { useSession } from "@inrupt/solid-ui-react";
 import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from "@mui/material";
 
 const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]");
@@ -18,7 +17,6 @@ const carritoLS: Producto[] = JSON.parse(localStorage.getItem("carrito") || "[]"
 function VentanaPago(): JSX.Element {
 
     const navigate = useNavigate();
-    const {session} = useSession();
     
     function cargarDirecciones() {
         let di = sessionStorage.getItem("direcciones")!;

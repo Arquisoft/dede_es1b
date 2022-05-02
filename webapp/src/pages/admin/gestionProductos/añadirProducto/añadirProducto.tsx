@@ -3,24 +3,9 @@ import { Steps, Step } from "react-step-builder";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import FinalStep from "./FinalStep";
-import { Button, Col, Row } from "antd";
 import AdminAppBar from '../../../menuBarAdmin';
 
-const Navigation = (props:any) => {
-  console.log({ props });
-  return (
-    <Row align="middle">
-      <Col>
-        <Button className='añadirProdButton' type="primary" onClick={props.prev} >
-        Previo
-        </Button>
-        <Button className="añadirProdButton" type="primary" onClick={props.next}>
-        Siguiente
-        </Button>
-      </Col>
-    </Row>
-  );
-};
+
 
 function App() {
 

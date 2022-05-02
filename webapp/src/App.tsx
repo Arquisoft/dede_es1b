@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import  {getUsers} from './api/api';
-import {User} from './shared/shareddtypes';
+
 import Bienvenida from './pages/bienvenidaPage/bienvenidaPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/mainPage/Homepage";
@@ -27,17 +25,6 @@ import ListaPedidosPorUsuario from './pages/admin/gestionPedidos/listadoPorUsuar
 
 function App(): JSX.Element {
 
-  //app
-  const [users,setUsers] = useState<User[]>([]);
-
-  const refreshUserList = async () => {
-    setUsers(await getUsers());
-  }
-  
-
-  useEffect(()=>{
-    refreshUserList();
-  },[]);
 
   return (
     <>        

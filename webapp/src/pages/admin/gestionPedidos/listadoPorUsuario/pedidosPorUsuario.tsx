@@ -1,24 +1,8 @@
 import { Steps, Step } from "react-step-builder";
 import Step1 from "./step1PedidosPorUsuario"
 import Step2 from "./step2";
-import { Button, Col, Row } from "antd";
 import AdminAppBar from '../../../menuBarAdmin';
 
-const Navigation = (props:any) => {
-  console.log({ props });
-  return (
-    <Row align="middle">
-      <Col>
-        <Button className='añadirProdButton' type="primary" onClick={props.prev} >
-        Previo
-        </Button>
-        <Button className="añadirProdButton" type="primary" onClick={props.next}>
-        Siguiente
-        </Button>
-      </Col>
-    </Row>
-  );
-};
 
 function App() {
 

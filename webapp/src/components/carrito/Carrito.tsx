@@ -47,9 +47,7 @@ const Carrito = (props: CarritoProps) => {
   };
 
   const { session } = useSession();
-    const authOptions = {
-        clientName: "Solid Todo App",
-  };
+  
 
   return (
     <div className="carrito" >

@@ -1,4 +1,3 @@
-import {useNavigate} from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
@@ -14,7 +13,6 @@ function ProductPage(): JSX.Element {
   var str = localStorage.getItem("productoClickado")!;
   var splitted = str.split("-"); 
   console.log(splitted)
-  const navigate = useNavigate();
 
   let imagen: string = splitted[3];
 

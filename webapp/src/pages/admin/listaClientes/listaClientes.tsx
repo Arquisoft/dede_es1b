@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { User } from '../../../shared/shareddtypes';
 import MenuBar from "../../menuBarAdmin";
-import {useNavigate} from 'react-router-dom';
-import { getNameFromPod, getUsers } from '../../../api/api';
+import {  getUsers } from '../../../api/api';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,7 +13,7 @@ import Paper from '@mui/material/Paper';
 function ListaUsuariosParaEliminar(props:any): JSX.Element {
     
     const[usuarios, setUsuarios] = useState<User[]>([])
-    const navigate = useNavigate();
+    
 
 /*     const eliminar=(id:String)=>{
       deleteUser(id);
@@ -22,12 +21,7 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
 
     }
  */
-    const printearEstado=(estado:boolean)=>{
-      if(estado)
-      return 'Activo';
-      else return 'No activo';
 
-    }
 
 /*     const reactivar=(id:String)=>{
       reactivarUsuario(id);
@@ -35,9 +29,7 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
 
     } */
 
-    const nombreUsuario = async (webid:string) =>{
-      return getNameFromPod(webid);
-    }
+    
   
     async function cargar() {
         setUsuarios(await getUsers());

@@ -10,13 +10,12 @@ function Bienvenida(): JSX.Element {
 
   return (
     <>
-
-          <h1>Bienvenido a AsturShop</h1>
-
-          <br></br> <br></br> <br></br> <br></br> <br></br>
-
-         <a className="boton"  data-testid='boton-empezar'  onClick={() => navigate("/inicio")}  >Empezar</a
-         >
+        <h1>Bienvenido a AsturShop</h1>
+         <button
+         className="boton"  data-testid='boton-empezar'  onClick={() => navigate("/inicio")}  >Empezar
+         
+         </button>
+         
      
     </>
   );
