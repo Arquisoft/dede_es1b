@@ -1,6 +1,4 @@
-import { RestorePageOutlined } from '@mui/icons-material';
-import ProductoPedido from "../components/pago/ProductoPedido";
-import { User, Producto, Prod, Pedido, Direccion } from '../shared/shareddtypes';
+import { User, Producto, Prod, Pedido } from '../shared/shareddtypes';
 
 
 import {
@@ -9,7 +7,6 @@ import {
   getStringNoLocale,
   getUrlAll,
   Thing,
-  getUrl,
 } from "@inrupt/solid-client";
 
 import { FOAF, VCARD } from "@inrupt/vocab-common-rdf";
@@ -88,7 +85,7 @@ export async function actualizarProducto(prod:Prod):Promise<boolean>{
     return false;
 }
 
-export async function addPedido(products:Producto[] ,user_id:String,precioTot:number,direccion:String):Promise<boolean>{
+export async function addPedido(products:Producto[] ,user_id:string,precioTot:number,direccion:string):Promise<boolean>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
 
   let response = await fetch(apiEndPoint+'/pedido/crear', {
@@ -118,7 +115,7 @@ export async function getGastosEnvio(direccion: string):Promise<number>{
 }
 
 
-export async function deleteUser(id:String):Promise<boolean>{
+export async function deleteUser(id:string):Promise<boolean>{
   
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/usuarios/delete', {
@@ -132,7 +129,7 @@ export async function deleteUser(id:String):Promise<boolean>{
     return true;}
   return false;
 }
-export async function deleteProduct(id:String):Promise<boolean>{
+export async function deleteProduct(id:string):Promise<boolean>{
   
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/productos/delete', {
@@ -154,7 +151,7 @@ export async function getPedidos():Promise<Pedido[]>{
   return response.json()
 }
 
-export async function getPedidosPorUsuario(id:String): Promise<Pedido[]> {
+export async function getPedidosPorUsuario(id:string): Promise<Pedido[]> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/pedido/encontrarPorUsuario', {
       method: 'POST',
@@ -165,7 +162,7 @@ export async function getPedidosPorUsuario(id:String): Promise<Pedido[]> {
 
 }
 
-export async function getIdPorWebId(webid_user:String): Promise<String> {
+export async function getIdPorWebId(webid_user:string): Promise<string> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/usuarios/getId', {
       method: 'POST',
@@ -178,7 +175,7 @@ export async function getIdPorWebId(webid_user:String): Promise<String> {
 }
 
 
-export async function reactivarProducto(id:String):Promise<boolean>{
+export async function reactivarProducto(id:string):Promise<boolean>{
   
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/productos/reactivar', {
@@ -193,7 +190,7 @@ export async function reactivarProducto(id:String):Promise<boolean>{
   return false;
 }
 
-export async function incrementarVentasProducto(id:String,cantidad:Number):Promise<boolean>{
+export async function incrementarVentasProducto(id:string,cantidad:number):Promise<boolean>{
   
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/productos/incrementarVentas', {
@@ -214,7 +211,7 @@ export async function getProductosActivos(): Promise<Producto[]> {
   return response.json()
 }
 
-export async function getNVentas(id:String): Promise<Number> {
+export async function getNVentas(id:string): Promise<number> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/productos/getNVentas', {
     method: 'POST',
@@ -230,7 +227,7 @@ export async function getProductos(): Promise<Producto[]> {
   return response.json()
 }
 
-export async function getProductosPorCategoria(categoria:String): Promise<Producto[]> {
+export async function getProductosPorCategoria(categoria:string): Promise<Producto[]> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/products/catalogo', {
       method: 'POST',
@@ -240,7 +237,7 @@ export async function getProductosPorCategoria(categoria:String): Promise<Produc
     return response.json()
 
 }
-export async function getPedidosUsuario(usuario:String): Promise<Pedido[]> {
+export async function getPedidosUsuario(usuario:string): Promise<Pedido[]> {
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
     
     let response = await fetch(apiEndPoint+'/pedido/encontrarPorUsuario', {
@@ -273,7 +270,7 @@ export async function getPedidosUsuario(usuario:String): Promise<Pedido[]> {
 
 } */
 
-export async function getProductoPorID(id:String): Promise<Producto> {
+export async function getProductoPorID(id:string): Promise<Producto> {
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/productos/getProductoPorId', {
       method: 'POST',
@@ -283,7 +280,7 @@ export async function getProductoPorID(id:String): Promise<Producto> {
     return response.json();
 }
 
-export async function iniciarSesion(webid:String):Promise<string>{
+export async function iniciarSesion(webid:string):Promise<string>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   
 
@@ -339,7 +336,7 @@ export async function getAddressesFromPod(webId: string) {
     );
 
     if (callePOD){
-      let direccionString = callePOD! +","+localidadPOD! +","+regionPOD!+","+codigo_postalPOD! +"$";
+      let direccionString = callePOD +","+localidadPOD +","+regionPOD+","+codigo_postalPOD +"$";
     /*   const direc: Direccion = {
         calle: callePOD!,
         ciudad:localidadPOD!,

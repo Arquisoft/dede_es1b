@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import { User } from '../../shared/shareddtypes';
 import MenuBar from "../menuBarAdmin";
 import {useNavigate} from 'react-router-dom';
-import { getNameFromPod, getUsers } from '../../api/api';
+import { getUsers } from '../../api/api';
 import { deleteUser } from '../../api/api';
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,14 +11,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useSession } from '@inrupt/solid-ui-react';
 
 function ListaUsuariosParaEliminar(props:any): JSX.Element {
     
     const[usuarios, setUsuarios] = useState<User[]>([])
     const navigate = useNavigate();
     
-    const eliminar=(id:String)=>{
+    const eliminar=(id:string)=>{
       deleteUser(id);
       window.location.replace('');
 

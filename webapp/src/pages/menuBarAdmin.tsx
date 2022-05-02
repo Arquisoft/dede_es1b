@@ -7,21 +7,14 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
-import { backdropClasses, MenuList } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
 import logo from '../logoAsturShop.png'
-import { AlignHorizontalLeft, ShoppingCart } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./menuBarAdmin.css";
 import {useNavigate} from 'react-router-dom';
 
 import {
-  LoginButton,
-  Text,
-  useSession,
-  CombinedDataProvider,
   LogoutButton,
   SessionProvider,
 } from "@inrupt/solid-ui-react";

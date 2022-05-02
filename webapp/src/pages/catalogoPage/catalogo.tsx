@@ -1,21 +1,8 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import "./catalogo.css"
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
-import type { AlertColor } from '@mui/material/Alert';
-import {addUser} from '../../api/api';
-import Box from '@mui/material/Box';
-import logo from '../../logo.svg'
+import "./catalogo.css";
 import {useNavigate} from "react-router-dom";
-import CategoriaRopa from "../../images/camiseta.png";
-import CategoriaComida from "../../images/fabadaIcono.png";
 import MenuBar from "../menuBar";
 import "./catalogo.css";
-import CategoriaAdornos from "../../images/horreo.png";
 import Divider from '@mui/material/Divider';
-import CatalogoListado from "../productosPorCategoria/productosPorCategoria";
 
 function Catalogo(): JSX.Element {
 

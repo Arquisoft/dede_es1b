@@ -1,10 +1,8 @@
-import React from "react";
 import { Steps, Step } from "react-step-builder";
 import Step1 from "./step1PedidosPorUsuario"
 import Step2 from "./step2";
 import { Button, Col, Row } from "antd";
 import AdminAppBar from '../../../menuBarAdmin';
-import { Box, Container } from "@mui/material";
 
 const Navigation = (props:any) => {
   console.log({ props });

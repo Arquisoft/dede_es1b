@@ -1,8 +1,6 @@
 import {RequestHandler} from "express";
 import{modeloUsuario} from "./modeloUsuario";
-import {DeleteResult} from "mongodb";
 import {generarCodigoUsuario} from "../generadorCodigos";
-import{generarToken}from "./GenerarToken"
 
 
 export const getUsuarios:RequestHandler=async (required,resultado)=>{
@@ -17,7 +15,7 @@ export const getUsuarios:RequestHandler=async (required,resultado)=>{
 
 export const getIdUserByWebId:RequestHandler=async (required,resultado)=>{
     try{
-        let webid_user:String=required.body.webid;
+        let webid_user:string=required.body.webid;
         console.log("webid usuario  ", webid_user);
         const usuario=await modeloUsuario.findOne({"webid":webid_user});
         const usuarioID = usuario.id;
@@ -33,7 +31,7 @@ export const getIdUserByWebId:RequestHandler=async (required,resultado)=>{
 
 export const borrarUsuario:RequestHandler=async (required,resultado)=>{
     try{
-        let id_user:String=required.body.id;
+        let id_user:string=required.body.id;
         console.log(id_user);
         var usuario=await modeloUsuario.deleteOne({"_id":id_user});
         if(usuario){
@@ -52,7 +50,7 @@ export const borrarUsuario:RequestHandler=async (required,resultado)=>{
 export const inicioSesion:RequestHandler=async (required,resultado)=>{
     try{
 
-        let webid:String=required.body.webid;
+        let webid:string=required.body.webid;
         console.log("lo que llega a la consulta   "+webid);
 
         var usuario=await modeloUsuario.findOne({"webid":webid});
@@ -64,8 +62,8 @@ export const inicioSesion:RequestHandler=async (required,resultado)=>{
         }else{
             //insertar usuario y generar un id.
             try{
-                let webid:String=required.body.webid;
-                let id:String=await generarCodigoUsuario();
+                let webid:string=required.body.webid;
+                let id:string=await generarCodigoUsuario();
                 let listaProductos:string[]=[];
                 let newUser=new modeloUsuario({
                         'id':id,
@@ -92,8 +90,8 @@ export const inicioSesion:RequestHandler=async (required,resultado)=>{
 
 export const añadirUsuario:RequestHandler=async (required,resultado)=>{
     try{
-        let webid:String=required.body.webid;
-        let id:String=await generarCodigoUsuario();
+        let webid:string=required.body.webid;
+        let id:string=await generarCodigoUsuario();
         let listaProductos:string[]=[];
         let newUser=new modeloUsuario({
                 'id':id,

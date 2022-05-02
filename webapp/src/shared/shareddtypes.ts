@@ -12,7 +12,7 @@ export type User = {
     descripcion: string;
     cantidad: number;
     nventas:number;
-    estado:Boolean;
+    estado:boolean;
 }
 
 
@@ -21,13 +21,13 @@ export type User = {
 
 
 export type Prod = {
-  name: String;
-  precio: Number;
-  imagen: String;
-  tipo: String;
-  descripcion: String;
+  name: string;
+  precio: number;
+  imagen: string;
+  tipo: string;
+  descripcion: string;
   nventas:number;
-  estado:Boolean;
+  estado:boolean;
 }
 
 
@@ -53,14 +53,14 @@ export type Carrito = {
 }
 export type Pedido = {
     id:string,
-    id_usuario:String,
+    id_usuario:string,
     listaProductos:[{
         producto: [{
-            id_p: String,
-            cantidad:Number
+            id_p: string,
+            cantidad:number
         }]
     }],
-    direccionAsignada:String,
-    precioTotal:Number,
-    estado:String,
+    direccionAsignada:string,
+    precioTotal:number,
+    estado:string,
 }

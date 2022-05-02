@@ -1,12 +1,11 @@
 import{modeloUsuario} from "./usuarios/modeloUsuario";
 import {modeloProducto} from "./productos/modeloProducto";
 import {modeloCarrito} from "./carritos/ModelCarrito";
-import {Int32} from "mongodb";
 import {modeloPedido} from "./pedidos/ModelPedido";
 
-export async function generarCodigoUsuario():Promise<String>{
-    let numero:Number=getRandomInt();
-    let codigo:String="cl"+numero;
+export async function generarCodigoUsuario():Promise<string>{
+    let numero:number=getRandomInt();
+    let codigo:string="cl"+numero;
     let usuario=modeloUsuario.findOne({"id":codigo});
     while(!usuario){
         numero=getRandomInt();
@@ -15,9 +14,9 @@ export async function generarCodigoUsuario():Promise<String>{
     }
     return codigo;
 }
-export async function generarCodigoCarrito():Promise<String>{
-    let numero:Number=getRandomInt();
-    let codigo:String="car"+numero;
+export async function generarCodigoCarrito():Promise<string>{
+    let numero:number=getRandomInt();
+    let codigo:string="car"+numero;
     let usuario=modeloCarrito.findOne({"id":codigo});
     while(!usuario){
         numero=getRandomInt();
@@ -26,9 +25,9 @@ export async function generarCodigoCarrito():Promise<String>{
     }
     return codigo;
 }
-export async function generarCodigoPedido():Promise<String>{
-    let numero:Number=getRandomInt();
-    let codigo:String="ped"+numero;
+export async function generarCodigoPedido():Promise<string>{
+    let numero:number=getRandomInt();
+    let codigo:string="ped"+numero;
     let usuario=modeloPedido.findOne({"id":codigo});
     while(!usuario){
         numero=getRandomInt();
@@ -38,9 +37,9 @@ export async function generarCodigoPedido():Promise<String>{
     return codigo;
 }
 
-export async function generarCodigoProducto():Promise<String>{
-    let numero:Number=getRandomInt();
-    let codigo:String="pr"+numero;
+export async function generarCodigoProducto():Promise<string>{
+    let numero:number=getRandomInt();
+    let codigo:string="pr"+numero;
     let usuario=modeloProducto.findOne({"id":codigo});
     while(!usuario){
         numero=getRandomInt();

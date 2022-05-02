@@ -1,19 +1,10 @@
-import MenuBar from "../menuBar";
 import Container from '@mui/material/Container';
-import ProductoPedido from '../../components/pago/ProductoPedido';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "../../components/pago/pago.css";
-import {FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField} from "@mui/material";
-import {addPedido, getAddressesFromPod, getGastosEnvio} from "../../api/api";
-import {useEffect, useState} from "react";
+import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from "@mui/material";
+import {useState} from "react";
 import { Direccion } from "../../shared/shareddtypes";
-import { LoginButton, useSession } from "@inrupt/solid-ui-react";
-import React from "react";
-import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
+import { useSession } from "@inrupt/solid-ui-react";
 
 function Direcciones(): JSX.Element {
 
@@ -42,7 +33,7 @@ function Direcciones(): JSX.Element {
         result.pop();
         return result;
 
-    };
+    }
       
     var direcciones = cargarDirecciones();
 
@@ -74,6 +65,6 @@ function Direcciones(): JSX.Element {
       </FormControl>
     </Container>
   );
-};
+}
 
 export default Direcciones;

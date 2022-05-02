@@ -109,7 +109,7 @@ describe('productos', () => {
      */
     it('create product',async () => {
         let name:string = 'cachopo';
-        let precio:Number = 32;
+        let precio:number = 32;
         let descripcion:string = 'plato de carne';
         let tipo:string = 'ropa';
         let imagen:string = "aaaa";
@@ -149,8 +149,8 @@ describe('productos', () => {
      */
    it('create pedido',async () => {
     let id_usuario:string = '543535534';
-    let direccionAsignada:String = "calle Dolores";
-    let precioTotal:Number = 32;
+    let direccionAsignada:string = "calle Dolores";
+    let precioTotal:number = 32;
     let estado:string = 'prueba';
     
     const response:Response = await request(app).post('/pedido/crear').send({id_usuario: id_usuario,direccionAsignada: direccionAsignada,precioTotal: precioTotal,estado: estado})

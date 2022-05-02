@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Producto, User } from '../../../shared/shareddtypes';
+import { Producto } from '../../../shared/shareddtypes';
 import MenuBar from "../../menuBarAdmin";
 import {useNavigate} from 'react-router-dom';
-import { getProductos, getUsers } from '../../../api/api';
+import { getProductos } from '../../../api/api';
 import { deleteProduct } from '../../../api/api';
-import { reactivarProducto,getNVentas } from '../../../api/api';
-import * as React from 'react';
+import { reactivarProducto } from '../../../api/api';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,29 +13,28 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { emitKeypressEvents } from 'readline';
-import DoneIcon from '@mui/icons-material/Done';
 import CachedIcon from '@mui/icons-material/Cached';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+
 function ListaProductosAdmin(props:any): JSX.Element {
     
     const[productos, setProductos] = useState<Producto[]>([])
     const navigate = useNavigate();
 
-    const eliminar=(id:String)=>{
+    const eliminar=(id:string)=>{
       
       deleteProduct(id);
       window.location.replace('');
     }
 
-    const printearEstado=(estado:Boolean)=>{
+    const printearEstado=(estado:boolean)=>{
       if(estado)
       return 'En venta';
       else return 'Descatalogado';
 
     }
 
-    const reactivar=(id:String)=>{
+    const reactivar=(id:string)=>{
       
       reactivarProducto(id);
       window.location.replace('');

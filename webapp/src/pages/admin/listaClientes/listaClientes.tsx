@@ -3,7 +3,6 @@ import { User } from '../../../shared/shareddtypes';
 import MenuBar from "../../menuBarAdmin";
 import {useNavigate} from 'react-router-dom';
 import { getNameFromPod, getUsers } from '../../../api/api';
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -23,7 +22,7 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
 
     }
  */
-    const printearEstado=(estado:Boolean)=>{
+    const printearEstado=(estado:boolean)=>{
       if(estado)
       return 'Activo';
       else return 'No activo';
@@ -37,7 +36,7 @@ function ListaUsuariosParaEliminar(props:any): JSX.Element {
     } */
 
     const nombreUsuario = async (webid:string) =>{
-      return await getNameFromPod(webid);
+      return getNameFromPod(webid);
     }
   
     async function cargar() {

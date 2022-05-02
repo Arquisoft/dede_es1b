@@ -24,6 +24,6 @@ function PagoFinalizado(): JSX.Element {
             </div>
         </div>
     );
-};
+}
 
 export default PagoFinalizado;

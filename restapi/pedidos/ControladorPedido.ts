@@ -1,7 +1,6 @@
 import {RequestHandler} from "express";
 import{modeloPedido} from "./ModelPedido";
-import {modeloUsuario} from "../usuarios/modeloUsuario";
-import {generarCodigoCarrito, generarCodigoPedido} from "../generadorCodigos";
+import {generarCodigoPedido} from "../generadorCodigos";
 //Coordenadas nuestra tienda
 const latitudTienda=43.33972222222222;
 const longitudTienda=-5.335555555555556;
@@ -37,11 +36,11 @@ export const getPedidosByUsuario:RequestHandler=async (required,resultado)=>{
 
 export const crearPedido:RequestHandler=async (required,resultado)=>{
     try{
-        let id_pedido:String =await generarCodigoPedido();
-        let id_usuario:String=required.body.id_usuario;
+        let id_pedido:string =await generarCodigoPedido();
+        let id_usuario:string=required.body.id_usuario;
         let productos=required.body.productos;
-        let precio:Number=required.body.precio;
-        let direccion:String=required.body.direcc;
+        let precio:number=required.body.precio;
+        let direccion:string=required.body.direcc;
 
         let newPedido=new modeloPedido({
             'id':id_pedido,
@@ -68,7 +67,7 @@ function convertidorRadianes(numero:number){
 export const calcularGastosEnvio:RequestHandler=async (required,resultado)=>{
     let costes=0;
 
-    let direccion:String=required.body.direcc;//Esto sacarlo de los pods
+    let direccion:string=required.body.direcc;//Esto sacarlo de los pods
     console.log(direccion);
     const cordenadas=await geo.geocode(direccion);
     console.log(cordenadas);

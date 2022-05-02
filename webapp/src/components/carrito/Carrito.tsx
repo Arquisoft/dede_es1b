@@ -3,7 +3,7 @@ import ProductoCarrito from './ProductoCarrito';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import "./carrito.css";
-import { LoginButton, SessionProvider, useSession } from '@inrupt/solid-ui-react';
+import { useSession } from '@inrupt/solid-ui-react';
 
 type CarritoProps = {
   carrito: Producto[];

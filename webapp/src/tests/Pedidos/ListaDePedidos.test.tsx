@@ -1,4 +1,4 @@
-import { render, fireEvent, act } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ListaPedidos from '../../pages/gestionMisPedidos/listaPedidos';
 import { BrowserRouter as Router } from "react-router-dom";
 

@@ -3,7 +3,7 @@ import Productos from '../../components/Productos';
 import Carrito from '../../components/carrito/Carrito';
 import MenuBar from "../menuBar";
 import { Producto } from '../../shared/shareddtypes';
-import { getProductos, getProductosActivos} from '../../api/api';
+import { getProductosActivos} from '../../api/api';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
 import { ShoppingCart } from '@mui/icons-material';
@@ -82,6 +82,6 @@ function Init(): JSX.Element {
         </div>
     </div>
     );
-};
+}
 
 export default Init;

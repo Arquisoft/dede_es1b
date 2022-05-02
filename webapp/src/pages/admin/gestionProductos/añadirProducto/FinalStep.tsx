@@ -1,26 +1,21 @@
-import React from "react";
-import { Producto } from '../../../../shared/shareddtypes';
 import {addProduct} from '../../../../api/api';
 import {useNavigate} from 'react-router-dom';
-import Paper from "@mui/material/Paper";
-import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Divider from "@mui/material/Divider";
-import { margin } from "@mui/system";
 import './FinalStep.css';
 
 type Prod={
-  name:String,
-  precio:Number,
-  descripcion:String,
-  tipo:String ,
-  imagen:String,
+  name:string,
+  precio:number,
+  descripcion:string,
+  tipo:string ,
+  imagen:string,
   nventas:number,
-  estado:Boolean
+  estado:boolean
 }
 
 function FinalStep(props:any) {
