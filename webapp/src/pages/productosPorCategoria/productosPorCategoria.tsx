@@ -78,7 +78,7 @@ function ListaProductos(): JSX.Element {
           />
       </SwipeableDrawer>
       <Productos productos={productos} handleAñadirAlCarrito={handleAñadirAlCarrito} />
-      <IconButton className="botonCarrito" onClick={() => setCarritoAb(true)}>
+      <IconButton className="botonCarrito"  data-testid='boton-carrito' onClick={() => setCarritoAb(true)}>
           <Badge badgeContent={getTotalItems(carrito)} color="success">
               <ShoppingCart className="botonCarrito" style={{maxWidth: '70px', maxHeight: '70px', minWidth: '50px', minHeight: '50px'}}/>
           </Badge>            
