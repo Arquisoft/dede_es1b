@@ -30,7 +30,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
-    "test:e2e": "start-server-and-test 'npm --prefix ../restapi start' http://localhost:5000/api/users/list prod 3000 'cd e2e && jest'",
+    "test:e2e": "start-server-and-test 'npm --prefix ../restapi start' http://localhost:5000/products/list prod 3000 'jest --rootDir=e2e --config=./e2e/jest.config.ts'",
     "eject": "react-scripts eject",
     "prod": "ts-node-dev ./server.ts"
   },
@@ -42,9 +42,8 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "defaults",
+      "not ie 11"
     ],
     "development": [
       "last 1 chrome version",
@@ -59,8 +58,8 @@
     "@types/puppeteer": "^5.4.4",
     "expect-puppeteer": "^6.0.2",
     "jest-cucumber": "^3.0.1",
-    "jest-puppeteer": "^6.0.3",
-    "puppeteer": "^13.0.1",
+    "jest-puppeteer": "^6.1.0",
+    "puppeteer": "^13.7.0",
     "react-scripts": "^5.0.0",
     "start-server-and-test": "^1.14.0",
     "ts-jest": "^27.1.2",
