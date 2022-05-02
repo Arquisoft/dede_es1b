@@ -40,7 +40,7 @@ function Catalogo(): JSX.Element {
     <td>
 
       <div className="box">
-        <button className='categoryButton' onClick={() => navigate('/catalogo/ropa')} >
+        <button className='categoryButton'data-testid='boton-ropa' onClick={() => navigate('/catalogo/ropa')} >
         <img src={imgRopa} width="250" height="250" alt="logo" /> 
         <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>ROPA</span>
@@ -50,7 +50,7 @@ function Catalogo(): JSX.Element {
 
     <td>
     <div className="box">
-    <button className='categoryButton' onClick={() => navigate('/catalogo/comida')}>
+    <button className='categoryButton'data-testid='boton-comida' onClick={() => navigate('/catalogo/comida')}>
     <img src={imgComida} width="250" height="250" alt="logo" /> 
     <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>COMIDA</span>
@@ -61,7 +61,7 @@ function Catalogo(): JSX.Element {
 
     <td>
     <div className="box">
-    <button className='categoryButton' onClick={() => navigate('/catalogo/recuerdo')}>
+    <button className='categoryButton'data-testid='boton-souvenirs' onClick={() => navigate('/catalogo/recuerdo')}>
     <img src={imgAdorno} width="250" height="250" alt="logo" /> 
     <Divider className='divider' style={{ background: 'black' }}/>
         <span className='categorySpan'>SOUVENIRS</span>
