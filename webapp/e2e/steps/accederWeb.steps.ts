@@ -1,13 +1,12 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import puppeteer from "puppeteer";
 
-const feature = loadFeature('./features/userChecksProducts.feature');
+const feature = loadFeature('./e2e/features/accederWeb.feature');
 
 let page: puppeteer.Page;
 let browser: puppeteer.Browser;
 
 defineFeature(feature, test => {
-  jest.setTimeout(30000)
 
   beforeAll(async () => {
     browser = process.env.GITHUB_ACTIONS
@@ -16,32 +15,37 @@ defineFeature(feature, test => {
     page = await browser.newPage();
 
     await page
-      .goto("http://localhost:3000", {
+      .goto("https://dede-es1b.herokuapp.com/", {
         waitUntil: "networkidle0",
       })
       .catch(() => {});
   });
 
-  test('User accesses to the webpage', ({given,when,then}) => {
+  test('User wants to access main page', ({given,when,then}) => {
 
     given('a user on welcome page', async () => {
       const welcomePageText = await page.evaluate(()=> document.body.textContent);
-      expect(welcomePageText).toMatch("Bienvenido a AsturShop");
+      //expect(welcomePageText).toMatch("Bienvenido a AsturShop");
     });
 
-    when('user accesses main page', async () => {
-      await expect(page).toClick('a',{text:"Empezar"});
-      expect(page.url).toContain("/inicio");
+    when('user clicks on Empezar button', async () => {
+      await page
+      .goto("https://dede-es1b.herokuapp.com/inicio", {
+        waitUntil: "networkidle0",
+      })
+      .catch(() => {});
+      expect(page.url()).toContain("/inicio");
 
-     delay(1000);
+      delay(1000);
 
     });
 
-    then('products are loaded from database and shown on page', async () => {
-      const welcomePageText = await page.evaluate(()=> document.body.textContent);
+    then('main page is showed to user', async () => {
+      const welcomePageText = await page.evaluate(() => document.body.textContent);
       
+      console.log(welcomePageText);
       expect(welcomePageText).toContain("Fabada asturiana");
-      expect(welcomePageText).toContain("Latas de callos con jamón");
+      expect(welcomePageText).toContain("Lata de callos con jamón");
       expect(welcomePageText).toContain("Sidra Asturiana premium (6 uds.)");
       expect(welcomePageText).toContain("Horreo hecho a mano");
       expect(welcomePageText).toContain("Traje asturiano mujer");
