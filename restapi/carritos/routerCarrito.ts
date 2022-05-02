@@ -1,7 +1,6 @@
-import express, { Request, Response, Router } from 'express';
+import express, { Router } from 'express';
 
 import * as ControladorProducto from './ControladorCarrito';
-import {modeloCarrito} from "./ModelCarrito";
 
 const router:Router = express.Router()
 

@@ -1,5 +1,4 @@
 import { RequestHandler } from "express";
-import { IntegerType } from "mongodb";
 import { generarCodigoProducto } from "../generadorCodigos";
 import { modeloProducto } from "./modeloProducto";
 
@@ -17,7 +16,7 @@ export const getProductos: RequestHandler = async (req, res) => {
 
 export const getProductoPorID: RequestHandler = async (req, res) => {
     try{
-        let id_producto:String=req.body.id;
+        let id_producto:string=req.body.id;
         var producto=await modeloProducto.findOne({'_id':id_producto});
         return res.json(producto);
     }
@@ -30,14 +29,14 @@ export const getProductoPorID: RequestHandler = async (req, res) => {
 
 export const actualizarProducto: RequestHandler = async (required, res) => {
     try{
-        let id_producto:String=required.body.id;
+        let id_producto:string=required.body.id;
 
-        let name:String=required.body.nombre;
-        let precio:String=required.body.precio;
-        let descripcion:String=required.body.descripcion;
-        let tipo:String=required.body.tipo;
-        let imagen:String=required.body.imagen;
-        let estado:Boolean=required.body.estado;
+        let name:string=required.body.nombre;
+        let precio:string=required.body.precio;
+        let descripcion:string=required.body.descripcion;
+        let tipo:string=required.body.tipo;
+        let imagen:string=required.body.imagen;
+        let estado:boolean=required.body.estado;
 
         const producto=await modeloProducto.update({ "_id": id_producto }, { "name": name,"precio": precio,"descripcion": descripcion,
         "tipo": tipo,"imagen": imagen , "estado": estado });
@@ -63,7 +62,7 @@ export const getProductosActivos: RequestHandler = async (req, res) => {
 
 export const getProductosByName: RequestHandler = async (required, resultado) => {
     try{
-        let nombre:String=required.body.nombre;
+        let nombre:string=required.body.nombre;
         var producto=await modeloProducto.findOne({name:nombre});
         if(producto){
             resultado.status(200).json(producto);
@@ -88,7 +87,7 @@ export const getCategorias: RequestHandler = async (req, res) => {
 
 export const borrarProducto:RequestHandler=async (required,resultado)=>{
     try{
-        let id_producto:String=required.body.id;
+        let id_producto:string=required.body.id;
         
         const producto=await modeloProducto.update({ "_id": id_producto }, { "estado": false });
 
@@ -105,10 +104,10 @@ export const borrarProducto:RequestHandler=async (required,resultado)=>{
 
 export const reactivarProducto:RequestHandler=async (required,resultado)=>{
     try{
-        let id_producto:String=required.body.id;
+        let id_producto:string=required.body.id;
         //console.log(id_producto)
         
-        const producto=await modeloProducto.update({ "_id": id_producto }, { "estado": true });;
+        const producto=await modeloProducto.update({ "_id": id_producto }, { "estado": true });
         if(producto){
             return resultado.status(200).json();
         }else{
@@ -122,10 +121,10 @@ export const reactivarProducto:RequestHandler=async (required,resultado)=>{
 
 export const incrementarVentasProducto:RequestHandler=async (required,resultado)=>{
     try{
-        let id_producto:String=required.body.id;
-        let cantidadVendida:Number =required.body.cantidad;
+        let id_producto:string=required.body.id;
+        let cantidadVendida:number =required.body.cantidad;
 
-        const producto=await modeloProducto.updateOne({ "_id": id_producto }, { "nventas": cantidadVendida });;
+        const producto=await modeloProducto.updateOne({ "_id": id_producto }, { "nventas": cantidadVendida });
         if(producto){
             return resultado.status(200).json();
         }else{
@@ -139,7 +138,7 @@ export const incrementarVentasProducto:RequestHandler=async (required,resultado)
 
 export const getNVentas:RequestHandler=async (required,resultado)=>{
     try{
-        let id_producto:String=required.body.id;
+        let id_producto:string=required.body.id;
 
         var ventas=await modeloProducto.find({ "_id": id_producto }).select('nventas');
         console.log(ventas);
@@ -153,13 +152,13 @@ export const getNVentas:RequestHandler=async (required,resultado)=>{
 
 export const añadirProducto:RequestHandler=async (required,resultado)=>{
     try{
-        let name:String=required.body.nombre;
-        let precio:String=required.body.precio;
-        let descripcion:String=required.body.descripcion;
-        let tipo:String=required.body.tipo;
-        let imagen:String=required.body.imagen;
-        let id:String=await generarCodigoProducto();
-        let estado:Boolean=true;
+        let name:string=required.body.nombre;
+        let precio:string=required.body.precio;
+        let descripcion:string=required.body.descripcion;
+        let tipo:string=required.body.tipo;
+        let imagen:string=required.body.imagen;
+        let id:string=await generarCodigoProducto();
+        let estado:boolean=true;
         let nventas=0;
 
        
@@ -186,7 +185,7 @@ export const añadirProducto:RequestHandler=async (required,resultado)=>{
 
 export const getProductosPorCategoria: RequestHandler = async (req, res) => {
     try{
-        let categ:String=req.body.categoria;
+        let categ:string=req.body.categoria;
         var productos=await modeloProducto.find({tipo:categ,estado:true});
         return res.json(productos);}
     catch(error)
