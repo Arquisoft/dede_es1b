@@ -22,5 +22,9 @@
   "homepage": "https://github.com/Arquisoft/dede_es1b#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "jest-puppeteer": "^6.1.0",
+    "puppeteer": "^13.7.0"
   }
 }
