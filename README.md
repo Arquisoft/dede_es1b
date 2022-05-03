@@ -13,10 +13,10 @@
 **AsturShop** offers you the possibility of buying **high-quality** products from Asturias, no matter from which part of the world!
 
 ## dede_es1b
-Click here to access the web application from any browser or device.
-- Technical documentation
+Click [here](https://dede-es1b.herokuapp.com) access the web application from any browser or device.
+- [Technical documentation](https://arquisoft.github.io/dede_es1b/)
 - [Architectural decisions](https://github.com/Arquisoft/dede_es1b/blob/master/architecturalDecisions/Decisiones_arquitectonicas.pdf)
-- Demo showing the shop's features
+- [Demo](https://www.youtube.com/watch?v=G-4uq-wI-RY&t=169s) showing the shop's features
 - Slides of the project's presentation
 
 ## Team Members
