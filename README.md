@@ -37,6 +37,19 @@ Click [here](https://dede-es1b.herokuapp.com) to access the web application from
 
 This project is a basic example of website using **React** with **Typescript** and an endpoint using **NodeJS** with **express**.
 
+## Our users experience
+We asked our users how we can improve our web. We will add new features to get the best user experience possible.
+Here are the results:
+<p float="left">
+<img src="https://res.cloudinary.com/dlix47jlq/image/upload/v1651528905/estadisticas/est1_azc45c.jpg">
+<img src="https://res.cloudinary.com/dlix47jlq/image/upload/v1651528905/estadisticas/est2_whkabi.jpg">
+<img src="https://res.cloudinary.com/dlix47jlq/image/upload/v1651528905/estadisticas/est3_ii7spx.jpg">
+ <img src="https://res.cloudinary.com/dlix47jlq/image/upload/v1651528905/estadisticas/est5_jcot7s.jpg">
+  </p>
+
+
+
+
 ## Quick start guide
 <mark>In case you already have node.js and npm, make sure you update them before attempting to build the images</mark>
 
